@@ -1,0 +1,19 @@
+# local environment and build caches
+.venv/
+.build/
+__pycache__/
+*.pyc
+# private copy of each edition (private sections) - never published
+site-private/
+# reader feedback exports stay local
+papers/*/feedback/*.json
+# local review artifacts
+screenshots/
+# anything secret-looking
+.env
+*.env
+*.pem
+*.key
+*cookie*
+*token*
+*secret*

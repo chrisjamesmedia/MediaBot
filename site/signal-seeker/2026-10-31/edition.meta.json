@@ -1,0 +1,26 @@
+{
+ "date": "2026-10-31",
+ "date_long": "Saturday, October 31, 2026",
+ "lead": "The AI spending bill comes due: Alphabet's worst day ever drags Wall Street to its worst week since June",
+ "pages": {
+  "print": 4,
+  "digital": 4
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-10-31-print.pdf",
+  "digital": "signal-seeker-2026-10-31-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "From Your X",
+  "Investments",
+  "Your Holdings",
+  "Tech & AI",
+  "Worth Reading",
+  "Business",
+  "Science & Health",
+  "Local",
+  "The Big Stuff"
+ ],
+ "built_at": "2026-10-31T22:25:08+00:00"
+}

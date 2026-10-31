@@ -1,0 +1,918 @@
+[
+ {
+  "handle": "@GavinSBaker",
+  "name": "Gavin Baker",
+  "section": "Investments",
+  "tier": 1,
+  "lists": [
+   "Investments",
+   "2026 GOATS"
+  ],
+  "coverage": "Atreides CIO; AI infra/compute economics, Anthropic/GPU pricing, credit"
+ },
+ {
+  "handle": "@ChrisCamillo",
+  "name": "Chris Camillo",
+  "section": "Investments",
+  "tier": 1,
+  "lists": [
+   "2026 GOATS"
+  ],
+  "coverage": "Long-term conviction investing, AMZN, market psychology"
+ },
+ {
+  "handle": "@aleabitoreddit",
+  "name": "Serenity",
+  "section": "Investments",
+  "tier": 1,
+  "lists": [
+   "2026 GOATS"
+  ],
+  "coverage": "AI/semi supply-chain research: photonics/CPO, lasers, memory ($SIVE,$LITE,$MRVL)"
+ },
+ {
+  "handle": "@ParadisLabs",
+  "name": "Paradis",
+  "section": "Investments",
+  "tier": 1,
+  "lists": [
+   "Investments",
+   "2026 GOATS"
+  ],
+  "coverage": "AI & tech investment research, flows/sentiment data"
+ },
+ {
+  "handle": "@DavidGeorge83",
+  "name": "David George",
+  "section": "Investments",
+  "tier": 1,
+  "lists": [
+   "2026 GOATS"
+  ],
+  "coverage": "a16z Growth GP; AI boom state-of-markets"
+ },
+ {
+  "handle": "@Sandeman52",
+  "name": "SandemanStocks",
+  "section": "Investments",
+  "tier": 1,
+  "lists": [
+   "Investments",
+   "The leaps guy"
+  ],
+  "coverage": "Concentrated long-term investing, NBIS"
+ },
+ {
+  "handle": "@babyfolio",
+  "name": "Babyfolio",
+  "section": "Investments",
+  "tier": 1,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Generational-wealth investing, NBIS/CRDO, taking profits"
+ },
+ {
+  "handle": "@ren_stocks",
+  "name": "Ren",
+  "section": "Investments",
+  "tier": 1,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "AI buildout maps, NBIS/SNDK, humanoid supply chain; Substack"
+ },
+ {
+  "handle": "@daniel_koss",
+  "name": "Daniel Koss",
+  "section": "Investments",
+  "tier": 1,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "AI infra investor, Nebius price targets/drawdown psychology"
+ },
+ {
+  "handle": "@altcap",
+  "name": "Brad Gerstner",
+  "section": "Investments",
+  "tier": 1,
+  "lists": [],
+  "coverage": "Brad Gerstner: Altimeter, BG2Pod, Invest America / Trump Accounts"
+ },
+ {
+  "handle": "@danielisdizzy",
+  "name": "Daniel",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "NBIS/neocloud bull theses; YouTube"
+ },
+ {
+  "handle": "@Gaetano2026",
+  "name": "Gaetano",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Thematic research (SNDK, SMTC); Substack"
+ },
+ {
+  "handle": "@insane_analyst",
+  "name": "Irrational Analysis",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Irrational Analysis: engineering-driven semis analysis"
+ },
+ {
+  "handle": "@HyperTechInvest",
+  "name": "Daniel Romero",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Semis, data centers, physical AI; Substack"
+ },
+ {
+  "handle": "@firesidealpha",
+  "name": "Fireside Alpha",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Clips of what top tech/business voices are saying (All-In etc.)"
+ },
+ {
+  "handle": "@MilkRoadAI",
+  "name": "Milk Road AI",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "AI markets newsletter/clips"
+ },
+ {
+  "handle": "@citrini",
+  "name": "Citrini",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Thematic cross-asset research (agentic utility basket)"
+ },
+ {
+  "handle": "@RihardJarc",
+  "name": "Rihard Jarc",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "UncoverAlpha: AI, cloud, semis"
+ },
+ {
+  "handle": "@itsalasdairmann",
+  "name": "Alasdair Mann",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Edelbridge Alpha Substack: AI infra"
+ },
+ {
+  "handle": "@zephyr_z9",
+  "name": "Zephyr",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "AI & chips, memory (CXMT/HBM)"
+ },
+ {
+  "handle": "@rwang07",
+  "name": "Ray Wang",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Ex-SemiAnalysis semis analyst"
+ },
+ {
+  "handle": "@BenBajarin",
+  "name": "Ben Bajarin",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Creative Strategies: full-stack tech analysis"
+ },
+ {
+  "handle": "@DeepValueBagger",
+  "name": "DVB",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Long-term deep value, risk awareness"
+ },
+ {
+  "handle": "@mvcinvesting",
+  "name": "M. V. Cunha",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Fundamental equity analysis, NBIS enterprise-buyer checks"
+ },
+ {
+  "handle": "@FunOfInvesting",
+  "name": "Tevis",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Tevis: YouTube, NBIS/AMZN/META options strategy"
+ },
+ {
+  "handle": "@VJNCapital",
+  "name": "Vebjørn",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Stock research + VJN Intelligence tool"
+ },
+ {
+  "handle": "@Longviewres",
+  "name": "Longview Research",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "AI power"
+ },
+ {
+  "handle": "@RoboStrategy",
+  "name": "RoboStrategy",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Robotics and physical AI"
+ },
+ {
+  "handle": "@Kaizen_Investor",
+  "name": "KaizenInvestor",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Long-term investor"
+ },
+ {
+  "handle": "@KevInvestingYT",
+  "name": "Kevin Maro",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "AI infra trader, NBIS/RKLB"
+ },
+ {
+  "handle": "@EndicottInvests",
+  "name": "Nate Endicott",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "NBIS-concentrated, GPU rental pricing"
+ },
+ {
+  "handle": "@oguzerkan",
+  "name": "Oguz Erkan",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Stocks, tech, markets"
+ },
+ {
+  "handle": "@BourbonCap",
+  "name": "Bourbon Capital",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Growth investing, insider news"
+ },
+ {
+  "handle": "@KerrisdaleCap",
+  "name": "Kerrisdale Capital",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Activist/short-seller ideas, AI/data center plays"
+ },
+ {
+  "handle": "@Blinklebloop",
+  "name": "Davy",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Small caps, datacenter supply chains"
+ },
+ {
+  "handle": "@jianshu_dong",
+  "name": "Jianshu Dong",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Stocks"
+ },
+ {
+  "handle": "@pepemoonboy",
+  "name": "Pepe Invests",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Stocks, AI, real estate, BTC"
+ },
+ {
+  "handle": "@demian_ai",
+  "name": "dylan ツ",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Nebius Token Factory growth (company voice)"
+ },
+ {
+  "handle": "@wienglischmann",
+  "name": "Peter Morley",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Nebius comms (company voice)"
+ },
+ {
+  "handle": "@WhiteFiber_",
+  "name": "WhiteFiber_ NASDAQ: WYFI",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "GPU infra company account"
+ },
+ {
+  "handle": "@BoostRunGPUs",
+  "name": "Boost Run",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "GPU infra company account"
+ },
+ {
+  "handle": "@WeRide_ai",
+  "name": "WeRide.ai",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Autonomous driving company account"
+ },
+ {
+  "handle": "@Alfred_Lin",
+  "name": "Alfred Lin",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Sequoia partner"
+ },
+ {
+  "handle": "@alighodsi",
+  "name": "Ali Ghodsi",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Databricks CEO"
+ },
+ {
+  "handle": "@_balaji_km",
+  "name": "Balaji Krishnamurthy",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Uber CFO"
+ },
+ {
+  "handle": "@panos_panay",
+  "name": "Panos Panay",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Amazon Devices/Alexa"
+ },
+ {
+  "handle": "@rivatez",
+  "name": "Riva",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Tech & philosophy"
+ },
+ {
+  "handle": "@Funmentalist",
+  "name": "The Fundamentalist",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [],
+  "coverage": "NBIS/IREN fundamental analysis (bookmarked 3x)"
+ },
+ {
+  "handle": "@MelvinInvests",
+  "name": "Melvin",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Milk Road AI analyst; NBIS/MU (bookmarked 5x; promo tone)"
+ },
+ {
+  "handle": "@DrTomsLens",
+  "name": "Tomislav Marinovic",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Business breakdowns, Nebius"
+ },
+ {
+  "handle": "@SMASIMHO",
+  "name": "Nebulizer",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Nebulizer Labs Substack, NBIS"
+ },
+ {
+  "handle": "@ChairmansLedger",
+  "name": "The Chairman's Ledger",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "The leaps guy"
+  ],
+  "coverage": "Defense tech, AI infra, space, BTC"
+ },
+ {
+  "handle": "@TradexWhisperer",
+  "name": "Trade Whisperer",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "The leaps guy"
+  ],
+  "coverage": "Memory/MU-SNDK theses"
+ },
+ {
+  "handle": "@MrMikeInvesting",
+  "name": "Mike Investing",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Investments",
+   "The leaps guy"
+  ],
+  "coverage": "Options trader; promotional stock lists (bookmarked 8x, but hype)"
+ },
+ {
+  "handle": "@jimcramer",
+  "name": "Jim Cramer",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [
+   "Non investment"
+  ],
+  "coverage": "Mad Money; daily market color"
+ },
+ {
+  "handle": "@rdd147",
+  "name": "Roger",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [
+   "Non investment"
+  ],
+  "coverage": "Roger: AI hardware/hyperscaler commentary (dominates Non-investment list feed)"
+ },
+ {
+  "handle": "@realroseceline",
+  "name": "Rose Celine Investments 🌹",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Investing essays on infra economics"
+ },
+ {
+  "handle": "@patrick_oshag",
+  "name": "Patrick OShaughnessy",
+  "section": "Investments",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Invest Like the Best podcast (Gavin Baker, Whale Rock)"
+ },
+ {
+  "handle": "@dnishball",
+  "name": "Daniel Nishball",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [],
+  "coverage": "AI capex financing pod"
+ },
+ {
+  "handle": "@carmenli",
+  "name": "Carmen Li",
+  "section": "Investments",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Silicon Data GPU price indices"
+ },
+ {
+  "handle": "@alexandr_wang",
+  "name": "Alexandr Wang",
+  "section": "Tech & AI",
+  "tier": 1,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Meta chief AI officer; Muse"
+ },
+ {
+  "handle": "@elonmusk",
+  "name": "Elon Musk",
+  "section": "Tech & AI",
+  "tier": 1,
+  "lists": [],
+  "coverage": "Tesla/SpaceX/xAI/Grok, robotics, power for AI"
+ },
+ {
+  "handle": "@TheUnbiasedCo",
+  "name": "Unbiased AI",
+  "section": "Tech & AI",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Unbiased AI: model benchmarks/pricing"
+ },
+ {
+  "handle": "@louisamira",
+  "name": "Louis Amira",
+  "section": "Tech & AI",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Founder of Unbiased AI"
+ },
+ {
+  "handle": "@karpathy",
+  "name": "Andrej Karpathy",
+  "section": "Tech & AI",
+  "tier": 2,
+  "lists": [],
+  "coverage": "LLM knowledge bases, AI practice"
+ },
+ {
+  "handle": "@patrickc",
+  "name": "Patrick Collison",
+  "section": "Tech & AI",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Stripe CEO; agents in the economy"
+ },
+ {
+  "handle": "@chamath",
+  "name": "Chamath Palihapitiya",
+  "section": "Tech & AI",
+  "tier": 3,
+  "lists": [],
+  "coverage": "All-In; open-source model economics"
+ },
+ {
+  "handle": "@Muse",
+  "name": "Muse",
+  "section": "Tech & AI",
+  "tier": 2,
+  "lists": [
+   "Investments"
+  ],
+  "coverage": "Meta Muse personal agent product"
+ },
+ {
+  "handle": "@TheHumanoidHub",
+  "name": "The Humanoid Hub",
+  "section": "Tech & AI",
+  "tier": 2,
+  "lists": [
+   "Ai projects"
+  ],
+  "coverage": "Humanoid robots news"
+ },
+ {
+  "handle": "@tbpn",
+  "name": "TBPN",
+  "section": "Tech & AI",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Daily tech show"
+ },
+ {
+  "handle": "@a16z",
+  "name": "a16z",
+  "section": "Tech & AI",
+  "tier": 2,
+  "lists": [],
+  "coverage": "a16z podcast/news"
+ },
+ {
+  "handle": "@Austen",
+  "name": "Austen Allred",
+  "section": "Tech & AI",
+  "tier": 3,
+  "lists": [],
+  "coverage": "AI adoption/backlash takes"
+ },
+ {
+  "handle": "@RamaswmySridhar",
+  "name": "sridhar",
+  "section": "Tech & AI",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Snowflake CEO; AI compute risk thread"
+ },
+ {
+  "handle": "@rohanpaul_ai",
+  "name": "Rohan Paul",
+  "section": "Tech & AI",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Daily AI newsletter"
+ },
+ {
+  "handle": "@danshipper",
+  "name": "Dan Shipper",
+  "section": "Tech & AI",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Every: AI tools"
+ },
+ {
+  "handle": "@adamblake",
+  "name": "adamblake",
+  "section": "Tech & AI",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Energy + AI + physical world"
+ },
+ {
+  "handle": "@FU_joehudson",
+  "name": "Joe Hudson",
+  "section": "Worth Reading",
+  "tier": 1,
+  "lists": [
+   "Non investment"
+  ],
+  "coverage": "MUST-INCLUDE. Joe Hudson, Art of Accomplishment: emotions, relationships, performance"
+ },
+ {
+  "handle": "@p_millerd",
+  "name": "Paul Millerd",
+  "section": "Worth Reading",
+  "tier": 1,
+  "lists": [],
+  "coverage": "MUST-INCLUDE (\"Paul Millard\"). Pathless Path, work/life, writing; most-liked author"
+ },
+ {
+  "handle": "@naval",
+  "name": "Naval",
+  "section": "Worth Reading",
+  "tier": 1,
+  "lists": [],
+  "coverage": "MUST-INCLUDE. Naval Ravikant: wealth, long-term thinking"
+ },
+ {
+  "handle": "@paulg",
+  "name": "Paul Graham",
+  "section": "Worth Reading",
+  "tier": 1,
+  "lists": [],
+  "coverage": "MUST-INCLUDE. Paul Graham: startups, essays (not currently followed)"
+ },
+ {
+  "handle": "@davidsenra",
+  "name": "David Senra",
+  "section": "Worth Reading",
+  "tier": 1,
+  "lists": [
+   "Non investment"
+  ],
+  "coverage": "Founders podcast; founder biographies"
+ },
+ {
+  "handle": "@david_perell",
+  "name": "David Perell",
+  "section": "Worth Reading",
+  "tier": 2,
+  "lists": [],
+  "coverage": "How I Write; writing craft"
+ },
+ {
+  "handle": "@nopranablem",
+  "name": "Pranab",
+  "section": "Worth Reading",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Meditation/emotions at work (Cambridge MA; AoA student)"
+ },
+ {
+  "handle": "@JK_Lundblad",
+  "name": "J.K. Lundblad | Teaching Progress",
+  "section": "Worth Reading",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Risk & Progress Substack: abundance, teaching kids"
+ },
+ {
+  "handle": "@simonsarris",
+  "name": "Simon Sarris",
+  "section": "Worth Reading",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Essays, making things (Amherst NH)"
+ },
+ {
+  "handle": "@balajis",
+  "name": "Balaji",
+  "section": "Worth Reading",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Network State"
+ },
+ {
+  "handle": "@Codie_Sanchez",
+  "name": "Codie Sanchez",
+  "section": "Worth Reading",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Small-business buying (shared Joe Hudson rules)"
+ },
+ {
+  "handle": "@GeorgiaEdeMD",
+  "name": "Georgia Ede MD",
+  "section": "Science & Health",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Metabolic psychiatry (Massachusetts)"
+ },
+ {
+  "handle": "@mimikmorgan",
+  "name": "Mimi Morgan",
+  "section": "Science & Health",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Metabolic fitness, Parkinson’s"
+ },
+ {
+  "handle": "@Metabolic_Mind",
+  "name": "Metabolic Mind",
+  "section": "Science & Health",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Metabolic mental-health nonprofit"
+ },
+ {
+  "handle": "@calleymeans",
+  "name": "Calley Means",
+  "section": "Science & Health",
+  "tier": 3,
+  "lists": [],
+  "coverage": "MAHA / chronic disease"
+ },
+ {
+  "handle": "@StevePhillipsMD",
+  "name": "Steven Phillips, MD",
+  "section": "Science & Health",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Lyme, psilocybin research"
+ },
+ {
+  "handle": "@Mad_In_America",
+  "name": "Mad In America",
+  "section": "Science & Health",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Rethinking psychiatry (Cambridge MA)"
+ },
+ {
+  "handle": "@raechellambert",
+  "name": "Rae 🍽️",
+  "section": "Local",
+  "tier": 1,
+  "lists": [],
+  "coverage": "NH dinner clubs, Freedom Village, IRL community"
+ },
+ {
+  "handle": "@JoinEdgeCity",
+  "name": "Edge City",
+  "section": "Local",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Popup villages (high RT noise)"
+ },
+ {
+  "handle": "@sundai_club",
+  "name": "Sundai Club",
+  "section": "Local",
+  "tier": 2,
+  "lists": [],
+  "coverage": "Cambridge AI hackathon club"
+ },
+ {
+  "handle": "@normonics",
+  "name": "Joseph Norman",
+  "section": "Local",
+  "tier": 3,
+  "lists": [],
+  "coverage": "NH AI-tutor founder"
+ },
+ {
+  "handle": "@MHTMakerspace",
+  "name": "ManchesterMakerspace",
+  "section": "Local",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Manchester NH makerspace"
+ },
+ {
+  "handle": "@BenSchwartz_MD",
+  "name": "Benjamin Schwartz, MD, MBA",
+  "section": "Local",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Greater Boston physician"
+ },
+ {
+  "handle": "@natea",
+  "name": "Nate Aune",
+  "section": "Local",
+  "tier": 3,
+  "lists": [],
+  "coverage": "Medford MA founder"
+ }
+]

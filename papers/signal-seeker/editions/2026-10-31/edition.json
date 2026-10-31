@@ -1,0 +1,788 @@
+{
+ "schema": 1,
+ "paper": "signal-seeker",
+ "date": "2026-10-31",
+ "coverage": "Covering roughly Oct 29–31, 2026. Compiled Saturday morning, ET.",
+ "note": "Clocks fall back one hour at 2 a.m. Sunday. Election Day is Tuesday, Nov. 3 — polls open in NH and MA.",
+ "sections": [
+  {
+   "id": "front",
+   "items": [
+    {
+     "type": "story",
+     "id": "alphabet",
+     "headline": "The AI spending bill comes due: Alphabet's worst day ever drags Wall Street to its worst week since June",
+     "summary": "Alphabet shares fell roughly 13% on Thursday, erasing about $500 billion in value — the stock's worst day on record — after search revenue (+12% to $63.35B) missed estimates, free cash flow swung to −$9.07B, and Google lifted its capex outlook to $195–205B. Amazon followed with a slight revenue and EPS miss and a deeply negative trailing free cash flow despite AWS growing 39% — its fastest in about five years. On Friday the S&P 500 fell 1.8% to 7,580.07 and the Nasdaq 2.9% to 25,437.00, capping a third straight losing week.",
+     "short": "GOOGL ≈−13% Thu (≈$500B, worst day ever) on search miss, −$9.07B FCF, $195–205B capex guide; AMZN slips despite AWS +39%. Fri: S&P −1.8% (7,580), Nasdaq −2.9%; 3rd losing week.",
+     "sources": [
+      {
+       "name": "CNBC",
+       "url": "https://www.cnbc.com/2026/10/29/alphabet-google-search-ai-earnings.html"
+      },
+      {
+       "name": "NBC News",
+       "url": "https://www.nbcnews.com/business/markets/alphabet-google-stock-ai-advertising-rcna606322"
+      },
+      {
+       "name": "AP (Fri. markets)",
+       "url": "https://apnews.com/article/stock-markets-ai-alphabet-oil-16c266731fdf64178f38070af2b42497"
+      },
+      {
+       "name": "Bloomberg",
+       "url": "https://www.bloomberg.com/news/articles/2026-10-28/alphabet-reports-disappointing-revenue-income-shares-drop"
+      }
+     ],
+     "image": {
+      "file": "images/alphabet.jpg",
+      "credit": "CNBC"
+     }
+    },
+    {
+     "type": "story",
+     "id": "anthropic-ipo",
+     "headline": "Anthropic files to go public, revealing $16.3B in first-half revenue — and an unprecedented governance structure",
+     "summary": "Anthropic's 300-plus-page S-1, filed Monday for a Nasdaq listing under the ticker ANT, shows $16.29B in revenue for the first half of 2026 (vs. $1.16B a year earlier) at an implied ~85% gross margin. Growth slowed from ~144% quarter-on-quarter in Q2 to ~47% in Q3. Seven co-founders hold a single Class F share carrying 50.1% of shareholder voting power, while the Long-Term Benefit Trust elects a board majority; the company says the structure has 'no direct public company precedent.' Analysts cited by CNBC expect a valuation of $1–2 trillion.",
+     "short": "S-1 filed (Nasdaq: ANT). H1 revenue $16.29B, ~85% gross margin; Q3 growth slowed to ~47% QoQ. Founders' Class F share = 50.1% of votes; LTBT elects board majority. Analysts: $1–2T valuation.",
+     "sources": [
+      {
+       "name": "Anthropic",
+       "url": "https://www.anthropic.com/news/s1-sec"
+      },
+      {
+       "name": "SEC filing (S-1)",
+       "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm"
+      },
+      {
+       "name": "CNBC analysis",
+       "url": "https://www.cnbc.com/2026/10/30/anthropic-ipo-s1-revenue-compute.html"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "hackening",
+     "headline": "AI can now write working exploits for every major browser and OS — and the 'Hackening' has started",
+     "summary": "Anthropic disclosed that an unreleased model chained bugs into working exploits against Chrome (62 CVEs fixed in Chrome 156, including 13 sandbox escapes), Safari, Android, Windows and Linux — including a remote-root Linux bug via MPTCP found in under an hour. All were patched before disclosure. In the same week, an AI-assisted 'PHP2Shell' campaign rooted servers including US government systems, white-hat group Cathedral reached some of Anthropic's own business systems through third-party tools, and a tampered Claude Code extension in the Cursor marketplace tried to plant persistent SSH access before being pulled Oct. 29.",
+     "short": "Unreleased Anthropic model built working exploit chains for Chrome, Safari, Android, Windows, Linux (all patched). Same week: AI-assisted PHP2Shell break-ins, Cathedral reached Anthropic business systems, malicious Claude Code extension pulled from Cursor marketplace. Patch everything.",
+     "sources": [
+      {
+       "name": "Anthropic research",
+       "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude"
+      },
+      {
+       "name": "The Hacker News",
+       "url": "https://thehackernews.com/2026/10/anthropics-unreleased-ai-model-chains.html"
+      },
+      {
+       "name": "Dark Reading",
+       "url": "https://www.darkreading.com/application-security/claude-model-exploits-major-browsers-oses"
+      },
+      {
+       "name": "EveryDev weekly digest",
+       "url": "https://www.everydev.ai/p/news-weekly-ai-dev-news-digest-october-24-october-30-2026"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "midterms",
+     "headline": "Record early vote heads into Tuesday's midterms; NH braces for record turnout",
+     "summary": "More than 49.6 million Americans had voted early as of Friday, surpassing 2022's record of about 45.9 million, with Democrats leading in returned ballots in several Senate battlegrounds. New Hampshire Secretary of State David Scanlan predicts a record ~635,000 voters. In NH, Democrat Chris Pappas leads Republican John E. Sununu for Senate (50–43 in Saint Anselm's Oct. 19–20 poll), while Gov. Kelly Ayotte leads Democrat Cinde Warmington (50–42).",
+     "short": "49.6M early votes nationally (2022 record: 45.9M). NH SoS predicts record ~635K voters. Polls: Pappas 50–Sununu 43 (Senate); Ayotte 50–Warmington 42 (Gov.).",
+     "sources": [
+      {
+       "name": "AP",
+       "url": "https://apnews.com/article/election-early-voting-midterms-3f7d5c378b3d9bff5cde4604a55b9c9a"
+      },
+      {
+       "name": "NHPR (turnout)",
+       "url": "https://www.nhpr.org/politics/2026-10-30/voter-turnout-nh-election-chief-predicts-record"
+      },
+      {
+       "name": "WMUR (Senate poll)",
+       "url": "https://www.wmur.com/article/pappas-sununu-saint-anselm-college-poll-102226/74222863"
+      },
+      {
+       "name": "WMUR (Gov. poll)",
+       "url": "https://www.wmur.com/article/ayotte-warmington-governor-nh-poll-102226/74221787"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "oil",
+     "headline": "Oil hits six-month high as tankers are struck in the Strait of Hormuz",
+     "summary": "Brent crude settled at $117.64 and WTI at $104.12 on Friday, up about 2% and logging a fourth straight monthly gain, after tankers were struck in and near the Strait of Hormuz and Houthi forces attacked Saudi Arabia. Qatari mediators are back in Tehran and President Trump says the US–Iran war will end soon, but markets are pricing continued supply risk even as flows through the strait have partly recovered.",
+     "short": "Brent $117.64, WTI $104.12 (+~2%, 4th monthly gain) after Hormuz tanker strikes and Houthi attack on Saudi Arabia. Qatar mediating; Trump says war ends soon.",
+     "sources": [
+      {
+       "name": "CNBC",
+       "url": "https://www.cnbc.com/2026/10/30/oil-rises-on-supply-concerns-as-houthis-attack-saudi-arabia.html"
+      },
+      {
+       "name": "CNBC (tanker attack)",
+       "url": "https://www.cnbc.com/2026/10/30/tanker-attack-strait-hormuz-iran-war-oil.html"
+      },
+      {
+       "name": "Al Jazeera",
+       "url": "https://www.aljazeera.com/economy/2026/10/30/oil-flows-are-up-as-iran-war-turmoil-eases-why-do-prices-keep-rising"
+      },
+      {
+       "name": "AP",
+       "url": "https://apnews.com/article/mideast-news-october-30-2026-7f7f34ceb62f294a450e48ace0bd56e0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "x",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2115977741808157030",
+     "author": "Paul Graham",
+     "handle": "paulg",
+     "text": "Funding rounds aren't milestones. It shouldn't be your goal to raise a series A. It should be your goal not to need to.",
+     "url": "https://x.com/paulg/status/2115977741808157030",
+     "date": "2026-10-30T01:23:01Z"
+    }
+   ]
+  },
+  {
+   "id": "investments",
+   "items": [
+    {
+     "type": "story",
+     "id": "inside-alphabet-s-miss-cloud-is-booming-",
+     "headline": "Inside Alphabet's miss: cloud is booming, search is getting squeezed",
+     "summary": "Google Cloud revenue roughly doubled to about $31B with a backlog near $560B and more than $1T in multiyear commitments, and the Gemini app passed 1 billion users. But search revenue of $63.35B (+12%) missed, and analysts flagged that AI Mode is showing fewer ads per query.",
+     "short": "Google Cloud ~doubled to ~$31B, backlog ~$560B; Gemini app >1B users; search $63.35B (+12%) missed.",
+     "sources": [
+      {
+       "name": "CNBC",
+       "url": "https://www.cnbc.com/2026/10/29/alphabet-google-microsoft-msft-shares-today-earnings.html"
+      },
+      {
+       "name": "AP",
+       "url": "https://apnews.com/article/stocks-markets-ai-oil-fed-1b5c71d31b4ce1e46b0db47b33141f6b"
+      }
+     ],
+     "group": "Hyperscalers & capex"
+    },
+    {
+     "type": "story",
+     "id": "fed-holds-at-3-75-4-00-with-two-dissents",
+     "headline": "Fed holds at 3.75–4.00%, with two dissents in favor of a hike",
+     "summary": "The Fed's Oct. 27–28 meeting under Chair Kevin Warsh left rates unchanged on a 10–2 vote; Governors Lisa Cook and Beth Hammack dissented in favor of raising rates.",
+     "short": "Fed holds 3.75–4.00% (10–2; Cook, Hammack wanted a hike).",
+     "sources": [
+      {
+       "name": "Federal Reserve",
+       "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"
+      },
+      {
+       "name": "CNBC",
+       "url": "https://www.cnbc.com/2026/10/28/fed-interest-rate-decision-october-2026.html"
+      }
+     ],
+     "group": "Rates"
+    },
+    {
+     "type": "story",
+     "id": "money-keeps-pouring-into-ai-infrastructu",
+     "headline": "Money keeps pouring into AI infrastructure anyway",
+     "summary": "Meta plans to raise $95B for AI infrastructure, with Nvidia and AMD investing a combined $4B; SpaceX closed $40B of debt financing to buy GPUs; Microsoft's capex rose 30% to $45.2B; and SK Hynix posted a record quarterly profit and $25B+ in shareholder returns on memory demand.",
+     "short": "Meta to raise $95B (Nvidia+AMD invest $4B); SpaceX $40B GPU debt; MSFT capex $45.2B; SK Hynix record profit.",
+     "sources": [
+      {
+       "name": "CNBC",
+       "url": "https://www.cnbc.com/2026/10/30/anthropic-ipo-s1-revenue-compute.html"
+      }
+     ],
+     "group": "Hyperscalers & capex"
+    }
+   ]
+  },
+  {
+   "id": "holdings",
+   "items": [
+    {
+     "type": "story",
+     "id": "amazon-aws-accelerates-to-39-growth-but-",
+     "headline": "Amazon: AWS accelerates to 39% growth, but cash burn spooks investors",
+     "summary": "Amazon's Q3 revenue of $201.94B and EPS of $1.89 came in just below estimates. AWS grew 39.3% to $46.0B, its fastest pace in about five years, but trailing twelve-month free cash flow was −$42.4B as data-center spending surged; shares fell sharply.",
+     "short": "AMZN Q3: rev $201.94B, EPS $1.89 (slight misses); AWS +39.3% to $46.0B; TTM FCF −$42.4B.",
+     "sources": [
+      {
+       "name": "Amazon IR",
+       "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/"
+      },
+      {
+       "name": "CNBC",
+       "url": "https://www.cnbc.com/2026/10/29/amazon-amzn-q3-earnings-report-2026.html"
+      },
+      {
+       "name": "AP",
+       "url": "https://apnews.com/article/amazon-q3-earnings-amazon-web-services-2de72b65d63006a7ce85eab441e2d6b7"
+      }
+     ],
+     "group": "AMZN"
+    },
+    {
+     "type": "line",
+     "id": "meta-plans-to-raise-95b-for-a",
+     "group": "META",
+     "text": "Plans to raise $95B for AI infrastructure, with Nvidia and AMD investing a combined $4B.",
+     "sources": [
+      {
+       "name": "CNBC",
+       "url": "https://www.cnbc.com/2026/10/30/anthropic-ipo-s1-revenue-compute.html"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tech",
+   "items": [
+    {
+     "type": "story",
+     "id": "google-s-gemini-4-carbon-takes-the-top-b",
+     "headline": "Google's Gemini 4 Carbon takes the top benchmark spot — but goes to cyber defenders first",
+     "summary": "Google DeepMind released Gemini 4 Carbon on Oct. 28, scoring 59 on the Artificial Analysis Intelligence Index v5, a point ahead of Anthropic's Claude Opus 5.5. Google is giving access first to vetted cyber defenders, with introductory API pricing of $2/$10 per million input/output tokens.",
+     "short": "Gemini 4 Carbon (Oct 28) tops AA Index v5 (59 vs Opus 5.5's 58); defenders-only access first; $2/$10 per M tokens.",
+     "sources": [
+      {
+       "name": "The Model Press weekly",
+       "url": "https://themodelpress.com/news/2026/10/ai-news-this-week-october-24-30-2026"
+      },
+      {
+       "name": "Zvi Mowshowitz, AI #192",
+       "url": "https://thezvi.substack.com/p/ai-192-anthropic-is-going-public"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "openai-says-its-model-refuted-the-expone",
+     "headline": "OpenAI says its model refuted the Exponential Time Hypothesis; experts are still checking",
+     "summary": "OpenAI announced Oct. 26 that an internal model produced a Lean-verified refutation of the Exponential Time Hypothesis — a 27-year-old cornerstone of complexity theory — plus a proof of local smoothing in all dimensions that implies the Kakeya and Stein restriction conjectures. Anthropic reported a refutation of its own. Independent review by Impagliazzo, Paturi and Williams is under way; Lean confirms the proof is internally valid, not that its formal statement matches textbook ETH.",
+     "short": "OpenAI claims Lean-verified ETH refutation + Kakeya/restriction proofs (Oct 26); Anthropic claims one too. Under expert review.",
+     "sources": [
+      {
+       "name": "OpenAI",
+       "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities/"
+      },
+      {
+       "name": "The Verge",
+       "url": "https://www.theverge.com/ai-artificial-intelligence/1019143/openai-eth-kaseya-science-math-physics"
+      },
+      {
+       "name": "Papex: what's been verified",
+       "url": "https://papex.org/blog/eth-refutation-what-has-been-checked"
+      },
+      {
+       "name": "Preprint (PDF)",
+       "url": "https://raw.githubusercontent.com/openai/math/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "gpt-6-1-terra-mistral-le-chonk-and-a-gen",
+     "headline": "GPT-6.1 Terra, Mistral 'Le Chonk' and a Genie 4 preview round out a crowded launch week",
+     "summary": "OpenAI shipped GPT-6.1 Terra (Oct. 26) with a 1.05M-token context window and 50.3% on Terminal-Bench 4.0. Google previewed the Genie 4 world model (Oct. 27). Mistral released open weights for Mistral Large 4 (Oct. 29). Artificial Analysis says the gap between the best open-weights and closed models has widened to about 12 points on its index.",
+     "short": "Also: GPT-6.1 Terra (1.05M ctx), Genie 4 preview, Mistral Large 4 open weights; open-vs-closed gap ~12 pts (AA).",
+     "sources": [
+      {
+       "name": "The Model Press weekly",
+       "url": "https://themodelpress.com/news/2026/10/ai-news-this-week-october-24-30-2026"
+      },
+      {
+       "name": "O'Reilly Radar",
+       "url": "https://www.oreilly.com/radar/this-week-in-ai-agents-rewrite-the-rules/"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "openai-google-microsoft-and-anthropic-ba",
+     "headline": "OpenAI, Google, Microsoft and Anthropic back one robots.txt rule to opt out of AI training",
+     "summary": "The four companies endorsed a shared IETF-track robots.txt 'usage' token that lets sites opt out of AI training with a single rule, rather than blocking a zoo of crawler names one by one. Meta said it was supportive. Site owners may still face trade-offs between training opt-outs and appearing in AI search answers.",
+     "short": "OpenAI/Google/Microsoft/Anthropic back one robots.txt token to opt out of AI training; Meta supportive.",
+     "sources": [
+      {
+       "name": "The Verge",
+       "url": "https://www.theverge.com/tech/1023763/openai-google-microsoft-ai-scraping-standard-opt-out"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "google-s-ai-satellite-talks-back-from-or",
+     "headline": "Google's AI satellite talks back from orbit — in haiku",
+     "summary": "Google's Project Suncatcher, which is testing whether AI compute can run on solar-powered satellites, ran Gemma 4 on a TPU in orbit and downlinked its first response over Svalbard: 'Blue marble below / Data streams in silent grace / Starlight feeds my core.'",
+     "short": "Project Suncatcher: Gemma 4 on an orbiting TPU sent its first reply (a haiku) via Svalbard.",
+     "sources": [
+      {
+       "name": "Google blog",
+       "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/"
+      },
+      {
+       "name": "The Verge",
+       "url": "https://www.theverge.com/tech/1023528/google-project-suncatcher-ai-satellite-transmission"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "apple-s-first-touchscreen-mac-arrives",
+     "headline": "Apple's first touchscreen Mac arrives",
+     "summary": "Apple announced the MacBook Pro with PROLED XDR Display — tandem OLED, touch gestures, a Dynamic Island, and M5 Pro/M5 Max chips in 14- and 16-inch sizes. Preorders opened Oct. 28; it ships Nov. 6.",
+     "short": "Apple's first touchscreen Mac: MacBook Pro w/ PROLED XDR, M5 Pro/Max; ships Nov 6.",
+     "sources": [
+      {
+       "name": "Apple Newsroom",
+       "url": "https://www.apple.com/newsroom/2026/10/apple-unveils-groundbreaking-macbook-pro-with-proled-xdr-display/"
+      },
+      {
+       "name": "The Verge",
+       "url": "https://www.theverge.com/gadgets/1019554/apple-touchscreen-macbook-pro-and-tell"
+      }
+     ]
+    },
+    {
+     "type": "post",
+     "id": "x-2115937378674372783",
+     "author": "Thariq Shihipar",
+     "handle": "trq212",
+     "text": "There's 100% a kind of mania you can get into with coding agents, where it feels like you're getting a lot done and working all the time but nothing is really happening.",
+     "url": "https://x.com/trq212/status/2115937378674372783",
+     "date": "2026-10-29T22:42:37Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2116029912243184006",
+     "author": "Aaron Levie",
+     "handle": "levie",
+     "text": "It's almost incomprehensible how wide the distance is between someone who's working at the frontier with AI and basically everyone else right now.",
+     "url": "https://x.com/levie/status/2116029912243184006",
+     "date": "2026-10-30T04:50:19Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2116282885112205365",
+     "author": "Ethan Mollick",
+     "handle": "emollick",
+     "text": "OpenAI kills a lot of its products. Sora lasted 6 months, Agent Builder 8 months, Group Chat 8 months, Atlas 9 months...",
+     "url": "https://x.com/emollick/status/2116282885112205365",
+     "date": "2026-10-30T21:35:33Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2116526543346483419",
+     "author": "Ethan Mollick",
+     "handle": "emollick",
+     "text": "Talking to older firms, there is a real backlog of scoped cheaper [legacy software] migration projects being unlocked by AI surprisingly fast.",
+     "url": "https://x.com/emollick/status/2116526543346483419",
+     "date": "2026-10-31T13:43:45Z"
+    }
+   ]
+  },
+  {
+   "id": "reading",
+   "items": [
+    {
+     "type": "story",
+     "id": "robert-caro-at-91-on-what-he-cut",
+     "headline": "Robert Caro, at 91, on what he cut",
+     "summary": "Dwarkesh Patel's hour-long conversation with the biographer of Robert Moses and LBJ (Oct. 30) — 'A lot of the stuff that I cut out, it's tragic that no one knows it' — paired with a 25-minute companion episode on what Patel learned about power from preparing for it.",
+     "short": "Dwarkesh Podcast: Robert Caro at 91 (1 hr) + companion on LBJ & Moses.",
+     "sources": [
+      {
+       "name": "Dwarkesh Podcast",
+       "url": "https://www.dwarkesh.com/archive"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "ethan-mollick-you-re-a-hand-weaver-in-a-",
+     "headline": "Ethan Mollick: 'You're a hand-weaver in a world of power looms'",
+     "summary": "In a Vox interview about his new book, Co-Existence, the Wharton professor argues AI is industrializing knowledge work: people who love the craft will feel it eroded, while others will welcome losing the tedium — and both crises of meaning will arrive at once.",
+     "short": "Mollick (Vox) on his book Co-Existence: AI industrializes craft work.",
+     "sources": [
+      {
+       "name": "Vox",
+       "url": "https://www.vox.com/technology/508032/ai-jobs-ethan-mollick-co-existence"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "zvi-mowshowitz-anthropic-is-going-public",
+     "headline": "Zvi Mowshowitz: 'Anthropic Is Going Public'",
+     "summary": "The weekly AI #192 roundup on Substack covers the S-1, the 'Hackening,' the ETH claims, Gemini 4 Carbon, reports that OpenAI fired safety researchers, and evidence that some internal AI coding traffic went unmonitored — with links to the primary sources.",
+     "short": "Zvi, AI #192 'Anthropic Is Going Public' — the week in AI, densely linked.",
+     "sources": [
+      {
+       "name": "Don't Worry About the Vase",
+       "url": "https://thezvi.substack.com/p/ai-192-anthropic-is-going-public"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "business",
+   "items": [
+    {
+     "type": "story",
+     "id": "microsoft-offers-voluntary-buyouts-to-ab",
+     "headline": "Microsoft offers voluntary buyouts to about 60,000 employees",
+     "summary": "Microsoft's 'voluntary exit offer' covers roughly 60,000 staff at level 70 and below in the US, Canada, India and the UK, across teams including Copilot, Xbox, Windows and HR; sales, security and some engineering are excluded. Decisions are due in early December, with departures Dec. 31.",
+     "short": "Microsoft offers voluntary buyouts to ~60K employees; decisions early Dec., exits Dec 31.",
+     "sources": [
+      {
+       "name": "Microsoft",
+       "url": "https://blogs.microsoft.com/blog/2026/10/26/introducing-a-voluntary-exit-offer/"
+      },
+      {
+       "name": "CNBC",
+       "url": "https://www.cnbc.com/2026/10/26/microsoft-msft-voluntary-buyouts.html"
+      },
+      {
+       "name": "NBC News",
+       "url": "https://www.nbcnews.com/business/corporations/microsoft-offers-buyouts-60000-employees-rcna605765"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "science",
+   "items": [
+    {
+     "type": "story",
+     "id": "a-personalized-mrna-cancer-vaccine-succe",
+     "headline": "A personalized mRNA cancer vaccine succeeds in a phase III trial",
+     "summary": "Moderna and Merck's personalized melanoma vaccine intismeran autogene, given with Keytruda after surgery, cut the risk of recurrence or death by 42% vs. Keytruda alone (HR 0.58) in 1,137 patients with high-risk melanoma. Two-year recurrence-free survival was 82.2% vs. 70.0%. Overall survival data are not yet mature.",
+     "short": "Moderna/Merck personalized mRNA melanoma vaccine + Keytruda: −42% recurrence/death (HR 0.58), phase III.",
+     "sources": [
+      {
+       "name": "Nature",
+       "url": "https://www.nature.com/articles/d41586-026-03417-0"
+      },
+      {
+       "name": "ASCO Post",
+       "url": "https://ascopost.com/news/october-2026/high-risk-melanoma-personalized-mrna-vaccine-plus-immunotherapy-reduces-risk-of-recurrence-after-surgery/"
+      },
+      {
+       "name": "AACR",
+       "url": "https://www.aacr.org/blog/2026/10/26/from-promise-to-proof-personalized-melanoma-mrna-vaccine-delivers-phase-iii-success/"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "ebola-outbreak-in-congo-passes-10-000-co",
+     "headline": "Ebola outbreak in Congo passes 10,000 confirmed cases",
+     "summary": "The Bundibugyo-strain Ebola outbreak in the DRC had reached 10,351 confirmed cases and 5,026 deaths as of Oct. 30, across 67 health zones in eight provinces, with Ituri the epicenter. Imported cases have been reported in Kenya and Nigeria.",
+     "short": "DRC Bundibugyo Ebola: 10,351 confirmed cases, 5,026 deaths; imported cases in Kenya, Nigeria.",
+     "sources": [
+      {
+       "name": "UN News",
+       "url": "https://news.un.org/en/story/2026/10/1168689"
+      },
+      {
+       "name": "WHO",
+       "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON622"
+      },
+      {
+       "name": "ECDC",
+       "url": "https://www.ecdc.europa.eu/en/ebola-disease-multi-country-outbreak-2026"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "nasa-asks-industry-again-how-to-save-hub",
+     "headline": "NASA asks industry, again, how to save Hubble",
+     "summary": "NASA issued a request for information on commercial missions to reboost Hubble to at least 600 km, service it, or guide a controlled reentry, by 2032. Without help the telescope is expected to reenter around 2033–34. Responses are due Nov. 30; no funding is allocated yet.",
+     "short": "NASA RFI for commercial Hubble reboost/servicing by 2032; responses due Nov 30.",
+     "sources": [
+      {
+       "name": "Ars Technica",
+       "url": "https://arstechnica.com/space/2026/10/think-you-can-save-the-hubble-space-telescope-nasa-wants-to-know/"
+      }
+     ],
+     "image": {
+      "file": "images/nasa-asks-industry-again-how-to-save-hub.jpg",
+      "credit": "Vantor via Ars Technica"
+     }
+    },
+    {
+     "type": "story",
+     "id": "the-west-s-rocket-shortage-is-worse-than",
+     "headline": "The West's rocket shortage is worse than thought",
+     "summary": "Quilty Space estimates a shortfall of roughly 150 launches outside China through 2030 — potentially double that with US military demand — as Falcon 9 winds down commercially and new rockets lag. The crunch peaks in 2028 and may last into the late 2030s.",
+     "short": "Quilty: ~150-launch shortfall outside China through 2030; worst in 2028.",
+     "sources": [
+      {
+       "name": "Ars Technica",
+       "url": "https://arstechnica.com/space/2026/10/analysts-find-looming-launch-crisis-is-more-severe-than-anticipated/"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "briefly",
+     "headline": "Briefly",
+     "summary": "A Martian meteorite, Teghaza 001, preserves crust at least 4.1 billion years old (Ars). Seabirds racing home across time zones can get jet-lagged (Ars). India's ISRO launched the NVS-03 navigation satellite Oct. 30.",
+     "short": "Mars meteorite Teghaza 001 ≥4.1B yrs old; seabirds get jet lag.",
+     "sources": [
+      {
+       "name": "Ars: Mars meteorite",
+       "url": "https://arstechnica.com/science/2026/10/rare-meteorite-from-mars-gives-us-a-view-into-its-ancient-crust/"
+      },
+      {
+       "name": "Ars: seabird jet lag",
+       "url": "https://arstechnica.com/science/2026/10/seabirds-racing-home-over-the-ocean-can-get-jet-lagged/"
+      }
+     ],
+     "brief": true
+    }
+   ]
+  },
+  {
+   "id": "local",
+   "items": [
+    {
+     "type": "story",
+     "id": "data-centers-become-new-hampshire-s-surp",
+     "headline": "Data centers become New Hampshire's surprise election issue",
+     "summary": "Gov. Ayotte backs a multiyear moratorium on new data centers through the state budget, while Warmington wants an immediate executive order. Senate rivals Pappas and Sununu both support a state-level pause; in the 1st District, Stefany Shaheen supports a moratorium while Anthony DiLorenzo favors local control. Opioids and the YDC abuse settlement also dominated the final governor's debate.",
+     "short": "NH: all major candidates back some data-center moratorium; Ayotte (budget, multiyear) vs Warmington (executive order now).",
+     "sources": [
+      {
+       "name": "NHPR",
+       "url": "https://www.nhpr.org/politics/2026-10-30/where-do-nh-candidates-stand-on-ai-and-data-centers-election-2026-midterms"
+      },
+      {
+       "name": "Union Leader (debate)",
+       "url": "https://www.unionleader.com/news/politics/opioids-data-centers-and-ydc-abuse-dominate-governors-debate-a9cb3264"
+      },
+      {
+       "name": "WMUR (Senate debate)",
+       "url": "https://www.wmur.com/article/new-hampshire-us-senate-debate-data-center-development/74278837"
+      },
+      {
+       "name": "NHPR: what to know before you vote",
+       "url": "https://www.nhpr.org/nh-news/2026-10-30/n-h-news-recap-what-to-know-before-you-vote"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "massachusetts-voters-face-a-record-tying",
+     "headline": "Massachusetts voters face a record-tying nine ballot questions",
+     "summary": "Tuesday's statewide questions cover public-records access, union rights for public defenders, all-party top-two primaries, Election Day registration, a revenue-cap rebate, a conservation fund, smaller starter-home lots, repealing recreational-marijuana sales, and a referendum on the state's expanded gun law.",
+     "short": "MA: 9 ballot questions — records, top-two primaries, same-day registration, starter homes, marijuana repeal, gun law.",
+     "sources": [
+      {
+       "name": "Boston Globe",
+       "url": "https://www.bostonglobe.com/2026/10/30/metro/massachusetts-elections-2026-ballot-questions/"
+      },
+      {
+       "name": "MA Secretary of State guide",
+       "url": "https://www.sec.state.ma.us/divisions/elections/research-and-statistics/2026-Information-for-voters/main.htm"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "boston-police-fatally-shoot-man-with-kni",
+     "headline": "Boston police fatally shoot man with knife in Brighton",
+     "summary": "Police shot and killed a man armed with a knife in Brighton on Thursday after what officials described as about 20 minutes of attempted de-escalation. The investigation is ongoing.",
+     "short": "Brighton: police fatally shoot man with knife after ~20 min of de-escalation; under investigation.",
+     "sources": [
+      {
+       "name": "WBUR",
+       "url": "https://www.wbur.org/news/2026/10/30/police-fatal-shooting-brighton"
+      },
+      {
+       "name": "Boston Globe",
+       "url": "https://www.bostonglobe.com/2026/10/30/metro/brighton-person-shot-police-update/"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "around-the-region",
+     "headline": "Around the region",
+     "summary": "Scituate is under an immediate boil-water order after E. coli was detected. Opponents of Massachusetts' abortion-law changes filed 97,276 signatures for a 2028 referendum. The American Federation of Teachers sued the Education Department over Public Service Loan Forgiveness. The new Veterans Home at Holyoke opened. The state Senate's supplemental budget carries policy riders that set up a fight with the House and Gov. Healey.",
+     "short": "Scituate boil-water order (E. coli); 97K signatures for 2028 abortion-law referendum; AFT sues over PSLF; new Holyoke Veterans Home.",
+     "sources": [
+      {
+       "name": "Globe: Scituate",
+       "url": "https://www.bostonglobe.com/2026/10/30/metro/scituate-boil-water-order-in-place-immediately-e-coli-detected/"
+      },
+      {
+       "name": "WBUR: referendum",
+       "url": "https://www.wbur.org/news/2026/10/30/massachusetts-2028-abortion-law-referendum-signatures"
+      },
+      {
+       "name": "WBUR: AFT suit",
+       "url": "https://www.wbur.org/news/2026/10/30/american-federation-of-teachers-lawsuit-education-department-public-service-loan-forgiveness"
+      },
+      {
+       "name": "Globe: Holyoke",
+       "url": "https://www.bostonglobe.com/2026/10/30/metro/veterans-home-at-holyoke-new-facility/"
+      },
+      {
+       "name": "WBUR: budget",
+       "url": "https://www.wbur.org/news/2026/10/30/senate-supplemental-spending-bill-house-healey"
+      }
+     ],
+     "brief": true
+    }
+   ]
+  },
+  {
+   "id": "bigstuff",
+   "items": [
+    {
+     "type": "line",
+     "id": "big-us-iran-war-tankers-stru",
+     "text": "<b>US–Iran war:</b> Tankers struck in the Strait of Hormuz; Qatari mediators back in Tehran; Trump says the war will end soon.",
+     "sources": [
+      {
+       "name": "AP",
+       "url": "https://apnews.com/article/mideast-news-october-30-2026-7f7f34ceb62f294a450e48ace0bd56e0"
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "id": "big-spain-a-renfe-high-speed",
+     "text": "<b>Spain:</b> A Renfe high-speed train hit a stationary Iryo train near Urda (Toledo) on Oct. 28, killing 69 and injuring more than 200; unions point to the signalling system.",
+     "sources": [
+      {
+       "name": "AP",
+       "url": "https://apnews.com/article/spain-train-crash-toledo-causes-unions-669ef8c0c12c8c9b720e721e7532ccbb"
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "id": "big-ukraine-us-approved-a-2-",
+     "text": "<b>Ukraine:</b> US approved a $2.1B, partner-funded sale of 500 Patriot PAC-3 MSE interceptors; Zelenskyy warns delivery could take years.",
+     "sources": [
+      {
+       "name": "Anadolu",
+       "url": "https://www.aa.com.tr/en/world/morning-briefing-oct-31-2026/4107022"
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "id": "big-poland-a-constitutional-",
+     "text": "<b>Poland:</b> A constitutional-court crisis escalated with riot police deployed; President Nawrocki cut short an Africa trip.",
+     "sources": [
+      {
+       "name": "WorldWatch digest",
+       "url": "https://worldwatch.media/en/digest/2026-10-31"
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "id": "big-japan-the-boj-held-at-1-",
+     "text": "<b>Japan:</b> The BoJ held at 1.25% as inflation reached its 2% target.",
+     "sources": [
+      {
+       "name": "WorldWatch digest",
+       "url": "https://worldwatch.media/en/digest/2026-10-31"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worth",
+   "items": [
+    {
+     "type": "link",
+     "id": "w-anthropic-discovering-vulnerab",
+     "title": "Anthropic: Discovering vulnerabilities with Claude",
+     "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+     "why": "The primary source on AI-written exploits, with technical detail on every chain."
+    },
+    {
+     "type": "link",
+     "id": "w-cnbc-the-big-questions-anthrop",
+     "title": "CNBC: The big questions Anthropic's S-1 leaves unanswered",
+     "url": "https://www.cnbc.com/2026/10/30/anthropic-ipo-s1-revenue-compute.html",
+     "why": "A tight five-minute read on revenue, compute and governance."
+    },
+    {
+     "type": "link",
+     "id": "w-zvi-mowshowitz-ai-192-anthropi",
+     "title": "Zvi Mowshowitz: AI #192 — Anthropic Is Going Public",
+     "url": "https://thezvi.substack.com/p/ai-192-anthropic-is-going-public",
+     "why": "The whole AI week, linked to sources."
+    },
+    {
+     "type": "link",
+     "id": "w-papex-has-the-eth-refutation-b",
+     "title": "Papex: Has the ETH refutation been verified?",
+     "url": "https://papex.org/blog/eth-refutation-what-has-been-checked",
+     "why": "A level-headed look at what Lean does and doesn't prove."
+    },
+    {
+     "type": "link",
+     "id": "w-dwarkesh-podcast-robert-caro-a",
+     "title": "Dwarkesh Podcast: Robert Caro at 91",
+     "url": "https://www.dwarkesh.com/archive",
+     "why": "An hour with the greatest living biographer."
+    },
+    {
+     "type": "link",
+     "id": "w-vox-ethan-mollick-on-ai-and-th",
+     "title": "Vox: Ethan Mollick on AI and the meaning of work",
+     "url": "https://www.vox.com/technology/508032/ai-jobs-ethan-mollick-co-existence",
+     "why": "The power-loom framing is worth stealing."
+    },
+    {
+     "type": "link",
+     "id": "w-ars-technica-nasa-wants-ideas-",
+     "title": "Ars Technica: NASA wants ideas to save Hubble",
+     "url": "https://arstechnica.com/space/2026/10/think-you-can-save-the-hubble-space-telescope-nasa-wants-to-know/",
+     "why": "Can commercial robots rescue a national treasure?"
+    },
+    {
+     "type": "link",
+     "id": "w-nature-moderna-mrna-vaccine-ne",
+     "title": "Nature: Moderna mRNA vaccine nearly halves melanoma recurrence",
+     "url": "https://www.nature.com/articles/d41586-026-03417-0",
+     "why": "The cancer-vaccine milestone, explained."
+    },
+    {
+     "type": "link",
+     "id": "w-thariq-shihipar-on-coding-agen",
+     "title": "Thariq Shihipar on coding-agent 'mania' (X)",
+     "url": "https://x.com/trq212/status/2115937378674372783",
+     "why": "Two sentences every heavy agent user should read."
+    },
+    {
+     "type": "link",
+     "id": "w-nhpr-what-to-know-before-you-v",
+     "title": "NHPR: What to know before you vote",
+     "url": "https://www.nhpr.org/nh-news/2026-10-30/n-h-news-recap-what-to-know-before-you-vote",
+     "why": "Your NH ballot in one page."
+    }
+   ]
+  }
+ ]
+}

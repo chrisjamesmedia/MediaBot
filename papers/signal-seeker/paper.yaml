@@ -1,0 +1,124 @@
+# Signal Seeker: Chris James's paper, made with MediaBot. Editing the paper means editing this file.
+# Everything the build and the daily routine need about this paper lives here.
+
+name: Signal Seeker
+version: v0.5
+slug: signal-seeker            # URL: /signal-seeker/ and /signal-seeker/YYYY-MM-DD/
+public: true                   # false = left off the root index, pages carry noindex
+reader: Chris James
+description: >-
+  A calm, finite daily paper: the best of the X accounts Chris James reads,
+  plus the news that matters, with a clear end.
+
+masthead:
+  style: quiet                 # quiet = small serif name, grey version, no tagline
+  weather:
+    label: Boston
+    lat: 42.36
+    lon: -71.06
+    timezone: America/New_York
+
+print:
+  size: medium                 # small | medium | large  (see sizes below)
+  sizes:                       # sheets of Letter paper, printed double-sided
+    small:  {target_sheets: [1, 2], max_sheets: 2}
+    medium: {target_sheets: [4, 5], max_sheets: 5}
+    large:  {target_sheets: [6, 10], max_sheets: 10}
+  photos: false                # print edition never carries photos
+  qr: true                     # one masthead QR to the web edition, only once web_base is public
+
+web:
+  images: true                 # big lead image and opted-in photos on the web edition
+
+# Sections, in reading order. `weight` sets emphasis: when the print edition is
+# over its size, the lowest-weight sections lose their last items first, and
+# the daily routine uses weights to decide how many items each section gets.
+sections:
+  - {id: front,       title: Front Page,       enabled: true,  weight: 10, max_items: 5}
+  - {id: x,           title: From Your X,      enabled: true,  weight: 9,  max_items: 10}
+  - {id: goats,       title: The GOATs,        enabled: true,  weight: 9,  max_items: 5}
+  - {id: investments, title: Investments,      enabled: true,  weight: 10, max_items: 12, group_by: theme}
+  # Holdings: material news only, public by Chris's OK. Never values, share counts or position sizes (the build refuses them).
+  - {id: holdings,    title: Your Holdings,    enabled: true,  weight: 8,  max_items: 6,  group_by: ticker}
+  - {id: tech,        title: Tech & AI,        enabled: true,  weight: 7,  max_items: 10}
+  - {id: reading,     title: Worth Reading,    enabled: true,  weight: 6,  max_items: 4}
+  - {id: business,    title: Business,         enabled: true,  weight: 3,  max_items: 3}
+  - {id: science,     title: Science & Health, enabled: true,  weight: 3,  max_items: 5}
+  - {id: local,       title: Local,            enabled: true,  weight: 3,  max_items: 4}
+  - {id: bigstuff,    title: The Big Stuff,    enabled: true,  weight: 2,  max_items: 5,  style: box, only_if_major: true}
+  - {id: worth,       title: Worth Your Time,  enabled: true,  weight: 2,  max_items: 6,  style: links, dedupe: true}
+  # Not connected yet. Turn on once a source exists; never filled with stand-in content.
+  - {id: substack,    title: Substack,         enabled: false, weight: 8,  max_items: 4}
+  - {id: youtube,     title: YouTube,          enabled: false, weight: 6,  max_items: 3}
+  - {id: funnies,     title: Funnies,          enabled: false, weight: 1,  max_items: 3}
+  # private: true = only in the local private copy (site-private/), never in the public site, PDFs, sitemap or meta.
+  # Odds & Ends is the personal section: emails, calendar, birthdays, reminders, notes.
+  - {id: personal,    title: Odds & Ends,      enabled: false, weight: 1,  max_items: 6,  private: true}
+
+sources:
+  x:
+    lists:
+      - {name: Investments, feeds: investments}
+      - {name: 2026 GOATS,  feeds: goats}
+    must_read:                 # always checked; best post each goes to From Your X
+      - "@FU_joehudson"
+      - "@p_millerd"
+      - "@naval"
+      - "@paulg"
+      - "@davidsenra"
+    goats:                     # one best post or idea each, when they have one
+      - "@GavinSBaker"
+      - "@ChrisCamillo"
+      - "@aleabitoreddit"
+      - "@ParadisLabs"
+      - "@DavidGeorge83"
+    accounts_file: sources/x_accounts.json   # 100 tiered accounts from the reader profile
+    noise:                     # skip entirely
+      - "@TheGNPE"
+      - "@TheValueist"
+      - "@PortPolitics1"
+      - "@PBDsPodcast"
+      - "@TickerDUBS"
+      - "@ndenverco"
+      - "@newstart_2024"
+      - "@kator1313"
+      - "@LibertyCappy"
+      - "@cheruiyotkb"
+      - "@squawksquare"
+    caps:                      # max posts per edition from one account
+      "@ParadisLabs": 2
+      "@rdd147": 2
+      default: 3
+    downweight:
+      - hype or promo lists ("simply buy these 7 stocks", "save this"): summarize the claim, never headline it
+      - Edge City retweets: keep the community theme, drop the retweets
+      - Bitcoin influencers: only for major moves
+      - partisan outrage: politics only when it moves markets
+  holdings:                    # Your Holdings: material news only, no prices or tickers tables
+    - {ticker: NBIS, name: Nebius}
+    - {ticker: MU,   name: Micron}
+    - {ticker: SNDK, name: SanDisk}
+    - {ticker: AMZN, name: Amazon}
+    - {ticker: META, name: Meta}
+  web:                         # legacy and web sources for the news sections
+    - AP
+    - CNBC
+    - Bloomberg
+    - The Verge
+    - Ars Technica
+    - Nature
+    - NHPR
+    - WMUR
+    - Boston Globe
+    - WBUR
+  substack: []                 # not connected yet
+  youtube: []                  # not connected yet
+
+filters:
+  novelty: loose               # loose for now: a story seen yesterday can run again if it moved
+  notes:
+    - Investments is the largest section; organize it by theme, not by author.
+    - Show bull and bear views; Chris bookmarks skeptics too.
+    - Thesis over hype. Reflective over promotional.
+    - Holdings appear only with material news.
+    - No like counts, prices tables, tickers, taglines or filler labels.

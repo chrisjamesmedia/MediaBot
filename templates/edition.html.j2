@@ -1,0 +1,127 @@
+{% extends "_base.html.j2" %}
+{% set noindex = not paper.public %}
+{% set og_type = "article" %}
+{% set og_title = paper.name ~ " · " ~ date_long %}
+{% set lead = sections[0]['items'][0] %}
+{% set og_image = lead.image.web if lead.image else None %}
+{% set body_class = "edition" %}
+{% macro icon(kind) -%}
+<svg class="wx-i" viewBox="0 0 24 24" aria-hidden="true">
+{%- if kind == 'sun' %}<circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/>
+{%- elif kind == 'partly' %}<circle cx="9" cy="9" r="3.4"/><path d="M9 2.8v1.6M2.8 9h1.6M4.6 4.6l1.1 1.1M13.4 4.6l-1.1 1.1"/><path d="M8.5 19.5h9a3.5 3.5 0 0 0 0-7 5 5 0 0 0-9.3 1.3A2.9 2.9 0 0 0 8.5 19.5z"/>
+{%- elif kind == 'rain' %}<path d="M7 15.5h10a3.5 3.5 0 0 0 0-7 5 5 0 0 0-9.6 1.4A2.8 2.8 0 0 0 7 15.5z"/><path d="M9 18.5l-1 2.5M13 18.5l-1 2.5M17 18.5l-1 2.5"/>
+{%- elif kind == 'snow' %}<path d="M7 15.5h10a3.5 3.5 0 0 0 0-7 5 5 0 0 0-9.6 1.4A2.8 2.8 0 0 0 7 15.5z"/><path d="M9 19.5h.01M13 20.5h.01M17 19.5h.01"/>
+{%- else %}<path d="M6.5 18h11a4 4 0 0 0 0-8 5.6 5.6 0 0 0-10.8 1.6A3.2 3.2 0 0 0 6.5 18z"/>
+{%- endif %}</svg>
+{%- endmacro %}
+{% macro sources(list) -%}
+<span class="src">{% for s in list %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>{% if not loop.last %}<span class="dot"> · </span>{% endif %}{% endfor %}</span>
+{%- endmacro %}
+{% macro controls() -%}
+<span class="ctl" role="group" aria-label="Reactions">
+<button type="button" data-r="knew">Knew this</button><button type="button" data-r="more">More like this</button><button type="button" data-r="skip">Skip</button><button type="button" class="readmark" data-read aria-label="Mark read" title="Mark read"></button>
+</span>
+{%- endmacro %}
+{% macro story(s, cls='') -%}
+<article class="story {{ cls }}{% if s.brief %} brief{% endif %}" id="{{ s.id }}" data-id="{{ s.id }}">
+{% if s.image %}<figure class="ph"><img src="{{ s.image.web }}" alt="" loading="lazy"><figcaption>{{ s.image.credit }}</figcaption></figure>{% endif %}
+<div class="txt">
+<h3>{{ s.headline }}</h3>
+<p>{{ s.summary }}</p>
+<footer>{{ sources(s.sources) }}{{ controls() }}</footer>
+</div>
+</article>
+{%- endmacro %}
+{% macro post(p) -%}
+<article class="post" id="{{ p.id }}" data-id="{{ p.id }}">
+<header><span class="av" aria-hidden="true">{{ p.author | initials }}</span><span class="who"><b>{{ p.author }}</b><span class="mute">@{{ p.handle }}{% if p.date_short %} · <a href="{{ p.url }}" target="_blank" rel="noopener"><time datetime="{{ p.date }}">{{ p.date_short }}</time></a>{% endif %}</span></span></header>
+<p class="ptext">{{ p.text }}</p>
+{% if p.image %}<figure class="pimg"><img src="{{ p.image.web }}" alt="" loading="lazy"></figure>{% endif %}
+<footer><a class="src open" href="{{ p.url }}" target="_blank" rel="noopener">Open on X</a>{{ controls() }}</footer>
+</article>
+{%- endmacro %}
+{% macro line(l) -%}
+<li class="line" data-id="{{ l.id }}"><span class="ltext">{{ l.text | safe }}</span> {{ sources(l.sources) }}</li>
+{%- endmacro %}
+{% macro items_block(items) -%}
+{% set stories = items | selectattr('type', 'equalto', 'story') | list %}
+{% set posts = items | selectattr('type', 'equalto', 'post') | list %}
+{% set lines = items | selectattr('type', 'equalto', 'line') | list %}
+{% if stories %}{% set cols = stories | balance %}
+<div class="cols n{{ cols|length }}">{% for col in cols %}<div class="col">{% for s in col %}{{ story(s) }}{% endfor %}</div>{% endfor %}</div>
+{% endif %}
+{% if lines %}<ul class="lines">{% for l in lines %}{{ line(l) }}{% endfor %}</ul>{% endif %}
+{% if posts %}<div class="posts{% if posts|length == 1 %} one{% endif %}">{% for p in posts %}{{ post(p) }}{% endfor %}</div>{% endif %}
+{%- endmacro %}
+{% block body %}
+<header class="mast wrap">
+  <div class="topline"><time datetime="{{ date }}">{{ date_long }}</time></div>
+  <h1><a href="../" title="{{ paper.name }}: all editions">{{ paper.name }}{% if paper.version %}<span class="ver">{{ paper.version }}</span>{% endif %}</a></h1>
+  <div class="under">
+    {% if weather.ok %}
+    <div class="wx" title="Open-Meteo, fetched {{ weather.asof_full }}">
+      <span class="wx-now">{{ icon(weather.icon) }}<b>{{ weather.now }}°</b> {{ weather.cond }}<span class="mute hl">H {{ weather.hi }}° &nbsp;L {{ weather.lo }}°</span></span>
+      <span class="wx-fc">{% for d in weather.days %}<span class="wx-day" title="{{ d.cond }}">{{ d.name }} {{ icon(d.icon) }}{{ d.hi }}°<span class="mute">/{{ d.lo }}°</span></span>{% endfor %}</span>
+      <span class="wx-asof mute">{{ weather.label }}, {{ weather.asof }}</span>
+    </div>
+    {% endif %}
+    {% if note %}<div class="note">{{ note }}</div>{% endif %}
+  </div>
+  {% if sections|length > 2 %}
+  <nav class="toc" aria-label="Sections">{% for sec in sections if sec.id != 'front' %}<a href="#{{ sec.id }}">{{ sec.title | replace('The ', '') if sec.id in ('goats','bigstuff') else sec.title }}</a>{% endfor %}</nav>
+  {% endif %}
+</header>
+
+<main class="wrap">
+{% for sec in sections %}
+{% if sec.id == 'front' %}
+{% set fs = sec['items'] | selectattr('type', 'equalto', 'story') | list %}
+<section id="front" class="front" aria-label="{{ sec.title }}" data-sec="front">
+  {% set s = fs[0] %}
+  <article class="story lead" id="{{ s.id }}" data-id="{{ s.id }}">
+  <h3>{{ s.headline }}</h3>
+  {% if s.image %}<figure class="ph"><img src="{{ s.image.web }}" alt=""><figcaption>{{ s.image.credit }}</figcaption></figure>{% endif %}
+  <div class="txt"><p>{{ s.summary }}</p><footer>{{ sources(s.sources) }}{{ controls() }}</footer></div>
+  </article>
+  {% if fs|length > 1 %}<div class="grid2 rest{% if fs|length is odd %} even{% endif %}">{% for s in fs[1:] %}{{ story(s) }}{% endfor %}</div>{% endif %}
+</section>
+{% elif sec.style == 'box' %}
+<section id="{{ sec.id }}" class="box" data-sec="{{ sec.id }}">
+  <h2>{{ sec.title }}</h2>
+  <ul>{% for l in sec['items'] %}{{ line(l) }}{% endfor %}</ul>
+</section>
+{% elif sec.style == 'links' %}
+<section id="{{ sec.id }}" class="sec" data-sec="{{ sec.id }}">
+  <h2>{{ sec.title }}</h2>
+  <ol class="worthlist">{% for w in sec['items'] %}<li data-id="{{ w.id }}"><a href="{{ w.url }}" target="_blank" rel="noopener">{{ w.title }}</a>{% if w.why %} <span class="mute">{{ w.why }}</span>{% endif %}</li>{% endfor %}</ol>
+</section>
+{% else %}
+<section id="{{ sec.id }}" class="sec sec-{{ sec.id }}" data-sec="{{ sec.id }}">
+  <h2>{{ sec.title }}</h2>
+  {% if sec.groups %}
+  {% for g in sec.groups %}
+  <div class="group{% if sec.group_by == 'ticker' %} hold{% endif %}">
+    {% if g.title %}<h4>{{ g.title }}</h4>{% endif %}
+    <div>{{ items_block(g['items']) }}</div>
+  </div>
+  {% endfor %}
+  {% else %}
+  {{ items_block(sec['items']) }}
+  {% endif %}
+</section>
+{% endif %}
+{% endfor %}
+
+<section class="end" aria-label="End of edition">
+  <p class="fin">That’s today’s paper.</p>
+  <form class="fb" id="feedback">
+    <label for="fb-text" class="vh">Feedback on this edition</label>
+    <textarea id="fb-text" rows="2" placeholder="Feedback on today’s edition"></textarea>
+    <button type="submit">Save</button>
+  </form>
+  <p class="endlinks"><a href="{{ pdfs.print }}">Print edition</a><span class="dot"> · </span><a href="{{ pdfs.digital }}">Digital PDF</a><span class="dot"> · </span><button type="button" id="export">Export feedback</button><span class="saved" aria-live="polite"></span></p>
+</section>
+</main>
+<script>window.SG = {paper: "{{ paper.slug }}", edition: "{{ date }}"};</script>
+<script src="{{ root }}assets/site.js"></script>
+{% endblock %}

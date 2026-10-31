@@ -1,0 +1,75 @@
+{
+  "latitude": 42.365166,
+  "longitude": -71.0618,
+  "generationtime_ms": 1.042485237121582,
+  "utc_offset_seconds": -14400,
+  "timezone": "America/New_York",
+  "timezone_abbreviation": "GMT-4",
+  "elevation": 10.0,
+  "current_units": {
+    "time": "iso8601",
+    "interval": "seconds",
+    "temperature_2m": "°F",
+    "apparent_temperature": "°F",
+    "weather_code": "wmo code",
+    "is_day": "",
+    "wind_speed_10m": "mp/h"
+  },
+  "current": {
+    "time": "2026-10-31T13:45",
+    "interval": 900,
+    "temperature_2m": 53.2,
+    "apparent_temperature": 42.5,
+    "weather_code": 0,
+    "is_day": 1,
+    "wind_speed_10m": 11.9
+  },
+  "daily_units": {
+    "time": "iso8601",
+    "weather_code": "wmo code",
+    "temperature_2m_max": "°F",
+    "temperature_2m_min": "°F",
+    "precipitation_probability_max": "%",
+    "sunset": "iso8601"
+  },
+  "daily": {
+    "time": [
+      "2026-10-31",
+      "2026-11-01",
+      "2026-11-02",
+      "2026-11-03"
+    ],
+    "weather_code": [
+      0,
+      0,
+      3,
+      3
+    ],
+    "temperature_2m_max": [
+      53.7,
+      58.6,
+      64.3,
+      66.5
+    ],
+    "temperature_2m_min": [
+      37.2,
+      31.4,
+      42.2,
+      52.3
+    ],
+    "precipitation_probability_max": [
+      0,
+      1,
+      1,
+      2
+    ],
+    "sunset": [
+      "2026-10-31T17:38",
+      "2026-11-01T17:37",
+      "2026-11-02T17:36",
+      "2026-11-03T17:35"
+    ]
+  },
+  "fetched_at": "2026-10-31T13:53:53-04:00",
+  "source_url": "https://api.open-meteo.com/v1/forecast?latitude=42.36&longitude=-71.06&current=temperature_2m,apparent_temperature,weather_code,is_day,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunset&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FNew_York&forecast_days=4"
+}

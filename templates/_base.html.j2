@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+{% if noindex or private_copy %}<meta name="robots" content="noindex">
+{% endif %}
+{% if base %}<link rel="canonical" href="{{ base }}{{ url_path }}">
+<meta property="og:url" content="{{ base }}{{ url_path }}">
+{% if og_image %}<meta property="og:image" content="{{ base }}{{ url_path }}{{ og_image }}">
+{% endif %}{% endif %}
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ og_title or title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:type" content="{{ og_type or 'website' }}">
+<meta name="twitter:card" content="{{ 'summary_large_image' if og_image else 'summary' }}">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="{{ root }}assets/site.css">
+</head>
+<body class="{{ body_class }}">
+{% block body %}{% endblock %}
+</body>
+</html>
