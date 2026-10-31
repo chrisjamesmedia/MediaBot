@@ -1,0 +1,28 @@
+# A minimal paper. Copy this folder to papers/<your-slug>/, edit, and build.
+name: The Example
+version: v0.1
+slug: example
+public: false                  # stays off the root index until you flip it
+reader: Someone
+description: A short daily paper about gardening and the weather.
+
+masthead:
+  style: quiet
+  weather: {label: Portland, lat: 45.52, lon: -122.68, timezone: America/Los_Angeles}
+
+print:
+  size: small
+
+sections:
+  - {id: front,    title: Front Page,      enabled: true, weight: 10, max_items: 3}
+  - {id: x,        title: From Your X,     enabled: true, weight: 8,  max_items: 6}
+  - {id: reading,  title: Worth Reading,   enabled: true, weight: 5,  max_items: 3}
+  - {id: worth,    title: Worth Your Time, enabled: true, weight: 2,  max_items: 5, style: links, dedupe: true}
+
+sources:
+  x:
+    must_read: ["@MontyDon"]
+  web: [The Guardian, RHS]
+
+filters:
+  novelty: strict

@@ -1,0 +1,5 @@
+name: MediaBot
+about: MediaBot makes small daily papers, each edited from the sources its reader chooses, with a clear end.
+# Set to the public URL once the site is published (e.g. https://mediabot.pages.dev). Empty = local only:
+# no canonical URLs, no sitemap, no QR code in print.
+web_base: "https://chrisjamesmedia.github.io/MediaBot"
