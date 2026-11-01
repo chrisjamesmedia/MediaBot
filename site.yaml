@@ -3,8 +3,9 @@ about: MediaBot makes small daily papers, each edited from the sources its reade
 # Set to the public URL once the site is published (e.g. https://mediabot.pages.dev). Empty = local only:
 # no canonical URLs, no sitemap, no QR code in print.
 web_base: "https://chrisjamesmedia.github.io/MediaBot"
-# "Request for the next edition" box at the end of each web edition (papers opt in with web.request_box).
-# Submit opens a prefilled new GitHub issue (public). The morning routine reads open ones (docs/routine.md).
+# Transport for "Tune tomorrow's paper" at the end of each web edition (papers opt in with web.tune).
+# Send opens a prefilled new GitHub issue (public). The morning routine reads open ones (docs/routine.md).
+# Later: a no-login endpoint (e.g. a Google Form's formResponse URL) so readers don't need GitHub.
 requests:
   repo: chrisjamesmedia/MediaBot
   label: edition-request

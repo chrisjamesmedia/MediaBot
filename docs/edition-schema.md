@@ -16,13 +16,17 @@ a section that is missing or empty is left out of the paper.
   "sections": [ { "id": "front", "items": [ … ] }, … ],
   "requests": [                                                  // optional: edition-request issues answered today
     { "issue": 12, "title": "Edition request: robotics", "url": "https://github.com/chrisjamesmedia/MediaBot/issues/12",
-      "answer": "Tech & AI", "anchor": "x-tech" }                // answer: where it is; anchor: optional web jump link
-  ]
+      "answer": "Tech & AI", "anchor": "x-tech" }                // answer: what was done / where; anchor: optional web jump link
+  ],
+  "seconds": {                                                   // optional: hidden "One more helping" serving (web only)
+    "items": [ … ],                                              // written by tools/x_feed.py --write (next ranked feed posts)
+    "socials": [ … ]                                             // optional: up to web.seconds.socials Substack/YouTube items
+  }
 }
 ```
 
-`requests` is listed at the end of the paper ("Requests answered today", web and both PDFs). Only list
-real open issues, and only when the edition really covers them. The routine never closes or comments.
+`requests` is listed at the end of the paper ("Tuned from your notes", web and both PDFs). Only list
+real open issues, and only when the edition really acted on them. The routine never closes or comments.
 
 `sections[].id` must match a section `id` in `paper.yaml`. Order, titles, on/off and `max_items`
 come from `paper.yaml`, not from this file. Sections in the file that the config doesn't know are
@@ -149,3 +153,7 @@ error if any item in a public section has one of these keys: `shares`, `share_co
 `qty`, `value`, `market_value`, `position`, `position_size`, `cost_basis`, `avg_cost`,
 `weight_pct`, `allocation`, `pnl`, `gain`, `balance`. Never write holding values, share counts or
 position sizes into item text either.
+
+`seconds` items use the normal item shape. The build drops any that duplicate a URL already in the
+edition, caps them at `web.seconds.count` / `socials`, and runs the same public-safety check. They show
+only on the web, behind the "One more helping" button at the end of the X part.

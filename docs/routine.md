@@ -8,14 +8,35 @@ Compile today's Signal Seeker (papers/signal-seeker/editions/<TODAY>/edition.jso
 docs/edition-schema.md). This paper replaces Chris's X feed. It is not a newspaper: no legacy-media
 news at the top.
 
-REQUESTS FIRST: with the cursor-github MCP tools (read-only), list OPEN issues in chrisjamesmedia/MediaBot
+TUNE FIRST: with the cursor-github MCP tools (read-only), list OPEN issues in chrisjamesmedia/MediaBot
 labelled edition-request (also catch open issues titled "Edition request:" in case the label didn't apply).
-Each one is a reader asking for more on a topic. Use them to steer today's X searches (user-X
-search_posts_all / search_posts_recent, last 7 days, read-only) and, where there is real material, put
-what you find in the matching section (or a short extra item in Worth Your Time). Never invent coverage to
-satisfy a request; if X has nothing good, say nothing. Record what you answered in edition.json
-"requests" (see docs/edition-schema.md) so the paper lists them at the end. Do NOT close, label or comment
-on issues (those are writes; Chris tidies them). Ignore requests for private, political or cut topics.
+They come from the "Tune tomorrow's paper" box at the end of the web edition. Body format:
+    Edition: 2026-11-01
+    Picked:
+    - More AI infrastructure
+    - Shorter paper
+    Anything else:
+    More on humanoid robots actually shipping
+Parse the "- " lines under "Picked:" (ignore "(none)"; an older "- [x] label" form means the same) and the
+free text under "Anything else:" (ignore "(nothing)"; stop at the "---" line). Options are labels from
+paper.yaml web.tune (options + fixed). Act on them for TODAY's edition, newest issue wins on a conflict:
+- "More <section>" (More investing, More long reads, More from Substack, More YouTube summaries, More
+  science & health, More comics & puzzles, More on my holdings, More from the GOATs): fill that section
+  to its max_items, and run one or two extra read-only X searches for it if it is thin.
+- "Fewer <thing>" (Fewer market posts, Fewer headlines): keep that section/part to about half its usual
+  count, the strongest items only.
+- "More AI infrastructure": 2-3 extra read-only X searches (user-X search_posts_recent, last 7 days) on
+  GPUs, data centers, power, neoclouds; put real finds in Tech & AI or Investments.
+- "Shorter paper": build size small (fewer items everywhere, front 2-3). "More new voices": prefer
+  well-engaged accounts that are NOT already in his lists/GOATs for From Your X and the feed vetoes.
+- Free text: treat as a topic ask. Steer today's X searches (user-X search_posts_all / search_posts_recent,
+  last 7 days, read-only) and, where there is real material, put it in the matching section (or a short
+  extra item in Worth Your Time).
+Never invent coverage to satisfy a request; if X has nothing good, say nothing. Record each issue you
+acted on in edition.json "requests" (see docs/edition-schema.md) with "answer" saying what you did
+(e.g. "More AI infrastructure: 2 extra posts in Tech & AI; Shorter paper: small build"), and list the
+same in your run notes. Do NOT close, label or comment on issues (those are writes; Chris tidies them).
+Ignore requests for private, political or cut topics.
 
 ORDER (paper.yaml sets it; fill these sections):
 1. front "Front Page": 2–4 items, X ONLY. The lead must be an X post or a story whose sources are all
@@ -35,8 +56,14 @@ ORDER (paper.yaml sets it; fill these sections):
       replies, ads/promos, short memes, cut topics (skip_words), posts already in the edition, and reposts
       of strangers that only one person he follows shared. It prints the pick and the next in line.
    c. Read the pick. Veto anything off-topic, promotional, political or low-substance with
-      --skip <id,id> (the next in line moves up). Then run it again with --write; it writes section "feed"
-      after "front". Do this AFTER filling the other X sections so it de-dupes against them.
+      --skip <id,id> (the next in line moves up). It also prints "One more helping": the next
+      paper.yaml web.seconds.count posts (same filters, de-duped). Read and veto those too, with the same
+      --skip list. Then run it again with --write; it writes section "feed" after "front" and
+      edition.json "seconds".items (the hidden "One more helping" serving at the end of the web X part).
+      Do this AFTER filling the other X sections so it de-dupes against them.
+   c2. Optional: if Substack/YouTube are connected and there are good new items that did NOT make
+      Worth Reading / Worth Your Time, put up to web.seconds.socials of them in edition.json
+      "seconds".socials (same item shape, real URLs only). x_feed --write keeps that list.
    d. If the timeline can't be read, leave the section out and say so in your run notes.
 2. From Your X / The GOATs / Investments / Tech & AI: posts from his X timeline and lists.
 3. Substack and YouTube: Worth Reading, plus new episodes and essays from the people he follows.

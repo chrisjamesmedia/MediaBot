@@ -33,13 +33,12 @@
   var ok = document.querySelector(".saved");
   function flash(msg) { if (!ok) return; ok.textContent = msg; setTimeout(function () { ok.textContent = ""; }, 2200); }
 
-  var form = document.getElementById("feedback");
+  // The "Anything else" box in "Tune tomorrow's paper" doubles as this edition's note in the exported feedback.
+  var form = document.getElementById("tune");
   if (form) {
     var ta = form.querySelector("textarea");
     ta.value = state.note || "";
-    form.addEventListener("submit", function (e) {
-      e.preventDefault(); state.note = ta.value.trim(); save(); flash("Saved");
-    });
+    ta.addEventListener("change", function () { state.note = ta.value.trim(); save(); });
   }
 
   function describe(id) {
@@ -70,21 +69,40 @@
   });
 })();
 
-// "Request for the next edition": compose a prefilled GitHub issue (title/body/labels) and open it in a new tab.
-// Without JS the form still works: it submits title/body/labels/template as plain GET params.
+// "Tune tomorrow's paper": compose a prefilled GitHub issue (checked chips + free text) and open it in a new tab.
+// The body is plain lines so the morning routine can parse it (docs/routine.md). Without JS the form still
+// submits the free text as the issue body.
 (function () {
-  var f = document.getElementById('request');
+  var f = document.getElementById('tune');
   if (!f) return;
   f.addEventListener('submit', function (e) {
-    var topic = f.elements.title.value.trim(), details = f.elements.body.value.trim();
-    if (!topic) return;
     e.preventDefault();
-    var body = 'Topic: ' + topic + '\n\n' + (details || '(no details)') + '\n\n---\nFrom: ' + f.dataset.paper +
-               ', edition ' + f.dataset.edition + (f.dataset.url ? ' (' + f.dataset.url + ')' : '') +
-               '\nRequests are public. The next morning edition reads open edition-request issues.';
-    var q = 'title=' + encodeURIComponent('Edition request: ' + topic) + '&body=' + encodeURIComponent(body) +
+    var picks = [].map.call(f.querySelectorAll('.chips input:checked'), function (c) { return c.value; });
+    var text = f.elements.body.value.trim();
+    if (!picks.length && !text) { f.elements.body.focus(); return; }
+    var body = 'Edition: ' + f.dataset.edition + '\n\nPicked:\n' +
+               (picks.length ? picks.map(function (p) { return '- ' + p; }).join('\n') : '- (none)') +
+               '\n\nAnything else:\n' + (text || '(nothing)') +
+               '\n\n---\nFrom: ' + f.dataset.paper + (f.dataset.url ? ' (' + f.dataset.url + ')' : '') +
+               '\nTune notes are public. The next morning edition reads open edition-request issues.';
+    var title = 'Edition request: tune ' + f.dataset.edition + (picks.length ? ' (' + picks.join(', ') + ')' : '');
+    if (title.length > 120) title = title.slice(0, 117) + '…';
+    var q = 'title=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(body) +
             '&labels=' + encodeURIComponent(f.elements.labels.value) +
             (f.elements.template ? '&template=' + encodeURIComponent(f.elements.template.value) : '');
     window.open(f.action + '?' + q, '_blank', 'noopener');
   });
+})();
+
+// "One more helping": reveal the pre-built extra serving once. The button goes away; nothing else loads.
+(function () {
+  var box = document.getElementById('seconds');
+  if (!box) return;
+  var btn = box.querySelector('.more-btn'), body = document.getElementById('seconds-body');
+  function reveal(scroll) {
+    body.hidden = false; btn.remove();
+    var h = body.querySelector('h3'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: !scroll }); }
+  }
+  btn.addEventListener('click', function () { reveal(false); });
+  if (location.hash === '#seconds-body') reveal(true);  // deep link straight to the extra serving
 })();

@@ -27,7 +27,7 @@ docs/edition-schema.md      the edition.json format
 docs/feedback.md            the feedback format and the sign-in plan
 tools/migrate_legacy.py     one-off: the old Oct 31 file into schema 1
 tools/x_feed.py             "Top of your feed": rank saved home-timeline pages by engagement into section feed
-.github/ISSUE_TEMPLATE/     edition-request.md: the form behind "Request for the next edition"
+.github/ISSUE_TEMPLATE/     edition-request.md: the issue form behind "Tune tomorrow's paper"
 tools/screenshots.sh        headless screenshots of the local site
 tools/publish.sh            the daily publish: build, index, secret scan, commit, push
 tools/secret_scan.sh        fails on tokens, keys, cookies or raw dumps in files to be committed
@@ -111,12 +111,19 @@ anyone with the URL can still open it (see docs/feedback.md, "Sign-in later").
   count gets one blank back so it duplexes cleanly. Web and digital PDF use a warm paper tone.
 - **Quoted posts:** drawn as a small inset when edition.json carries `quoted` (tools/x_quoted.py).
 - **Top of your feed:** the 8 most-engaged posts from Chris's home timeline over the last 24 hours
-  (`tools/x_feed.py`, tuned in `sources.x.home_feed`; steps in docs/routine.md). A fixed handful, no
-  "load more": the X API has no For You feed, so this ranks the reverse-chronological home timeline.
-- **Request for the next edition:** a box at the end of the web edition (`web.request_box`, repo and
-  label in site.yaml `requests`). Submit opens a prefilled, public GitHub issue labelled
-  `edition-request`; the next morning's routine reads open ones and lists what it answered. The
-  digital PDF has one line pointing to the box; the print edition has none.
+  (`tools/x_feed.py`, tuned in `sources.x.home_feed`; steps in docs/routine.md). A fixed handful plus one
+  "One more helping" pull: the X API has no For You feed, so this ranks the reverse-chronological home timeline.
+- **One more helping:** one button at the end of the web X part reveals a pre-built extra serving: the
+  next 8 ranked feed posts (same filters and vetoes, de-duped) plus up to 3 Substack/YouTube items when
+  those are connected. One pull, then "That's all for today — see you tomorrow." Static (no fetching);
+  not in either PDF. `web.seconds` in paper.yaml (enabled, count, socials); data in edition.json `seconds`.
+- **Tune tomorrow's paper:** a box at the end of the web edition (`web.tune` in paper.yaml) with 6-8
+  more-of / less-of chips chosen from what is in today's edition (each option names a section, part or
+  keywords that must be present) plus fixed ones, and one free-text field. Send opens a prefilled,
+  public GitHub issue labelled `edition-request` (repo and label in site.yaml `requests`); the next
+  morning's routine parses the picks and text, adjusts the edition and lists what it acted on. Needs a
+  GitHub account for now; a no-sign-in form (e.g. Google Form) is the planned replacement. The digital
+  PDF has one line pointing to the box; the print edition has none.
 - **Reader feedback:** stored per browser, with an exported JSON file (docs/feedback.md). There are
   no accounts yet.
 
