@@ -27,6 +27,12 @@ paper.yaml web.tune (options + fixed). Act on them for TODAY's edition, newest i
   count, the strongest items only.
 - "More AI infrastructure": 2-3 extra read-only X searches (user-X search_posts_recent, last 7 days) on
   GPUs, data centers, power, neoclouds; put real finds in Tech & AI or Investments.
+- "Keep: today's passage" / "Never again: today's passage": look up the "Edition:" date's passage in
+  papers/signal-seeker/passages_seen.json (the id whose date is that edition) and append
+  {"id", "author", "kind", "edition"} (author/kind from passages.json, or quote_bank.json for bank-* ids)
+  to "keep" or "never" in papers/signal-seeker/taste.json. Never-ids are never picked again; that
+  author is picked a third as often; kept authors three times as often (tools/passage.py reads it).
+  Commit taste.json. If both were ticked, "never" wins.
 - "Shorter paper": build size small (fewer items everywhere, front 2-3). "More new voices": prefer
   well-engaged accounts that are NOT already in his lists/GOATs for From Your X and the feed vetoes.
 - Free text: treat as a topic ask. Steer today's X searches (user-X search_posts_all / search_posts_recent,
@@ -82,7 +88,35 @@ ORDER (paper.yaml sets it; fill these sections):
    Tag such items with "topic" (e.g. ["war","oil"]) so the build cuts them. Set "major": true ONLY if it is
    genuinely huge (a war starting or ending, a market crash or circuit breaker, a once-a-decade event);
    "major" bypasses the cut.
-6. Funnies: run tools/funnies.py signal-seeker <TODAY>.
+6. Funnies (Sundays): run tools/funnies.py signal-seeker <TODAY> AFTER sections 1-5 are final: the
+   word search takes its words only from headlines/titles that survive the build's cuts.
+7. The Passage: run tools/passage.py signal-seeker <TODAY>. One item a day, never repeated
+   (passages_seen.json), skipping taste.json "never" picks. Weekly rotation by weekday:
+     Sun, Thu  the Bible (about 2 a week; KJV, less-worn passages, cited book chapter:verse + translation)
+     Tue, Sat  "From your old quote bank" throwback (+ Mon on even ISO weeks: 2-3 a week)
+     Wed       another ancient text (Tao Te Ching, Marcus Aurelius, Epictetus) on odd ISO weeks only;
+               otherwise a writer
+     Fri       a Tim Ferriss 5-Bullet Friday pick
+     Mon (odd weeks)  a writer: Feynman, Whitman, Jed McKenna, Paul Millerd, Joe Hudson (Art of
+               Accomplishment), Seneca/Montaigne deep cuts, Mary Oliver, Wendell Berry, founder letters
+   An empty pool falls through to writers, then anything unseen.
+   Pools: papers/signal-seeker/passages.json (committed; every item verified: text exactly as on its
+   source_url, which you fetched, and which prints with it) and papers/signal-seeker/quote_bank.json
+   (LOCAL ONLY, gitignored: Chris's old quote bank, extracted read-only from his Google Docs; it holds doc
+   titles/ids, which never go in the paper; only text + author print, labelled "From your old quote
+   bank"). If quote_bank.json is missing (a fresh checkout), bank days fall back to writers.
+   ADDING to passages.json (when it runs low; check the count of ids not yet in passages_seen.json):
+   fetch the source page, copy the text exactly, and set source_url to that page. Never invent or
+   paraphrase a quote, an attribution or a URL; no quote-poster sites (Goodreads, BrainyQuote, AZ Quotes)
+   and no clichés (no Gandhi, no over-used Einstein/Churchill/Rumi). Bible: public-domain text (KJV,
+   WEB or ASV) from a Bible Gateway or eBible page you fetched, "ref" = book chapter:verse, "translation".
+   Ancient texts: a public-domain translation (Project Gutenberg), checked against the text. In-copyright
+   poems and books: a few lines only; public-domain works can run longer. Lean on the Bible more than
+   other ancient texts.
+8. Games: run tools/games.py signal-seeker <TODAY>. Mental math (3, rising; the last a Fermi estimate),
+   a Wason four-card task with its explanation, a 5x5 mini crossword (real words, WordNet clues, checked
+   to read back from the grid) and a classic riddle. All generated and checked; answers sit behind "Show
+   answer" on the web and on the last page ("Answers") in print. Never write puzzle content by hand.
 
 WEATHER: the --weather flag (below) makes the build fetch Boston from Open-Meteo (current temperature and
 condition, today's daily max/min as High/Low, tomorrow's condition and high/low). Don't type weather
@@ -96,5 +130,7 @@ BUILD AND PUBLISH: tools/publish.sh signal-seeker <TODAY> --weather. The public 
 site/signal-seeker/latest/ (print.pdf, digital.pdf, latest.json, and a redirect to today's edition),
 which the scheduled printer job (tools/print-daily/) fetches, and it adds new evergreen URLs to
 evergreen_seen.json. Read the build output: it lists every cut item and the page count (print must be
-even, with "Sheet N of M" footers). Commit evergreen_seen.json with the edition.
+even, with "Sheet N of M" footers). Commit evergreen_seen.json, passages_seen.json and taste.json with
+the edition (never quote_bank.json: it is gitignored and must stay private). The public build refuses
+any item carrying quote-bank doc refs (source_doc_title / source_doc_id).
 ```

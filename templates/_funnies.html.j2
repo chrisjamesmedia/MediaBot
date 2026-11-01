@@ -1,4 +1,6 @@
-{#- Funnies: comics (real feeds only, credited and linked) and generated puzzles. Shared by web and PDFs. -#}
+{#- Funnies: comics (real feeds only, credited and linked) and generated puzzles; Games (tools/games.py); The Passage
+    (tools/passage.py). Shared by web and PDFs. Answers: web = "Show answer" toggles; print/digital = answers() block
+    at the very end of the paper. -#}
 {% macro grid(rows, cls, sudoku=false) -%}
 <div class="{{ cls }}" style="--n:{{ rows[0]|length }}">{% for row in rows %}{% set r = loop.index0 %}{% for ch in row %}<span class="{% if sudoku %}{{ 'bt ' if r and r % 3 == 0 }}{{ 'bl' if loop.index0 and loop.index0 % 3 == 0 }}{% endif %}">{{ '' if ch == '.' else ch }}</span>{% endfor %}{% endfor %}</div>
 {%- endmacro %}
@@ -21,8 +23,68 @@
   </div>
   {% endfor %}
 </div>
-{% if mode == 'web' %}<details class="sols"><summary>Solutions</summary>{% else %}<div class="sols">{% endif %}
+{% if mode == 'web' %}<details class="sols"><summary>Show answers</summary>
   {% for p in pz %}<div class="sol"><span>{{ p.title }}</span>{{ grid(p.solution, 'sudoku' if p.type == 'sudoku' else 'ws', p.type == 'sudoku') }}</div>{% endfor %}
-{% if mode == 'web' %}</details>{% else %}</div>{% endif %}
+</details>{% endif %}
 {% endif %}
+{%- endmacro %}
+
+{% macro cwgrid(p, solved=false) -%}
+<div class="cw" style="--n:{{ p.size }}">{% for row in p.cells %}{% set r = loop.index0 %}{% for c in row %}{% if c.b %}<span class="blk"></span>{% else %}<span>{% if c.n %}<i>{{ c.n }}</i>{% endif %}{% if solved %}{{ p.solution[r][loop.index0] }}{% endif %}</span>{% endif %}{% endfor %}{% endfor %}</div>
+{%- endmacro %}
+
+{% macro answer(g) -%}
+{% if g.type == 'mathq' %}<ol class="ga">{% for q in g.problems %}<li><b>{{ q.a }}</b> <span class="how">{{ q.how }}</span></li>{% endfor %}</ol>
+{% elif g.type == 'wason' %}<p class="ga"><b>Turn {{ g.answer }}.</b> {{ g.explanation }}</p>
+{% elif g.type == 'crossword' %}<div class="ga cwa">{{ cwgrid(g, true) }}</div>
+{% elif g.type == 'riddle' %}<p class="ga"><b>{{ g.a }}</b></p>
+{% endif %}
+{%- endmacro %}
+
+{% macro games(sec, mode) -%}
+<div class="games">
+{% for g in sec['items'] %}
+<div class="game g-{{ g.type }}" id="{{ g.id }}">
+  <h4>{{ g.title }}</h4>
+  {% if g.type == 'mathq' %}
+  <ol class="mq">{% for q in g.problems %}<li>{{ q.q }}{% if not q.q.startswith('Fermi') %} = ?{% endif %}</li>{% endfor %}</ol>
+  {% elif g.type == 'wason' %}
+  <p class="wr">{{ g.rule }}</p>
+  <div class="cards">{% for c in g.cards %}<span class="card">{{ c }}</span>{% endfor %}</div>
+  <p class="gq">Each card has one thing on each side. Which cards must you turn over to check the rule?</p>
+  {% elif g.type == 'crossword' %}
+  <div class="cwwrap">{{ cwgrid(g) }}
+  <div class="clues">{% for k in ['across', 'down'] %}<div><b>{{ k | capitalize }}</b>{% for c in g.clues[k] %}<p><i>{{ c.n }}</i> {{ c.clue }} ({{ c.len }})</p>{% endfor %}</div>{% endfor %}</div></div>
+  {% elif g.type == 'riddle' %}
+  <p class="rq">{{ g.q }}</p>
+  {% endif %}
+  {% if mode == 'web' %}<details class="show"><summary>Show answer</summary>{{ answer(g) }}</details>{% endif %}
+</div>
+{% endfor %}
+</div>
+{%- endmacro %}
+
+{#- Print and digital: every answer on the last page. -#}
+{% macro answers(sections) -%}
+{% set fun = sections | selectattr('id', 'equalto', 'funnies') | first %}
+{% set gm = sections | selectattr('id', 'equalto', 'games') | first %}
+{% set pz = (fun['items'] if fun else []) | selectattr('type', 'in', ['sudoku', 'wordsearch']) | list %}
+{% if gm or pz %}
+<section class="answers" id="answers">
+  <h2 class="parth">Answers</h2>
+  <div class="ans">
+  {% if gm %}{% for g in gm['items'] %}<div class="an"><h4>{{ g.title }}</h4>{{ answer(g) }}</div>{% endfor %}{% endif %}
+  {% for p in pz %}<div class="an pzs"><h4>{{ p.title }}</h4>{{ grid(p.solution, 'sudoku' if p.type == 'sudoku' else 'ws', p.type == 'sudoku') }}</div>{% endfor %}
+  </div>
+</section>
+{% endif %}
+{%- endmacro %}
+
+{% macro passage(it, mode) -%}
+<figure class="passage" id="{{ it.id }}" data-id="{{ it.id }}">
+  {% if it.label %}<p class="pk">{{ it.label }}</p>{% endif %}
+  <blockquote class="pt{% if '\n' in it.text %} verse{% endif %}">{{ it.text }}</blockquote>
+  <figcaption>— {{ it.author }}{% if it.work %}, <cite>{{ it.work }}</cite>{% endif %}{% if it.translation %} ({{ it.translation }}){% endif %}
+  {% if it.source_url %}<span class="purl">{% if mode == 'print' %}{{ it.source_url | replace('https://', '') }}{% else %}<a href="{{ it.source_url }}" target="_blank" rel="noopener">{{ it.source_url | host }}</a>{% endif %}</span>{% endif %}</figcaption>
+</figure>
 {%- endmacro %}

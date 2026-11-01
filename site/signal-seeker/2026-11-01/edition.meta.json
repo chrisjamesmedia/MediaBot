@@ -3,8 +3,8 @@
  "date_long": "Sunday, November 1, 2026",
  "lead": "Big Tech is now competing with the Treasury for capital",
  "pages": {
-  "print": 8,
-  "digital": 8
+  "print": 10,
+  "digital": 10
  },
  "pdfs": {
   "print": "signal-seeker-2026-11-01-print.pdf",
@@ -22,8 +22,10 @@
   "Worth Reading",
   "Evergreen",
   "Worth Your Time",
-  "Funnies"
+  "Funnies",
+  "The Passage",
+  "Games"
  ],
  "recipe": null,
- "built_at": "2026-11-01T22:07:41+00:00"
+ "built_at": "2026-11-01T22:47:15+00:00"
 }

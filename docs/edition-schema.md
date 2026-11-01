@@ -89,9 +89,40 @@ the News and topic cuts, so a link whose twin story was cut stays).
 { "type": "wordsearch", "id": "ws-2026-11-01", "title": "Word Search", "grid": ["KBNT…", …], "words": ["…"], "solution": ["K..T…", …] }
 ```
 Comics come only from real feeds (xkcd RSS today), credited and linked; never invented. Puzzles are
-generated and checked (the sudoku has exactly one solution). Solutions print small and upside down;
-on the web they sit behind "Solutions". No crossword: good clues can't be generated without making
-things up.
+generated and checked (the sudoku has exactly one solution; word-search words come only from headlines
+and titles that survive the build's cuts, via `build.surviving_sections`). Solutions: on the web behind
+"Show answers"; in print and the digital PDF in the Answers block on the last page.
+
+### games (`games` section, daily; `tools/games.py <slug> <date>` writes it)
+```json
+{ "type": "mathq", "id": "mathq-2026-11-01", "title": "Mental Math",
+  "problems": [{ "q": "24 × 8", "a": "192", "how": "24 × 8 = 20 × 8 + 4 × 8 = 192" }, …] }   // 3, rising; last = Fermi
+{ "type": "wason", "id": "wason-…", "title": "Four Cards", "rule": "If a card is red on one side, …",
+  "cards": ["Triangle", "Red", "Circle", "Green"], "answer": "Red and Triangle", "explanation": "…" }
+{ "type": "crossword", "id": "crossword-…", "title": "Mini Crossword", "size": 5,
+  "cells": [[{"b": true}, {"n": 1}, {"n": 2}, …], …], "solution": ["#RIB#", "RIVAL", …],
+  "clues": { "across": [{ "n": 1, "clue": "A teasing remark", "len": 3, "answer": "RIB" }, …], "down": [ … ] } }
+{ "type": "riddle", "id": "riddle-…", "title": "Riddle", "q": "What has many teeth but can't bite?", "a": "A comb." }
+```
+Crossword words and clues come from `tools/data/crossword_words.json` (common English words that are
+WordNet lemmas, each with its WordNet gloss; rebuilt by `tools/build_crossword_words.py`); every entry is
+checked to be a listed word and to read back from the grid. Web: each game has a "Show answer" toggle.
+Print: an Answers page closes the paper (after any blank pad page, so it is always the last page).
+Games and the passage are never trimmed for length.
+
+### passage (`passage` section, daily; `tools/passage.py <slug> <date>` writes it)
+```json
+{ "type": "passage", "id": "bible-lam-3-22", "kind": "scripture", "label": "Scripture",
+  "text": "It is of the LORD's mercies …", "author": "The Bible", "work": "Lamentations 3:22–23", "translation": "KJV",
+  "source_url": "https://www.biblegateway.com/passage/?search=Lamentations+3%3A22-23&version=KJV",
+  "sources": [{ "name": "biblegateway.com", "url": "…" }] }
+{ "type": "passage", "id": "bank-032", "kind": "quote", "label": "From your old quote bank", "text": "…", "author": "…" }
+```
+Pools: `papers/<slug>/passages.json` (verified: text exactly as on the fetched `source_url`; fields id, text,
+author, work, source_url, kind, category, verified, plus ref/translation for scripture) and
+`papers/<slug>/quote_bank.json` (local only, gitignored; doc titles/ids never leave it). The source URL
+prints under every non-bank passage. `passages_seen.json` (id → date) keeps anything from repeating;
+`taste.json` holds the "Keep / Never again: today's passage" picks.
 
 ### evergreen (`evergreen` section): long-form from Chris's own X
 ```json
