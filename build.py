@@ -398,6 +398,47 @@ def by_source(sections):
     return [{"id": k, "title": t, "anchor": k, "subs": parts[k]} for k, t in SOURCES if k in parts]
 
 
+def tune_options(paper, sections):
+    """"Tune tomorrow's paper" chips for this edition: an option shows when its section is in the edition, its part
+    (x, news, ...) has items, or its words appear in 2+ items. Config order, then the fixed ones; at most max_options."""
+    cfg = (paper.get("web") or {}).get("tune") or {}
+    if not cfg.get("enabled"):
+        return []
+    fixed = list(cfg.get("fixed") or [])
+    room = max(int(cfg.get("max_options", 8)) - len(fixed), 0)
+    ids = {sec["id"] for sec in sections}
+    parts = {p["id"] for p in by_source(sections)}
+    texts = [" ".join(str(it.get(k) or "") for k in ("headline", "summary", "text", "title")).lower()
+             for sec in sections for it in sec["items"]]
+    out = []
+    for o in cfg.get("options") or []:
+        hit = (o.get("section") in ids) or (o.get("part") in parts)
+        if not hit and o.get("words"):
+            pats = [re.escape(w[:-1]) + r"\w*" if w.endswith("*") else re.escape(w) + r"(?:s|es)?\b" for w in o["words"]]
+            rx = re.compile(r"\b(" + "|".join(pats) + r")", re.I)
+            hit = sum(1 for t in texts if rx.search(t)) >= 2
+        if hit and o["label"] not in out:
+            out.append(o["label"])
+    return out[:room] + [f for f in fixed if f not in out]
+
+
+def seconds_items(paper, ed, sections):
+    """"One more helping": the pre-built extra serving (edition.json "seconds"), web only. Deduped against the paper."""
+    cfg = (paper.get("web") or {}).get("seconds") or {}
+    sec = ed.get("seconds") or {}
+    if not cfg.get("enabled") or not sec:
+        return []
+    seen = set().union(*(item_urls(it) for s in sections for it in s["items"])) if sections else set()
+    posts = [it for it in sec.get("items") or [] if not (item_urls(it) & seen)][:int(cfg.get("count", 8))]
+    socials = [it for it in sec.get("socials") or [] if not (item_urls(it) & seen)][:int(cfg.get("socials", 3))]
+    out = posts + socials
+    for it in out:
+        if it.get("date"):
+            dt = datetime.datetime.fromisoformat(it["date"].replace("Z", "+00:00")).astimezone()
+            it["date_short"] = dt.strftime("%b %-d")
+    return out
+
+
 def toc_entries(sections, parts):
     """Every anchor the contents block links to, in reading order."""
     out = [{"anchor": "front", "title": s["title"]} for s in sections if s["id"] == "front"]
@@ -602,7 +643,7 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
     if not sections:
         sys.exit("  edition has no content in enabled sections")
     if not private:
-        check_public(sections)
+        check_public(sections + [{"id": "seconds", "items": (ed.get("seconds") or {}).get("items", []) + (ed.get("seconds") or {}).get("socials", [])}])
     out = site_dir / slug / "custom" / rc["slug"] / date if rc else site_dir / slug / date
     if out.exists(): shutil.rmtree(out)
     (out / "images").mkdir(parents=True)
@@ -619,6 +660,7 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
                     print(f"  ! missing image {src}"); it.pop("image")
 
     base = "" if private else public_base(site_cfg.get("web_base", ""))
+    tune = [] if rc else tune_options(paper, sections)
     url_path = f"/{slug}/custom/{rc['slug']}/{date}/" if rc else f"/{slug}/{date}/"
     stem = f"{slug}-{rc['slug']}-{date}" if rc else f"{slug}-{date}"
     pdfs = {"print": f"{stem}-print.pdf", "digital": f"{stem}-digital.pdf"}
@@ -628,7 +670,8 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
                note=rc["name"] if rc else ed.get("note", ""), coverage=ed.get("coverage", ""), weather=weather(paper, ed_dir, refresh_weather),
                base=base, url_path=url_path, pdfs=pdfs,
                answered=[] if rc else ed.get("requests") or [],
-               request_box=None if rc or private or not (paper.get("web") or {}).get("request_box") else site_cfg.get("requests"),
+               request_box=None if rc or private or not tune else site_cfg.get("requests"),
+               tune=tune, seconds=[] if rc else seconds_items(paper, ed, sections),
                title=f"{paper['name']} · {d.strftime('%B %-d, %Y')}: {lead_title or (rc or {}).get('name', '')}",
                noindex=bool(rc), home="../../../" if rc else "../", edition_key=f"{date}~{rc['slug']}" if rc else date,
                description=ed.get("description") or describe(paper, sections, date_long))

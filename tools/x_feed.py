@@ -14,7 +14,9 @@ the algorithmic For You feed is not in the API), one file per page, saved outsid
 and follow meta.next_token until it is absent or the posts are older than the window.
 
 Config (paper.yaml): the `feed` section's `enabled` and `max_items` (the count), and `sources.x.home_feed`
-(window_hours, per_author, min_chars, skip_words). Nothing is invented: every item is a real post from the dump,
+(window_hours, per_author, min_chars, skip_words). With `web.seconds` on, the next `web.seconds.count` posts in
+the same ranking (same filters, one per author across both) go to edition.json "seconds", the web edition's
+one-time "One more helping". Nothing is invented: every item is a real post from the dump,
 with its full text and real x.com URL. Read-only: this only reads files.
 """
 import json, math, re, sys, datetime
@@ -70,6 +72,8 @@ def main(argv):
     if not sec_cfg or not sec_cfg.get("enabled", True):
         sys.exit("feed section is off in paper.yaml; nothing to do")
     count = int(sec_cfg.get("max_items") or 8)
+    sc = (paper.get("web") or {}).get("seconds") or {}
+    extra = int(sc.get("count", 8)) if sc.get("enabled") else 0   # "One more helping": the next posts in line
     xs = (paper.get("sources") or {}).get("x") or {}
     hf = xs.get("home_feed") or {}
     window = float(hf.get("window_hours", 24))
@@ -171,12 +175,12 @@ def main(argv):
         if per.get(a, 0) >= per_author: continue
         per[a] = per.get(a, 0) + 1
         pick.append((score, pid, t, net))
-        if len(pick) >= count: break
+        if len(pick) >= count + extra: break
+    pick, more = pick[:count], pick[count:]
 
-    items = []
-    for score, pid, t, net in pick:
+    def to_item(score, pid, t, net, prefix="feed"):
         u = users[t["author_id"]]
-        it = {"type": "post", "id": f"feed-{pid}", "author": u.get("name") or u["username"], "handle": u["username"],
+        it = {"type": "post", "id": f"{prefix}-{pid}", "author": u.get("name") or u["username"], "handle": u["username"],
               "text": clip(full_text(t), max_chars), "url": f"https://x.com/{u['username']}/status/{pid}",
               "date": ts(t["created_at"]).strftime("%Y-%m-%dT%H:%M:%SZ")}
         q = next((r["id"] for r in t.get("referenced_tweets") or [] if r["type"] == "quoted"), None)
@@ -184,7 +188,9 @@ def main(argv):
             qu = users[posts[q]["author_id"]]
             it["quoted"] = {"author": qu.get("name") or qu["username"], "handle": qu["username"],
                             "text": clip(full_text(posts[q]), max_chars // 2), "url": f"https://x.com/{qu['username']}/status/{q}"}
-        items.append(it)
+        return it
+    items = [to_item(*p) for p in pick]
+    more_items = [to_item(*p, prefix="more") for p in more]
 
     from collections import Counter
     print(f"home timeline: {seen_rows} rows, {len(cands)} candidate posts, window {start:%Y-%m-%d %H:%M}Z → {newest:%Y-%m-%d %H:%M}Z")
@@ -192,14 +198,22 @@ def main(argv):
     print(f"\nTop of your feed ({len(items)} of {count}):")
     for (score, pid, t, net), it in zip(pick, items):
         print(f"  {score:5.2f}  @{it['handle']:<18} {' +%d reposts in feed' % net if net else ''}\n         {it['url']}\n         {' '.join(it['text'].split())[:150]}")
+    if extra:
+        print(f"\nOne more helping (seconds, {len(more_items)} of {extra}):")
+        for (score, pid, t, net), it in zip(more, more_items):
+            print(f"  {score:5.2f}  @{it['handle']:<18} {pid}\n         {' '.join(it['text'].split())[:150]}")
     print("\nnext in line (for --skip swaps):")
-    for score, pid, t, net in [s for s in scored if s[1] not in {p[1] for p in pick}][:8]:
+    taken = {p[1] for p in pick + more}
+    for score, pid, t, net in [s for s in scored if s[1] not in taken][:8]:
         print(f"  {score:5.2f}  @{handle(t):<18} {pid}  {' '.join(full_text(t).split())[:90]}")
     if write:
         ed["sections"] = [s for s in ed["sections"] if s["id"] != "feed"]
         ed["sections"].insert(min(1, len(ed["sections"])), {"id": "feed", "items": items})
+        if extra:   # web-only, hidden until the reader asks; keeps any socials extras the routine added
+            ed["seconds"] = dict(ed.get("seconds") or {}, items=more_items)
         ep.write_text(json.dumps(ed, indent=1, ensure_ascii=False) + "\n")
-        print(f"\nwrote {len(items)} items to {ep.relative_to(ROOT)} (section 'feed')")
+        print(f"\nwrote {len(items)} items to {ep.relative_to(ROOT)} (section 'feed')"
+              + (f" and {len(more_items)} to 'seconds'" if extra else ""))
 
 
 if __name__ == "__main__":

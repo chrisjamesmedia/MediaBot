@@ -1,11 +1,14 @@
 ---
-name: Request for the next edition
-about: Ask the next morning's paper to look for more on a topic. Requests are public.
+name: Tune tomorrow's paper
+about: Tell the next morning's paper what you want more or less of. Notes are public.
 title: "Edition request: "
 labels: edition-request
 ---
 
-Topic:
+Edition:
 
-What you'd like (more of, less of, a specific question):
+Picked:
+- 
+
+Anything else:
 

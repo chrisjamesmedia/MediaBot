@@ -206,7 +206,7 @@ p .src{margin-left:3pt}
   {% endif %}
 </section>
 {% endfor %}
-{% if answered %}<div class="answered"><b>Requests answered today:</b> {% for r in answered %}#{{ r.issue }} {{ r.title }}{% if r.answer %} → {{ r.answer }}{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}.</div>{% endif %}
-<div class="end">End of today’s paper.{% if coverage %}<span class="cov">{{ coverage }}{% if mode == 'print' %} Links are in the web edition.{% endif %}</span>{% endif %}{% if mode == 'digital' and request_box %}<span class="cov">Want more on a topic tomorrow? Use the “Request for the next edition” box at the end of the {% if base %}<a href="{{ base ~ url_path }}#request">web edition</a>{% else %}web edition{% endif %}.</span>{% endif %}</div>
+{% if answered %}<div class="answered"><b>Tuned from your notes:</b> {% for r in answered %}#{{ r.issue }} {{ r.title }}{% if r.answer %} → {{ r.answer }}{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}.</div>{% endif %}
+<div class="end">End of today’s paper.{% if coverage %}<span class="cov">{{ coverage }}{% if mode == 'print' %} Links are in the web edition.{% endif %}</span>{% endif %}{% if mode == 'digital' and request_box %}<span class="cov">Want more or less of something tomorrow? Tell us in “Tune tomorrow’s paper” at the end of the {% if base %}<a href="{{ base ~ url_path }}#tune">web edition</a>{% else %}web edition{% endif %}.</span>{% endif %}</div>
 {% if pad %}<div class="padpage"></div>{% endif %}
 </body></html>

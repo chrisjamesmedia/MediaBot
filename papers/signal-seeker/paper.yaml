@@ -33,7 +33,32 @@ sunday:                        # Sundays: the bigger paper, with Funnies (comics
 
 web:
   images: true                 # big lead image and opted-in photos on the web edition
-  request_box: true            # "Request for the next edition" box at the end (public GitHub issue; site.yaml `requests`)
+  # "Tune tomorrow's paper": a more-of / less-of block at the end of the web edition. Chips are picked per edition
+  # from what is in it (an option shows only when its section is in the edition, or its words appear in 2+ items),
+  # in this order, then the fixed ones; at most max_options. Send opens a prefilled GitHub issue (site.yaml `requests`).
+  tune:
+    enabled: true
+    max_options: 8
+    options:
+      - {label: More AI infrastructure, words: [gpu*, data center*, datacenter*, neocloud*, compute, hbm, inference, capex, hyperscaler*, optical]}
+      - {label: More investing,          section: investments}
+      - {label: Fewer market posts,      section: investments}
+      - {label: More long reads,         section: evergreen}
+      - {label: More from Substack,      section: substack}
+      - {label: More YouTube summaries,  section: youtube}
+      - {label: More science & health,   section: science}
+      - {label: More comics & puzzles,   section: funnies}
+      - {label: More on my holdings,     section: holdings}
+      - {label: More from the GOATs,     section: goats}
+      - {label: Fewer headlines,         part: news}
+    fixed: [Shorter paper, More new voices]
+  # "One more helping": one extra, pre-built serving at the end of the X part of the web edition, revealed once
+  # by a button. count = the next posts from the same home-feed ranking (tools/x_feed.py); socials = up to this
+  # many Substack/YouTube items the routine adds, only when those sources are connected. Never in the PDFs.
+  seconds:
+    enabled: true
+    count: 8
+    socials: 3
 
 # The edition reads by source, in this order: X → Substack/YouTube (when connected) → Evergreen →
 # Around the Web → News (small) → Funnies. Topic sections below nest inside those parts.
