@@ -7,5 +7,6 @@
   <h1 class="site">{{ site.name }}</h1>
   <p class="about">{{ site.about }}</p>
   {% if papers %}<ul class="papers">{% for p in papers %}<li><a href="{{ p.paper.slug }}/">{{ p.paper.name }}</a></li>{% endfor %}</ul>{% endif %}
+  <p class="endlinks"><a href="edit/">Make your own edition</a></p>
 </main>
 {% endblock %}

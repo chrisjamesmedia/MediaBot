@@ -1,0 +1,18 @@
+# MediaBot recipe (docs/recipes.md). Build: .venv/bin/python build.py --recipe recipes/legacy-only.yaml <date>
+# Reported stories from news outlets; no X posts.
+preset: true
+recipe: 1
+name: Legacy media only
+paper: signal-seeker
+format: print
+size: medium
+pages: 6
+sections:
+  - {id: front, max_items: 5}
+  - {id: investments, max_items: 6, types: [story]}
+  - {id: tech, max_items: 6, types: [story]}
+  - {id: business, max_items: 3}
+  - {id: science, max_items: 5}
+  - {id: local, max_items: 4}
+  - {id: bigstuff, max_items: 5}
+accounts: []

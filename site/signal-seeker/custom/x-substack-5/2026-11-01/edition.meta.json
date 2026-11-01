@@ -1,0 +1,22 @@
+{
+ "date": "2026-11-01",
+ "date_long": "Sunday, November 1, 2026",
+ "lead": "",
+ "pages": {
+  "print": 4,
+  "digital": 4
+ },
+ "pdfs": {
+  "print": "signal-seeker-x-substack-5-2026-11-01-print.pdf",
+  "digital": "signal-seeker-x-substack-5-2026-11-01-digital.pdf"
+ },
+ "sections": [
+  "From Your X",
+  "The GOATs",
+  "Worth Reading",
+  "Investments",
+  "Tech & AI"
+ ],
+ "recipe": "X + Substack, 5 pages",
+ "built_at": "2026-11-01T15:27:00+00:00"
+}

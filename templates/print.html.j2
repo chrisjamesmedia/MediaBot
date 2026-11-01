@@ -9,13 +9,20 @@
 @font-face{font-family:"SG Serif";src:url({{ static }}/fonts/SourceSerifPro-Semibold.ttf);font-weight:600}
 @font-face{font-family:"SG Serif";src:url({{ static }}/fonts/SourceSerifPro-Bold.ttf);font-weight:700}
 @font-face{font-family:"SG Sans";src:url({{ static }}/fonts/LibreFranklin.ttf);font-weight:100 900}
-@page{size:Letter;margin:.5in .5in .55in;
-  @bottom-center{content:counter(page);font:400 7.5pt "SG Sans",sans-serif;color:#000}}
-@page:first{@bottom-center{content:counter(page)}}
+{% if mode == 'print' %}
+{#- Print: pure white, black ink, no fills. Footer names the duplex sheet and side; build.py pads to an even page count. #}
+@page{size:Letter;margin:.5in .5in .55in;background:#fff}
+@page :right{counter-increment:sheet;@bottom-center{content:"Sheet " counter(sheet) " of {{ sheets or 1 }} · Front";font:400 6.8pt "SG Sans",sans-serif;color:#000}}
+@page :left{@bottom-center{content:"Sheet " counter(sheet) " of {{ sheets or 1 }} · Back";font:400 6.8pt "SG Sans",sans-serif;color:#000}}
+{% else %}
+{#- Digital: soft warm paper, near-black warm ink. #}
+@page{size:Letter;margin:.5in .5in .55in;background:#f4ecdc;
+  @bottom-center{content:counter(page);font:400 7.5pt "SG Sans",sans-serif;color:#1c1914}}
+{% endif %}
 *{box-sizing:border-box}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-body{margin:0;color:#000;font:400 {{ pt }}pt/1.36 "SG Serif",Georgia,serif;hyphens:auto;orphans:2;widows:2}
-a{color:#000;text-decoration:none}
+body{margin:0;color:{{ '#000' if mode == 'print' else '#1c1914' }};background:{{ '#fff' if mode == 'print' else '#f4ecdc' }};font:400 {{ pt }}pt/1.36 "SG Serif",Georgia,serif;hyphens:auto;orphans:2;widows:2}
+a{color:inherit;text-decoration:none}
 .sans{font-family:"SG Sans",sans-serif}
 /* masthead */
 .mast{display:flex;align-items:flex-end;justify-content:space-between;gap:12pt;padding-bottom:4pt;border-bottom:.6pt solid #000}
@@ -64,8 +71,36 @@ p .src{margin-left:3pt}
 .wl b{font-weight:600}
 .end{text-align:center;margin-top:8pt;padding-top:5pt;border-top:1.6pt double #000;
   font:italic 400 {{ pt }}pt "SG Serif",serif;break-inside:avoid;break-before:avoid}
+/* quoted post inset */
+.qt{border:.5pt solid #000;border-radius:3pt;padding:2.5pt 4.5pt;margin:3pt 0 1pt;font:400 {{ pt - 1.4 }}pt/1.32 "SG Sans",sans-serif}
+.qt b{font-weight:700}
+.qt .h{color:#333}
+/* funnies: comics full width, puzzles in black line only */
+.funnies{column-span:all;break-before:auto}
+.comic{margin:0 0 8pt;break-inside:avoid;text-align:center}
+.comic img{max-width:100%;max-height:6.2in;filter:grayscale(1)}
+.comic figcaption{font:400 6.4pt/1.3 "SG Sans",sans-serif;color:#333;margin-top:2pt}
+.puzzles{display:flex;gap:.35in;justify-content:center;align-items:flex-start;break-inside:avoid}
+.pz h4{margin-top:0}
+.sudoku,.ws{display:grid;grid-template-columns:repeat(var(--n),var(--c));border:1.6pt solid #000;width:max-content}
+.sudoku{--c:17pt}.ws{--c:12.5pt}
+.sudoku span,.ws span{width:var(--c);height:var(--c);display:flex;align-items:center;justify-content:center;font:500 9pt/1 "SG Sans",sans-serif}
+.sudoku span{border-top:.4pt solid #000;border-left:.4pt solid #000}
+.sudoku span:nth-child(-n+9){border-top:0}.sudoku span:nth-child(9n+1){border-left:0}
+.sudoku span.bt{border-top-width:1.6pt}.sudoku span.bl{border-left-width:1.6pt}
+.ws{border-width:.6pt}.ws span{font-size:7.6pt;letter-spacing:0}
+.pzn{font:400 6.8pt/1.4 "SG Sans",sans-serif;max-width:150pt;margin:4pt 0 0}
+.sols{display:flex;gap:16pt;justify-content:center;margin-top:10pt;transform:rotate(180deg);break-inside:avoid}
+.sol span:first-child{display:block;font:400 5.5pt "SG Sans",sans-serif;margin-bottom:1pt}
+.sol .sudoku{--c:8pt}.sol .ws{--c:5.6pt}
+.sol .sudoku span{font-size:5.4pt}.sol .ws span{font-size:4.4pt}
+.sol .sudoku span{border-top-width:.25pt;border-left-width:.25pt}
+.sol .sudoku span.bt{border-top-width:.8pt}.sol .sudoku span.bl{border-left-width:.8pt}
+.sol .sudoku{border-width:.8pt}
+.padpage{break-before:page;height:1px}
 .end .cov{display:block;font:400 6.4pt/1.4 "SG Sans",sans-serif;font-style:normal;color:#333;margin-top:3pt}
 </style></head><body>
+{%- from "_funnies.html.j2" import funnies -%}
 {%- macro srcs(list) -%}
 <span class="src">{% for s in list %}{% if mode == 'digital' %}<a href="{{ s.url }}">{{ s.name }}</a>{% else %}{{ s.name }}{% endif %}{% if not loop.last %} · {% endif %}{% endfor %}</span>
 {%- endmacro -%}
@@ -73,6 +108,7 @@ p .src{margin-left:3pt}
 {% if it.type == 'post' %}
 <div class="post"><div class="hd"><span class="av">{{ it.author | initials }}</span><b>{{ it.author }}</b><span>@{{ it.handle }}{% if it.date_short %} · {{ it.date_short }}{% endif %}</span></div>
 <div class="tx">{{ it.text }}</div>
+{% if it.quoted %}{% set ex = it.quoted.text | excerpt %}<div class="qt"><b>{{ it.quoted.author }}</b> <span class="h">@{{ it.quoted.handle }}</span>{% if ex %}<br>{{ ex }}{% endif %}</div>{% endif %}
 <div class="u">{% if mode == 'digital' %}<a href="{{ it.url }}">{{ it.url | replace('https://', '') }}</a>{% else %}{{ it.url | replace('https://', '') }}{% endif %}</div></div>
 {% elif it.type == 'line' %}
 <p class="ln">{{ it.text | safe }} {{ srcs(it.sources) }}</p>
@@ -99,6 +135,8 @@ p .src{margin-left:3pt}
     <div class="wrapl">{% if mode == 'digital' and l.image %}<figure><img src="{{ l.image.abs }}" alt=""><figcaption>{{ l.image.credit }}</figcaption></figure>{% endif %}
     <p>{{ l.print_text }} {{ srcs(l.sources) }}</p></div></div>
   <section>{% for it in sec['items'][1:] %}{{ item(it) }}{% endfor %}</section>
+{% elif sec.id == 'funnies' %}
+  <section class="funnies"><h2>{{ sec.title }}</h2>{{ funnies(sec, mode) }}</section>
 {% elif sec.style == 'box' %}
   <section class="box"><h2>{{ sec.title }}</h2>{% for it in sec['items'] %}{{ item(it) }}{% endfor %}</section>
 {% else %}
@@ -110,4 +148,5 @@ p .src{margin-left:3pt}
 {% endfor %}
   <div class="end">End of today’s paper.{% if coverage %}<span class="cov">{{ coverage }}{% if mode == 'print' %} Links are in the web edition.{% endif %}</span>{% endif %}</div>
 </div>
+{% if pad %}<div class="padpage"></div>{% endif %}
 </body></html>

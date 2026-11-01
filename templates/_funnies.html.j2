@@ -1,0 +1,28 @@
+{#- Funnies: comics (real feeds only, credited and linked) and generated puzzles. Shared by web and PDFs. -#}
+{% macro grid(rows, cls, sudoku=false) -%}
+<div class="{{ cls }}" style="--n:{{ rows[0]|length }}">{% for row in rows %}{% set r = loop.index0 %}{% for ch in row %}<span class="{% if sudoku %}{{ 'bt ' if r and r % 3 == 0 }}{{ 'bl' if loop.index0 and loop.index0 % 3 == 0 }}{% endif %}">{{ '' if ch == '.' else ch }}</span>{% endfor %}{% endfor %}</div>
+{%- endmacro %}
+{% macro funnies(sec, mode) -%}
+{% set link = mode != 'print' %}
+{% for c in sec['items'] if c.type == 'comic' and c.image %}
+<figure class="comic">
+  <img src="{{ c.image.abs if mode in ('print', 'digital') else c.image.web }}" alt="{{ c.alt or c.title }}"{% if c.alt and link %} title="{{ c.alt }}"{% endif %}>
+  <figcaption>{% if link %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.title }}</a>{% else %}{{ c.title }}{% endif %} · {{ c.byline }}{% if mode == 'print' %} · {{ c.url | replace('https://', '') }}{% endif %}</figcaption>
+</figure>
+{% endfor %}
+{% set pz = sec['items'] | selectattr('type', 'in', ['sudoku', 'wordsearch']) | list %}
+{% if pz %}
+<div class="puzzles">
+  {% for p in pz %}
+  <div class="pz">
+    <h4>{{ p.title }}</h4>
+    {% if p.type == 'sudoku' %}{{ grid(p.grid, 'sudoku', true) }}
+    {% else %}{{ grid(p.grid, 'ws') }}<p class="pzn">{{ p.words | join(' · ') }}</p>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% if mode == 'web' %}<details class="sols"><summary>Solutions</summary>{% else %}<div class="sols">{% endif %}
+  {% for p in pz %}<div class="sol"><span>{{ p.title }}</span>{{ grid(p.solution, 'sudoku' if p.type == 'sudoku' else 'ws', p.type == 'sudoku') }}</div>{% endfor %}
+{% if mode == 'web' %}</details>{% else %}</div>{% endif %}
+{% endif %}
+{%- endmacro %}

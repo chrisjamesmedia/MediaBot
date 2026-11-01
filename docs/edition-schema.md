@@ -47,6 +47,12 @@ Every item has a unique `id` (used for reader feedback and anchors) and a `type`
   "image": { "file": "images/x-….jpg" },                       // optional, web only
   "group": "…" }                                               // optional
 ```
+Optional `"quoted": {"author", "handle", "text", "url"}` for a quote post, drawn as a small inset
+(name, @handle, ~140-char excerpt). It comes only from the X API `referenced_tweets` data; request
+`expansions=author_id,referenced_tweets.id,referenced_tweets.id.author_id` and
+`tweet.fields=created_at,note_tweet,referenced_tweets`, then run
+`.venv/bin/python tools/x_quoted.py <slug> <date> <raw dumps…>`. Never write a quote by hand.
+
 Posts can appear in any section (From Your X, The GOATs, Tech & AI…). Post dates can be read from
 the status id: `ms = (id >> 22) + 1288834974657`.
 
@@ -62,6 +68,18 @@ the status id: `ms = (id >> 22) + 1288834974657`.
 { "type": "link", "id": "w-1", "title": "…", "url": "…", "why": "One short clause." }
 ```
 Sections with `dedupe: true` drop links whose URL already appears earlier in the paper.
+
+### Funnies (`funnies` section; `tools/funnies.py <slug> <date>` writes it)
+```json
+{ "type": "comic", "id": "comic-xkcd-3318", "title": "xkcd: Earth Sized Planets", "byline": "Randall Munroe",
+  "url": "https://xkcd.com/3318/", "alt": "…", "image": { "file": "images/comic-xkcd-….png", "credit": "xkcd.com, CC BY-NC 2.5" } }
+{ "type": "sudoku", "id": "sudoku-2026-11-01", "title": "Sudoku", "grid": ["7...1...2", …], "solution": ["7…", …] }
+{ "type": "wordsearch", "id": "ws-2026-11-01", "title": "Word Search", "grid": ["KBNT…", …], "words": ["…"], "solution": ["K..T…", …] }
+```
+Comics come only from real feeds (xkcd RSS today), credited and linked; never invented. Puzzles are
+generated and checked (the sudoku has exactly one solution). Solutions print small and upside down;
+on the web they sit behind "Solutions". No crossword: good clues can't be generated without making
+things up.
 
 ## Grouping
 
