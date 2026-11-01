@@ -1,5 +1,7 @@
 # MediaBot
 
+Published via GitHub Pages: https://chrisjamesmedia.github.io/MediaBot/
+
 MediaBot makes small daily papers. Each paper has its own name, design, sources and preferences,
 and each edition is finite: a front page, a handful of sections, and a clear end. There is no
 infinite scroll, no ads and no rabbit holes. It is meant to replace a morning of scrolling X with
