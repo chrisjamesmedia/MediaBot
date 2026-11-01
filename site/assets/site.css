@@ -21,7 +21,8 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--serif);
   text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+.narrow.wrap,.wrap.narrow{max-width:760px}
 .mute{color:var(--mute)}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
@@ -36,7 +37,12 @@ a{color:inherit}
 .under{display:flex;justify-content:space-between;align-items:baseline;gap:6px 32px;flex-wrap:wrap;
   border-top:3px double var(--rule-strong);border-bottom:1px solid var(--rule-strong);padding:9px 0;
   font:400 13.5px/1.35 var(--sans);color:var(--ink2)}
-.wx{color:var(--ink2)}
+/* Weather: now, today's high/low, tomorrow */
+.wx{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px;color:var(--ink2)}
+.wx b{font-weight:650;color:var(--ink)}
+.wx-now b{font:600 19px/1 var(--serif)}
+.wx-hl,.wx-tm{padding-left:18px;border-left:1px solid var(--rule)}
+.wx-as{font-size:12px}
 .note{color:var(--mute);text-align:right;max-width:52ch}
 
 /* Print / Digital PDF: the one obvious action near the top */
@@ -48,6 +54,19 @@ a{color:inherit}
 .digi{font:400 12.5px/1 var(--sans);color:var(--mute);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
 .digi:hover{color:var(--ink)}
 
+/* Desktop layout: contents in a left rail that stays in view; the paper beside it */
+.page{display:block}
+@media (min-width:1100px){
+  .page.has-toc{display:grid;grid-template-columns:200px minmax(0,1fr);column-gap:56px;align-items:start}
+  .toc-side{position:sticky;top:0;max-height:100vh;overflow:auto;padding-top:26px}
+  .toc-side .contents{border-bottom:0;padding:0}
+  .toc-side .toc-parts{display:block}
+  .toc-side .toc-parts > li{padding:0 0 12px;margin:0 0 12px;border-bottom:1px solid var(--rule)}
+  .toc-side .toc-parts > li:last-child{border-bottom:0}
+  .toc-side .toc-subs{font-size:13px;line-height:1.55}
+  .lead.noimg .txt{max-width:none}
+  .lead.noimg p{columns:2;column-gap:48px;max-width:none}
+}
 /* Contents: by source, topics underneath */
 .contents{padding:16px 0 18px;border-bottom:1px solid var(--rule)}
 .contents h2{margin:0 0 12px;padding:0;border:0;font:700 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
@@ -77,7 +96,7 @@ h2{margin:0 0 22px;padding-top:10px;border-top:2px solid var(--rule-strong);
 
 /* Stories */
 .story h3{margin:0 0 8px;font:700 21px/1.22 var(--serif);letter-spacing:-.005em;text-wrap:balance}
-.story p{margin:0 0 10px;color:var(--ink2);hyphens:auto}
+.story p{margin:0 0 10px;color:var(--ink2);hyphens:auto;max-width:68ch}
 .story footer{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 16px;
   font:400 13px/1.4 var(--sans)}
 .src a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
@@ -106,6 +125,34 @@ h2{margin:0 0 22px;padding-top:10px;border-top:2px solid var(--rule-strong);
 .grid2::before{content:"";position:absolute;left:50%;top:26px;bottom:0;border-left:1px solid var(--rule)}
 .rest .story{padding:26px 0;border-bottom:1px solid var(--rule)}
 .rest .story:nth-last-child(-n+2){border-bottom:0;padding-bottom:0}
+
+.front .part-h{margin-bottom:22px}
+.leadpost{padding-bottom:30px;border-bottom:1px solid var(--rule)}
+.leadpost .post{max-width:820px;padding:20px 24px 14px}
+.leadpost .ptext{font-size:20px;line-height:1.45}
+.rest .post{margin:26px 0 0}
+
+/* Evergreen: long reads, two across */
+.evers{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;position:relative}
+.evers.n1{grid-template-columns:minmax(0,760px)}
+.ever{padding:0 0 26px;margin:0 0 26px;border-bottom:1px solid var(--rule)}
+.evers .ever:nth-last-child(-n+2){border-bottom:0;margin-bottom:0}
+.ever .kick{margin:0 0 6px;font:700 11.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ever h3{margin:0 0 6px;font:700 23px/1.2 var(--serif);text-wrap:balance}
+.ever h3 a{text-decoration:none}
+.ever h3 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.ever .by{margin:0 0 10px;font:500 14px/1.3 var(--sans);color:var(--ink2)}
+.ever p{margin:0 0 10px;color:var(--ink2);max-width:68ch}
+.ever footer{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 16px;font:400 13px/1.4 var(--sans)}
+.ever .open{color:var(--mute);text-decoration:none}
+.ever .open:hover{color:var(--ink);text-decoration:underline}
+.ever:hover .ctl,.ever:focus-within .ctl{opacity:1}
+
+/* News: a few briefs */
+.briefs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+.briefs li{padding:0 0 14px;margin:0 0 14px;border-bottom:1px solid var(--rule);color:var(--ink2);line-height:1.45}
+.briefs b{display:block;margin-bottom:3px;font:700 17.5px/1.25 var(--serif);color:var(--ink)}
+.briefs .src{font:400 13px/1.4 var(--sans);margin-left:4px}
 
 /* Reactions: quiet until you reach for them */
 .ctl{display:inline-flex;align-items:center;gap:2px;margin-left:auto;opacity:.5;transition:opacity .15s}
@@ -250,6 +297,8 @@ a.kicker:hover{color:var(--ink)}
   .story h3{font-size:20px}
   .group{grid-template-columns:1fr;gap:10px}
   .posts{grid-template-columns:1fr}
+  .evers,.briefs{grid-template-columns:1fr}
+  .wx-hl,.wx-tm{padding-left:0;border-left:0}
   .box{padding:18px 18px 6px;margin-left:-18px;margin-right:-18px}
   .ctl{margin-left:-6px}
   .story footer{flex-direction:column;align-items:flex-start;gap:6px}
@@ -324,3 +373,8 @@ a.kicker:hover{color:var(--ink)}
 .sol .sudoku span,.sol .ws span{font-size:9px}
 @media (max-width:640px){.sudoku{--c:calc((100vw - 44px)/9)}.ws{--c:calc((100vw - 44px)/12)}}
 .sudoku span:nth-child(-n+9){border-top:0}.sudoku span:nth-child(9n+1){border-left:0}
+
+/* Desktop: a lone story or post uses a comfortable measure, not half the page */
+.cols.n1{grid-template-columns:minmax(0,1fr)}
+.cols.n1 .story p{max-width:72ch}
+.posts.one{grid-template-columns:minmax(0,680px)}

@@ -3,7 +3,7 @@
  "paper": "signal-seeker",
  "date": "2026-10-31",
  "coverage": "Covering roughly Oct 29–31, 2026. Compiled Saturday morning, ET.",
- "note": "Clocks fall back one hour at 2 a.m. Sunday. Election Day is Tuesday, Nov. 3 — polls open in NH and MA.",
+ "note": "Clocks fall back one hour at 2 a.m. Sunday.",
  "sections": [
   {
    "id": "front",
@@ -106,6 +106,10 @@
        "name": "WMUR (Gov. poll)",
        "url": "https://www.wmur.com/article/ayotte-warmington-governor-nh-poll-102226/74221787"
       }
+     ],
+     "topic": [
+      "politics",
+      "elections"
      ]
     },
     {
@@ -131,6 +135,12 @@
        "name": "AP",
        "url": "https://apnews.com/article/mideast-news-october-30-2026-7f7f34ceb62f294a450e48ace0bd56e0"
       }
+     ],
+     "topic": [
+      "war",
+      "oil",
+      "geopolitics",
+      "macro"
      ]
     }
    ]
@@ -186,7 +196,11 @@
        "url": "https://www.cnbc.com/2026/10/28/fed-interest-rate-decision-october-2026.html"
       }
      ],
-     "group": "Rates"
+     "group": "Rates",
+     "topic": [
+      "macro",
+      "rates"
+     ]
     },
     {
      "type": "story",
@@ -581,6 +595,9 @@
        "name": "NHPR: what to know before you vote",
        "url": "https://www.nhpr.org/nh-news/2026-10-30/n-h-news-recap-what-to-know-before-you-vote"
       }
+     ],
+     "topic": [
+      "local"
      ]
     },
     {
@@ -598,6 +615,9 @@
        "name": "MA Secretary of State guide",
        "url": "https://www.sec.state.ma.us/divisions/elections/research-and-statistics/2026-Information-for-voters/main.htm"
       }
+     ],
+     "topic": [
+      "local"
      ]
     },
     {
@@ -615,6 +635,9 @@
        "name": "Boston Globe",
        "url": "https://www.bostonglobe.com/2026/10/30/metro/brighton-person-shot-police-update/"
       }
+     ],
+     "topic": [
+      "local"
      ]
     },
     {
@@ -645,7 +668,10 @@
        "url": "https://www.wbur.org/news/2026/10/30/senate-supplemental-spending-bill-house-healey"
       }
      ],
-     "brief": true
+     "brief": true,
+     "topic": [
+      "local"
+     ]
     }
    ]
   },
@@ -661,6 +687,10 @@
        "name": "AP",
        "url": "https://apnews.com/article/mideast-news-october-30-2026-7f7f34ceb62f294a450e48ace0bd56e0"
       }
+     ],
+     "topic": [
+      "geopolitics",
+      "world"
      ]
     },
     {
@@ -672,6 +702,10 @@
        "name": "AP",
        "url": "https://apnews.com/article/spain-train-crash-toledo-causes-unions-669ef8c0c12c8c9b720e721e7532ccbb"
       }
+     ],
+     "topic": [
+      "geopolitics",
+      "world"
      ]
     },
     {
@@ -683,6 +717,10 @@
        "name": "Anadolu",
        "url": "https://www.aa.com.tr/en/world/morning-briefing-oct-31-2026/4107022"
       }
+     ],
+     "topic": [
+      "geopolitics",
+      "world"
      ]
     },
     {
@@ -694,6 +732,10 @@
        "name": "WorldWatch digest",
        "url": "https://worldwatch.media/en/digest/2026-10-31"
       }
+     ],
+     "topic": [
+      "geopolitics",
+      "world"
      ]
     },
     {
@@ -705,6 +747,10 @@
        "name": "WorldWatch digest",
        "url": "https://worldwatch.media/en/digest/2026-10-31"
       }
+     ],
+     "topic": [
+      "geopolitics",
+      "world"
      ]
     }
    ]
@@ -780,7 +826,11 @@
      "id": "w-nhpr-what-to-know-before-you-v",
      "title": "NHPR: What to know before you vote",
      "url": "https://www.nhpr.org/nh-news/2026-10-30/n-h-news-recap-what-to-know-before-you-vote",
-     "why": "Your NH ballot in one page."
+     "why": "Your NH ballot in one page.",
+     "topic": [
+      "local",
+      "elections"
+     ]
     }
    ]
   }

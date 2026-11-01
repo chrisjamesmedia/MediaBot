@@ -6,8 +6,9 @@ slug: signal-seeker            # URL: /signal-seeker/ and /signal-seeker/YYYY-MM
 public: true                   # false = left off the root index, pages carry noindex
 reader: Chris James
 description: >-
-  A calm, finite daily paper: the best of the X accounts Chris James reads,
-  plus the news that matters, with a clear end.
+  A calm, finite daily paper that replaces the X feed: the best of the accounts
+  Chris James reads, a few evergreen long reads, and only the news that is
+  really big, with a clear end.
 
 masthead:
   style: quiet                 # quiet = small serif name, left-aligned, no tagline
@@ -33,22 +34,29 @@ sunday:                        # Sundays: the bigger paper, with Funnies (comics
 web:
   images: true                 # big lead image and opted-in photos on the web edition
 
-# Sections, in reading order. `weight` sets emphasis: when the print edition is
+# The edition reads by source, in this order: X → Substack/YouTube (when connected) → Evergreen →
+# Around the Web → News (small) → Funnies. Topic sections below nest inside those parts.
+# Sections, in paper order. `weight` sets emphasis: when the print edition is
 # over its size, the lowest-weight sections lose their last items first, and
 # the daily routine uses weights to decide how many items each section gets.
 sections:
-  - {id: front,       title: Front Page,       enabled: true,  weight: 10, max_items: 5}
+  # Front Page: from X only (a post, or a story whose sources are all X posts). Anything else drops to News.
+  - {id: front,       title: Top of Your Feed, enabled: true,  weight: 10, max_items: 4, require_source: x}
   - {id: x,           title: From Your X,      enabled: true,  weight: 9,  max_items: 10}
   - {id: goats,       title: The GOATs,        enabled: true,  weight: 9,  max_items: 5}
   - {id: investments, title: Investments,      enabled: true,  weight: 10, max_items: 12, group_by: theme}
   # Holdings: material news only, public by Chris's OK. Never values, share counts or position sizes (the build refuses them).
   - {id: holdings,    title: Your Holdings,    enabled: true,  weight: 8,  max_items: 6,  group_by: ticker}
   - {id: tech,        title: Tech & AI,        enabled: true,  weight: 7,  max_items: 10}
-  - {id: reading,     title: Worth Reading,    enabled: true,  weight: 6,  max_items: 4}
+  - {id: reading,     title: Worth Reading,    enabled: true,  weight: 6,  max_items: 4,  source_group: web}
+  # Evergreen: 2–4 lasting pieces from Chris's own X (long-form X Articles, substantive threads, his bookmarks
+  # and likes, essays/long interviews his accounts shared). Never invented; never repeated (evergreen_seen.json).
+  - {id: evergreen,   title: Evergreen,        enabled: true,  weight: 7,  max_items: 4}
   - {id: business,    title: Business,         enabled: true,  weight: 3,  max_items: 3}
   - {id: science,     title: Science & Health, enabled: true,  weight: 3,  max_items: 5}
   - {id: local,       title: Local,            enabled: true,  weight: 3,  max_items: 4}
   - {id: bigstuff,    title: The Big Stuff,    enabled: true,  weight: 2,  max_items: 5,  style: box, only_if_major: true}
+  # Links: x.com links file under the X part; other links under Around the Web.
   - {id: worth,       title: Worth Your Time,  enabled: true,  weight: 2,  max_items: 6,  style: links, dedupe: true}
   # Not connected yet. Turn on once a source exists; never filled with stand-in content.
   - {id: substack,    title: Substack,         enabled: false, weight: 8,  max_items: 4}
@@ -58,6 +66,23 @@ sections:
   # private: true = only in the local private copy (site-private/), never in the public site, PDFs, sitemap or meta.
   # Odds & Ends is the personal section: emails, calendar, birthdays, reminders, notes.
   - {id: personal,    title: Odds & Ends,      enabled: false, weight: 1,  max_items: 6,  private: true}
+
+# News: pared way down. Every legacy/web news item (front-page leftovers, Business, Science, Tech…) is pooled
+# into one small "News" part, after X and Evergreen. Holdings news sits beside it with its own cap.
+news:
+  title: Headlines
+  max_items: 4                 # 3–4 brief items: headline + one sentence
+  weight: 4
+  major_only_sections: [bigstuff, local]   # these only make the paper with `major: true`
+  # Cut everywhere (X items too) unless the item carries `major: true`: a US election result, a market
+  # crash, a major disaster. Items carry `topic: [...]` in edition.json.
+  exclude_topics: [war, conflict, geopolitics, military, macro, rates, oil, energy-prices, politics, elections,
+                   partisan, crime, protest, world, local, policy]
+  keep_topics: [tech, ai, business, markets, investing, science, health, metabolic, psychedelics, space, culture, ideas]
+  major_means: >-
+    Front-page-of-every-paper big: a US national election result, a market crash or circuit breaker,
+    a major US disaster or a genuinely historic event. Not: a war update, a tanker strike, a Fed hold,
+    a G20 communiqué, a poll, a protest, local crime.
 
 sources:
   x:
