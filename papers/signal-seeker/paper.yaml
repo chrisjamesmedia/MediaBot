@@ -27,6 +27,10 @@ print:
   photos: false                # print edition never carries photos
   qr: true                     # one masthead QR to the web edition, only once web_base is public
 
+sunday:                        # Sundays: the bigger paper, with Funnies (comics + puzzles) on
+  size: large
+  enable: [funnies]
+
 web:
   images: true                 # big lead image and opted-in photos on the web edition
 
@@ -50,7 +54,8 @@ sections:
   # Not connected yet. Turn on once a source exists; never filled with stand-in content.
   - {id: substack,    title: Substack,         enabled: false, weight: 8,  max_items: 4}
   - {id: youtube,     title: YouTube,          enabled: false, weight: 6,  max_items: 3}
-  - {id: funnies,     title: Funnies,          enabled: false, weight: 1,  max_items: 3}
+  # Funnies: real comics from feeds (tools/funnies.py, xkcd RSS) plus generated sudoku and word search. On Sundays.
+  - {id: funnies,     title: Funnies,          enabled: false, weight: 1,  max_items: 4}
   # private: true = only in the local private copy (site-private/), never in the public site, PDFs, sitemap or meta.
   # Odds & Ends is the personal section: emails, calendar, birthdays, reminders, notes.
   - {id: personal,    title: Odds & Ends,      enabled: false, weight: 1,  max_items: 6,  private: true}

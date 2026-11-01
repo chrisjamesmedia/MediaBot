@@ -1,0 +1,768 @@
+{
+ "schema": 1,
+ "paper": "signal-seeker",
+ "date": "2026-11-01",
+ "coverage": "Covering roughly Oct 30–Nov 1, 2026. Compiled Sunday, ET.",
+ "note": "Election Day is Tuesday, Nov. 3. AMD reports the same day; Nebius on Nov. 12.",
+ "sections": [
+  {
+   "id": "front",
+   "items": [
+    {
+     "type": "story",
+     "id": "ai-money",
+     "headline": "The AI money gets harder to raise: OpenAI cuts its round to about $20 billion",
+     "summary": "OpenAI has lowered the target for its latest funding round from $30 billion to about $20 billion, at a hoped-for valuation of $1.25 trillion, the Financial Times reported. The Wall Street Journal said about $11 billion is secured so far and described investor response as tepid; a UAE group including MGX is the largest participant, and a retail offering is planned. In the same week, Nvidia was reported to be weighing a guarantee of debt for Nscale's West Virginia data center, whose first 460 MW building is tied to a $44.6 billion Anthropic contract.",
+     "sources": [
+      {
+       "name": "CNBC (FT report)",
+       "url": "https://www.cnbc.com/2026/10/31/openai-funding-target-cut-10-billion.html"
+      },
+      {
+       "name": "TechCrunch",
+       "url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/"
+      },
+      {
+       "name": "TechCrunch (Nscale)",
+       "url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/"
+      }
+     ],
+     "short": "OpenAI cuts its round target to ~$20B at $1.25T (FT); WSJ says ~$11B secured. Nvidia weighs guaranteeing Nscale's data-center debt."
+    },
+    {
+     "type": "story",
+     "id": "intel",
+     "headline": "Intel's weak outlook sets off a global chip rout",
+     "summary": "Intel shares fell about 29% on Friday, on course for the company's worst day ever, after it guided fourth-quarter revenue to $15–16 billion and adjusted earnings to $0.25 a share, well below the $17.1 billion and $0.43 analysts expected. CEO Lip-Bu Tan blamed a severe PC slowdown driven by soaring memory costs and shortages, plus an Israel fab shutdown that could cost about $600 million in revenue over two quarters. Together with worries over Amazon's spending, the warning dragged chip and memory stocks sharply lower.",
+     "sources": [
+      {
+       "name": "CNBC",
+       "url": "https://www.cnbc.com/2026/10/30/amazon-intel-earnings-big-tech-ai-spending-concerns.html"
+      },
+      {
+       "name": "CNBC (analysts)",
+       "url": "https://www.cnbc.com/2026/10/30/intel-guidance-analyst-price-targets.html"
+      },
+      {
+       "name": "Reuters via Investing.com",
+       "url": "https://www.investing.com/news/stock-market-news/intel-warning-sparks-chip-rout-pc-weakness-clouds-turnaround-4987123"
+      }
+     ],
+     "short": "Intel down ~29% on Q4 guide of $15–16B vs $17.1B expected; Tan blames PC slump from memory costs and an Israel fab shutdown."
+    },
+    {
+     "type": "story",
+     "id": "iran",
+     "headline": "Iran threatens a response with \"no geographic limits\" as tankers burn in Hormuz",
+     "summary": "Iran's supreme leader vowed that any further attack would draw a response with no geographic limits, and Iran's Revolutionary Guard reported three tankers on fire in the Strait of Hormuz. AP also published an analysis of Iran's strikes on 26 U.S. bases in the region.",
+     "sources": [
+      {
+       "name": "AP",
+       "url": "https://apnews.com/article/mideast-news-october-31-2026-15c0556b92c8c23beb9b8854b4c124f4"
+      },
+      {
+       "name": "AP summary via Times Argus",
+       "url": "https://www.timesargus.com/news/national/ap-news-summary-at-9-31-a-m-edt/article_05a06bbc-4847-59bf-a4e9-60272dcff374.html"
+      }
+     ],
+     "short": "Khamenei vows a response with no geographic limits; IRGC reports three tankers on fire in Hormuz."
+    }
+   ]
+  },
+  {
+   "id": "x",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2116529966594601395",
+     "author": "KaizenInvestor",
+     "handle": "Kaizen_Investor",
+     "text": "My thoughts on the AI trade, mainly coming from my experience as a commercial manager. \n\nWe have over 600 customers in the 3 countries I’m responsible for. It goes from multinationals to small enterprises and family businesses. \n\nThey all feel the same thing: it is not going well",
+     "url": "https://x.com/Kaizen_Investor/status/2116529966594601395",
+     "date": "2026-10-31T13:57:21Z",
+     "quoted": {
+      "author": "KaizenInvestor",
+      "handle": "Kaizen_Investor",
+      "text": "https://t.co/L5kBGWJm3U",
+      "url": "https://x.com/Kaizen_Investor/status/2116241449721229541"
+     }
+    },
+    {
+     "type": "post",
+     "id": "x-2116696215249182854",
+     "author": "Ren",
+     "handle": "ren_stocks",
+     "text": "$GOOGL $META $MSFT $SPOT\n\nLook closely at this chart. \n\nIn software, revenue has pulled away from flat or falling headcount. \n\nFinance and consulting aren't there yet, but Bank of America is starting to show the same gap. \n\nIt'll take longer outside tech, but this IS the trend that will keep compounding. The more companies reap the rewards of AI, the more they'll invest in it.\n\nThis is, all things considered, the most probable future. I’m investing accordingly.",
+     "url": "https://x.com/ren_stocks/status/2116696215249182854",
+     "date": "2026-11-01T00:57:58Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2116811481442328900",
+     "author": "Rafe Fletcher",
+     "handle": "fletcher_rt",
+     "text": "Only if we still view AI as a language-generation tool. Producing plausible but empty prose is where it is useless. \n\nSo in big businesses it amplifies bureaucracy. When busyness is how you measure utility - pointless meetings, emails etc get drawn out as it proliferates the slop. \n\nBut when you have autonomy and agency, it is fantastic. As a small business owner, I link it into Xero & CRMs, and instantly identify priorities. Embedded into email too, AI understands context and stops days becoming about clearing inboxes & helps focus on what's actually important.\n\nAI reflects our existing structures. And where those structures are superficial, it is pain in the arse. But without those burdens, it's a brilliant leveller and dispenses with a lot of onerous crap.",
+     "url": "https://x.com/fletcher_rt/status/2116811481442328900",
+     "date": "2026-11-01T08:36:00Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2116811000120746453",
+     "author": "Tom Nash",
+     "handle": "iamtomnash",
+     "text": "If you want to get better returns do this exercise every time the market is red: \n\nEvery time that a stock is down, check if the business or overall fundamentals changed, or if this is just market noise. \n\nOnce you learn this way of thinking, anxiety goes away and investing becomes easy.",
+     "url": "https://x.com/iamtomnash/status/2116811000120746453",
+     "date": "2026-11-01T08:34:05Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2116597322498834660",
+     "author": "Fireside Alpha",
+     "handle": "firesidealpha",
+     "text": "Bill Ackman says Neuralink and other brain-computer interfaces will let the blind see again within \"not too many years\"\n\n“And you know, my daughter, who lost pretty much basic function, ability to walk, ability to speak, ability to see, is regaining function. She’s cognitively, as far as I can tell, fine. She’s relearning how to speak, and she’s learning again how to walk. And I’m confident we’re going to get her back.\"\n\n\"Biggest challenge right now is that the optic nerve damage from the pressure on the brain has caused her to lose probably 98% of her vision.\"\n\n\"But even there I’m optimistic. Spent a lot of time in the last few months meeting with all these brain computer interface companies, obviously Neuralink being the most famous, but there’s some other very promising lower intervention technologies.\"\n\n\"And this will be a period, you know, AI is going to enable us. We’re going to be able to get more signal from the brain, and we’re going to be able to interpret that signal much more effectively than we had before. And the blind will see again, and people who have not been able to walk, so to speak, paraplegics, I believe will walk again. It’s a matter of not months but years, but not too many years.”",
+     "url": "https://x.com/firesidealpha/status/2116597322498834660",
+     "date": "2026-10-31T18:25:00Z",
+     "quoted": {
+      "author": "Fireside Alpha",
+      "handle": "firesidealpha",
+      "text": "Bill Ackman says Elon Musk might have to borrow a trillion dollars to open gigawatts of data centers, keeping rates persistently high, and that neoclouds are like levered real estate developers sensitive to the cost of capital\n\n“So, I think it is sustainable because, you know, intelligence is again an enormously valuable asset. And I think the demand therefore for the compute that enables intelligence, I think, is going to be sustained.\"\n\n\"And, you know, the companies that are, you know, the hyperscalers that are building out a lot of this infrastructure have the financial resources, the creditworthiness in order to access the capital.\"\n\n\"I worry more about the pure play neocloud companies that are a bit like highly levered real estate developers playing a theme. I think they’re much more at risk. They’re much more sensitive to the cost of capital.\"\n\n\"But you have, I mean, SpaceX, Elon on the earnings call gave some projections for how many gigawatts of data centers he was going to open. If he meets his objective, he might have to borrow a trillion dollars of capital.\"\n\n\"So, you have companies competing at sovereign levels for debt. And the result is, you know, this massive, you know, more and more supply of debt. So, I don’t see a world in which, you know, there’s a dramatic, you know, there’s a lot of demand for capital and a finite supply. So, I think that makes rates persistently high.”",
+      "url": "https://x.com/firesidealpha/status/2116574135526817932"
+     }
+    }
+   ]
+  },
+  {
+   "id": "goats",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2116493846745887217",
+     "author": "Paradis",
+     "handle": "ParadisLabs",
+     "text": "Absolutely insane...\n\nHFs have pulled back gross exposure by ~8% -- the most aggressive de-grossing in at least ten years -- according to Morgan Stanley’s Prime Brokerage data.\n\nIn addition, TMT-focused HFs lost ~12% in October with losses concentrated in crowded Tech names --",
+     "url": "https://x.com/ParadisLabs/status/2116493846745887217",
+     "date": "2026-10-31T11:33:50Z"
+    }
+   ]
+  },
+  {
+   "id": "investments",
+   "items": [
+    {
+     "type": "story",
+     "id": "treasury-competition",
+     "headline": "Big Tech is now competing with the Treasury for capital",
+     "summary": "On the All-In podcast, Chamath Palihapitiya and David Friedberg estimated that the financing the largest AI spenders need through 2027 could equal roughly 30% of U.S. Treasury issuance. Bill Ackman made a related case separately: he compared pure-play neoclouds to highly levered real-estate developers and expects that heavy competition for debt keeps rates high.",
+     "sources": [
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2116580355402834292"
+      },
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2116608968957247546"
+      },
+      {
+       "name": "X @firesidealpha",
+       "url": "https://x.com/firesidealpha/status/2116574135526817932"
+      }
+     ],
+     "group": "Who pays for the buildout"
+    },
+    {
+     "type": "post",
+     "id": "x-2116546322304016689",
+     "author": "Oguz Erkan",
+     "handle": "oguzerkan",
+     "text": "Aggregate free cash flow of $MSFT, $AMZN, $META, and $GOOG has turned negative for the first time in decades.\n\nI think this is a major turning point for market valuations in general.\n\nLet me explain simply:\n\nIn the 20th century, most large corporations were capex-heavy industrial",
+     "url": "https://x.com/oguzerkan/status/2116546322304016689",
+     "date": "2026-10-31T15:02:21Z",
+     "group": "Who pays for the buildout"
+    },
+    {
+     "type": "story",
+     "id": "vjn-owner-fcf",
+     "headline": "The bull reply: judge the spend by its return, not by free cash flow",
+     "summary": "VJN Capital argues Amazon's headline free cash flow hides about $145 billion of trailing growth capex; on its \"owner FCF\" measure, cash generation grew 36.8%, while the cloud backlog rose 16.5% quarter on quarter and 189% year on year. Bill Ackman says Amazon, Meta and Microsoft now make up about a third of his portfolio.",
+     "sources": [
+      {
+       "name": "X @VJNCapital",
+       "url": "https://x.com/VJNCapital/status/2116571399393567075"
+      },
+      {
+       "name": "X @VJNCapital",
+       "url": "https://x.com/VJNCapital/status/2116508736584110577"
+      },
+      {
+       "name": "X @firesidealpha",
+       "url": "https://x.com/firesidealpha/status/2116584272379478289"
+      }
+     ],
+     "group": "Who pays for the buildout"
+    },
+    {
+     "type": "story",
+     "id": "neocloud-pricing",
+     "headline": "Neoclouds: locked-in backlog versus spot pricing",
+     "summary": "Daniel argues CoreWeave's bigger issue is the upside it gave up by contracting capacity early: deals signed in early 2026 brought roughly $10–15 million per megawatt, while some premium contracts now reach $50 million. Nebius keeps part of its capacity for higher-priced short-term deals. Financing is the other test: Lambda, with a $50 billion backlog ($35 billion tied to Anthropic), has reportedly cut its pre-money target from $14.5 billion to $13 billion.",
+     "sources": [
+      {
+       "name": "X @danielisdizzy",
+       "url": "https://x.com/danielisdizzy/status/2116635398155735196"
+      },
+      {
+       "name": "X @danielisdizzy",
+       "url": "https://x.com/danielisdizzy/status/2116542253506138516"
+      }
+     ],
+     "group": "Neoclouds"
+    },
+    {
+     "type": "story",
+     "id": "memory-margins",
+     "headline": "Memory is now the most profitable business in chips",
+     "summary": "SK Hynix posted an 80% operating margin last quarter on 104.6 trillion won of revenue, above TSMC's 59%; in early 2023 its margin was minus 67%. From Nov. 1 it has a new Americas headquarters led by its HBM chief, Ahn Hyun, alongside a $4 billion packaging plant in Indiana. In Korea, chip startup FuriosaAI raised $620 million at a $2.9 billion valuation, with its next chip planned on 2 nm with HBM4.",
+     "sources": [
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2116746557945221292"
+      },
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2116489615314231538"
+      },
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2116836401576890730"
+      }
+     ],
+     "group": "Memory & chips"
+    },
+    {
+     "type": "post",
+     "id": "x-2116588803829690573",
+     "author": "Daniel",
+     "handle": "danielisdizzy",
+     "text": "$AMD will generate more than $100B in annual revenue from server CPUs alone by 2030.\n\nLisa Su expects the server CPU TAM to reach $220B by 2030, with AMD capturing more than 50% of that market.\n\nAnd I wouldn’t be surprised if the opportunity turns out to be even bigger.\n\nJust look at how aggressively AMD has raised its server CPU TAM projections for 2030:\n\n• November 2025: $60B\n• Q1 2026: $120B\n• October 2026: $220B\n\n$60B → $120B → $220B.\n\n50% of $220B = $110B in annual revenue for AMD.\n\nFrom CPUs alone.\n\nAnd that doesn’t even include the massive opportunity in GPUs.\n\nFor context, AMD generated approximately $41B in total revenue over the last 12 months.\n\nThe explosion of AI agents will unleash an unprecedented surge in CPU demand.\n\nAI agents don’t just generate responses. They execute code, interact with applications, process data, and coordinate complex workflows.\n\nAs billions of AI agents begin operating autonomously, server CPU demand will explode.\n\n$AMD will be one of the biggest beneficiaries of the agentic AI revolution.",
+     "url": "https://x.com/danielisdizzy/status/2116588803829690573",
+     "date": "2026-10-31T17:51:09Z",
+     "group": "Memory & chips"
+    },
+    {
+     "type": "post",
+     "id": "x-2116639770726056322",
+     "author": "Paradis",
+     "handle": "ParadisLabs",
+     "text": "Insights from GS Prime Brokerage:\n\n1. Info Tech was the most net-bought sector this week, driven mainly by short covers while long buys remain relatively weak.\n\n2. Info Tech stocks are still heavily net sold MTD. This week's net-buying through to Thursday represents just ~40% of what HFs had sold in the previous 3 weeks.\n\n3. Mag 7 stocks were net sold from Tuesday to Friday last week, highlighting risk-off sentiment.\n\n4. Semis & Semi Equip (long buys), Software (short covers), and Tech ETFs (short covers) were the most net-bought Tech subsectors this week.\n\n5. Goldman Sachs: \n\"While the directional engine of this market remains intact (token demand + GW/DC build-outs), the market has become much more discerning around the linearity of this story beyond CY27, pressuring multiples across the board until visibility improves, while investors are struggling to find names to rotate into outside of Semis/AI that are less susceptible to daily AI disruption volatility – cue names like IBM, AAPL, SPOT, V/MA, EBAY, LYV all trading well on the week/month.\"",
+     "url": "https://x.com/ParadisLabs/status/2116639770726056322",
+     "date": "2026-10-31T21:13:41Z",
+     "group": "Positioning"
+    },
+    {
+     "type": "story",
+     "id": "midterm-bear",
+     "headline": "The bear case for election week",
+     "summary": "@KevInvestingYT, a self-described AI bull, argues semis could see a sharp but short drop if Democrats sweep Tuesday's midterms. His evidence: the 10-year yield hit 5.31% on Oct. 5, the Fed hiked in September with another hike expected in December, and tech is 23.5% of Goldman's prime-brokerage book. He sees a fast repricing rather than a long bear market.",
+     "sources": [
+      {
+       "name": "X @KevInvestingYT",
+       "url": "https://x.com/KevInvestingYT/status/2116676362903703788"
+      }
+     ],
+     "group": "Positioning"
+    },
+    {
+     "type": "story",
+     "id": "china-slide",
+     "headline": "China's stock slump hits a record 12 weeks while its open models spread",
+     "summary": "The CSI 300 fell for a 12th straight week, its longest losing streak on record, and lost 8.5% in October. Meanwhile U.S. app makers are building on Chinese open models (Figma on Alibaba's Qwen, Pika on MiniMax), and 17 Chinese models shipped in a single week, including Kimi K3.1 Pro.",
+     "sources": [
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2116463694679036005"
+      },
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2116482317967560882"
+      }
+     ],
+     "group": "Elsewhere"
+    }
+   ]
+  },
+  {
+   "id": "holdings",
+   "items": [
+    {
+     "type": "line",
+     "id": "h-nbis",
+     "text": "<b>Nebius:</b> Leased 50 MW of AI data center capacity from AIB on a 12-year term, after closing a $3.5 billion, 364-day Citi credit facility for data centers and GPUs; third-quarter results are due before the open on Nov. 12.",
+     "sources": [
+      {
+       "name": "Slicast / ET Datacenters",
+       "url": "https://slicast.com/brief/2026-10-31"
+      },
+      {
+       "name": "ad-hoc-news",
+       "url": "https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/nebius-stock-amazon-and-intel-spook-ai-infrastructure-and-the-monetization-clock-starts-ticking/70437427"
+      }
+     ],
+     "group": "NBIS"
+    },
+    {
+     "type": "line",
+     "id": "h-mu",
+     "text": "<b>Micron:</b> Bank of America kept its Buy rating, citing multi-year take-or-pay supply agreements that cover about 35% of sales and could reach 50% by 2030; memory shares still fell with the sector after Intel's warning.",
+     "sources": [
+      {
+       "name": "ad-hoc-news",
+       "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/micron-technology-stock-bank-of-america-sees-supply-visibility-beyond-2030/70438066"
+      },
+      {
+       "name": "The Inference",
+       "url": "https://theinference.org/article/micron-s-take-or-pay-contracts-cover-35-of-sales-but-buyers-are-cutting-memory-per-chip-to-survive"
+      }
+     ],
+     "group": "MU"
+    },
+    {
+     "type": "story",
+     "id": "h-sndk",
+     "headline": "SanDisk beats and raises, announces an 8-for-1 split",
+     "summary": "Fiscal first-quarter revenue was $11.0 billion, with non-GAAP earnings of $49.51 a share and $5 billion of buybacks. SanDisk guided the current quarter to $12.2–12.6 billion and announced an eight-for-one stock split effective Nov. 19. Memory shares still fell Friday on worries about Amazon and Intel.",
+     "sources": [
+      {
+       "name": "SanDisk",
+       "url": "https://investor.sandisk.com/news-releases/news-release-details/sandisk-reports-fiscal-first-quarter-2027-financial-results"
+      },
+      {
+       "name": "Trades Prophet",
+       "url": "https://tradesprophet.com/2026/10/31/why-are-micron-sk-hynix-and-sandisk-stocks-falling-on-friday/"
+      }
+     ],
+     "group": "SNDK"
+    },
+    {
+     "type": "line",
+     "id": "h-amzn",
+     "text": "<b>Amazon:</b> Bedrock token volume grew about 17x and operating margin hit a record in the third quarter, with capex plans held at $220 billion. Separately, Amazon dropped its Westborough, Mass., drone-delivery plan after local pushback.",
+     "sources": [
+      {
+       "name": "Amazon Q3 release",
+       "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/"
+      },
+      {
+       "name": "WBUR",
+       "url": "https://www.wbur.org/news/2026/10/31/amazon-drops-westborough-drone-delivery-plan-after-pushback"
+      }
+     ],
+     "group": "AMZN"
+    }
+   ]
+  },
+  {
+   "id": "tech",
+   "items": [
+    {
+     "type": "story",
+     "id": "ai-cyber",
+     "headline": "An AI-agent hacking campaign hit 200 organizations in 11 days, CrowdStrike says",
+     "summary": "CrowdStrike says a China-linked group used AI agents, running mainly on DeepSeek, to target more than 200 organizations in 14 countries in 11 days, including 19 in the U.S. About 70% were compromised. The agents lifted the attack pace from about 40 commands an hour to more than 1,500, and one intrusion consumed about 1.4 billion tokens.",
+     "sources": [
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2116784308258316363"
+      }
+     ]
+    },
+    {
+     "type": "post",
+     "id": "x-2116828613777699280",
+     "author": "Jukan",
+     "handle": "jukan05",
+     "text": "Taiwanese media: Intel’s EMIB has an overall yield of approximately 60–65%, but the process of embedding silicon bridge dies into ABF substrates has a yield of only around 25–30%. This is significantly below TSMC’s CoWoS yield of roughly 98%.",
+     "url": "https://x.com/jukan05/status/2116828613777699280",
+     "date": "2026-11-01T09:44:04Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2116838014630465965",
+     "author": "Daniel Romero",
+     "handle": "HyperTechInvest",
+     "text": "I remember when SemiAnalysis and George Hotz were highly critical of $AMD system performance\n\nHow the tables have turned\n\nAnush is the best hire AMD could have hoped for",
+     "url": "https://x.com/HyperTechInvest/status/2116838014630465965",
+     "date": "2026-11-01T10:21:26Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2116864366410973607",
+     "author": "Paul Millerd",
+     "handle": "p_millerd",
+     "text": "I think a similar thing is happening in writing and it's breaking people's brains\n\nTalking about the recent study of AI books being published on Amazon outperforming and out earning other books on average",
+     "url": "https://x.com/p_millerd/status/2116864366410973607",
+     "date": "2026-11-01T12:06:09Z"
+    }
+   ]
+  },
+  {
+   "id": "reading",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2116594315267023288",
+     "author": "Joe Hudson",
+     "handle": "FU_joehudson",
+     "text": "It's amazing how much rejection we can accept when we're not rejecting ourselves:",
+     "url": "https://x.com/FU_joehudson/status/2116594315267023288",
+     "date": "2026-10-31T18:13:03Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2116851641949516108",
+     "author": "Paul Millerd",
+     "handle": "p_millerd",
+     "text": "Everyone wants to be early on AI\n\nNo one’s bold enough to be early on letting go of their work identity",
+     "url": "https://x.com/p_millerd/status/2116851641949516108",
+     "date": "2026-11-01T11:15:35Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2116864344210239755",
+     "author": "Paul Graham",
+     "handle": "paulg",
+     "text": "Ridiculous looking haircuts are not a modern phenomenon. Indeed you can pretty much assume that the most fashionable haircut now will look ridiculous later in photographs.",
+     "url": "https://x.com/paulg/status/2116864344210239755",
+     "date": "2026-11-01T12:06:03Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2116703263840227546",
+     "author": "Naval",
+     "handle": "naval",
+     "text": "We could have an interregnum between bulk air travel (today) and personal air travel (4-passenger drones). International may be especially difficult.",
+     "url": "https://x.com/naval/status/2116703263840227546",
+     "date": "2026-11-01T01:25:59Z"
+    }
+   ]
+  },
+  {
+   "id": "business",
+   "items": [
+    {
+     "type": "story",
+     "id": "oil-profits",
+     "headline": "Exxon and Chevron profits double on higher oil",
+     "summary": "ExxonMobil's third-quarter net income more than doubled to $15.4 billion, and Chevron's nearly tripled to $9.9 billion, as higher crude prices flowed through. Both beat estimates.",
+     "sources": [
+      {
+       "name": "ExxonMobil",
+       "url": "https://investor.exxonmobil.com/company-information/press-releases/detail/1213/exxonmobil-announces-third-quarter-2026-results"
+      },
+      {
+       "name": "Chevron",
+       "url": "https://chevroncorp.gcs-web.com/news-releases/news-release-details/chevron-reports-third-quarter-2026-results"
+      },
+      {
+       "name": "CNBC",
+       "url": "https://www.cnbc.com/2026/10/30/chevron-exxon-cvx-xom-earnings-q3-2026.html"
+      },
+      {
+       "name": "The Guardian",
+       "url": "https://www.theguardian.com/business/2026/oct/30/exxonmobil-chevron-q3-results"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "science",
+   "items": [
+    {
+     "type": "story",
+     "id": "swift",
+     "headline": "NASA's Swift telescope is days from falling back to Earth",
+     "summary": "NASA ended the Neil Gehrels Swift Observatory's mission on Oct. 20 after its orbit decayed too quickly; a Katalyst Space rescue craft launched in July failed to boost it. Reentry is expected around Nov. 4, with a wide uncertainty window. Most of the 1.5-ton telescope should burn up, though some tungsten and mirror parts may survive.",
+     "sources": [
+      {
+       "name": "NASA",
+       "url": "https://science.nasa.gov/blogs/swift/2026/10/23/nasas-swift-mission-ends-ahead-of-re-entry/"
+      },
+      {
+       "name": "AP",
+       "url": "https://apnews.com/article/swift-observatory-nasa-telescope-e890935df7f468048594286566a96357"
+      },
+      {
+       "name": "Space.com",
+       "url": "https://www.space.com/space-exploration/missions/nasa-ends-swift-space-telescope-mission-after-failed-rescue-attempt"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "alz-genetics",
+     "headline": "A 2.8-million-person study maps 48 new Alzheimer's risk regions",
+     "summary": "A genetic study of 2.8 million people, published in Nature, identified 127 regions linked to Alzheimer's risk, 48 of them new, pointing to the brain's immune cells (microglia) as well as neurons as key players.",
+     "sources": [
+      {
+       "name": "Medical Daily",
+       "url": "https://www.medicaldaily.com/alzheimers-study-48-new-genetic-risk-regions-480648"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "bfrag",
+     "headline": "How a common gut bacterium can set up colon cancer",
+     "summary": "Johns Hopkins researchers report in Nature that the toxin from Bacteroides fragilis damages the colon by acting on the protein claudin-4; a decoy molecule protected mice from the toxin's effects.",
+     "sources": [
+      {
+       "name": "ScienceDaily",
+       "url": "https://www.sciencedaily.com/releases/2026/10/261031012912.htm"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "ldl",
+     "headline": "A new lever on LDL cholesterol, so far only in mice",
+     "summary": "A Nature study found that high-cholesterol diets cut liver LDL receptors through a Ral/CTSA pathway; blocking CTSA lowered LDL in mice. Whether it works in people is untested.",
+     "sources": [
+      {
+       "name": "ScienceDaily",
+       "url": "https://www.sciencedaily.com/releases/2026/10/261030003003.htm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "local",
+   "items": [
+    {
+     "type": "story",
+     "id": "westborough",
+     "headline": "Amazon drops its Westborough drone-delivery plan after pushback",
+     "summary": "Amazon has dropped its plan for drone deliveries from Westborough after pushback from residents, WBUR reports.",
+     "sources": [
+      {
+       "name": "WBUR",
+       "url": "https://www.wbur.org/news/2026/10/31/amazon-drops-westborough-drone-delivery-plan-after-pushback"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "nh-counters",
+     "headline": "NH's top election official vouches for ballot counters ahead of Tuesday",
+     "summary": "Secretary of State David Scanlan said New Hampshire's ballot counters cannot connect to the internet, are tested at each polling place, and are backed by paper ballots and post-election audits.",
+     "sources": [
+      {
+       "name": "NHPR",
+       "url": "https://www.nhpr.org/nh-news/2026-10-31/election-newhampshire-nh-secretary-of-state-ballot-counters-vote-counting"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "q6",
+     "headline": "Question 6 would create a dedicated Massachusetts conservation fund",
+     "summary": "The ballot measure would raise an estimated $65–100 million a year for land conservation. The Globe and Herald editorial boards both oppose it.",
+     "sources": [
+      {
+       "name": "Boston Globe",
+       "url": "https://www.bostonglobe.com/2026/10/31/science/massachusetts-ballot-measure-land-conservation-question-6/"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "south-station",
+     "headline": "Texas teen arrested in fatal South Station stabbing",
+     "summary": "A Texas teenager has been arrested in the stabbing at South Station, the Globe reports.",
+     "sources": [
+      {
+       "name": "Boston Globe",
+       "url": "https://www.bostonglobe.com/2026/10/31/metro/south-station-stabbing-arrest/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bigstuff",
+   "items": [
+    {
+     "type": "line",
+     "id": "bs-g20",
+     "text": "<b>G20:</b> Foreign ministers ended their meeting in Atlanta without a joint communique.",
+     "sources": [
+      {
+       "name": "Xinhua",
+       "url": "https://english.news.cn/20261101/c44843d14a2a41a4bbb81fc1d0943cff/c.html"
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "id": "bs-ukraine",
+     "text": "<b>Ukraine:</b> Civilians were evacuated from Russian-occupied Oleshky during a local truce; Zelenskyy and Erdogan discussed a Black Sea grain corridor.",
+     "sources": [
+      {
+       "name": "AP via Times Argus",
+       "url": "https://www.timesargus.com/news/national/ap-news-summary-at-9-31-a-m-edt/article_05a06bbc-4847-59bf-a4e9-60272dcff374.html"
+      },
+      {
+       "name": "Anadolu",
+       "url": "https://www.aa.com.tr/en/world/morning-briefing-nov-1-2026/4107709"
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "id": "bs-france",
+     "text": "<b>France:</b> About 320,000 marched in a third weekend of youth-led protests, part of a wave across Europe.",
+     "sources": [
+      {
+       "name": "AP",
+       "url": "https://apnews.com/article/protests-europe-youth-france-germany-spain-362a7cb69871ab21bd894290dad639f5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worth",
+   "items": [
+    {
+     "type": "link",
+     "id": "w-senra",
+     "title": "David Senra with Rafael Vivas of AppLovin",
+     "url": "https://x.com/davidsenra/status/2116729569390870778",
+     "why": "New Founders episode, out today."
+    },
+    {
+     "type": "link",
+     "id": "w-maro",
+     "title": "@KevInvestingYT: the full midterm-week bear thesis",
+     "url": "https://x.com/KevInvestingYT/status/2116676362903703788",
+     "why": "Long, hedged and worth arguing with."
+    },
+    {
+     "type": "link",
+     "id": "w-kaizen-amd",
+     "title": "Daniel on why he sold AMD",
+     "url": "https://x.com/danielisdizzy/status/2116590872657838418",
+     "why": "A valuation-versus-fundamentals case; AMD reports Tuesday."
+    },
+    {
+     "type": "link",
+     "id": "w-dst",
+     "title": "NHPR: Clocks fell back. What could the future hold?",
+     "url": "https://www.nhpr.org/nh-news/2026-10-31/daylight-saving-time-ends-fall-back-possible-future-changes",
+     "why": "NH lawmakers are still debating permanent standard time."
+    },
+    {
+     "type": "link",
+     "id": "w-ap-bases",
+     "title": "AP: What Iran's strikes on U.S. bases actually hit",
+     "url": "https://www.timesargus.com/news/national/ap-news-summary-at-9-31-a-m-edt/article_05a06bbc-4847-59bf-a4e9-60272dcff374.html",
+     "why": "Includes AP's analysis of Iran's strikes on 26 U.S. bases."
+    }
+   ]
+  },
+  {
+   "id": "funnies",
+   "items": [
+    {
+     "type": "comic",
+     "id": "comic-xkcd",
+     "title": "xkcd: Earth Sized Planets",
+     "byline": "Randall Munroe",
+     "url": "https://xkcd.com/3318/",
+     "alt": "It probably has an icy mantle over the real silicate geology, but I'm hoping something weird happened to burn off most of the water like with Io.",
+     "image": {
+      "file": "images/comic-xkcd-earth_sized_planets.png",
+      "credit": "xkcd",
+      "src": "https://imgs.xkcd.com/comics/earth_sized_planets.png"
+     },
+     "sources": [
+      {
+       "name": "xkcd",
+       "url": "https://xkcd.com/3318/"
+      }
+     ]
+    },
+    {
+     "type": "sudoku",
+     "id": "sudoku-2026-11-01",
+     "title": "Sudoku",
+     "grid": [
+      "7...1...2",
+      "3...64...",
+      "..52.8..6",
+      "2....36..",
+      "9.38....1",
+      "..69..4..",
+      "..4.31.59",
+      ".2....1.4",
+      ".3..2...."
+     ],
+     "solution": [
+      "768315942",
+      "392764518",
+      "415298376",
+      "287143695",
+      "943856721",
+      "156972483",
+      "874631259",
+      "629587134",
+      "531429867"
+     ]
+    },
+    {
+     "type": "wordsearch",
+     "id": "wordsearch-2026-11-01",
+     "title": "Word Search",
+     "grid": [
+      "KBNTNDLLDPIR",
+      "JPKESJYWOIPL",
+      "HFMLTLAWEEKS",
+      "CTREFORPUOSM",
+      "OEESMYCLOIBG",
+      "MXGCUFYLWKCE",
+      "PAIOYATLPARM",
+      "ESOPWUHVVEGO",
+      "TBNEOTWEHGJD",
+      "ITSWTGPYAECE",
+      "NLHBVCMNPDJL",
+      "GIWCTGWVAAHS"
+     ],
+     "words": [
+      "COMPETING",
+      "TELESCOPE",
+      "OUTLOOK",
+      "REGIONS",
+      "MODELS",
+      "AHEAD",
+      "TEXAS",
+      "WEEKS"
+     ],
+     "solution": [
+      "...T........",
+      "...E........",
+      "...L...WEEKS",
+      "CTRE.....O..",
+      "OEES....O...",
+      "MXGC...L....",
+      "PAIO.AT....M",
+      "ESOP.UH....O",
+      "T.NEO..E...D",
+      "I.S.....A..E",
+      "N........D.L",
+      "G..........S"
+     ]
+    }
+   ]
+  }
+ ]
+}

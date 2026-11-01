@@ -1,0 +1,30 @@
+{
+ "date": "2026-11-01",
+ "date_long": "Sunday, November 1, 2026",
+ "lead": "The AI money gets harder to raise: OpenAI cuts its round to about $20 billion",
+ "pages": {
+  "print": 8,
+  "digital": 7
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-01-print.pdf",
+  "digital": "signal-seeker-2026-11-01-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Your Holdings",
+  "Tech & AI",
+  "Worth Reading",
+  "Business",
+  "Science & Health",
+  "Local",
+  "The Big Stuff",
+  "Worth Your Time",
+  "Funnies"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-01T15:26:55+00:00"
+}

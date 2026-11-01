@@ -6,6 +6,8 @@
     .venv/bin/python build.py signal-seeker 2026-10-31 --size small
     .venv/bin/python build.py --index                            # only regenerate root + paper indexes
     .venv/bin/python build.py signal-seeker 2026-10-31 --public-only  # skip the local private copy
+    .venv/bin/python build.py --recipe recipes/x-substack-5.yaml 2026-11-01   # on-demand edition from a recipe
+    .venv/bin/python build.py --editor                           # only rebuild the recipe editor (site/edit/)
 
 Sections marked `private: true` in paper.yaml go only into site-private/ (gitignored, never published).
 
@@ -14,6 +16,7 @@ Reads   papers/<slug>/paper.yaml, papers/<slug>/editions/<date>/edition.json (+ 
 Writes  site/<slug>/<date>/index.html, <slug>-<date>-print.pdf, <slug>-<date>-digital.pdf, images/
         site/<slug>/index.html, site/index.html, site/assets/, site/robots.txt (+ sitemap.xml once web_base is set)
         papers/<slug>/feedback/summary.json
+Recipe builds (docs/recipes.md) write site/<slug>/custom/<recipe>/<date>/ and are not indexed.
 """
 import datetime, hashlib, html, json, re, shutil, subprocess, sys, urllib.request
 from pathlib import Path
@@ -37,6 +40,12 @@ WMO = {0: "Clear", 1: "Mostly clear", 2: "Partly cloudy", 3: "Cloudy", 45: "Fog"
        77: "Snow", 80: "Showers", 81: "Showers", 82: "Heavy showers", 85: "Snow showers", 86: "Snow showers",
        95: "Thunderstorms", 96: "Thunderstorms", 99: "Thunderstorms"}
 PRINT_TYPE = {"small": 8.4, "medium": 9.2, "large": 10.2}     # body size in pt per print size
+RECIPES = ROOT / "recipes"
+# Where each section's content comes from; shown as a quiet tag in the recipe editor.
+SOURCE_KIND = {"front": "News", "x": "X", "goats": "X", "investments": "X + News", "holdings": "News",
+               "tech": "X + News", "reading": "X", "business": "News", "science": "News", "local": "News",
+               "bigstuff": "News", "worth": "Web", "substack": "Substack", "youtube": "YouTube",
+               "funnies": "Comics", "personal": "Private"}
 
 
 def load_yaml(p):
@@ -80,6 +89,9 @@ def weather(paper, ed_dir, refresh):
         return {"ok": False, "label": w.get("label", "")}
     d, c = data["daily"], data["current"]
     fetched = datetime.datetime.fromisoformat(data["fetched_at"])
+    if w.get("timezone"):
+        from zoneinfo import ZoneInfo
+        fetched = fetched.astimezone(ZoneInfo(w["timezone"]))
     days = []
     for i in (1, 2):
         dt = datetime.date.fromisoformat(d["time"][i])
@@ -144,13 +156,21 @@ def check_public(sections):
 def assemble(paper, ed, size, private=False):
     by_id = {s["id"]: s for s in ed.get("sections", [])}
     known = {c["id"] for c in paper["sections"]}
-    for sid in by_id:
-        if sid not in known:
+    left = [sid for sid in by_id if sid not in known]
+    if left and paper.get("recipe"):
+        print(f"  not in this recipe: {', '.join(left)}")
+    else:
+        for sid in left:
             print(f"  ! edition section '{sid}' is not in paper.yaml; skipped")
     holdings = {h["ticker"]: h["name"] for h in (paper.get("sources") or {}).get("holdings", [])}
     out, seen = [], set()
     for cfg in paper["sections"]:
         items = list((by_id.get(cfg["id"]) or {}).get("items", []))
+        if cfg.get("types"):
+            items = [it for it in items if it.get("type", "story") in cfg["types"]]
+        acc = (paper.get("recipe") or {}).get("accounts")
+        if acc:
+            items = [it for it in items if it.get("type") != "post" or (it.get("handle") or "").lower() in acc]
         if not cfg.get("enabled", True) or not items:
             continue
         if cfg.get("private") and not private:
@@ -206,6 +226,12 @@ def short_host(url):
     return urlparse(url).netloc.replace("www.", "")
 
 
+def excerpt(s, n=140):
+    """Quoted-post preview: drop t.co links, collapse space, cut at a word near n chars."""
+    s = " ".join(re.sub(r"https?://t\.co/\S+", "", s or "").split())
+    return s if len(s) <= n else s[:n].rsplit(" ", 1)[0].rstrip(",;:—-") + "…"
+
+
 def plain(s):
     return html.unescape(re.sub(r"<[^>]+>", "", s or ""))
 
@@ -218,10 +244,80 @@ def describe(paper, sections, date_long):
     return (d[:157].rsplit(" ", 1)[0] + "…") if len(d) > 158 else d
 
 
+# ---------- recipes ----------
+def slugify(s):
+    return re.sub(r"[^a-z0-9]+", "-", (s or "").lower()).strip("-") or "custom"
+
+
+def print_spec(paper, size):
+    pr = paper.get("print") or {}
+    return (pr.get("sizes") or {}).get(size) or {"small": {"target_sheets": [1, 2], "max_sheets": 2},
+                                                 "medium": {"target_sheets": [4, 5], "max_sheets": 5},
+                                                 "large": {"target_sheets": [6, 10], "max_sheets": 10}}[size]
+
+
+def default_recipe(paper):
+    """The paper's own settings, written as a recipe."""
+    size = (paper.get("print") or {}).get("size", "medium")
+    return {"recipe": 1, "name": f"Default ({paper['name']})", "paper": paper["slug"], "format": "print", "size": size,
+            "pages": print_spec(paper, size)["max_sheets"] * 2,
+            "sections": [{"id": c["id"], "max_items": c.get("max_items")} for c in paper["sections"] if c.get("enabled", True)],
+            "accounts": []}
+
+
+def apply_recipe(paper, r):
+    """Return a copy of paper.yaml reshaped by a recipe: only the listed sections, in recipe order, with its caps."""
+    import copy
+    paper = copy.deepcopy(paper)
+    by_id = {c["id"]: c for c in paper["sections"]}
+    secs = []
+    for e in r.get("sections") or []:
+        e = {"id": e} if isinstance(e, str) else dict(e)
+        if e["id"] not in by_id:
+            print(f"  ! recipe section '{e['id']}' is not in paper.yaml; skipped"); continue
+        c = dict(by_id[e["id"]], enabled=True)
+        for k in ("max_items", "weight", "types", "title"):
+            if e.get(k) is not None: c[k] = e[k]
+        secs.append(c)
+    paper["sections"] = secs
+    size = r.get("size") or (paper.get("print") or {}).get("size", "medium")
+    paper.setdefault("print", {})["size"] = size
+    paper["recipe"] = {"name": r.get("name") or "Custom", "slug": r.get("slug") or slugify(r.get("name")),
+                       "format": r.get("format", "print"), "pages": int(r.get("pages") or 0),
+                       "accounts": {a.lower().lstrip("@") for a in (r.get("accounts") or [])}}
+    return paper
+
+
+def build_editor(site_cfg):
+    """site/edit/: a static page that turns the default settings into a recipe. Section names only, never content."""
+    papers = []
+    for pdir in sorted(p for p in PAPERS.iterdir() if (p / "paper.yaml").exists()):
+        paper = load_yaml(pdir / "paper.yaml")
+        if not paper.get("public"):
+            continue
+        papers.append({"slug": paper["slug"], "name": paper["name"], "default": default_recipe(paper),
+                       "sizes": list(((paper.get("print") or {}).get("sizes") or PRINT_TYPE).keys()),
+                       "sections": [{"id": c["id"], "title": c["title"], "max_items": c.get("max_items"),
+                                     "private": bool(c.get("private")), "kind": c.get("source") or SOURCE_KIND.get(c["id"], "")}
+                                    for c in paper["sections"]]})
+    presets = []
+    for f in sorted(RECIPES.glob("*.yaml")):
+        r = load_yaml(f)
+        if r.get("preset"):
+            presets.append({k: r.get(k) for k in ("name", "paper", "format", "size", "pages", "sections", "accounts")})
+    presets.sort(key=lambda r: (not r["name"].startswith("Default"), r["name"]))
+    data = json.dumps({"papers": papers, "presets": presets}, ensure_ascii=False).replace("</", "<\\/")
+    out = SITE / "edit"
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "index.html").write_text(env().get_template("edit.html.j2").render(
+        site=site_cfg, base=public_base(site_cfg.get("web_base", "")), root="../", url_path="/edit/", data=Markup(data)))
+    print(f"editor: site/edit/index.html ({len(presets)} presets)")
+
+
 # ---------- rendering ----------
 def env():
     e = Environment(loader=FileSystemLoader(TPL), autoescape=True, trim_blocks=True, lstrip_blocks=True)
-    e.filters.update(balance=balance, initials=initials, host=short_host, plain=plain)
+    e.filters.update(balance=balance, initials=initials, host=short_host, plain=plain, excerpt=excerpt)
     return e
 
 
@@ -258,20 +354,29 @@ def trim_lowest(sections):
     s["groups"] = [g for g in s.get("groups", []) if g["items"]] if "groups" in s else None
     if s["groups"] is None: s.pop("groups")
     if not s["items"]: sections.remove(s)
-    return f"{s['id']}: {it.get('headline') or it.get('title') or it.get('text', '')[:40]}"
+    return f"{s['id']}: {' '.join((it.get('headline') or it.get('title') or it.get('text', '')[:40]).split())}"
 
 
-def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, private=False):
-    """private=False: the public build into site/. private=True: full copy into site-private/ (local only)."""
+def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, private=False, recipe=None):
+    """private=False: the public build into site/. private=True: full copy into site-private/ (local only).
+    recipe: an on-demand edition (dict) built from the same edition.json into site/<slug>/custom/<recipe>/<date>/."""
     site_dir = PRIVATE_SITE if private else SITE
     pdir = PAPERS / slug
     paper = load_yaml(pdir / "paper.yaml")
+    if recipe:
+        paper = apply_recipe(paper, recipe)
+    rc = paper.get("recipe")
+    sun = paper.get("sunday")
+    if sun and not rc and datetime.date.fromisoformat(date).weekday() == 6:
+        size = size or sun.get("size")      # Sunday: the bigger paper, with its extra sections switched on
+        for c in paper["sections"]:
+            if c["id"] in (sun.get("enable") or []): c["enabled"] = True
     ed_dir = pdir / "editions" / date
     ed = json.loads((ed_dir / "edition.json").read_text())
     size = size or (paper.get("print") or {}).get("size", "medium")
     d = datetime.date.fromisoformat(date)
     date_long = d.strftime("%A, %B %-d, %Y")
-    print(f"{paper['name']} {date} ({size}, {'private copy' if private else 'public'})")
+    print(f"{paper['name']} {date}{' · ' + rc['name'] if rc else ''} ({size}, {'private copy' if private else 'public'})")
     fb = feedback_summary(slug)
     print(f"  feedback: {fb['files']} file(s), {len(fb['more_like_this'])} more-like-this, {len(fb['skipped'])} skips")
 
@@ -280,7 +385,7 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
         sys.exit("  edition has no content in enabled sections")
     if not private:
         check_public(sections)
-    out = site_dir / slug / date
+    out = site_dir / slug / "custom" / rc["slug"] / date if rc else site_dir / slug / date
     if out.exists(): shutil.rmtree(out)
     (out / "images").mkdir(parents=True)
     for sec in sections:
@@ -296,13 +401,15 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
                     print(f"  ! missing image {src}"); it.pop("image")
 
     base = "" if private else public_base(site_cfg.get("web_base", ""))
-    url_path = f"/{slug}/{date}/"
-    pdfs = {"print": f"{slug}-{date}-print.pdf", "digital": f"{slug}-{date}-digital.pdf"}
+    url_path = f"/{slug}/custom/{rc['slug']}/{date}/" if rc else f"/{slug}/{date}/"
+    stem = f"{slug}-{rc['slug']}-{date}" if rc else f"{slug}-{date}"
+    pdfs = {"print": f"{stem}-print.pdf", "digital": f"{stem}-digital.pdf"}
     lead = sections[0]["items"][0]
     ctx = dict(paper=paper, site=site_cfg, private_copy=private, date=date, date_long=date_long, date_short=d.strftime("%b %-d, %Y"),
-               note=ed.get("note", ""), coverage=ed.get("coverage", ""), weather=weather(paper, ed_dir, refresh_weather),
+               note=rc["name"] if rc else ed.get("note", ""), coverage=ed.get("coverage", ""), weather=weather(paper, ed_dir, refresh_weather),
                base=base, url_path=url_path, pdfs=pdfs,
-               title=f"{paper['name']} · {d.strftime('%B %-d, %Y')}: {lead.get('headline', '')}",
+               title=f"{paper['name']} · {d.strftime('%B %-d, %Y')}: {lead.get('headline') or (rc or {}).get('name', '')}",
+               noindex=bool(rc), home="../../../" if rc else "../", edition_key=f"{date}~{rc['slug']}" if rc else date,
                description=ed.get("description") or describe(paper, sections, date_long))
     E = env()
 
@@ -313,47 +420,60 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
     qr = None
     if base and (paper.get("print") or {}).get("qr", True):
         qr = make_qr(base + url_path, work / "qr.svg").resolve().as_uri()
-    pr = paper.get("print") or {}
-    spec = (pr.get("sizes") or {}).get(size) or {"small": {"target_sheets": [1, 2], "max_sheets": 2},
-                                                  "medium": {"target_sheets": [4, 5], "max_sheets": 5},
-                                                  "large": {"target_sheets": [6, 10], "max_sheets": 10}}[size]
+    spec = print_spec(paper, size)
     import copy
     psecs = copy.deepcopy(sections)
     pages = {}
-    for kind in ("print", "digital"):
+    # Daily build: the print PDF is trimmed to max_sheets; web and digital keep everything.
+    # Recipe build: the primary format (print or digital) is trimmed to `pages`, and every output uses that cut.
+    first = "digital" if rc and rc["format"] == "web" else "print"
+    max_pages = (rc and rc["pages"]) or spec["max_sheets"] * 2
+    if rc: sections = psecs
+    for kind in (first, "digital" if first == "print" else "print"):
         trimmed = []
-        while True:
+        pdf = out / pdfs[kind]
+
+        def render(sheets=0, pad=False):
             h = E.get_template("print.html.j2").render(ctx, sections=psecs if kind == "print" else sections, mode=kind,
                                                        pt=PRINT_TYPE[size] + (0.6 if kind == "digital" else 0),
-                                                       static=STATIC.resolve().as_uri(), qr=qr)
+                                                       static=STATIC.resolve().as_uri(), qr=qr, sheets=sheets, pad=pad)
             hp = work / f"{kind}.html"
             hp.write_text(h)
-            pdf = out / pdfs[kind]
             render_pdf(hp, pdf)
-            n = page_count(pdf)
-            if kind == "digital" or (n + 1) // 2 <= spec["max_sheets"]:
+            return page_count(pdf)
+        while True:
+            n = render()
+            if kind != first or n <= max_pages:
                 break
             t = trim_lowest(psecs)
             if not t: break
             trimmed.append(t)
+        if kind == "print":
+            # Duplex: second pass with the real sheet count in the footer, plus one blank back when odd.
+            pad = n % 2 == 1
+            n = render((n + 1) // 2, pad)
+            if n % 2: print(f"  ! print came out at {n} pages after padding")
         pages[kind] = n
         sheets = (n + 1) // 2
-        msg = f"  {kind}: {pdf.relative_to(ROOT)}  {n} pages"
-        if kind == "print":
+        msg = f"  {kind}: {pdf.relative_to(ROOT)}  {n} pages" + (" (last back blank)" if kind == "print" and pad else "")
+        if kind == "print" and not rc:
             lo, hi = spec["target_sheets"]
             msg += f" = {sheets} sheet(s) duplex; {size} target {lo}-{hi} sheets, max {spec['max_sheets']}"
             if sheets < lo: msg += "  (thin edition: under target, not padded)"
-            if trimmed: msg += f"\n    trimmed to fit: " + "; ".join(trimmed)
+        if rc and kind == first:
+            msg += f"; recipe max {max_pages} pages" + ("  (under, not padded)" if n < max_pages else "")
+        if trimmed: msg += f"\n    trimmed to fit: " + "; ".join(trimmed)
         print(msg)
         subprocess.run(["pdftoppm", "-r", "90", "-f", "1", "-l", "1", "-png", "-singlefile", str(pdf),
                         str(work / f"{kind}-p1")], check=True)
 
     # web edition
-    (out / "index.html").write_text(E.get_template("edition.html.j2").render(ctx, sections=sections, root="../../", pages=pages))
+    (out / "index.html").write_text(E.get_template("edition.html.j2").render(ctx, sections=sections, root="../../../../" if rc else "../../", pages=pages))
     meta = {"date": date, "date_long": date_long, "lead": lead.get("headline", ""), "pages": pages,
-            "pdfs": pdfs, "sections": [s["title"] for s in sections], "built_at": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}
+            "pdfs": pdfs, "sections": [s["title"] for s in sections], "recipe": rc["name"] if rc else None, "built_at": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}
     (out / "edition.meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False))
     print(f"  web: {(out / 'index.html').relative_to(ROOT)}  sections: {', '.join(meta['sections'])}")
+    if rc: print(f"  pdf: {(out / pdfs[first]).resolve()}")
     return meta
 
 
@@ -393,6 +513,7 @@ def build_indexes(site_cfg, private=False):
         sm.unlink()
     (SITE / "robots.txt").write_text(robots)
     (SITE / ".nojekyll").write_text("")
+    build_editor(site_cfg)
     print(f"indexes: site/index.html ({len(listed)} public paper(s))")
 
 
@@ -403,6 +524,15 @@ def main(argv):
     size = None
     if "--size" in argv:
         size = argv[argv.index("--size") + 1]; args.remove(size)
+    recipe = None
+    if "--recipe" in argv:
+        rp = argv[argv.index("--recipe") + 1]; args.remove(rp)
+        recipe = load_yaml(rp)
+        recipe["slug"] = slugify(recipe.get("slug") or Path(rp).stem)
+        if not args or not (PAPERS / args[0]).is_dir():
+            args.insert(0, recipe.get("paper") or "signal-seeker")
+    if "--editor" in flags:
+        build_editor(site_cfg); return
     if "--web-base" in argv:
         wb = argv[argv.index("--web-base") + 1]; args.remove(wb); site_cfg["web_base"] = wb
     if "--index" not in flags:
@@ -412,9 +542,11 @@ def main(argv):
         date = args[1] if len(args) > 1 else datetime.date.today().isoformat()
         if not (PAPERS / slug / "editions" / date / "edition.json").exists():
             sys.exit(f"no edition at papers/{slug}/editions/{date}/edition.json")
-        build_edition(slug, date, "--weather" in flags, size, site_cfg)
+        build_edition(slug, date, "--weather" in flags, size, site_cfg, recipe=recipe)
         if "--public-only" not in flags:
-            build_edition(slug, date, False, size, site_cfg, private=True)
+            build_edition(slug, date, False, size, site_cfg, private=True, recipe=recipe)
+        if recipe:
+            return          # on-demand editions are not listed in the indexes
     build_indexes(site_cfg)
     if "--public-only" not in flags:
         build_indexes(site_cfg, private=True)

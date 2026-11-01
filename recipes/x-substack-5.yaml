@@ -1,0 +1,17 @@
+# MediaBot recipe (docs/recipes.md). Build: .venv/bin/python build.py --recipe recipes/x-substack-5.yaml <date>
+# Posts only: X and Substack notes, nothing else.
+preset: true
+recipe: 1
+name: X + Substack, 5 pages
+paper: signal-seeker
+format: print
+size: medium
+pages: 5
+sections:
+  - {id: x, max_items: 10}
+  - {id: goats, max_items: 5}
+  - {id: reading, max_items: 4}
+  - {id: substack, max_items: 4}
+  - {id: investments, max_items: 6, types: [post]}
+  - {id: tech, max_items: 4, types: [post]}
+accounts: []

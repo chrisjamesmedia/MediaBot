@@ -1,0 +1,45 @@
+{% extends "_base.html.j2" %}
+{% set title = "Edit your paper · " ~ site.name %}
+{% set description = "Choose the sections, order and length of a MediaBot edition." %}
+{% set noindex = true %}
+{% set body_class = "editpage" %}
+{% block body %}
+<header class="mast wrap narrow">
+  <h1><a href="../">Edit your paper</a></h1>
+  <div class="under solo"></div>
+</header>
+<main class="wrap narrow ed">
+  <div class="row">
+    <label>Start from <select id="preset"></select></label>
+    <button type="button" id="reset" class="quiet">Reset</button>
+  </div>
+  <div class="row">
+    <label class="grow">Name <input id="name" type="text" maxlength="60" autocomplete="off"></label>
+  </div>
+  <div class="row">
+    <label>Pages <input id="pages" type="number" min="1" max="20" step="1"></label>
+    <span class="seg" role="radiogroup" aria-label="Format">
+      <label><input type="radio" name="format" value="print"><span>Print</span></label><label><input type="radio" name="format" value="web"><span>Web</span></label>
+    </span>
+    <label>Size <select id="size"></select></label>
+  </div>
+
+  <h2>Sections</h2>
+  <ol id="secs" class="secs"></ol>
+
+  <div class="row">
+    <label class="grow">Only these X accounts <input id="accounts" type="text" placeholder="@paulg @naval" autocomplete="off" spellcheck="false"></label>
+  </div>
+
+  <h2>Recipe</h2>
+  <textarea id="out" class="out" readonly rows="12" spellcheck="false" aria-label="Recipe"></textarea>
+  <div class="row">
+    <button type="button" id="copy">Copy</button>
+    <button type="button" id="dl">Download</button>
+    <span class="saved" id="status" aria-live="polite"></span>
+  </div>
+  <p class="mute hint">Send this recipe to MediaBot to build your edition.</p>
+</main>
+<script id="mb-data" type="application/json">{{ data }}</script>
+<script src="{{ root }}assets/edit.js"></script>
+{% endblock %}

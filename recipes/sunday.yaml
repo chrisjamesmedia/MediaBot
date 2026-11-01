@@ -1,0 +1,24 @@
+# MediaBot recipe (docs/recipes.md). Build: .venv/bin/python build.py --recipe recipes/sunday.yaml <date>
+# Sunday: the default paper at the large size, with Funnies (comics + puzzles).
+preset: true
+recipe: 1
+name: Sunday
+paper: signal-seeker
+format: print
+size: large
+pages: 16
+sections:
+  - {id: front, max_items: 5}
+  - {id: x, max_items: 10}
+  - {id: goats, max_items: 5}
+  - {id: investments, max_items: 12}
+  - {id: holdings, max_items: 6}
+  - {id: tech, max_items: 10}
+  - {id: reading, max_items: 4}
+  - {id: business, max_items: 3}
+  - {id: science, max_items: 5}
+  - {id: local, max_items: 4}
+  - {id: bigstuff, max_items: 5}
+  - {id: worth, max_items: 6}
+  - {id: funnies, max_items: 4}
+accounts: []

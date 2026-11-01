@@ -32,10 +32,16 @@
 </div>
 </article>
 {%- endmacro %}
+{% from "_funnies.html.j2" import funnies %}
+{% macro quote(q) -%}
+{% set ex = q.text | excerpt %}
+<a class="quote" href="{{ q.url }}" target="_blank" rel="noopener"><span class="qwho"><b>{{ q.author }}</b> <span class="mute">@{{ q.handle }}</span></span>{% if ex %}<span class="qtext">{{ ex }}</span>{% endif %}</a>
+{%- endmacro %}
 {% macro post(p) -%}
 <article class="post" id="{{ p.id }}" data-id="{{ p.id }}">
 <header><span class="av" aria-hidden="true">{{ p.author | initials }}</span><span class="who"><b>{{ p.author }}</b><span class="mute">@{{ p.handle }}{% if p.date_short %} · <a href="{{ p.url }}" target="_blank" rel="noopener"><time datetime="{{ p.date }}">{{ p.date_short }}</time></a>{% endif %}</span></span></header>
 <p class="ptext">{{ p.text }}</p>
+{% if p.quoted %}{{ quote(p.quoted) }}{% endif %}
 {% if p.image %}<figure class="pimg"><img src="{{ p.image.web }}" alt="" loading="lazy"></figure>{% endif %}
 <footer><a class="src open" href="{{ p.url }}" target="_blank" rel="noopener">Open on X</a>{{ controls() }}</footer>
 </article>
@@ -56,7 +62,7 @@
 {% block body %}
 <header class="mast wrap">
   <div class="topline"><time datetime="{{ date }}">{{ date_long }}</time></div>
-  <h1><a href="../" title="{{ paper.name }}: all editions">{{ paper.name }}{% if paper.version %}<span class="ver">{{ paper.version }}</span>{% endif %}</a></h1>
+  <h1><a href="{{ home or '../' }}" title="{{ paper.name }}: all editions">{{ paper.name }}{% if paper.version %}<span class="ver">{{ paper.version }}</span>{% endif %}</a></h1>
   <div class="under">
     {% if weather.ok %}
     <div class="wx" title="Open-Meteo, fetched {{ weather.asof_full }}">
@@ -78,7 +84,7 @@
 {% set fs = sec['items'] | selectattr('type', 'equalto', 'story') | list %}
 <section id="front" class="front" aria-label="{{ sec.title }}" data-sec="front">
   {% set s = fs[0] %}
-  <article class="story lead" id="{{ s.id }}" data-id="{{ s.id }}">
+  <article class="story lead{% if not s.image %} noimg{% endif %}" id="{{ s.id }}" data-id="{{ s.id }}">
   <h3>{{ s.headline }}</h3>
   {% if s.image %}<figure class="ph"><img src="{{ s.image.web }}" alt=""><figcaption>{{ s.image.credit }}</figcaption></figure>{% endif %}
   <div class="txt"><p>{{ s.summary }}</p><footer>{{ sources(s.sources) }}{{ controls() }}</footer></div>
@@ -89,6 +95,11 @@
 <section id="{{ sec.id }}" class="box" data-sec="{{ sec.id }}">
   <h2>{{ sec.title }}</h2>
   <ul>{% for l in sec['items'] %}{{ line(l) }}{% endfor %}</ul>
+</section>
+{% elif sec.id == 'funnies' %}
+<section id="funnies" class="sec funnies" data-sec="funnies">
+  <h2>{{ sec.title }}</h2>
+  {{ funnies(sec, 'web') }}
 </section>
 {% elif sec.style == 'links' %}
 <section id="{{ sec.id }}" class="sec" data-sec="{{ sec.id }}">
@@ -122,6 +133,6 @@
   <p class="endlinks"><a href="{{ pdfs.print }}">Print edition</a><span class="dot"> · </span><a href="{{ pdfs.digital }}">Digital PDF</a><span class="dot"> · </span><button type="button" id="export">Export feedback</button><span class="saved" aria-live="polite"></span></p>
 </section>
 </main>
-<script>window.SG = {paper: "{{ paper.slug }}", edition: "{{ date }}"};</script>
+<script>window.SG = {paper: "{{ paper.slug }}", edition: "{{ edition_key or date }}"};</script>
 <script src="{{ root }}assets/site.js"></script>
 {% endblock %}

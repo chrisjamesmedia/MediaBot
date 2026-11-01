@@ -87,10 +87,23 @@ anyone with the URL can still open it (see docs/feedback.md, "Sign-in later").
 - **Section order:** Front Page, From Your X, The GOATs, Investments (by theme), Your Holdings
   (by company), Tech & AI, Worth Reading, Business, Science & Health, Local, The Big Stuff (box),
   Worth Your Time (links).
-- **Off in config:** Substack, YouTube, Funnies and Odds & Ends. They need real sources before they
-  are switched on; nothing is faked for them.
+- **Off in config:** Substack and YouTube. They need real sources before they are switched on;
+  nothing is faked for them. Odds & Ends is private (below).
+- **Sundays:** the `sunday:` block in paper.yaml makes the paper large and turns on Funnies (an
+  xkcd comic from its RSS feed, a sudoku and a word search). Run `tools/funnies.py <slug> <date>`
+  before `build.py` on Sundays. There is no public notes section, so Sunday adds no notes.
+- **Print:** pure white, black ink, no fills. Footer "Sheet N of M · Front/Back"; an odd page
+  count gets one blank back so it duplexes cleanly. Web and digital PDF use a warm paper tone.
+- **Quoted posts:** drawn as a small inset when edition.json carries `quoted` (tools/x_quoted.py).
 - **Reader feedback:** stored per browser, with an exported JSON file (docs/feedback.md). There are
   no accounts yet.
+
+## Recipes: an on-demand paper
+A recipe is a small YAML file that picks sections, caps and a page limit from the content already
+fetched for a day. See docs/recipes.md. Presets live in `recipes/`; the editor at `site/edit/`
+writes one.
+
+    .venv/bin/python build.py --recipe recipes/x-substack-5.yaml 2026-11-01 --public-only
 
 ## Private sections and money details
 - Any section in `paper.yaml` can carry `private: true`. A private section is left out of the public

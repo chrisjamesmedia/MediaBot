@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edit your paper · MediaBot</title>
+<meta name="description" content="Choose the sections, order and length of a MediaBot edition.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://chrisjamesmedia.github.io/MediaBot/edit/">
+<meta property="og:url" content="https://chrisjamesmedia.github.io/MediaBot/edit/">
+<meta property="og:site_name" content="MediaBot">
+<meta property="og:title" content="Edit your paper · MediaBot">
+<meta property="og:description" content="Choose the sections, order and length of a MediaBot edition.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="editpage">
+<header class="mast wrap narrow">
+  <h1><a href="../">Edit your paper</a></h1>
+  <div class="under solo"></div>
+</header>
+<main class="wrap narrow ed">
+  <div class="row">
+    <label>Start from <select id="preset"></select></label>
+    <button type="button" id="reset" class="quiet">Reset</button>
+  </div>
+  <div class="row">
+    <label class="grow">Name <input id="name" type="text" maxlength="60" autocomplete="off"></label>
+  </div>
+  <div class="row">
+    <label>Pages <input id="pages" type="number" min="1" max="20" step="1"></label>
+    <span class="seg" role="radiogroup" aria-label="Format">
+      <label><input type="radio" name="format" value="print"><span>Print</span></label><label><input type="radio" name="format" value="web"><span>Web</span></label>
+    </span>
+    <label>Size <select id="size"></select></label>
+  </div>
+
+  <h2>Sections</h2>
+  <ol id="secs" class="secs"></ol>
+
+  <div class="row">
+    <label class="grow">Only these X accounts <input id="accounts" type="text" placeholder="@paulg @naval" autocomplete="off" spellcheck="false"></label>
+  </div>
+
+  <h2>Recipe</h2>
+  <textarea id="out" class="out" readonly rows="12" spellcheck="false" aria-label="Recipe"></textarea>
+  <div class="row">
+    <button type="button" id="copy">Copy</button>
+    <button type="button" id="dl">Download</button>
+    <span class="saved" id="status" aria-live="polite"></span>
+  </div>
+  <p class="mute hint">Send this recipe to MediaBot to build your edition.</p>
+</main>
+<script id="mb-data" type="application/json">{"papers": [{"slug": "signal-seeker", "name": "Signal Seeker", "default": {"recipe": 1, "name": "Default (Signal Seeker)", "paper": "signal-seeker", "format": "print", "size": "medium", "pages": 10, "sections": [{"id": "front", "max_items": 5}, {"id": "x", "max_items": 10}, {"id": "goats", "max_items": 5}, {"id": "investments", "max_items": 12}, {"id": "holdings", "max_items": 6}, {"id": "tech", "max_items": 10}, {"id": "reading", "max_items": 4}, {"id": "business", "max_items": 3}, {"id": "science", "max_items": 5}, {"id": "local", "max_items": 4}, {"id": "bigstuff", "max_items": 5}, {"id": "worth", "max_items": 6}], "accounts": []}, "sizes": ["small", "medium", "large"], "sections": [{"id": "front", "title": "Front Page", "max_items": 5, "private": false, "kind": "News"}, {"id": "x", "title": "From Your X", "max_items": 10, "private": false, "kind": "X"}, {"id": "goats", "title": "The GOATs", "max_items": 5, "private": false, "kind": "X"}, {"id": "investments", "title": "Investments", "max_items": 12, "private": false, "kind": "X + News"}, {"id": "holdings", "title": "Your Holdings", "max_items": 6, "private": false, "kind": "News"}, {"id": "tech", "title": "Tech & AI", "max_items": 10, "private": false, "kind": "X + News"}, {"id": "reading", "title": "Worth Reading", "max_items": 4, "private": false, "kind": "X"}, {"id": "business", "title": "Business", "max_items": 3, "private": false, "kind": "News"}, {"id": "science", "title": "Science & Health", "max_items": 5, "private": false, "kind": "News"}, {"id": "local", "title": "Local", "max_items": 4, "private": false, "kind": "News"}, {"id": "bigstuff", "title": "The Big Stuff", "max_items": 5, "private": false, "kind": "News"}, {"id": "worth", "title": "Worth Your Time", "max_items": 6, "private": false, "kind": "Web"}, {"id": "substack", "title": "Substack", "max_items": 4, "private": false, "kind": "Substack"}, {"id": "youtube", "title": "YouTube", "max_items": 3, "private": false, "kind": "YouTube"}, {"id": "funnies", "title": "Funnies", "max_items": 4, "private": false, "kind": "Comics"}, {"id": "personal", "title": "Odds & Ends", "max_items": 6, "private": true, "kind": "Private"}]}], "presets": [{"name": "Default (Signal Seeker)", "paper": "signal-seeker", "format": "print", "size": "medium", "pages": 10, "sections": [{"id": "front", "max_items": 5}, {"id": "x", "max_items": 10}, {"id": "goats", "max_items": 5}, {"id": "investments", "max_items": 12}, {"id": "holdings", "max_items": 6}, {"id": "tech", "max_items": 10}, {"id": "reading", "max_items": 4}, {"id": "business", "max_items": 3}, {"id": "science", "max_items": 5}, {"id": "local", "max_items": 4}, {"id": "bigstuff", "max_items": 5}, {"id": "worth", "max_items": 6}], "accounts": []}, {"name": "Comics + YouTube", "paper": "signal-seeker", "format": "web", "size": "small", "pages": 3, "sections": [{"id": "funnies", "max_items": 3}, {"id": "youtube", "max_items": 3}], "accounts": []}, {"name": "Legacy media only", "paper": "signal-seeker", "format": "print", "size": "medium", "pages": 6, "sections": [{"id": "front", "max_items": 5}, {"id": "investments", "max_items": 6, "types": ["story"]}, {"id": "tech", "max_items": 6, "types": ["story"]}, {"id": "business", "max_items": 3}, {"id": "science", "max_items": 5}, {"id": "local", "max_items": 4}, {"id": "bigstuff", "max_items": 5}], "accounts": []}, {"name": "Sunday", "paper": "signal-seeker", "format": "print", "size": "large", "pages": 16, "sections": [{"id": "front", "max_items": 5}, {"id": "x", "max_items": 10}, {"id": "goats", "max_items": 5}, {"id": "investments", "max_items": 12}, {"id": "holdings", "max_items": 6}, {"id": "tech", "max_items": 10}, {"id": "reading", "max_items": 4}, {"id": "business", "max_items": 3}, {"id": "science", "max_items": 5}, {"id": "local", "max_items": 4}, {"id": "bigstuff", "max_items": 5}, {"id": "worth", "max_items": 6}, {"id": "funnies", "max_items": 4}], "accounts": []}, {"name": "X + Substack, 5 pages", "paper": "signal-seeker", "format": "print", "size": "medium", "pages": 5, "sections": [{"id": "x", "max_items": 10}, {"id": "goats", "max_items": 5}, {"id": "reading", "max_items": 4}, {"id": "substack", "max_items": 4}, {"id": "investments", "max_items": 6, "types": ["post"]}, {"id": "tech", "max_items": 4, "types": ["post"]}], "accounts": []}]}</script>
+<script src="../assets/edit.js"></script>
+</body>
+</html>

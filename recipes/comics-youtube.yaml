@@ -1,0 +1,13 @@
+# MediaBot recipe (docs/recipes.md). Build: .venv/bin/python build.py --recipe recipes/comics-youtube.yaml <date>
+# Builds only once Funnies and YouTube have sources; never filled with stand-ins.
+preset: true
+recipe: 1
+name: Comics + YouTube
+paper: signal-seeker
+format: web
+size: small
+pages: 3
+sections:
+  - {id: funnies, max_items: 3}
+  - {id: youtube, max_items: 3}
+accounts: []
