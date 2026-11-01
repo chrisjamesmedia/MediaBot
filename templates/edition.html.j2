@@ -5,15 +5,6 @@
 {% set lead = sections[0]['items'][0] %}
 {% set og_image = lead.image.web if lead.image else None %}
 {% set body_class = "edition" %}
-{% macro icon(kind) -%}
-<svg class="wx-i" viewBox="0 0 24 24" aria-hidden="true">
-{%- if kind == 'sun' %}<circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/>
-{%- elif kind == 'partly' %}<circle cx="9" cy="9" r="3.4"/><path d="M9 2.8v1.6M2.8 9h1.6M4.6 4.6l1.1 1.1M13.4 4.6l-1.1 1.1"/><path d="M8.5 19.5h9a3.5 3.5 0 0 0 0-7 5 5 0 0 0-9.3 1.3A2.9 2.9 0 0 0 8.5 19.5z"/>
-{%- elif kind == 'rain' %}<path d="M7 15.5h10a3.5 3.5 0 0 0 0-7 5 5 0 0 0-9.6 1.4A2.8 2.8 0 0 0 7 15.5z"/><path d="M9 18.5l-1 2.5M13 18.5l-1 2.5M17 18.5l-1 2.5"/>
-{%- elif kind == 'snow' %}<path d="M7 15.5h10a3.5 3.5 0 0 0 0-7 5 5 0 0 0-9.6 1.4A2.8 2.8 0 0 0 7 15.5z"/><path d="M9 19.5h.01M13 20.5h.01M17 19.5h.01"/>
-{%- else %}<path d="M6.5 18h11a4 4 0 0 0 0-8 5.6 5.6 0 0 0-10.8 1.6A3.2 3.2 0 0 0 6.5 18z"/>
-{%- endif %}</svg>
-{%- endmacro %}
 {% macro sources(list) -%}
 <span class="src">{% for s in list %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>{% if not loop.last %}<span class="dot"> · </span>{% endif %}{% endfor %}</span>
 {%- endmacro %}
@@ -59,30 +50,60 @@
 {% if lines %}<ul class="lines">{% for l in lines %}{{ line(l) }}{% endfor %}</ul>{% endif %}
 {% if posts %}<div class="posts{% if posts|length == 1 %} one{% endif %}">{% for p in posts %}{{ post(p) }}{% endfor %}</div>{% endif %}
 {%- endmacro %}
-{% block body %}
-<header class="mast wrap">
-  <div class="topline"><time datetime="{{ date }}">{{ date_long }}</time></div>
-  <h1><a href="{{ home or '../' }}" title="{{ paper.name }}: all editions">{{ paper.name }}{% if paper.version %}<span class="ver">{{ paper.version }}</span>{% endif %}</a></h1>
-  <div class="under">
-    {% if weather.ok %}
-    <div class="wx" title="Open-Meteo, fetched {{ weather.asof_full }}">
-      <span class="wx-now">{{ icon(weather.icon) }}<b>{{ weather.now }}°</b> {{ weather.cond }}<span class="mute hl">H {{ weather.hi }}° &nbsp;L {{ weather.lo }}°</span></span>
-      <span class="wx-fc">{% for d in weather.days %}<span class="wx-day" title="{{ d.cond }}">{{ d.name }} {{ icon(d.icon) }}{{ d.hi }}°<span class="mute">/{{ d.lo }}°</span></span>{% endfor %}</span>
-      <span class="wx-asof mute">{{ weather.label }}, {{ weather.asof }}</span>
-    </div>
-    {% endif %}
-    {% if note %}<div class="note">{{ note }}</div>{% endif %}
+{% macro sub_body(sec) -%}
+{% if sec.style == 'box' %}
+  <div class="box"><ul>{% for l in sec['items'] %}{{ line(l) }}{% endfor %}</ul></div>
+{% elif sec.id == 'funnies' %}
+  {{ funnies(sec, 'web') }}
+{% elif sec.style == 'links' %}
+  <ol class="worthlist">{% for w in sec['items'] %}<li data-id="{{ w.id }}"><a href="{{ w.url }}" target="_blank" rel="noopener">{{ w.title }}</a>{% if w.why %} <span class="mute">{{ w.why }}</span>{% endif %}</li>{% endfor %}</ol>
+{% elif sec.groups %}
+  {% for g in sec.groups %}
+  <div class="group{% if sec.group_by == 'ticker' %} hold{% endif %}">
+    {% if g.title %}<h4>{{ g.title }}</h4>{% endif %}
+    <div>{{ items_block(g['items']) }}</div>
   </div>
-  {% if sections|length > 2 %}
-  <nav class="toc" aria-label="Sections">{% for sec in sections if sec.id != 'front' %}<a href="#{{ sec.id }}">{{ sec.title | replace('The ', '') if sec.id in ('goats','bigstuff') else sec.title }}</a>{% endfor %}</nav>
+  {% endfor %}
+{% else %}
+  {{ items_block(sec['items']) }}
+{% endif %}
+{%- endmacro %}
+{% block body %}
+{% set parts = sections | by_source %}
+{% set front = sections | selectattr('id', 'equalto', 'front') | first %}
+{% set show_toc = (parts|length + (1 if front else 0) > 1) or (parts and parts[0].subs|length > 1) %}
+<header class="mast wrap">
+  <div class="topline">
+    <time datetime="{{ date }}">{{ date_long }}</time>
+    <span class="getpdf">
+      <a class="printbtn" href="{{ pdfs.print }}" target="_blank" rel="noopener" title="Letter, double-sided, black on white"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3.5h10V9M7 17.5H4.5v-7a1.5 1.5 0 0 1 1.5-1.5h12a1.5 1.5 0 0 1 1.5 1.5v7H17M7 14h10v6.5H7z"/></svg>Print</a>
+      <a class="digi" href="{{ pdfs.digital }}" target="_blank" rel="noopener">Digital PDF</a>
+    </span>
+  </div>
+  <h1><a href="{{ home or '../' }}" title="{{ paper.name }}: all editions">{{ paper.name }}</a></h1>
+  <div class="under">
+    {% if weather.ok %}<span class="wx" title="Open-Meteo, {{ weather.asof_full }}">{{ weather.line }}</span>{% endif %}
+    {% if note %}<span class="note">{{ note }}</span>{% endif %}
+  </div>
+  {% if show_toc %}
+  <nav class="contents" id="contents" aria-labelledby="contents-h">
+    <h2 id="contents-h">In this edition</h2>
+    <ol class="toc-parts">
+      {% if front %}<li><a class="tp" href="#front">Front Page</a></li>{% endif %}
+      {% for p in parts %}
+      <li><a class="tp" href="#{{ p.anchor }}">{{ p.title }}</a>
+        {% if p.subs|length > 1 %}<ol class="toc-subs">{% for t in p.subs %}<li><a href="#{{ t.anchor }}">{{ t.title }}</a></li>{% endfor %}</ol>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
   {% endif %}
 </header>
 
 <main class="wrap">
-{% for sec in sections %}
-{% if sec.id == 'front' %}
-{% set fs = sec['items'] | selectattr('type', 'equalto', 'story') | list %}
-<section id="front" class="front" aria-label="{{ sec.title }}" data-sec="front">
+{% if front %}
+{% set fs = front['items'] | selectattr('type', 'equalto', 'story') | list %}
+<section id="front" class="front" aria-label="{{ front.title }}" data-sec="front">
   {% set s = fs[0] %}
   <article class="story lead{% if not s.image %} noimg{% endif %}" id="{{ s.id }}" data-id="{{ s.id }}">
   <h3>{{ s.headline }}</h3>
@@ -91,36 +112,18 @@
   </article>
   {% if fs|length > 1 %}<div class="grid2 rest{% if fs|length is odd %} even{% endif %}">{% for s in fs[1:] %}{{ story(s) }}{% endfor %}</div>{% endif %}
 </section>
-{% elif sec.style == 'box' %}
-<section id="{{ sec.id }}" class="box" data-sec="{{ sec.id }}">
-  <h2>{{ sec.title }}</h2>
-  <ul>{% for l in sec['items'] %}{{ line(l) }}{% endfor %}</ul>
-</section>
-{% elif sec.id == 'funnies' %}
-<section id="funnies" class="sec funnies" data-sec="funnies">
-  <h2>{{ sec.title }}</h2>
-  {{ funnies(sec, 'web') }}
-</section>
-{% elif sec.style == 'links' %}
-<section id="{{ sec.id }}" class="sec" data-sec="{{ sec.id }}">
-  <h2>{{ sec.title }}</h2>
-  <ol class="worthlist">{% for w in sec['items'] %}<li data-id="{{ w.id }}"><a href="{{ w.url }}" target="_blank" rel="noopener">{{ w.title }}</a>{% if w.why %} <span class="mute">{{ w.why }}</span>{% endif %}</li>{% endfor %}</ol>
-</section>
-{% else %}
-<section id="{{ sec.id }}" class="sec sec-{{ sec.id }}" data-sec="{{ sec.id }}">
-  <h2>{{ sec.title }}</h2>
-  {% if sec.groups %}
-  {% for g in sec.groups %}
-  <div class="group{% if sec.group_by == 'ticker' %} hold{% endif %}">
-    {% if g.title %}<h4>{{ g.title }}</h4>{% endif %}
-    <div>{{ items_block(g['items']) }}</div>
-  </div>
-  {% endfor %}
-  {% else %}
-  {{ items_block(sec['items']) }}
-  {% endif %}
-</section>
 {% endif %}
+{% for p in parts %}
+<section id="{{ p.anchor }}" class="part part-{{ p.id }}" aria-labelledby="{{ p.anchor }}-h">
+  <h2 class="part-h" id="{{ p.anchor }}-h">{{ p.title }}</h2>
+  {% for sec in p.subs %}
+  <section id="{{ sec.anchor }}" class="sec sec-{{ sec.id }}{{ " funnies" if sec.id == "funnies" }}" data-sec="{{ sec.id }}">
+    {% if p.subs|length > 1 %}<h3 class="topic">{{ sec.title }}</h3>{% endif %}
+    {{ sub_body(sec) }}
+  </section>
+  {% endfor %}
+  {% if show_toc %}<p class="back"><a href="#contents">↑ Contents</a></p>{% endif %}
+</section>
 {% endfor %}
 
 <section class="end" aria-label="End of edition">
@@ -130,7 +133,7 @@
     <textarea id="fb-text" rows="2" placeholder="Feedback on today’s edition"></textarea>
     <button type="submit">Save</button>
   </form>
-  <p class="endlinks"><a href="{{ pdfs.print }}">Print edition</a><span class="dot"> · </span><a href="{{ pdfs.digital }}">Digital PDF</a><span class="dot"> · </span><button type="button" id="export">Export feedback</button><span class="saved" aria-live="polite"></span></p>
+  <p class="endlinks"><a href="{{ pdfs.print }}" target="_blank" rel="noopener">Print edition</a><span class="dot"> · </span><a href="{{ pdfs.digital }}" target="_blank" rel="noopener">Digital PDF</a><span class="dot"> · </span><button type="button" id="export">Export feedback</button><span class="saved" aria-live="polite"></span></p>
 </section>
 </main>
 <script>window.SG = {paper: "{{ paper.slug }}", edition: "{{ edition_key or date }}"};</script>

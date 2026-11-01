@@ -1,6 +1,5 @@
 # A minimal paper. Copy this folder to papers/<your-slug>/, edit, and build.
 name: The Example
-version: v0.1
 slug: example
 public: false                  # stays off the root index until you flip it
 reader: Someone
