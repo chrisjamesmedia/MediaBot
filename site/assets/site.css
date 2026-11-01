@@ -403,6 +403,39 @@ a.kicker:hover{color:var(--ink)}
 @media (max-width:640px){.sudoku{--c:calc((100vw - 44px)/9)}.ws{--c:calc((100vw - 44px)/12)}}
 .sudoku span:nth-child(-n+9){border-top:0}.sudoku span:nth-child(9n+1){border-left:0}
 
+/* The Passage */
+.passage{margin:4px 0 8px;max-width:720px}
+.passage .pk{font:700 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:0 0 12px}
+.passage .pt{margin:0;padding-left:20px;border-left:3px solid var(--rule-strong);font:italic 400 23px/1.5 var(--serif);color:var(--ink)}
+.passage .pt.verse{white-space:pre-line}
+.passage figcaption{font:400 15px/1.5 var(--sans);color:var(--ink2);margin:12px 0 0 23px}
+.passage cite{font-style:italic}
+.passage .purl{display:block;font-size:13px;color:var(--mute)}
+.passage .purl a{color:var(--mute)}
+
+/* Games: answers behind "Show answer" */
+.games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 40px;font:400 16px/1.5 var(--sans);margin-top:28px}
+.sec-games:first-child .games{margin-top:0}
+.game h4{font:700 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px}
+.g-crossword{grid-column:1 / -1}
+.mq{margin:0;padding-left:22px}.mq li{margin:0 0 6px}
+.wr{font-weight:600;margin:0 0 10px}.gq{margin:10px 0 0;color:var(--ink2)}
+.cards{display:flex;flex-wrap:wrap;gap:10px}
+.card{border:1.5px solid var(--ink);border-radius:6px;padding:20px 8px;min-width:88px;text-align:center;font-weight:600;background:var(--paper)}
+.rq{margin:0;font:italic 400 19px/1.5 var(--serif)}
+.cwwrap{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+.cw{display:grid;grid-template-columns:repeat(var(--n),44px);border:2px solid var(--ink);width:max-content}
+.cw span{width:44px;height:44px;border:1px solid var(--rule);position:relative;display:flex;align-items:center;justify-content:center;font:600 20px/1 var(--sans)}
+.cw span i{position:absolute;top:2px;left:3px;font:400 10px/1 var(--sans);font-style:normal;color:var(--ink2)}
+.cw .blk{background:var(--ink)}
+.clues{display:flex;flex-wrap:wrap;gap:28px;font-size:15px}.clues>div{max-width:300px}.clues p{margin:4px 0}.clues i{font-style:normal;font-weight:700}
+.show{margin-top:12px;font-size:14px;color:var(--mute)}
+.show summary{cursor:pointer}
+.show[open]{color:var(--ink)}
+.ga{margin:8px 0 0;padding-left:22px}.ga .how{color:var(--mute)}p.ga{padding-left:0}.ga.cwa{padding-left:0}
+.cwa .cw{grid-template-columns:repeat(var(--n),28px)}.cwa .cw span{width:28px;height:28px;font-size:14px}
+@media (max-width:640px){.games{grid-template-columns:1fr}.cw{grid-template-columns:repeat(var(--n),40px)}.cw span{width:40px;height:40px}}
+
 /* Desktop: a lone story or post uses a comfortable measure, not half the page */
 .cols.n1{grid-template-columns:minmax(0,1fr)}
 .cols.n1 .story p{max-width:72ch}

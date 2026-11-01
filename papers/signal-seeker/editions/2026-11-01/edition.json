@@ -975,43 +975,279 @@
      "id": "wordsearch-2026-11-01",
      "title": "Word Search",
      "grid": [
-      "KBNTNDLLDPIR",
-      "JPKESJYWOIPL",
-      "HFMLTLAWEEKS",
-      "CTREFORPUOSM",
-      "OEESMYCLOIBG",
-      "MXGCUFYLWKCE",
-      "PAIOYATLPARM",
-      "ESOPWUHVVEGO",
-      "TBNEOTWEHGJD",
-      "ITSWTGPYAECE",
-      "NLHBVCMNPDJL",
-      "GIWCTGWVAAHS"
+      "PTHMILLIONCM",
+      "TVCARGABKVEB",
+      "MEEACDAVIDBV",
+      "CRGBPKFVMIYU",
+      "YSPKKTIJOUKV",
+      "DUKBNNUNDLLD",
+      "PSIRJPKRGSJY",
+      "WOIPLHFMITLA",
+      "FOREGARDINGR",
+      "PRAISEUSMMGY",
+      "CLIBGUFYWKCE",
+      "INTELYLPARWV"
      ],
      "words": [
-      "COMPETING",
-      "TELESCOPE",
-      "OUTLOOK",
-      "REGIONS",
-      "MODELS",
-      "AHEAD",
-      "TEXAS",
-      "WEEKS"
+      "CAPTURING",
+      "REGARDING",
+      "HACKING",
+      "MILLION",
+      "VERSUS",
+      "DAVID",
+      "INTEL",
+      "RAISE"
      ],
      "solution": [
-      "...T........",
-      "...E........",
-      "...L...WEEKS",
-      "CTRE.....O..",
-      "OEES....O...",
-      "MXGC...L....",
-      "PAIO.AT....M",
-      "ESOP.UH....O",
-      "T.NEO..E...D",
-      "I.S.....A..E",
-      "N........D.L",
-      "G..........S"
+      "..HMILLION..",
+      ".VCA........",
+      ".E.ACDAVID..",
+      ".R..PK......",
+      ".S...TI.....",
+      ".U....UN....",
+      ".S.....RG...",
+      "........I...",
+      "..REGARDING.",
+      ".RAISE....G.",
+      "............",
+      "INTEL......."
      ]
+    }
+   ]
+  },
+  {
+   "id": "passage",
+   "items": [
+    {
+     "type": "passage",
+     "id": "bible-lam-3-22",
+     "text": "It is of the LORD's mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
+     "author": "The Bible",
+     "kind": "scripture",
+     "work": "Lamentations 3:22–23",
+     "source_url": "https://www.biblegateway.com/passage/?search=Lamentations+3%3A22-23&version=KJV",
+     "sources": [
+      {
+       "name": "biblegateway.com",
+       "url": "https://www.biblegateway.com/passage/?search=Lamentations+3%3A22-23&version=KJV"
+      }
+     ],
+     "translation": "KJV",
+     "label": "Scripture"
+    }
+   ]
+  },
+  {
+   "id": "games",
+   "items": [
+    {
+     "type": "mathq",
+     "id": "mathq-2026-11-01",
+     "title": "Mental Math",
+     "problems": [
+      {
+       "q": "24 × 8",
+       "a": "192",
+       "how": "24 × 8 = 20 × 8 + 4 × 8 = 192"
+      },
+      {
+       "q": "65% of 400",
+       "a": "260",
+       "how": "10% is 40, so 65% = 6 × 40 + half of 40 = 260"
+      },
+      {
+       "q": "Fermi: if you drink 2 litres of water a day, roughly how many litres in 50 years?",
+       "a": "about 37,000 litres",
+       "how": "2 × 365 × 50 = 36,500"
+      }
+     ]
+    },
+    {
+     "type": "wason",
+     "id": "wason-2026-11-01",
+     "title": "Four Cards",
+     "rule": "If a card is red on one side, it has a circle on the other.",
+     "cards": [
+      "Triangle",
+      "Red",
+      "Circle",
+      "Green"
+     ],
+     "answer": "Red and Triangle",
+     "explanation": "Red could hide something that breaks the rule; Triangle breaks it if the other side turns out to be Red. Circle can't break it (the rule never says only those cards have it), and Green isn't covered by the rule at all. Most people pick the card that matches the rule's second half instead of the one that could falsify it."
+    },
+    {
+     "type": "crossword",
+     "id": "crossword-2026-11-01",
+     "title": "Mini Crossword",
+     "size": 5,
+     "cells": [
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 1
+       },
+       {
+        "n": 2
+       },
+       {
+        "n": 3
+       },
+       {
+        "b": true
+       }
+      ],
+      [
+       {
+        "n": 4
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": 5
+       }
+      ],
+      [
+       {
+        "n": 6
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "n": 7
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 8
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "b": true
+       }
+      ]
+     ],
+     "clues": {
+      "across": [
+       {
+        "n": 1,
+        "clue": "A teasing remark",
+        "len": 3,
+        "answer": "RIB"
+       },
+       {
+        "n": 4,
+        "clue": "The contestant you hope to defeat",
+        "len": 5,
+        "answer": "RIVAL"
+       },
+       {
+        "n": 6,
+        "clue": "Love intensely",
+        "len": 5,
+        "answer": "ADORE"
+       },
+       {
+        "n": 7,
+        "clue": "Become one",
+        "len": 5,
+        "answer": "MERGE"
+       },
+       {
+        "n": 8,
+        "clue": "The seed of the cereal grass",
+        "len": 3,
+        "answer": "RYE"
+       }
+      ],
+      "down": [
+       {
+        "n": 1,
+        "clue": "A clause that is appended to a legislative bill",
+        "len": 5,
+        "answer": "RIDER"
+       },
+       {
+        "n": 2,
+        "clue": "A shade of white the color of bleached bones",
+        "len": 5,
+        "answer": "IVORY"
+       },
+       {
+        "n": 3,
+        "clue": "A flatbottom boat for carrying heavy loads",
+        "len": 5,
+        "answer": "BARGE"
+       },
+       {
+        "n": 4,
+        "clue": "A tool for driving or forcing something by impact",
+        "len": 3,
+        "answer": "RAM"
+       },
+       {
+        "n": 5,
+        "clue": "The side of something that is sheltered from the wind",
+        "len": 3,
+        "answer": "LEE"
+       }
+      ]
+     },
+     "solution": [
+      "#RIB#",
+      "RIVAL",
+      "ADORE",
+      "MERGE",
+      "#RYE#"
+     ]
+    },
+    {
+     "type": "riddle",
+     "id": "riddle-2026-11-01",
+     "title": "Riddle",
+     "q": "What has many teeth but can't bite?",
+     "a": "A comb."
     }
    ]
   }

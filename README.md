@@ -91,7 +91,7 @@ anyone with the URL can still open it (see docs/feedback.md, "Sign-in later").
   (by company), Tech & AI, Worth Reading, Business, Science & Health, Local, The Big Stuff (box),
   Worth Your Time (links). That is the order in paper.yaml and the order trimming works on.
 - **Reading order (by source):** each edition is regrouped at render time by where items came
-  from: Front Page, then X, Substack, YouTube, News, Around the Web, Funnies. Topics are subgroups
+  from: Front Page, then X, Substack, YouTube, News, Around the Web, The Passage, Funnies & Games. Topics are subgroups
   inside each source (`build.py: item_source / by_source`; a section can set `source_group:` to
   override). An "In this edition" contents block sits under the masthead: anchor links on the web
   (with a quiet "↑ Contents" link after each part), internal links with page numbers in the digital
@@ -107,6 +107,13 @@ anyone with the URL can still open it (see docs/feedback.md, "Sign-in later").
 - **Sundays:** the `sunday:` block in paper.yaml makes the paper large and turns on Funnies (an
   xkcd comic from its RSS feed, a sudoku and a word search). Run `tools/funnies.py <slug> <date>`
   before `build.py` on Sundays. There is no public notes section, so Sunday adds no notes.
+- **The Passage (daily):** one quote, poem, scripture or short speech excerpt (`tools/passage.py`), from
+  verified sources with the link printed (papers/<slug>/passages.json), the Bible about twice a week,
+  other ancient texts rarely, and throwbacks from Chris's old quote bank (local-only quote_bank.json,
+  gitignored). Nothing repeats (passages_seen.json); "Keep / Never again" chips feed taste.json.
+- **Games (daily):** mental math with a Fermi estimate, a Wason four-card task, a 5x5 mini crossword and
+  a riddle (`tools/games.py`), all generated and checked. Answers: "Show answer" on the web, the last
+  page in print.
 - **Print:** pure white, black ink, no fills. Footer "Sheet N of M · Front/Back · p. N"; an odd page
   count gets one blank back so it duplexes cleanly. Web and digital PDF use a warm paper tone.
 - **Quoted posts:** drawn as a small inset when edition.json carries `quoted` (tools/x_quoted.py).

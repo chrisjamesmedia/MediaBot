@@ -17,3 +17,6 @@ screenshots/
 *cookie*
 *token*
 *secret*
+
+# Private: quote bank holds Google Doc titles/ids (never publish)
+papers/signal-seeker/quote_bank.json

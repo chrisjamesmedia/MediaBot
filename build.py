@@ -18,6 +18,7 @@ Writes  site/<slug>/<date>/index.html, <slug>-<date>-print.pdf, <slug>-<date>-di
         site/<slug>/latest/ (print.pdf, digital.pdf, latest.json, index.html redirect; public papers only,
         the stable URL tools/print-daily/ prints from)
         papers/<slug>/feedback/summary.json, papers/<slug>/evergreen_seen.json
+        (passages_seen.json is written by tools/passage.py; games by tools/games.py)
 Recipe builds (docs/recipes.md) write site/<slug>/custom/<recipe>/<date>/ and are not indexed.
 """
 import datetime, hashlib, html, json, re, shutil, subprocess, sys, urllib.request
@@ -47,7 +48,7 @@ RECIPES = ROOT / "recipes"
 SOURCE_KIND = {"front": "X", "feed": "X (your timeline)", "x": "X", "goats": "X", "investments": "X + News", "holdings": "News",
                "tech": "X + News", "reading": "X", "business": "News", "science": "News", "local": "News",
                "bigstuff": "News", "worth": "X + Web", "evergreen": "X (long-form)", "substack": "Substack", "youtube": "YouTube",
-               "funnies": "Comics", "personal": "Private"}
+               "funnies": "Comics", "personal": "Private", "passage": "Verified sources + quote bank", "games": "Generated"}
 
 
 def load_yaml(p):
@@ -161,14 +162,16 @@ def item_urls(it):
 
 
 def check_public(sections):
-    """Refuse to publish holding values, share counts or position sizes."""
+    """Refuse to publish holding values, share counts or position sizes, or quote-bank doc titles/ids."""
     bad = []
     for sec in sections:
         for it in sec["items"]:
             hit = FORBIDDEN_KEYS & set(it)
             if hit: bad.append(f"{sec['id']}/{it.get('id')}: {', '.join(sorted(hit))}")
+            doc = {"source_doc_title", "source_doc_id"} & set(it)
+            if doc: bad.append(f"{sec['id']}/{it.get('id')}: quote-bank doc refs {', '.join(sorted(doc))}")
     if bad:
-        sys.exit("refusing public build: position/value fields present -> " + "; ".join(bad))
+        sys.exit("refusing public build: private fields present -> " + "; ".join(bad))
 
 
 def assemble(paper, ed, size, private=False):
@@ -240,6 +243,26 @@ def first_sentence(s):
     return m.group(1) if m else s
 
 
+UNCUT = {"funnies", "games", "passage"}     # made here, not reported: never topic-cut or pooled into News
+
+
+def surviving_sections(slug, date):
+    """The public edition's sections after assembly and the selection rules (no seen-lists written), for tools
+    that must only use what actually runs, e.g. the word search."""
+    import contextlib, io
+    paper = load_yaml(PAPERS / slug / "paper.yaml")
+    sun = paper.get("sunday")
+    if sun and datetime.date.fromisoformat(date).weekday() == 6:
+        for c in paper["sections"]:
+            if c["id"] in (sun.get("enable") or []): c["enabled"] = True
+    ed = json.loads((PAPERS / slug / "editions" / date / "edition.json").read_text())
+    with contextlib.redirect_stdout(io.StringIO()):
+        sections = assemble(paper, ed, sun.get("size") if sun else None)
+        apply_selection(sections, paper)
+        apply_evergreen(sections, paper, date, record=False)
+    return sections
+
+
 def apply_selection(sections, paper):
     """paper.yaml `news:` and `front.require_source`: the front page comes from X, topics Chris skips are cut
     everywhere unless `major: true`, and every legacy/web news item is pooled into one small News section."""
@@ -258,7 +281,7 @@ def apply_selection(sections, paper):
 
     # 1. topic cuts, everywhere (X included): war, macro, politics… unless genuinely major
     for sec in sections:
-        if sec.get("private") or sec["id"] == "funnies": continue
+        if sec.get("private") or sec["id"] in UNCUT: continue
         keep = []
         for it in sec["items"]:
             if excluded(it): cut.append(f"{sec['id']}/{it.get('id')} ({'/'.join(it['topic']) if isinstance(it.get('topic'), list) else it.get('topic')}): {label(it)}")
@@ -282,7 +305,7 @@ def apply_selection(sections, paper):
 
     if cfg and not paper.get("recipe"):
         # 3. pool every news-source item (legacy/web stories and lines) outside Holdings
-        skip = {"front", "holdings", "funnies", "evergreen", "substack", "youtube"}
+        skip = {"front", "holdings", "evergreen", "substack", "youtube"} | UNCUT
         for sec in sections:
             if sec["id"] in skip or sec.get("private"): continue
             keep = []
@@ -356,7 +379,8 @@ def apply_evergreen(sections, paper, date, record):
 # Reading order: X first (it replaces the feed), then other long-form sources, Evergreen, the web, a small News
 # section, and Funnies last.
 SOURCES = [("x", "X"), ("substack", "Substack"), ("youtube", "YouTube"), ("evergreen", "Evergreen"),
-           ("web", "Around the Web"), ("news", "News"), ("funnies", "Funnies"), ("private", "Odds & Ends")]
+           ("web", "Around the Web"), ("news", "News"), ("passage", "The Passage"),
+           ("funnies", "Funnies & Games"), ("private", "Odds & Ends")]
 
 
 def is_x_url(u):
@@ -374,7 +398,8 @@ def is_x_item(it):
 
 def item_source(sec, it):
     if sec.get("private"): return "private"
-    if sec["id"] in ("substack", "youtube", "funnies", "evergreen", "news"): return sec["id"]
+    if sec["id"] in ("substack", "youtube", "funnies", "evergreen", "news", "passage"): return sec["id"]
+    if sec["id"] == "games": return "funnies"
     if is_x_item(it): return "x"
     if sec.get("source_group"): return sec["source_group"]
     return {"link": "web"}.get(it.get("type", "story"), "news")
@@ -395,7 +420,8 @@ def by_source(sections):
                 ids = {id(i) for i in items}
                 sub["groups"] = [g2 for g2 in ({**g, "items": [i for i in g["items"] if id(i) in ids]} for g in sec["groups"]) if g2["items"]]
             parts.setdefault(src, []).append(sub)
-    return [{"id": k, "title": t, "anchor": k, "subs": parts[k]} for k, t in SOURCES if k in parts]
+    title = lambda k, t: "Games" if k == "funnies" and all(s["id"] == "games" for s in parts[k]) else t
+    return [{"id": k, "title": title(k, t), "anchor": k, "subs": parts[k]} for k, t in SOURCES if k in parts]
 
 
 def tune_options(paper, sections):
@@ -598,10 +624,12 @@ def make_qr(url, dest):
 
 
 def trim_lowest(sections):
-    """Drop the last item of the lowest-weight section that still has more than one item (front is never trimmed)."""
-    cands = [s for s in sections if s["id"] != "front" and len(s["items"]) > 1]
+    """Drop the last item of the lowest-weight section that still has more than one item (front, passage and games
+    are never trimmed)."""
+    keep = {"front", "passage", "games"}      # one passage and the daily games always print
+    cands = [s for s in sections if s["id"] not in keep and len(s["items"]) > 1]
     if not cands:
-        cands = [s for s in sections if s["id"] != "front"]
+        cands = [s for s in sections if s["id"] not in keep]
     if not cands:
         return None
     s = min(cands, key=lambda s: (s.get("weight", 5), -sections.index(s)))

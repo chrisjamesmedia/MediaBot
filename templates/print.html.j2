@@ -124,11 +124,39 @@ p .src{margin-left:3pt}
 .sol .sudoku span.bt{border-top-width:.8pt}.sol .sudoku span.bl{border-left-width:.8pt}
 .sol .sudoku{border-width:.8pt}
 .padpage{break-before:page;height:1px}
+/* The Passage */
+.passage{margin:0 auto 4pt;max-width:5.4in;break-inside:avoid;text-align:left}
+.passage .pk{font:600 6.6pt "SG Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;margin:0 0 3pt}
+.passage .pt{margin:0;font:italic 400 {{ pt + 1.6 }}pt/1.45 "SG Serif",serif}
+.passage .pt.verse{white-space:pre-line}
+.passage figcaption{font:400 {{ pt - 1 }}pt/1.4 "SG Sans",sans-serif;margin-top:4pt}
+.passage .purl{display:block;font-size:6.4pt;color:#333;margin-top:1pt;word-break:break-all}
+/* Games: answers live on the last page */
+.games{display:grid;grid-template-columns:1fr 1fr;gap:10pt 18pt;font:400 {{ pt - 0.6 }}pt/1.4 "SG Sans",sans-serif}
+.game{break-inside:avoid}.game h4{margin:0 0 3pt}
+.cwwrap{flex-direction:column;gap:6pt!important}
+.mq{margin:0;padding-left:14pt}.mq li{margin:0 0 3pt}
+.wr{font-weight:600;margin:0 0 4pt}.gq{margin:4pt 0 0}
+.cards{display:flex;gap:6pt}.card{border:.8pt solid #000;border-radius:3pt;padding:9pt 4pt;min-width:44pt;text-align:center;font-weight:600}
+.rq{margin:0;font-style:italic}
+.cwwrap{display:flex;gap:16pt;align-items:flex-start}
+.cw{display:grid;grid-template-columns:repeat(var(--n),21pt);border:1.4pt solid #000;width:max-content}
+.cw span{width:21pt;height:21pt;border:.4pt solid #000;position:relative;display:flex;align-items:center;justify-content:center;font:600 12pt "SG Sans",sans-serif}
+.cw span i{position:absolute;top:1pt;left:1.5pt;font:400 6pt "SG Sans",sans-serif;font-style:normal}
+.cw .blk{background:#000}
+.clues{display:flex;gap:10pt}.clues>div{flex:1}.clues p{margin:1pt 0}.clues i{font-style:normal;font-weight:600}
+.answers{break-before:page}
+.gamesh{break-before:page}
+.ans{display:grid;grid-template-columns:1fr 1fr;gap:10pt 18pt;font:400 {{ pt - 1 }}pt/1.4 "SG Sans",sans-serif}
+.an{break-inside:avoid}.an h4{margin:0 0 2pt}
+.ga{margin:0;padding-left:14pt}.ga .how{color:#333}p.ga{padding-left:0}
+.ga.cwa{padding-left:0}.cwa .cw{grid-template-columns:repeat(var(--n),16pt)}.cwa .cw span{width:16pt;height:16pt;font-size:8.5pt}
+.pzs .sudoku{--c:13pt}.pzs .ws{--c:10pt}.pzs .sudoku span{font-size:8pt}.pzs .ws span{font-size:7pt}
 .dek{font:italic 400 7.4pt/1.35 "SG Serif",serif;color:#333;margin:0 0 4pt}
 .answered{font:400 7pt/1.4 "SG Sans",sans-serif;margin-top:8pt}
 .end .cov{display:block;font:400 6.4pt/1.4 "SG Sans",sans-serif;font-style:normal;color:#333;margin-top:3pt}
 </style></head><body>
-{%- from "_funnies.html.j2" import funnies -%}
+{%- from "_funnies.html.j2" import funnies, games, answers, passage -%}
 {%- macro srcs(list) -%}
 <span class="src">{% for s in list %}{% if mode == 'digital' %}<a href="{{ s.url }}">{{ s.name }}</a>{% else %}{{ s.name }}{% endif %}{% if not loop.last %} · {% endif %}{% endfor %}</span>
 {%- endmacro -%}
@@ -183,10 +211,12 @@ p .src{margin-left:3pt}
 </div>
 {% endif %}
 {% for p in parts %}
-<section class="part{% if p.id == 'funnies' %} funnies{% endif %}" id="{{ p.anchor }}">
+<section class="part{% if p.id in ('funnies', 'passage') %} {{ p.id }}{% endif %}" id="{{ p.anchor }}">
   <h2 class="parth">{{ p.title }}</h2>
   {% if p.id == 'funnies' %}
-  {% for sec in p.subs %}<div id="{{ sec.anchor }}">{{ funnies(sec, mode) }}</div>{% endfor %}
+  {% for sec in p.subs %}<div id="{{ sec.anchor }}">{% if sec.id == 'games' %}{% if not loop.first %}<h2 class="parth gamesh">Games</h2>{% endif %}{{ games(sec, mode) }}{% else %}{{ funnies(sec, mode) }}{% endif %}</div>{% endfor %}
+  {% elif p.id == 'passage' %}
+  {% for sec in p.subs %}<div id="{{ sec.anchor }}">{% for it in sec['items'] %}{{ passage(it, mode) }}{% endfor %}</div>{% endfor %}
   {% else %}
   <div class="cols">
   {% for sec in p.subs %}
@@ -209,4 +239,5 @@ p .src{margin-left:3pt}
 {% if answered %}<div class="answered"><b>Tuned from your notes:</b> {% for r in answered %}#{{ r.issue }} {{ r.title }}{% if r.answer %} → {{ r.answer }}{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}.</div>{% endif %}
 <div class="end">End of today’s paper.{% if coverage %}<span class="cov">{{ coverage }}{% if mode == 'print' %} Links are in the web edition.{% endif %}</span>{% endif %}{% if mode == 'digital' and request_box %}<span class="cov">Want more or less of something tomorrow? Tell us in “Tune tomorrow’s paper” at the end of the {% if base %}<a href="{{ base ~ url_path }}#tune">web edition</a>{% else %}web edition{% endif %}.</span>{% endif %}</div>
 {% if pad %}<div class="padpage"></div>{% endif %}
+{{ answers(sections) }}
 </body></html>

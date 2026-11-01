@@ -5,7 +5,8 @@
     .venv/bin/python tools/funnies.py signal-seeker 2026-11-01 --no-comic # puzzles only (offline)
 
 Puzzles are generated here and checked: the sudoku has exactly one solution; every word-search word
-is placed in the grid. Both are seeded by the date, so a rebuild gives the same puzzles.
+is placed in the grid, and every word comes from a headline or title that survives the edition's cuts.
+Both are seeded by the date, so a rebuild gives the same puzzles.
 Comics come only from real feeds, shown with credit and a link; nothing is drawn or invented.
 xkcd is CC BY-NC 2.5 (https://xkcd.com/license.html).
 """
@@ -70,11 +71,16 @@ def sudoku(rng, givens=30):
 
 
 # ---------- word search ----------
-def words_from(ed, rng, n=8):
+def words_from(slug, date, rng, n=8):
+    """Words from headlines and titles that actually run in the public edition (after the topic cuts and the
+    News cap), so the word search never hides a word from a story that was cut."""
+    sys.path.insert(0, str(ROOT))
+    from build import surviving_sections
     seen, out = set(), []
-    for sec in ed.get("sections", []):
+    for sec in surviving_sections(slug, date):
+        if sec["id"] in ("funnies", "games", "passage"): continue
         for it in sec.get("items", []):
-            for w in re.findall(r"\b[A-Za-z]{5,9}\b", it.get("headline", "")):
+            for w in re.findall(r"\b[A-Za-z]{5,9}\b", " ".join(it.get(k) or "" for k in ("headline", "title"))):
                 w = w.upper()
                 if w not in seen and not GRIM.search(w) and w not in {"ABOUT", "AFTER", "THEIR", "THERE", "WHICH", "WOULD", "COULD", "SHOULD", "AGAIN", "STILL", "WHILE", "THESE", "THOSE"}:
                     seen.add(w); out.append(w)
@@ -148,7 +154,7 @@ def main(slug, date, comic=True):
                 print(f"  comic {f['name']} unavailable: {e}")
     s = sudoku(rng)
     items.append({"type": "sudoku", "id": f"sudoku-{date}", "title": "Sudoku", **s})
-    w = word_search(words_from(ed, rng), rng)
+    w = word_search(words_from(slug, date, rng), rng)
     items.append({"type": "wordsearch", "id": f"wordsearch-{date}", "title": "Word Search", **w})
     ed["sections"] = [x for x in ed["sections"] if x["id"] != "funnies"] + [{"id": "funnies", "items": items}]
     ep.write_text(json.dumps(ed, indent=1, ensure_ascii=False) + "\n")

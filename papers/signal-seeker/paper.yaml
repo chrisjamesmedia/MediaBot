@@ -38,8 +38,11 @@ web:
   # in this order, then the fixed ones; at most max_options. Send opens a prefilled GitHub issue (site.yaml `requests`).
   tune:
     enabled: true
-    max_options: 8
+    max_options: 10
     options:
+      # The Passage: the routine records these two in papers/<slug>/taste.json (tools/passage.py reads it).
+      - {label: "Keep: today's passage",       section: passage}
+      - {label: "Never again: today's passage", section: passage}
       - {label: More AI infrastructure, words: [gpu*, data center*, datacenter*, neocloud*, compute, hbm, inference, capex, hyperscaler*, optical]}
       - {label: More investing,          section: investments}
       - {label: Fewer market posts,      section: investments}
@@ -61,7 +64,7 @@ web:
     socials: 3
 
 # The edition reads by source, in this order: X → Substack/YouTube (when connected) → Evergreen →
-# Around the Web → News (small) → Funnies. Topic sections below nest inside those parts.
+# Around the Web → News (small) → The Passage → Funnies & Games. Topic sections below nest inside those parts.
 # Sections, in paper order. `weight` sets emphasis: when the print edition is
 # over its size, the lowest-weight sections lose their last items first, and
 # the daily routine uses weights to decide how many items each section gets.
@@ -93,6 +96,13 @@ sections:
   - {id: youtube,     title: YouTube,          enabled: false, weight: 6,  max_items: 3}
   # Funnies: real comics from feeds (tools/funnies.py, xkcd RSS) plus generated sudoku and word search. On Sundays.
   - {id: funnies,     title: Funnies,          enabled: false, weight: 1,  max_items: 4}
+  # The Passage: one quote, poem, scripture or short speech excerpt a day (tools/passage.py). Verified items in
+  # passages.json carry a fetched source URL that prints with them; throwbacks from Chris's old quote bank
+  # (quote_bank.json, local only) print as "From your old quote bank", text and author only.
+  - {id: passage,     title: The Passage,      enabled: true,  weight: 5,  max_items: 1}
+  # Games: mental math, a Wason four-card task, a 5x5 crossword and a riddle (tools/games.py), every day.
+  # Answers: "Show answer" on the web; the Answers block on the last page in print.
+  - {id: games,       title: Games,            enabled: true,  weight: 3,  max_items: 4}
   # private: true = only in the local private copy (site-private/), never in the public site, PDFs, sitemap or meta.
   # Odds & Ends is the personal section: emails, calendar, birthdays, reminders, notes.
   - {id: personal,    title: Odds & Ends,      enabled: false, weight: 1,  max_items: 6,  private: true}

@@ -23,7 +23,7 @@
 </div>
 </article>
 {%- endmacro %}
-{% from "_funnies.html.j2" import funnies %}
+{% from "_funnies.html.j2" import funnies, games, passage %}
 {% macro quote(q) -%}
 {% set ex = q.text | excerpt %}
 <a class="quote" href="{{ q.url }}" target="_blank" rel="noopener"><span class="qwho"><b>{{ q.author }}</b> <span class="mute">@{{ q.handle }}</span></span>{% if ex %}<span class="qtext">{{ ex }}</span>{% endif %}</a>
@@ -72,6 +72,10 @@
   <div class="box"><ul>{% for l in sec['items'] %}{{ line(l) }}{% endfor %}</ul></div>
 {% elif sec.id == 'funnies' %}
   {{ funnies(sec, 'web') }}
+{% elif sec.id == 'games' %}
+  {{ games(sec, 'web') }}
+{% elif sec.id == 'passage' %}
+  {% for it in sec['items'] %}{{ passage(it, 'web') }}{% endfor %}
 {% elif sec.style == 'links' %}
   <ol class="worthlist">{% for w in sec['items'] %}<li data-id="{{ w.id }}"><a href="{{ w.url }}" target="_blank" rel="noopener">{{ w.title }}</a>{% if w.why %} <span class="mute">{{ w.why }}</span>{% endif %}</li>{% endfor %}</ol>
 {% elif sec.groups %}
@@ -144,7 +148,7 @@
 <section id="{{ p.anchor }}" class="part part-{{ p.id }}" aria-labelledby="{{ p.anchor }}-h">
   <h2 class="part-h" id="{{ p.anchor }}-h">{{ p.title }}</h2>
   {% for sec in p.subs %}
-  <section id="{{ sec.anchor }}" class="sec sec-{{ sec.id }}{{ " funnies" if sec.id == "funnies" }}" data-sec="{{ sec.id }}">
+  <section id="{{ sec.anchor }}" class="sec sec-{{ sec.id }}{{ " funnies" if sec.id in ("funnies", "games") }}" data-sec="{{ sec.id }}">
     {% if p.subs|length > 1 %}<h3 class="topic">{{ sec.title }}</h3>{% endif %}
     {% if sec.dek %}<p class="dek">{{ sec.dek }}</p>{% endif %}
     {{ sub_body(sec) }}
