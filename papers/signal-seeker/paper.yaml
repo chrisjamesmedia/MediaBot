@@ -33,6 +33,7 @@ sunday:                        # Sundays: the bigger paper, with Funnies (comics
 
 web:
   images: true                 # big lead image and opted-in photos on the web edition
+  request_box: true            # "Request for the next edition" box at the end (public GitHub issue; site.yaml `requests`)
 
 # The edition reads by source, in this order: X → Substack/YouTube (when connected) → Evergreen →
 # Around the Web → News (small) → Funnies. Topic sections below nest inside those parts.
@@ -41,7 +42,11 @@ web:
 # the daily routine uses weights to decide how many items each section gets.
 sections:
   # Front Page: from X only (a post, or a story whose sources are all X posts). Anything else drops to News.
-  - {id: front,       title: Top of Your Feed, enabled: true,  weight: 10, max_items: 4, require_source: x}
+  - {id: front,       title: Front Page,       enabled: true,  weight: 10, max_items: 4, require_source: x}
+  # Top of your feed: X's own recommendations, ranked from the reader's home timeline (tools/x_feed.py).
+  # enabled = on/off, max_items = how many posts (fixed, finite; no "load more"). Tuning: sources.x.home_feed.
+  - {id: feed,        title: Top of your feed, enabled: true,  weight: 9,  max_items: 8,
+     dek: "The most-engaged posts from your home timeline in the last 24 hours, a few per day and no more."}
   - {id: x,           title: From Your X,      enabled: true,  weight: 9,  max_items: 10}
   - {id: goats,       title: The GOATs,        enabled: true,  weight: 9,  max_items: 5}
   - {id: investments, title: Investments,      enabled: true,  weight: 10, max_items: 12, group_by: theme}
@@ -101,6 +106,30 @@ sources:
       - "@aleabitoreddit"
       - "@ParadisLabs"
       - "@DavidGeorge83"
+    home_feed:                 # "Top of your feed" (tools/x_feed.py over get_users_timeline dumps)
+      reader_handle: "@ChrisJamesUSA"   # the reader's own posts are never picked
+      window_hours: 24
+      per_author: 1            # at most one post per author, so the section is a spread of voices
+      min_chars: 120           # substantive posts only (URLs and @mentions don't count); drops one-line memes
+      max_chars: 600           # long posts clipped at a sentence end; "Open on X" has the rest
+      min_reposters: 2         # a repost of someone you don't follow counts only if 2+ people you follow reposted it
+      require_topic: true      # keep only posts on these topics (or from accounts in your source lists)
+      topic_words: [ai, agi, llm*, gpt*, openai, anthropic, claude, gemini, grok, nvidia, gpu*, compute, chip*,
+                    semiconductor*, memory, hbm, dram, nand, data center, datacenter*, inference, model, robot*,
+                    software, startup*, founder*, vc, venture, invest*, stock, market, earnings, revenue, margin*,
+                    valuation*, capex, hyperscaler*, cloud, saas, tesla, spacex, starship, space, rocket*, science,
+                    scientist*, research*, study, physics, biology, health, metabolic, longevity, sleep, exercise,
+                    nutrition, psychedelic*, book, essay, writing, learn*, business, company, product, engineer*,
+                    code, coding, programming, math, energy storage, battery, nuclear, fusion, quantum]
+      # Cut topics (news.exclude_topics) as words; a post that mentions one is skipped. Whole words (plural ok);
+      # a trailing * matches any ending.
+      skip_words: [trump*, biden, harris, vance, obama, democrat, republican, gop, maga, liberal, conservative,
+                   leftist, woke, election, ballot, voter, vote, congress, senate, governor, mayor, labour, tory,
+                   starmer, farage, parliament, migrant, immigra*, deport*, border, israel*, gaza, hamas, hezbollah,
+                   palestin*, ukrain*, russia, putin, zelensk*, iran, china's military, taiwan strait, war, missile,
+                   military, troops, nato, ceasefire, terror*, fed, powell, rate cut, rate hike, inflation, cpi,
+                   tariff, recession, treasury yield, oil price, opec, crude, stabbing, shooting, murder*, police,
+                   arrest, protest, riot, crime, killed, prison, charlie kirk, epstein]
     accounts_file: sources/x_accounts.json   # 100 tiered accounts from the reader profile
     noise:                     # skip entirely
       - "@TheGNPE"

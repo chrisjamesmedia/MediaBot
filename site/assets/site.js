@@ -69,3 +69,22 @@
     flash(items.length + " marks exported");
   });
 })();
+
+// "Request for the next edition": compose a prefilled GitHub issue (title/body/labels) and open it in a new tab.
+// Without JS the form still works: it submits title/body/labels/template as plain GET params.
+(function () {
+  var f = document.getElementById('request');
+  if (!f) return;
+  f.addEventListener('submit', function (e) {
+    var topic = f.elements.title.value.trim(), details = f.elements.body.value.trim();
+    if (!topic) return;
+    e.preventDefault();
+    var body = 'Topic: ' + topic + '\n\n' + (details || '(no details)') + '\n\n---\nFrom: ' + f.dataset.paper +
+               ', edition ' + f.dataset.edition + (f.dataset.url ? ' (' + f.dataset.url + ')' : '') +
+               '\nRequests are public. The next morning edition reads open edition-request issues.';
+    var q = 'title=' + encodeURIComponent('Edition request: ' + topic) + '&body=' + encodeURIComponent(body) +
+            '&labels=' + encodeURIComponent(f.elements.labels.value) +
+            (f.elements.template ? '&template=' + encodeURIComponent(f.elements.template.value) : '');
+    window.open(f.action + '?' + q, '_blank', 'noopener');
+  });
+})();

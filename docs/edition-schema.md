@@ -13,9 +13,16 @@ a section that is missing or empty is left out of the paper.
   "coverage": "Covering roughly Oct 29–31, 2026. Compiled Saturday morning, ET.",
   "note": "Clocks fall back one hour at 2 a.m. Sunday.",        // optional, one line under the masthead
   "description": "…",                                            // optional SEO description; otherwise built from the lead
-  "sections": [ { "id": "front", "items": [ … ] }, … ]
+  "sections": [ { "id": "front", "items": [ … ] }, … ],
+  "requests": [                                                  // optional: edition-request issues answered today
+    { "issue": 12, "title": "Edition request: robotics", "url": "https://github.com/chrisjamesmedia/MediaBot/issues/12",
+      "answer": "Tech & AI", "anchor": "x-tech" }                // answer: where it is; anchor: optional web jump link
+  ]
 }
 ```
+
+`requests` is listed at the end of the paper ("Requests answered today", web and both PDFs). Only list
+real open issues, and only when the edition really covers them. The routine never closes or comments.
 
 `sections[].id` must match a section `id` in `paper.yaml`. Order, titles, on/off and `max_items`
 come from `paper.yaml`, not from this file. Sections in the file that the config doesn't know are
@@ -104,6 +111,8 @@ block uses them:
 - An item whose topic is in `news.exclude_topics` (war, conflict, geopolitics, macro, rates, oil,
   politics, local, …) is cut from every public section unless it has `"major": true`. "Major" means
   `news.major_means`, which is rare: a war starting or ending, a market crash, a once-a-decade event.
+- `feed` ("Top of your feed") holds `post` items written by `tools/x_feed.py` from the home
+  timeline (ids `feed-<post id>`); it renders as the first block of the X part. Don't hand-edit it.
 - `front` has `require_source: x`, so only X items (posts, or stories whose sources are all x.com)
   can be the lead. Other front items move to News.
 - News: news-sourced stories from the topic sections plus Big Stuff and Local are pooled. Big Stuff

@@ -26,6 +26,8 @@ templates/  static/         Jinja templates, CSS, JS, fonts
 docs/edition-schema.md      the edition.json format
 docs/feedback.md            the feedback format and the sign-in plan
 tools/migrate_legacy.py     one-off: the old Oct 31 file into schema 1
+tools/x_feed.py             "Top of your feed": rank saved home-timeline pages by engagement into section feed
+.github/ISSUE_TEMPLATE/     edition-request.md: the form behind "Request for the next edition"
 tools/screenshots.sh        headless screenshots of the local site
 tools/publish.sh            the daily publish: build, index, secret scan, commit, push
 tools/secret_scan.sh        fails on tokens, keys, cookies or raw dumps in files to be committed
@@ -85,7 +87,7 @@ anyone with the URL can still open it (see docs/feedback.md, "Sign-in later").
 
 ## Signal Seeker: what's on and off
 - **Live sources in v1:** X, plus the web and legacy outlets.
-- **Section order:** Front Page, From Your X, The GOATs, Investments (by theme), Your Holdings
+- **Section order:** Front Page, Top of your feed, From Your X, The GOATs, Investments (by theme), Your Holdings
   (by company), Tech & AI, Worth Reading, Business, Science & Health, Local, The Big Stuff (box),
   Worth Your Time (links). That is the order in paper.yaml and the order trimming works on.
 - **Reading order (by source):** each edition is regrouped at render time by where items came
@@ -108,6 +110,13 @@ anyone with the URL can still open it (see docs/feedback.md, "Sign-in later").
 - **Print:** pure white, black ink, no fills. Footer "Sheet N of M · Front/Back · p. N"; an odd page
   count gets one blank back so it duplexes cleanly. Web and digital PDF use a warm paper tone.
 - **Quoted posts:** drawn as a small inset when edition.json carries `quoted` (tools/x_quoted.py).
+- **Top of your feed:** the 8 most-engaged posts from Chris's home timeline over the last 24 hours
+  (`tools/x_feed.py`, tuned in `sources.x.home_feed`; steps in docs/routine.md). A fixed handful, no
+  "load more": the X API has no For You feed, so this ranks the reverse-chronological home timeline.
+- **Request for the next edition:** a box at the end of the web edition (`web.request_box`, repo and
+  label in site.yaml `requests`). Submit opens a prefilled, public GitHub issue labelled
+  `edition-request`; the next morning's routine reads open ones and lists what it answered. The
+  digital PDF has one line pointing to the box; the print edition has none.
 - **Reader feedback:** stored per browser, with an exported JSON file (docs/feedback.md). There are
   no accounts yet.
 

@@ -4,10 +4,10 @@
  "date": "2026-11-01",
  "date_long": "Sunday, November 1, 2026",
  "pages": {
-  "print": 6,
-  "digital": 7
+  "print": 8,
+  "digital": 8
  },
- "built_at": "2026-11-01T17:52:42+00:00",
+ "built_at": "2026-11-01T19:02:34+00:00",
  "edition": "../2026-11-01/",
  "print_pdf": "print.pdf",
  "digital_pdf": "digital.pdf",

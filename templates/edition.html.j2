@@ -146,6 +146,7 @@
   {% for sec in p.subs %}
   <section id="{{ sec.anchor }}" class="sec sec-{{ sec.id }}{{ " funnies" if sec.id == "funnies" }}" data-sec="{{ sec.id }}">
     {% if p.subs|length > 1 %}<h3 class="topic">{{ sec.title }}</h3>{% endif %}
+    {% if sec.dek %}<p class="dek">{{ sec.dek }}</p>{% endif %}
     {{ sub_body(sec) }}
   </section>
   {% endfor %}
@@ -155,11 +156,25 @@
 
 <section class="end" aria-label="End of edition">
   <p class="fin">That’s today’s paper.</p>
+  {% if answered %}<div class="answered"><h3>Requests answered today</h3><ul>{% for r in answered %}<li><a href="{{ r.url }}" target="_blank" rel="noopener">#{{ r.issue }}</a> {{ r.title }}{% if r.answer %} <span class="mute">→ {% if r.anchor %}<a href="#{{ r.anchor }}">{{ r.answer }}</a>{% else %}{{ r.answer }}{% endif %}</span>{% endif %}</li>{% endfor %}</ul></div>{% endif %}
   <form class="fb" id="feedback">
     <label for="fb-text" class="vh">Feedback on this edition</label>
     <textarea id="fb-text" rows="2" placeholder="Feedback on today’s edition"></textarea>
     <button type="submit">Save</button>
   </form>
+  {% if request_box %}
+  <form class="req" id="request" method="get" target="_blank" action="https://github.com/{{ request_box.repo }}/issues/new"
+        data-paper="{{ paper.name }}" data-edition="{{ date }}" data-url="{{ (base ~ url_path) if base else '' }}" aria-labelledby="req-h">
+    <h3 id="req-h">Request for the next edition</h3>
+    <p class="req-lede">Want more on something? Ask, and tomorrow’s paper will look for it on X.</p>
+    <label class="req-topic"><span>Topic</span><input type="text" name="title" maxlength="80" required placeholder="e.g. robotics"></label>
+    <label class="req-body"><span>Details <span class="mute">(optional)</span></span><textarea name="body" rows="3" placeholder="e.g. More on humanoid robots: who is shipping, not demos"></textarea></label>
+    <input type="hidden" name="labels" value="{{ request_box.label }}">
+    {% if request_box.template %}<input type="hidden" name="template" value="{{ request_box.template }}">{% endif %}
+    <div class="req-go"><button type="submit">Submit request</button>
+    <p class="req-note">Opens a new issue on GitHub ({{ request_box.repo }}); you need a GitHub account. Requests are public, so don’t include anything private.</p></div>
+  </form>
+  {% endif %}
   <p class="endlinks"><a href="{{ pdfs.print }}" target="_blank" rel="noopener">Print edition</a><span class="dot"> · </span><a href="{{ pdfs.digital }}" target="_blank" rel="noopener">Digital PDF</a><span class="dot"> · </span><button type="button" id="export">Export feedback</button><span class="saved" aria-live="polite"></span></p>
 </section>
 </main>

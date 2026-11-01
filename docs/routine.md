@@ -8,9 +8,36 @@ Compile today's Signal Seeker (papers/signal-seeker/editions/<TODAY>/edition.jso
 docs/edition-schema.md). This paper replaces Chris's X feed. It is not a newspaper: no legacy-media
 news at the top.
 
+REQUESTS FIRST: with the cursor-github MCP tools (read-only), list OPEN issues in chrisjamesmedia/MediaBot
+labelled edition-request (also catch open issues titled "Edition request:" in case the label didn't apply).
+Each one is a reader asking for more on a topic. Use them to steer today's X searches (user-X
+search_posts_all / search_posts_recent, last 7 days, read-only) and, where there is real material, put
+what you find in the matching section (or a short extra item in Worth Your Time). Never invent coverage to
+satisfy a request; if X has nothing good, say nothing. Record what you answered in edition.json
+"requests" (see docs/edition-schema.md) so the paper lists them at the end. Do NOT close, label or comment
+on issues (those are writes; Chris tidies them). Ignore requests for private, political or cut topics.
+
 ORDER (paper.yaml sets it; fill these sections):
-1. front "Top of Your Feed": 2–4 items, X ONLY. The lead must be an X post or a story whose sources are all
+1. front "Front Page": 2–4 items, X ONLY. The lead must be an X post or a story whose sources are all
    x.com posts (the build demotes anything else to News). Pick what his feed was actually talking about.
+1b. feed "Top of your feed": the most-engaged posts from his home timeline in the last 24 hours, a fixed
+   handful (paper.yaml: max_items, enabled; tuning in sources.x.home_feed). Steps:
+   a. user-X get_users_timeline, id 460613058 (@ChrisJamesUSA), max_results 100, exclude ["replies"],
+      tweet_fields created_at,public_metrics,author_id,lang,conversation_id,referenced_tweets,note_tweet,
+      in_reply_to_user_id, expansions author_id,referenced_tweets.id,referenced_tweets.id.author_id,
+      user_fields username,name,verified,public_metrics. Follow meta.next_token until the oldest post is
+      older than window_hours (about 14 pages at ~100 posts/hour). end_time, if set, must be >=10 s ago.
+      Save each raw page as JSON OUTSIDE the repo (e.g. /tmp/feed/p01.json ...). Read-only: never like,
+      repost, bookmark, follow or reply.
+   b. Dry run: python tools/x_feed.py signal-seeker <TODAY> /tmp/feed/p*.json. It ranks posts by engagement
+      (likes + reposts + quotes + bookmarks, damped for huge accounts, boosted when several people he
+      follows reposted it, for bookmark-heavy "substance", topic match and his own source lists), drops
+      replies, ads/promos, short memes, cut topics (skip_words), posts already in the edition, and reposts
+      of strangers that only one person he follows shared. It prints the pick and the next in line.
+   c. Read the pick. Veto anything off-topic, promotional, political or low-substance with
+      --skip <id,id> (the next in line moves up). Then run it again with --write; it writes section "feed"
+      after "front". Do this AFTER filling the other X sections so it de-dupes against them.
+   d. If the timeline can't be read, leave the section out and say so in your run notes.
 2. From Your X / The GOATs / Investments / Tech & AI: posts from his X timeline and lists.
 3. Substack and YouTube: Worth Reading, plus new episodes and essays from the people he follows.
 4. evergreen "Evergreen": 2–4 real long-form items from his X (X Articles, long threads, long posts) that

@@ -44,7 +44,7 @@ WMO = {0: "Clear", 1: "Mostly clear", 2: "Partly cloudy", 3: "Cloudy", 45: "Fog"
 PRINT_TYPE = {"small": 8.4, "medium": 9.2, "large": 10.2}     # body size in pt per print size
 RECIPES = ROOT / "recipes"
 # Where each section's content comes from; shown as a quiet tag in the recipe editor.
-SOURCE_KIND = {"front": "X", "x": "X", "goats": "X", "investments": "X + News", "holdings": "News",
+SOURCE_KIND = {"front": "X", "feed": "X (your timeline)", "x": "X", "goats": "X", "investments": "X + News", "holdings": "News",
                "tech": "X + News", "reading": "X", "business": "News", "science": "News", "local": "News",
                "bigstuff": "News", "worth": "X + Web", "evergreen": "X (long-form)", "substack": "Substack", "youtube": "YouTube",
                "funnies": "Comics", "personal": "Private"}
@@ -627,6 +627,8 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
     ctx = dict(paper=paper, site=site_cfg, private_copy=private, date=date, date_long=date_long, date_short=d.strftime("%b %-d, %Y"),
                note=rc["name"] if rc else ed.get("note", ""), coverage=ed.get("coverage", ""), weather=weather(paper, ed_dir, refresh_weather),
                base=base, url_path=url_path, pdfs=pdfs,
+               answered=[] if rc else ed.get("requests") or [],
+               request_box=None if rc or private or not (paper.get("web") or {}).get("request_box") else site_cfg.get("requests"),
                title=f"{paper['name']} · {d.strftime('%B %-d, %Y')}: {lead_title or (rc or {}).get('name', '')}",
                noindex=bool(rc), home="../../../" if rc else "../", edition_key=f"{date}~{rc['slug']}" if rc else date,
                description=ed.get("description") or describe(paper, sections, date_long))
