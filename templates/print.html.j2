@@ -124,6 +124,8 @@ p .src{margin-left:3pt}
 .sol .sudoku span.bt{border-top-width:.8pt}.sol .sudoku span.bl{border-left-width:.8pt}
 .sol .sudoku{border-width:.8pt}
 .padpage{break-before:page;height:1px}
+.dek{font:italic 400 7.4pt/1.35 "SG Serif",serif;color:#333;margin:0 0 4pt}
+.answered{font:400 7pt/1.4 "SG Sans",sans-serif;margin-top:8pt}
 .end .cov{display:block;font:400 6.4pt/1.4 "SG Sans",sans-serif;font-style:normal;color:#333;margin-top:3pt}
 </style></head><body>
 {%- from "_funnies.html.j2" import funnies -%}
@@ -194,7 +196,7 @@ p .src{margin-left:3pt}
     {% elif sec.style == 'box' %}
     <section class="box" id="{{ sec.anchor }}">{% if th %}<h3 class="tp">{{ sec.title }}</h3>{% endif %}{% for it in sec['items'] %}{{ item(it) }}{% endfor %}</section>
     {% else %}
-    <section id="{{ sec.anchor }}">{% if th %}<h3 class="tp">{{ sec.title }}</h3>{% endif %}
+    <section id="{{ sec.anchor }}">{% if th %}<h3 class="tp">{{ sec.title }}</h3>{% endif %}{% if sec.dek %}<p class="dek">{{ sec.dek }}</p>{% endif %}
     {% if sec.groups %}{% for g in sec.groups %}{% if g.title %}<h4>{{ g.title }}</h4>{% endif %}{% for it in g['items'] %}{{ item(it) }}{% endfor %}{% endfor %}
     {% else %}{% for it in sec['items'] %}{{ item(it) }}{% endfor %}{% endif %}
     </section>
@@ -204,6 +206,7 @@ p .src{margin-left:3pt}
   {% endif %}
 </section>
 {% endfor %}
-<div class="end">End of today’s paper.{% if coverage %}<span class="cov">{{ coverage }}{% if mode == 'print' %} Links are in the web edition.{% endif %}</span>{% endif %}</div>
+{% if answered %}<div class="answered"><b>Requests answered today:</b> {% for r in answered %}#{{ r.issue }} {{ r.title }}{% if r.answer %} → {{ r.answer }}{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}.</div>{% endif %}
+<div class="end">End of today’s paper.{% if coverage %}<span class="cov">{{ coverage }}{% if mode == 'print' %} Links are in the web edition.{% endif %}</span>{% endif %}{% if mode == 'digital' and request_box %}<span class="cov">Want more on a topic tomorrow? Use the “Request for the next edition” box at the end of the {% if base %}<a href="{{ base ~ url_path }}#request">web edition</a>{% else %}web edition{% endif %}.</span>{% endif %}</div>
 {% if pad %}<div class="padpage"></div>{% endif %}
 </body></html>
