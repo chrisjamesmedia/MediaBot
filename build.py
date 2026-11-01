@@ -15,7 +15,9 @@ Reads   papers/<slug>/paper.yaml, papers/<slug>/editions/<date>/edition.json (+ 
         papers/<slug>/feedback/*.json
 Writes  site/<slug>/<date>/index.html, <slug>-<date>-print.pdf, <slug>-<date>-digital.pdf, images/
         site/<slug>/index.html, site/index.html, site/assets/, site/robots.txt (+ sitemap.xml once web_base is set)
-        papers/<slug>/feedback/summary.json
+        site/<slug>/latest/ (print.pdf, digital.pdf, latest.json, index.html redirect; public papers only,
+        the stable URL tools/print-daily/ prints from)
+        papers/<slug>/feedback/summary.json, papers/<slug>/evergreen_seen.json
 Recipe builds (docs/recipes.md) write site/<slug>/custom/<recipe>/<date>/ and are not indexed.
 """
 import datetime, hashlib, html, json, re, shutil, subprocess, sys, urllib.request
@@ -42,9 +44,9 @@ WMO = {0: "Clear", 1: "Mostly clear", 2: "Partly cloudy", 3: "Cloudy", 45: "Fog"
 PRINT_TYPE = {"small": 8.4, "medium": 9.2, "large": 10.2}     # body size in pt per print size
 RECIPES = ROOT / "recipes"
 # Where each section's content comes from; shown as a quiet tag in the recipe editor.
-SOURCE_KIND = {"front": "News", "x": "X", "goats": "X", "investments": "X + News", "holdings": "News",
+SOURCE_KIND = {"front": "X", "x": "X", "goats": "X", "investments": "X + News", "holdings": "News",
                "tech": "X + News", "reading": "X", "business": "News", "science": "News", "local": "News",
-               "bigstuff": "News", "worth": "Web", "substack": "Substack", "youtube": "YouTube",
+               "bigstuff": "News", "worth": "X + Web", "evergreen": "X (long-form)", "substack": "Substack", "youtube": "YouTube",
                "funnies": "Comics", "personal": "Private"}
 
 
@@ -95,11 +97,31 @@ def weather(paper, ed_dir, refresh):
     cond = WMO.get(c["weather_code"], "")
     if c.get("is_day") and cond in ("Clear", "Mostly clear"):
         cond = cond.replace("clear", "sunny").replace("Clear", "Sunny")
-    # Current conditions only: one quiet line, e.g. "Boston · 48°F, partly cloudy".
+    # One compact block: now, today's high/low, tomorrow in a few words. Only what the fetched data has.
     now = round(c["temperature_2m"])
     line = f"{w.get('label', '')} · {now}°F" + (f", {cond[0].lower() + cond[1:]}" if cond else "")
-    return {"ok": True, "label": w.get("label", ""), "now": now, "cond": cond, "line": line,
-            "asof_full": fetched.strftime("%b %-d, %-I:%M %p %Z").strip()}
+    out = {"ok": True, "label": w.get("label", ""), "now": now, "cond": cond, "now_line": line,
+           "asof_full": fetched.strftime("%b %-d, %-I:%M %p %Z").strip(),
+           "asof_short": fetched.strftime("%-I:%M %p").strip()}
+    dl = data.get("daily") or {}
+    days = dl.get("time") or []
+    today = fetched.date().isoformat()
+    if today in days:
+        i = days.index(today)
+        try:
+            out["hi"], out["lo"] = round(dl["temperature_2m_max"][i]), round(dl["temperature_2m_min"][i])
+            if i + 1 < len(days):
+                tc = WMO.get(dl["weather_code"][i + 1], "")
+                out["tomorrow"] = {"cond": tc[0].lower() + tc[1:] if tc else "",
+                                   "hi": round(dl["temperature_2m_max"][i + 1]), "lo": round(dl["temperature_2m_min"][i + 1])}
+        except (KeyError, IndexError, TypeError):
+            pass
+    parts = [line]
+    if "hi" in out: parts.append(f"High {out['hi']}° · Low {out['lo']}°")
+    t = out.get("tomorrow")
+    if t: parts.append(f"Tomorrow: {t['cond'] + ', ' if t['cond'] else ''}{t['hi']}°/{t['lo']}°")
+    out["line"] = " · ".join(parts)
+    return out
 
 
 # ---------- feedback ----------
@@ -172,17 +194,18 @@ def assemble(paper, ed, size, private=False):
         if cfg.get("private") and not private:
             print(f"  {cfg['id']}: private, left out of the public build")
             continue
-        if cfg.get("dedupe"):
+        if cfg.get("dedupe") and not paper.get("news"):
             before = len(items)
             items = [it for it in items if not (item_urls(it) & seen)]
             if before - len(items):
                 print(f"  {cfg['id']}: dropped {before - len(items)} of {before} links already in the paper")
-        if cfg.get("max_items") and len(items) > cfg["max_items"]:
+        if cfg.get("max_items") and len(items) > cfg["max_items"] and not cfg.get("require_source") \
+                and not (cfg.get("dedupe") and paper.get("news")):
             print(f"  {cfg['id']}: {len(items)} items, trimmed to max_items {cfg['max_items']}")
             items = items[:cfg["max_items"]]
         for it in items:
             seen |= item_urls(it)
-            if it.get("type", "story") == "post" and it.get("date"):
+            if it.get("type", "story") in ("post", "evergreen") and it.get("date"):
                 dt = datetime.datetime.fromisoformat(it["date"].replace("Z", "+00:00")).astimezone()
                 it["date_short"] = dt.strftime("%b %-d")
             if size == "small" and it.get("short"):
@@ -204,17 +227,157 @@ def assemble(paper, ed, size, private=False):
     return out
 
 
+# ---------- selection rules: X-first front, News cap, topic cuts, Evergreen seen-list ----------
+def regroup(sec):
+    if sec.get("groups") is not None:
+        ids = {id(i) for i in sec["items"]}
+        sec["groups"] = [g2 for g2 in ({**g, "items": [i for i in g["items"] if id(i) in ids]} for g in sec["groups"]) if g2["items"]]
+
+
+def first_sentence(s):
+    s = " ".join((s or "").split())
+    m = re.match(r"(.+?[.!?])(\s|$)", s)
+    return m.group(1) if m else s
+
+
+def apply_selection(sections, paper):
+    """paper.yaml `news:` and `front.require_source`: the front page comes from X, topics Chris skips are cut
+    everywhere unless `major: true`, and every legacy/web news item is pooled into one small News section."""
+    cfg = paper.get("news") or {}
+    excl = {t.lower() for t in cfg.get("exclude_topics") or []}
+    major_only = set(cfg.get("major_only_sections") or [])
+    cut = []
+
+    def label(it):
+        return " ".join((it.get("headline") or it.get("title") or re.sub("<[^>]+>", "", it.get("text", ""))[:60]).split())
+
+    def excluded(it):
+        topics = it.get("topic") or []
+        topics = [topics] if isinstance(topics, str) else topics
+        return not it.get("major") and any(t.lower() in excl for t in topics)
+
+    # 1. topic cuts, everywhere (X included): war, macro, politics… unless genuinely major
+    for sec in sections:
+        if sec.get("private") or sec["id"] == "funnies": continue
+        keep = []
+        for it in sec["items"]:
+            if excluded(it): cut.append(f"{sec['id']}/{it.get('id')} ({'/'.join(it['topic']) if isinstance(it.get('topic'), list) else it.get('topic')}): {label(it)}")
+            else: keep.append(it)
+        sec["items"] = keep
+        regroup(sec)
+
+    # 2. front page must come from X; anything else drops into the News pool
+    pool = []
+    front = next((s for s in sections if s["id"] == "front"), None)
+    fcfg = next((c for c in paper["sections"] if c["id"] == "front"), {})
+    if front and fcfg.get("require_source") == "x":
+        demoted = [it for it in front["items"] if not is_x_item(it)]
+        front["items"] = [it for it in front["items"] if is_x_item(it)]
+        pool += [("front", it) for it in demoted]
+        if demoted: print(f"  front: {len(demoted)} non-X item(s) moved to News: {', '.join(it['id'] for it in demoted)}")
+        cap = fcfg.get("max_items")
+        if cap and len(front["items"]) > cap:
+            print(f"  front: {len(front['items'])} X items, trimmed to max_items {cap}")
+            front["items"] = front["items"][:cap]
+
+    if cfg and not paper.get("recipe"):
+        # 3. pool every news-source item (legacy/web stories and lines) outside Holdings
+        skip = {"front", "holdings", "funnies", "evergreen", "substack", "youtube"}
+        for sec in sections:
+            if sec["id"] in skip or sec.get("private"): continue
+            keep = []
+            for it in sec["items"]:
+                if item_source(sec, it) == "news":
+                    if sec["id"] in major_only and not it.get("major"):
+                        cut.append(f"{sec['id']}/{it.get('id')} (not major): {label(it)}")
+                    else:
+                        pool.append((sec["id"], it))
+                else:
+                    keep.append(it)
+            sec["items"] = keep
+            regroup(sec)
+        pool.sort(key=lambda p: 0 if p[1].get("major") else 1)       # stable: major first, then front, then paper order
+        cap = cfg.get("max_items", 4)
+        for sid, it in pool[cap:]:
+            cut.append(f"{sid}/{it.get('id')} (over News cap {cap}): {label(it)}")
+        items = [it for _, it in pool[:cap]]
+        for it in items:
+            it["brief_text"] = it.get("short") or first_sentence(it.get("summary") or "")
+            it["print_text"] = it["brief_text"]
+        if items:
+            news = {"id": "news", "title": cfg.get("title", "Headlines"), "weight": cfg.get("weight", 4),
+                    "max_items": cap, "style": "brief", "items": items}
+            at = next((i for i, s in enumerate(sections) if s["id"] == "holdings"), len(sections))
+            sections.insert(at, news)
+    elif pool:
+        print(f"  front: {len(pool)} demoted item(s) dropped (no news: config or recipe build)")
+    # 4. dedupe link sections against what is left in the paper (after the cuts, so a link whose twin was cut stays)
+    if cfg:
+        for sec in sections:
+            c = next((c for c in paper["sections"] if c["id"] == sec["id"]), {})
+            if not c.get("dedupe"): continue
+            have = set().union(*[item_urls(i) for s2 in sections if s2 is not sec for i in s2["items"]])
+            before = len(sec["items"])
+            sec["items"] = [i for i in sec["items"] if not (item_urls(i) & have)]
+            if before - len(sec["items"]):
+                print(f"  {sec['id']}: dropped {before - len(sec['items'])} of {before} links already in the paper")
+            if c.get("max_items") and len(sec["items"]) > c["max_items"]:
+                print(f"  {sec['id']}: {len(sec['items'])} items, trimmed to max_items {c['max_items']}")
+                sec["items"] = sec["items"][:c["max_items"]]
+    sections[:] = [s for s in sections if s["items"]]
+    for c in cut: print("  cut:", c)
+    return cut
+
+
+def apply_evergreen(sections, paper, date, record):
+    """Evergreen items never repeat: papers/<slug>/evergreen_seen.json maps URL -> first edition date."""
+    sec = next((s for s in sections if s["id"] == "evergreen"), None)
+    path = PAPERS / paper["slug"] / "evergreen_seen.json"
+    seen = json.loads(path.read_text()) if path.exists() else {}
+    if not sec: return
+    keep = []
+    for it in sec["items"]:
+        u = (it.get("url") or "").split("?")[0].rstrip("/")
+        if not u:
+            print(f"  ! evergreen {it.get('id')}: no url, dropped"); continue
+        first = seen.get(u)
+        if first and first < date:
+            print(f"  evergreen: {it.get('id')} already ran {first}, dropped"); continue
+        keep.append(it)
+        if record and not first: seen[u] = date
+    sec["items"] = keep
+    if not keep: sections.remove(sec)
+    if record:
+        path.write_text(json.dumps(dict(sorted(seen.items(), key=lambda kv: (kv[1], kv[0]))), indent=1) + "\n")
+
+
 # ---------- source grouping ----------
 # The edition reads by where content comes from; topics (paper.yaml sections) nest inside each source.
-SOURCES = [("x", "X"), ("substack", "Substack"), ("youtube", "YouTube"), ("news", "News"),
-           ("web", "Around the Web"), ("funnies", "Funnies"), ("private", "Odds & Ends")]
+# Reading order: X first (it replaces the feed), then other long-form sources, Evergreen, the web, a small News
+# section, and Funnies last.
+SOURCES = [("x", "X"), ("substack", "Substack"), ("youtube", "YouTube"), ("evergreen", "Evergreen"),
+           ("web", "Around the Web"), ("news", "News"), ("funnies", "Funnies"), ("private", "Odds & Ends")]
+
+
+def is_x_url(u):
+    return (urlparse(u or "").hostname or "").lower() in ("x.com", "www.x.com", "twitter.com", "mobile.twitter.com")
+
+
+def is_x_item(it):
+    """A post, a link to x.com, or a story/line whose sources are all X posts."""
+    t = it.get("type", "story")
+    if t == "post": return True
+    if t == "link": return is_x_url(it.get("url"))
+    srcs = it.get("sources") or []
+    return bool(srcs) and all(is_x_url(s.get("url")) for s in srcs)
 
 
 def item_source(sec, it):
-    if sec.get("source_group"): return sec["source_group"]
-    if sec["id"] in ("substack", "youtube", "funnies"): return sec["id"]
     if sec.get("private"): return "private"
-    return {"post": "x", "link": "web"}.get(it.get("type", "story"), "news")
+    if sec["id"] in ("substack", "youtube", "funnies", "evergreen", "news"): return sec["id"]
+    if is_x_item(it): return "x"
+    if sec.get("source_group"): return sec["source_group"]
+    return {"link": "web"}.get(it.get("type", "story"), "news")
 
 
 def by_source(sections):
@@ -237,7 +400,7 @@ def by_source(sections):
 
 def toc_entries(sections, parts):
     """Every anchor the contents block links to, in reading order."""
-    out = [{"anchor": "front", "title": "Front Page"}] if any(s["id"] == "front" for s in sections) else []
+    out = [{"anchor": "front", "title": s["title"]} for s in sections if s["id"] == "front"]
     for p in parts:
         out.append({"anchor": p["anchor"], "title": p["title"]})
         if len(p["subs"]) > 1:
@@ -434,6 +597,8 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
     print(f"  feedback: {fb['files']} file(s), {len(fb['more_like_this'])} more-like-this, {len(fb['skipped'])} skips")
 
     sections = assemble(paper, ed, size, private)
+    apply_selection(sections, paper)
+    apply_evergreen(sections, paper, date, record=not private and not rc)
     if not sections:
         sys.exit("  edition has no content in enabled sections")
     if not private:
@@ -458,10 +623,11 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
     stem = f"{slug}-{rc['slug']}-{date}" if rc else f"{slug}-{date}"
     pdfs = {"print": f"{stem}-print.pdf", "digital": f"{stem}-digital.pdf"}
     lead = sections[0]["items"][0]
+    lead_title = lead.get("headline") or lead.get("title") or (f"{lead['author']} on X" if lead.get("author") else "")
     ctx = dict(paper=paper, site=site_cfg, private_copy=private, date=date, date_long=date_long, date_short=d.strftime("%b %-d, %Y"),
                note=rc["name"] if rc else ed.get("note", ""), coverage=ed.get("coverage", ""), weather=weather(paper, ed_dir, refresh_weather),
                base=base, url_path=url_path, pdfs=pdfs,
-               title=f"{paper['name']} · {d.strftime('%B %-d, %Y')}: {lead.get('headline') or (rc or {}).get('name', '')}",
+               title=f"{paper['name']} · {d.strftime('%B %-d, %Y')}: {lead_title or (rc or {}).get('name', '')}",
                noindex=bool(rc), home="../../../" if rc else "../", edition_key=f"{date}~{rc['slug']}" if rc else date,
                description=ed.get("description") or describe(paper, sections, date_long))
     E = env()
@@ -529,12 +695,37 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
 
     # web edition
     (out / "index.html").write_text(E.get_template("edition.html.j2").render(ctx, sections=sections, root="../../../../" if rc else "../../", pages=pages))
-    meta = {"date": date, "date_long": date_long, "lead": lead.get("headline", ""), "pages": pages,
+    meta = {"date": date, "date_long": date_long, "lead": lead_title, "pages": pages,
             "pdfs": pdfs, "sections": [s["title"] for s in sections], "recipe": rc["name"] if rc else None, "built_at": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}
     (out / "edition.meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False))
     print(f"  web: {(out / 'index.html').relative_to(ROOT)}  sections: {', '.join(meta['sections'])}")
     if rc: print(f"  pdf: {(out / pdfs[first]).resolve()}")
     return meta
+
+
+def write_latest(pdir, ed, base, slug):
+    """site/<slug>/latest/: stable URLs for the newest daily edition, for a scheduled printer job.
+    print.pdf and digital.pdf are copies (GitHub Pages has no redirects for binaries); latest.json names the date."""
+    d = pdir / "latest"
+    if d.exists(): shutil.rmtree(d)
+    d.mkdir()
+    src = pdir / ed["date"]
+    for kind in ("print", "digital"):
+        f = src / ed["pdfs"][kind]
+        if f.exists(): shutil.copy(f, d / f"{kind}.pdf")
+    info = {"format": "mediabot-latest/1", "paper": slug, "date": ed["date"], "date_long": ed["date_long"],
+            "pages": ed.get("pages", {}), "built_at": ed.get("built_at"),
+            "edition": f"../{ed['date']}/", "print_pdf": "print.pdf", "digital_pdf": "digital.pdf",
+            "edition_print_pdf": f"../{ed['date']}/{ed['pdfs']['print']}"}
+    if base:
+        info["absolute"] = {"edition": f"{base}/{slug}/{ed['date']}/", "print_pdf": f"{base}/{slug}/latest/print.pdf",
+                            "digital_pdf": f"{base}/{slug}/latest/digital.pdf"}
+    (d / "latest.json").write_text(json.dumps(info, indent=1, ensure_ascii=False) + "\n")
+    (d / "index.html").write_text(
+        '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex">'
+        f'<meta http-equiv="refresh" content="0; url=../{ed["date"]}/"><title>Latest edition</title>'
+        f'<link rel="canonical" href="../{ed["date"]}/"></head><body><p><a href="../{ed["date"]}/">'
+        f'{html.escape(ed["date_long"])}</a> · <a href="print.pdf">Print PDF</a></p></body></html>\n')
 
 
 def build_indexes(site_cfg, private=False):
@@ -555,6 +746,8 @@ def build_indexes(site_cfg, private=False):
             continue
         (SITE / slug / "index.html").write_text(E.get_template("paper.html.j2").render(
             paper=paper, site=site_cfg, editions=eds, base=base, root="../", url_path=f"/{slug}/", private_copy=private))
+        if not private:
+            write_latest(SITE / slug, eds[0], base, slug)
         if paper.get("public") or private:
             listed.append({"paper": paper, "latest": eds[0]})
             urls += [f"/{slug}/"] + [f"/{slug}/{e['date']}/" for e in eds]

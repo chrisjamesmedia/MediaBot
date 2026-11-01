@@ -44,6 +44,7 @@ a{color:inherit;text-decoration:none}
 h2{font:700 7.6pt/1 "SG Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;margin:12pt 0 5pt;padding-top:3.5pt;
   border-top:1.4pt solid #000;break-after:avoid}
 .cols > section:first-child h2,.lead + section h2{margin-top:0}
+.fronth{column-span:all}
 /* source parts (X, News, …) hold topic sections */
 .part{margin-top:10pt}
 .parth{font:400 13pt/1.1 "SG Serif",serif;margin:0 0 6pt;padding-top:4pt;border-top:1.6pt double #000;break-after:avoid}
@@ -78,6 +79,16 @@ p .src{margin-left:3pt}
 .post .hd span{color:#333}
 .post .tx{font:400 {{ pt - 0.3 }}pt/1.36 "SG Sans",sans-serif;white-space:pre-line}
 .post .u{font:400 5.8pt/1.2 "SG Sans",sans-serif;color:#444;margin-top:2pt}
+/* evergreen: long reads */
+.ev{break-inside:avoid;margin:0 0 7pt;padding-bottom:5pt;border-bottom:.4pt solid #999}
+.ev .k{font:600 6.2pt/1.2 "SG Sans",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#333}
+.ev h3{font:700 {{ pt + 1.6 }}pt/1.16 "SG Serif",serif;margin:1.5pt 0 1pt}
+.ev .by{font:500 7pt/1.25 "SG Sans",sans-serif;margin-bottom:2pt}
+.ev p{margin:0}
+.ev .u{font:400 5.8pt/1.2 "SG Sans",sans-serif;color:#444;margin-top:2pt}
+/* News: briefs */
+.nb{break-inside:avoid;margin:0 0 4pt}
+.nb b{font-weight:700}
 /* lines, box, links */
 .ln{break-inside:avoid;margin:0 0 3.5pt}
 .box{border:.8pt solid #000;padding:5pt 7pt 3pt;margin:12pt 0 6pt;break-inside:avoid}
@@ -127,6 +138,10 @@ p .src{margin-left:3pt}
 <div class="u">{% if mode == 'digital' %}<a href="{{ it.url }}">{{ it.url | replace('https://', '') }}</a>{% else %}{{ it.url | replace('https://', '') }}{% endif %}</div></div>
 {% elif it.type == 'line' %}
 <p class="ln">{{ it.text | safe }} {{ srcs(it.sources) }}</p>
+{% elif it.type == 'evergreen' %}
+<div class="ev"><div class="k">{{ it.kind or 'Long read' }}{% if it.date_short %} · {{ it.date_short }}{% endif %}</div><h3>{% if mode == 'digital' %}<a href="{{ it.url }}">{{ it.title }}</a>{% else %}{{ it.title }}{% endif %}</h3>
+<div class="by">{{ it.author }}{% if it.handle %} @{{ it.handle }}{% endif %}</div><p>{{ it.print_text }}</p>
+<div class="u">{% if mode == 'digital' %}<a href="{{ it.url }}">{{ it.url | replace('https://', '') }}</a>{% else %}{{ it.url | replace('https://', '') }}{% endif %}</div></div>
 {% elif it.type == 'link' %}
 <p class="wl"><b>{% if mode == 'digital' %}<a href="{{ it.url }}">{{ it.title }}</a>{% else %}{{ it.title }}{% endif %}</b>{% if it.why %} {{ it.why }}{% endif %} <span class="src">{{ it.url | host }}</span></p>
 {% else %}
@@ -150,16 +165,18 @@ p .src{margin-left:3pt}
 </div>
 {% if show_toc %}
 <nav class="toc"><div class="th">In this edition</div>
-  {% if front %}<p>{{ tocline('tpa', 'front', 'Front Page') }}</p>{% endif %}
+  {% if front %}<p>{{ tocline('tpa', 'front', front.title) }}</p>{% endif %}
   {% for p in parts %}<p>{{ tocline('tpa', p.anchor, p.title) }}{% if p.subs|length > 1 %}{% for t in p.subs %}{{ tocline('ts', t.anchor, t.title) }}{% endfor %}{% endif %}</p>{% endfor %}
 </nav>
 {% endif %}
 {% if front %}
 <div class="cols" id="front">
   {% set l = front['items'][0] %}
+  <h2 class="parth fronth">{{ front.title }}</h2>
+  {% if l.type == 'post' %}<div class="lead">{{ item(l) }}</div>{% else %}
   <div class="lead"><h3>{{ l.headline }}</h3>
     <div class="wrapl">{% if mode == 'digital' and l.image %}<figure><img src="{{ l.image.abs }}" alt=""><figcaption>{{ l.image.credit }}</figcaption></figure>{% endif %}
-    <p>{{ l.print_text }} {{ srcs(l.sources) }}</p></div></div>
+    <p>{{ l.print_text }} {{ srcs(l.sources) }}</p></div></div>{% endif %}
   <section>{% for it in front['items'][1:] %}{{ item(it) }}{% endfor %}</section>
 </div>
 {% endif %}
@@ -172,7 +189,9 @@ p .src{margin-left:3pt}
   <div class="cols">
   {% for sec in p.subs %}
     {% set th = p.subs|length > 1 %}
-    {% if sec.style == 'box' %}
+    {% if sec.style == 'brief' %}
+    <section id="{{ sec.anchor }}">{% if th %}<h3 class="tp">{{ sec.title }}</h3>{% endif %}{% for it in sec['items'] %}<p class="nb"><b>{{ it.headline or (it.text | striptags) }}.</b>{% if it.headline %} {{ it.brief_text }}{% endif %} {{ srcs(it.sources or []) }}</p>{% endfor %}</section>
+    {% elif sec.style == 'box' %}
     <section class="box" id="{{ sec.anchor }}">{% if th %}<h3 class="tp">{{ sec.title }}</h3>{% endif %}{% for it in sec['items'] %}{{ item(it) }}{% endfor %}</section>
     {% else %}
     <section id="{{ sec.anchor }}">{% if th %}<h3 class="tp">{{ sec.title }}</h3>{% endif %}

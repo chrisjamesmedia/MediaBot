@@ -67,7 +67,8 @@ the status id: `ms = (id >> 22) + 1288834974657`.
 ```json
 { "type": "link", "id": "w-1", "title": "…", "url": "…", "why": "One short clause." }
 ```
-Sections with `dedupe: true` drop links whose URL already appears earlier in the paper.
+Sections with `dedupe: true` drop links whose URL appears elsewhere in the finished paper (checked after
+the News and topic cuts, so a link whose twin story was cut stays).
 
 ### Funnies (`funnies` section; `tools/funnies.py <slug> <date>` writes it)
 ```json
@@ -80,6 +81,38 @@ Comics come only from real feeds (xkcd RSS today), credited and linked; never in
 generated and checked (the sudoku has exactly one solution). Solutions print small and upside down;
 on the web they sit behind "Solutions". No crossword: good clues can't be generated without making
 things up.
+
+### evergreen (`evergreen` section): long-form from Chris's own X
+```json
+{ "type": "evergreen", "id": "ev-patrickc-agents-economy", "kind": "Post",      // Post | Thread | X Article
+  "title": "Assorted things I've been mulling over regarding agents in the economy",
+  "author": "Patrick Collison", "handle": "patrickc", "date": "2026-10-09",
+  "url": "https://x.com/patrickc/status/2108706907859116280",
+  "summary": "Two or three sentences in our words: what it argues and why it lasts." }
+```
+Only real items Chris bookmarked, liked or saw on X (X Articles, long threads, long posts), read
+through the read-only X tools, 2–4 per edition. Never invented; if X can't be read that day, leave the
+section out. `papers/<slug>/evergreen_seen.json` (url → first date) is updated by public builds, and
+an item already used on an earlier date is dropped, so nothing repeats. The paper never says that an
+item came from Chris's bookmarks or likes.
+
+## Selection fields: `topic` and `major`
+
+Any story, line or link can carry `"topic": ["war", "oil"]` and `"major": true`. `paper.yaml`'s `news:`
+block uses them:
+
+- An item whose topic is in `news.exclude_topics` (war, conflict, geopolitics, macro, rates, oil,
+  politics, local, …) is cut from every public section unless it has `"major": true`. "Major" means
+  `news.major_means`, which is rare: a war starting or ending, a market crash, a once-a-decade event.
+- `front` has `require_source: x`, so only X items (posts, or stories whose sources are all x.com)
+  can be the lead. Other front items move to News.
+- News: news-sourced stories from the topic sections plus Big Stuff and Local are pooled. Big Stuff
+  and Local (`major_only_sections`) keep only `major` items. Then `major` items are sorted first,
+  and the pool is cut to `news.max_items` (4) and rendered as one-paragraph briefs under the
+  `news.title` ("Headlines"). `short` is used as the brief text if present, otherwise the first
+  sentence of `text`. Your Holdings sits under the same News part.
+- `build.py` prints every cut, so the morning routine can see what was left out.
+- Recipe builds skip the News pooling (they have their own section lists).
 
 ## Grouping
 

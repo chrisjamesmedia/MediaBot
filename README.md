@@ -137,6 +137,9 @@ Target: repo `chrisjamesmedia/mediabot` (public), site `https://chrisjamesmedia.
   og:url/og:image, the sitemap and the print QR code (it points at the edition URL).
 - `site/` is committed. `.github/workflows/pages.yml` uploads it to Pages on each push to `main`
   (repo Settings → Pages → Source: **GitHub Actions**). `site/.nojekyll` is written by every build.
+- The morning routine's prompt (X-first, the News cap, evergreen, weather) is in `docs/routine.md`.
+- Every public build refreshes `site/<slug>/latest/` (print.pdf, digital.pdf, latest.json and a
+  redirect), the stable URL that `tools/print-daily/` uses to print the paper on a schedule.
 - Daily publish command (the morning routine runs this ~7:15 AM ET):
   ```
   tools/publish.sh                          # signal-seeker, today's date in ET

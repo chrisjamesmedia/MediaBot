@@ -50,8 +50,25 @@
 {% if lines %}<ul class="lines">{% for l in lines %}{{ line(l) }}{% endfor %}</ul>{% endif %}
 {% if posts %}<div class="posts{% if posts|length == 1 %} one{% endif %}">{% for p in posts %}{{ post(p) }}{% endfor %}</div>{% endif %}
 {%- endmacro %}
+{% macro ever(e) -%}
+<article class="ever" id="{{ e.id }}" data-id="{{ e.id }}">
+<p class="kick">{{ e.kind or 'Long read' }}{% if e.date_short %} · {{ e.date_short }}{% endif %}</p>
+<h3><a href="{{ e.url }}" target="_blank" rel="noopener">{{ e.title }}</a></h3>
+<p class="by">{{ e.author }}{% if e.handle %} <span class="mute">@{{ e.handle }}</span>{% endif %}</p>
+<p>{{ e.summary }}</p>
+<footer><a class="src open" href="{{ e.url }}" target="_blank" rel="noopener">Read on {{ e.url | host }}</a>{{ controls() }}</footer>
+</article>
+{%- endmacro %}
+{% macro brief(s) -%}
+<li class="nb" id="{{ s.id }}" data-id="{{ s.id }}"><b>{{ s.headline or (s.text | striptags) }}</b>{% if s.headline and s.brief_text %} <span class="bt">{{ s.brief_text }}</span>{% endif %} {{ sources(s.sources or []) }}</li>
+{%- endmacro %}
+{% macro front_item(i) -%}{% if i.type == 'post' %}{{ post(i) }}{% else %}{{ story(i) }}{% endif %}{%- endmacro %}
 {% macro sub_body(sec) -%}
-{% if sec.style == 'box' %}
+{% if sec.id == 'evergreen' %}
+  <div class="evers n{{ sec['items']|length }}">{% for e in sec['items'] %}{{ ever(e) }}{% endfor %}</div>
+{% elif sec.style == 'brief' %}
+  <ul class="briefs">{% for s in sec['items'] %}{{ brief(s) }}{% endfor %}</ul>
+{% elif sec.style == 'box' %}
   <div class="box"><ul>{% for l in sec['items'] %}{{ line(l) }}{% endfor %}</ul></div>
 {% elif sec.id == 'funnies' %}
   {{ funnies(sec, 'web') }}
@@ -82,14 +99,23 @@
   </div>
   <h1><a href="{{ home or '../' }}" title="{{ paper.name }}: all editions">{{ paper.name }}</a></h1>
   <div class="under">
-    {% if weather.ok %}<span class="wx" title="Open-Meteo, {{ weather.asof_full }}">{{ weather.line }}</span>{% endif %}
+    {% if weather.ok %}<div class="wx" id="weather" title="Open-Meteo, as of {{ weather.asof_full }}">
+      <span class="wx-now"><b>{{ weather.now }}°</b> {{ weather.label }}{% if weather.cond %}, {{ weather.cond | lower }}{% endif %}</span>
+      {% if weather.hi is defined %}<span class="wx-hl">High <b>{{ weather.hi }}°</b> · Low <b>{{ weather.lo }}°</b></span>{% endif %}
+      {% if weather.tomorrow %}<span class="wx-tm">Tomorrow {{ weather.tomorrow.cond }}{% if weather.tomorrow.cond %}, {% endif %}{{ weather.tomorrow.hi }}°/{{ weather.tomorrow.lo }}°</span>{% endif %}
+      <span class="wx-as mute">as of {{ weather.asof_short }}</span>
+    </div>{% endif %}
     {% if note %}<span class="note">{{ note }}</span>{% endif %}
   </div>
-  {% if show_toc %}
+</header>
+
+<div class="page wrap{% if show_toc %} has-toc{% endif %}">
+{% if show_toc %}
+<aside class="toc-side">
   <nav class="contents" id="contents" aria-labelledby="contents-h">
     <h2 id="contents-h">In this edition</h2>
     <ol class="toc-parts">
-      {% if front %}<li><a class="tp" href="#front">Front Page</a></li>{% endif %}
+      {% if front %}<li><a class="tp" href="#front">{{ front.title }}</a></li>{% endif %}
       {% for p in parts %}
       <li><a class="tp" href="#{{ p.anchor }}">{{ p.title }}</a>
         {% if p.subs|length > 1 %}<ol class="toc-subs">{% for t in p.subs %}<li><a href="#{{ t.anchor }}">{{ t.title }}</a></li>{% endfor %}</ol>{% endif %}
@@ -97,20 +123,21 @@
       {% endfor %}
     </ol>
   </nav>
-  {% endif %}
-</header>
-
-<main class="wrap">
+</aside>
+{% endif %}
+<main>
 {% if front %}
-{% set fs = front['items'] | selectattr('type', 'equalto', 'story') | list %}
-<section id="front" class="front" aria-label="{{ front.title }}" data-sec="front">
+{% set fs = front['items'] %}
+<section id="front" class="front" aria-labelledby="front-h" data-sec="front">
+  <h2 class="part-h" id="front-h">{{ front.title }}</h2>
   {% set s = fs[0] %}
+  {% if s.type == 'post' %}<div class="leadpost">{{ post(s) }}</div>{% else %}
   <article class="story lead{% if not s.image %} noimg{% endif %}" id="{{ s.id }}" data-id="{{ s.id }}">
   <h3>{{ s.headline }}</h3>
   {% if s.image %}<figure class="ph"><img src="{{ s.image.web }}" alt=""><figcaption>{{ s.image.credit }}</figcaption></figure>{% endif %}
   <div class="txt"><p>{{ s.summary }}</p><footer>{{ sources(s.sources) }}{{ controls() }}</footer></div>
-  </article>
-  {% if fs|length > 1 %}<div class="grid2 rest{% if fs|length is odd %} even{% endif %}">{% for s in fs[1:] %}{{ story(s) }}{% endfor %}</div>{% endif %}
+  </article>{% endif %}
+  {% if fs|length > 1 %}<div class="grid2 rest{% if fs|length is odd %} even{% endif %}">{% for s in fs[1:] %}{{ front_item(s) }}{% endfor %}</div>{% endif %}
 </section>
 {% endif %}
 {% for p in parts %}
@@ -136,6 +163,7 @@
   <p class="endlinks"><a href="{{ pdfs.print }}" target="_blank" rel="noopener">Print edition</a><span class="dot"> · </span><a href="{{ pdfs.digital }}" target="_blank" rel="noopener">Digital PDF</a><span class="dot"> · </span><button type="button" id="export">Export feedback</button><span class="saved" aria-live="polite"></span></p>
 </section>
 </main>
+</div>
 <script>window.SG = {paper: "{{ paper.slug }}", edition: "{{ edition_key or date }}"};</script>
 <script src="{{ root }}assets/site.js"></script>
 {% endblock %}

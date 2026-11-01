@@ -3,11 +3,63 @@
  "paper": "signal-seeker",
  "date": "2026-11-01",
  "coverage": "Covering roughly Oct 30–Nov 1, 2026. Compiled Sunday, ET.",
- "note": "Election Day is Tuesday, Nov. 3. AMD reports the same day; Nebius on Nov. 12.",
+ "note": "AMD reports Tuesday, Nov. 3; Nebius on Nov. 12.",
  "sections": [
   {
    "id": "front",
    "items": [
+    {
+     "type": "story",
+     "id": "treasury-competition",
+     "headline": "Big Tech is now competing with the Treasury for capital",
+     "summary": "On the All-In podcast, Chamath Palihapitiya and David Friedberg estimated that the financing the largest AI spenders need through 2027 could equal roughly 30% of U.S. Treasury issuance. Bill Ackman made a related case separately: he compared pure-play neoclouds to highly levered real-estate developers and expects that heavy competition for debt keeps rates high.",
+     "sources": [
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2116580355402834292"
+      },
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2116608968957247546"
+      },
+      {
+       "name": "X @firesidealpha",
+       "url": "https://x.com/firesidealpha/status/2116574135526817932"
+      }
+     ],
+     "group": "Who pays for the buildout"
+    },
+    {
+     "type": "post",
+     "id": "x-2116546322304016689",
+     "author": "Oguz Erkan",
+     "handle": "oguzerkan",
+     "text": "Aggregate free cash flow of $MSFT, $AMZN, $META, and $GOOG has turned negative for the first time in decades.\n\nI think this is a major turning point for market valuations in general.\n\nLet me explain simply:\n\nIn the 20th century, most large corporations were capex-heavy industrial",
+     "url": "https://x.com/oguzerkan/status/2116546322304016689",
+     "date": "2026-10-31T15:02:21Z",
+     "group": "Who pays for the buildout"
+    },
+    {
+     "type": "story",
+     "id": "vjn-owner-fcf",
+     "headline": "The bull reply: judge the spend by its return, not by free cash flow",
+     "summary": "VJN Capital argues Amazon's headline free cash flow hides about $145 billion of trailing growth capex; on its \"owner FCF\" measure, cash generation grew 36.8%, while the cloud backlog rose 16.5% quarter on quarter and 189% year on year. Bill Ackman says Amazon, Meta and Microsoft now make up about a third of his portfolio.",
+     "sources": [
+      {
+       "name": "X @VJNCapital",
+       "url": "https://x.com/VJNCapital/status/2116571399393567075"
+      },
+      {
+       "name": "X @VJNCapital",
+       "url": "https://x.com/VJNCapital/status/2116508736584110577"
+      },
+      {
+       "name": "X @firesidealpha",
+       "url": "https://x.com/firesidealpha/status/2116584272379478289"
+      }
+     ],
+     "group": "Who pays for the buildout"
+    },
     {
      "type": "story",
      "id": "ai-money",
@@ -27,7 +79,11 @@
        "url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/"
       }
      ],
-     "short": "OpenAI cuts its round target to ~$20B at $1.25T (FT); WSJ says ~$11B secured. Nvidia weighs guaranteeing Nscale's data-center debt."
+     "short": "OpenAI cuts its round target to ~$20B at $1.25T (FT); WSJ says ~$11B secured. Nvidia weighs guaranteeing Nscale's data-center debt.",
+     "topic": [
+      "ai",
+      "business"
+     ]
     },
     {
      "type": "story",
@@ -48,7 +104,11 @@
        "url": "https://www.investing.com/news/stock-market-news/intel-warning-sparks-chip-rout-pc-weakness-clouds-turnaround-4987123"
       }
      ],
-     "short": "Intel down ~29% on Q4 guide of $15–16B vs $17.1B expected; Tan blames PC slump from memory costs and an Israel fab shutdown."
+     "short": "Intel down ~29% on Q4 guide of $15–16B vs $17.1B expected; Tan blames PC slump from memory costs and an Israel fab shutdown.",
+     "topic": [
+      "tech",
+      "markets"
+     ]
     },
     {
      "type": "story",
@@ -65,7 +125,12 @@
        "url": "https://www.timesargus.com/news/national/ap-news-summary-at-9-31-a-m-edt/article_05a06bbc-4847-59bf-a4e9-60272dcff374.html"
       }
      ],
-     "short": "Khamenei vows a response with no geographic limits; IRGC reports three tankers on fire in Hormuz."
+     "short": "Khamenei vows a response with no geographic limits; IRGC reports three tankers on fire in Hormuz.",
+     "topic": [
+      "war",
+      "geopolitics",
+      "oil"
+     ]
     }
    ]
   },
@@ -150,58 +215,6 @@
    "items": [
     {
      "type": "story",
-     "id": "treasury-competition",
-     "headline": "Big Tech is now competing with the Treasury for capital",
-     "summary": "On the All-In podcast, Chamath Palihapitiya and David Friedberg estimated that the financing the largest AI spenders need through 2027 could equal roughly 30% of U.S. Treasury issuance. Bill Ackman made a related case separately: he compared pure-play neoclouds to highly levered real-estate developers and expects that heavy competition for debt keeps rates high.",
-     "sources": [
-      {
-       "name": "X @MilkRoadAI",
-       "url": "https://x.com/MilkRoadAI/status/2116580355402834292"
-      },
-      {
-       "name": "X @MilkRoadAI",
-       "url": "https://x.com/MilkRoadAI/status/2116608968957247546"
-      },
-      {
-       "name": "X @firesidealpha",
-       "url": "https://x.com/firesidealpha/status/2116574135526817932"
-      }
-     ],
-     "group": "Who pays for the buildout"
-    },
-    {
-     "type": "post",
-     "id": "x-2116546322304016689",
-     "author": "Oguz Erkan",
-     "handle": "oguzerkan",
-     "text": "Aggregate free cash flow of $MSFT, $AMZN, $META, and $GOOG has turned negative for the first time in decades.\n\nI think this is a major turning point for market valuations in general.\n\nLet me explain simply:\n\nIn the 20th century, most large corporations were capex-heavy industrial",
-     "url": "https://x.com/oguzerkan/status/2116546322304016689",
-     "date": "2026-10-31T15:02:21Z",
-     "group": "Who pays for the buildout"
-    },
-    {
-     "type": "story",
-     "id": "vjn-owner-fcf",
-     "headline": "The bull reply: judge the spend by its return, not by free cash flow",
-     "summary": "VJN Capital argues Amazon's headline free cash flow hides about $145 billion of trailing growth capex; on its \"owner FCF\" measure, cash generation grew 36.8%, while the cloud backlog rose 16.5% quarter on quarter and 189% year on year. Bill Ackman says Amazon, Meta and Microsoft now make up about a third of his portfolio.",
-     "sources": [
-      {
-       "name": "X @VJNCapital",
-       "url": "https://x.com/VJNCapital/status/2116571399393567075"
-      },
-      {
-       "name": "X @VJNCapital",
-       "url": "https://x.com/VJNCapital/status/2116508736584110577"
-      },
-      {
-       "name": "X @firesidealpha",
-       "url": "https://x.com/firesidealpha/status/2116584272379478289"
-      }
-     ],
-     "group": "Who pays for the buildout"
-    },
-    {
-     "type": "story",
      "id": "neocloud-pricing",
      "headline": "Neoclouds: locked-in backlog versus spot pricing",
      "summary": "Daniel argues CoreWeave's bigger issue is the upside it gave up by contracting capacity early: deals signed in early 2026 brought roughly $10–15 million per megawatt, while some premium contracts now reach $50 million. Nebius keeps part of its capacity for higher-priced short-term deals. Financing is the other test: Lambda, with a $50 billion backlog ($35 billion tied to Anthropic), has reportedly cut its pre-money target from $14.5 billion to $13 billion.",
@@ -269,7 +282,12 @@
        "url": "https://x.com/KevInvestingYT/status/2116676362903703788"
       }
      ],
-     "group": "Positioning"
+     "group": "Positioning",
+     "topic": [
+      "politics",
+      "elections",
+      "markets"
+     ]
     },
     {
      "type": "story",
@@ -286,7 +304,11 @@
        "url": "https://x.com/MilkRoadAI/status/2116482317967560882"
       }
      ],
-     "group": "Elsewhere"
+     "group": "Elsewhere",
+     "topic": [
+      "macro",
+      "world"
+     ]
     }
    ]
   },
@@ -446,6 +468,73 @@
    ]
   },
   {
+   "id": "evergreen",
+   "items": [
+    {
+     "type": "evergreen",
+     "id": "ev-patrickc-agents-economy",
+     "kind": "Post",
+     "title": "Assorted things I've been mulling over regarding agents in the economy",
+     "author": "Patrick Collison",
+     "handle": "patrickc",
+     "date": "2026-10-09T00:00:00Z",
+     "url": "https://x.com/patrickc/status/2108706907859116280",
+     "topic": [
+      "ai",
+      "business",
+      "ideas"
+     ],
+     "summary": "Stripe's co-founder argues that companies are the original superintelligence, profiting from consumers' bounded rationality, and that personal AI agents could weaken price discrimination and cross-subsidies while acting as a structural subsidy for product quality. He leaves open whether agents produce superstar effects or more dispersion, and who controls how demand is routed. His tentative conclusion: the rewards for simply making better products may go up."
+    },
+    {
+     "type": "evergreen",
+     "id": "ev-davidgeorge-openai-rare",
+     "kind": "X Article",
+     "title": "OpenAI Understands Something Important and Rare",
+     "author": "David George (a16z)",
+     "handle": "DavidGeorge83",
+     "date": "2026-09-28T00:00:00Z",
+     "url": "https://x.com/DavidGeorge83/status/2104576086101426620",
+     "topic": [
+      "ai",
+      "business",
+      "investing"
+     ],
+     "summary": "Starting from Drucker's line that the purpose of a business is to create a customer, George walks through four levers: new behavior, distribution, pricing and switching costs. At the model layer switching costs are a Red Queen's race and pricing is competitive, so the durable edge is creating new behavior and owning distribution, where he argues OpenAI leads, with ChatGPT itself a happy accident."
+    },
+    {
+     "type": "evergreen",
+     "id": "ev-roseceline-capex-returns",
+     "kind": "Thread",
+     "title": "Building the infrastructure is not the same as capturing the profits",
+     "author": "Rose Celine Investments",
+     "handle": "realroseceline",
+     "date": "2026-10-25T00:00:00Z",
+     "url": "https://x.com/realroseceline/status/2114358859401986258",
+     "topic": [
+      "investing",
+      "ai"
+     ],
+     "summary": "A three-part thread on why the builders of a technological revolution don't necessarily keep its profits. It separates payback from lifetime return on capital and asks you to count replacement capex, financing costs and the spread between return and cost of capital, using Nebius as the worked example. The question to study is who captures the value, not whether AI is big."
+    },
+    {
+     "type": "evergreen",
+     "id": "ev-perell-writing-quality",
+     "kind": "Post",
+     "title": "Is writing quality subjective or objective? 16 lessons",
+     "author": "David Perell with Michael Dean",
+     "handle": "david_perell",
+     "date": "2025-04-09T00:00:00Z",
+     "url": "https://x.com/david_perell/status/1910031589251096757",
+     "topic": [
+      "ideas",
+      "culture"
+     ],
+     "summary": "Perell distills a long conversation with Michael Dean into 16 craft lessons: fundamentals come before taste, storytelling stretches the unknown across time, titles do triple duty and boredom is the invisible enemy. Write about less, write the first draft for yourself and the second for the reader, and treat the paragraph as the atomic unit."
+    }
+   ]
+  },
+  {
    "id": "business",
    "items": [
     {
@@ -470,6 +559,11 @@
        "name": "The Guardian",
        "url": "https://www.theguardian.com/business/2026/oct/30/exxonmobil-chevron-q3-results"
       }
+     ],
+     "topic": [
+      "oil",
+      "energy-prices",
+      "business"
      ]
     }
    ]
@@ -477,6 +571,38 @@
   {
    "id": "science",
    "items": [
+    {
+     "type": "story",
+     "id": "alz-genetics",
+     "headline": "A 2.8-million-person study maps 48 new Alzheimer's risk regions",
+     "summary": "A genetic study of 2.8 million people, published in Nature, identified 127 regions linked to Alzheimer's risk, 48 of them new, pointing to the brain's immune cells (microglia) as well as neurons as key players.",
+     "sources": [
+      {
+       "name": "Medical Daily",
+       "url": "https://www.medicaldaily.com/alzheimers-study-48-new-genetic-risk-regions-480648"
+      }
+     ],
+     "topic": [
+      "science",
+      "health"
+     ]
+    },
+    {
+     "type": "story",
+     "id": "ldl",
+     "headline": "A new lever on LDL cholesterol, so far only in mice",
+     "summary": "A Nature study found that high-cholesterol diets cut liver LDL receptors through a Ral/CTSA pathway; blocking CTSA lowered LDL in mice. Whether it works in people is untested.",
+     "sources": [
+      {
+       "name": "ScienceDaily",
+       "url": "https://www.sciencedaily.com/releases/2026/10/261030003003.htm"
+      }
+     ],
+     "topic": [
+      "science",
+      "health"
+     ]
+    },
     {
      "type": "story",
      "id": "swift",
@@ -495,18 +621,10 @@
        "name": "Space.com",
        "url": "https://www.space.com/space-exploration/missions/nasa-ends-swift-space-telescope-mission-after-failed-rescue-attempt"
       }
-     ]
-    },
-    {
-     "type": "story",
-     "id": "alz-genetics",
-     "headline": "A 2.8-million-person study maps 48 new Alzheimer's risk regions",
-     "summary": "A genetic study of 2.8 million people, published in Nature, identified 127 regions linked to Alzheimer's risk, 48 of them new, pointing to the brain's immune cells (microglia) as well as neurons as key players.",
-     "sources": [
-      {
-       "name": "Medical Daily",
-       "url": "https://www.medicaldaily.com/alzheimers-study-48-new-genetic-risk-regions-480648"
-      }
+     ],
+     "topic": [
+      "science",
+      "space"
      ]
     },
     {
@@ -519,18 +637,10 @@
        "name": "ScienceDaily",
        "url": "https://www.sciencedaily.com/releases/2026/10/261031012912.htm"
       }
-     ]
-    },
-    {
-     "type": "story",
-     "id": "ldl",
-     "headline": "A new lever on LDL cholesterol, so far only in mice",
-     "summary": "A Nature study found that high-cholesterol diets cut liver LDL receptors through a Ral/CTSA pathway; blocking CTSA lowered LDL in mice. Whether it works in people is untested.",
-     "sources": [
-      {
-       "name": "ScienceDaily",
-       "url": "https://www.sciencedaily.com/releases/2026/10/261030003003.htm"
-      }
+     ],
+     "topic": [
+      "science",
+      "health"
      ]
     }
    ]
@@ -548,6 +658,10 @@
        "name": "WBUR",
        "url": "https://www.wbur.org/news/2026/10/31/amazon-drops-westborough-drone-delivery-plan-after-pushback"
       }
+     ],
+     "topic": [
+      "local",
+      "tech"
      ]
     },
     {
@@ -560,6 +674,10 @@
        "name": "NHPR",
        "url": "https://www.nhpr.org/nh-news/2026-10-31/election-newhampshire-nh-secretary-of-state-ballot-counters-vote-counting"
       }
+     ],
+     "topic": [
+      "local",
+      "elections"
      ]
     },
     {
@@ -572,6 +690,10 @@
        "name": "Boston Globe",
        "url": "https://www.bostonglobe.com/2026/10/31/science/massachusetts-ballot-measure-land-conservation-question-6/"
       }
+     ],
+     "topic": [
+      "local",
+      "politics"
      ]
     },
     {
@@ -584,6 +706,10 @@
        "name": "Boston Globe",
        "url": "https://www.bostonglobe.com/2026/10/31/metro/south-station-stabbing-arrest/"
       }
+     ],
+     "topic": [
+      "local",
+      "crime"
      ]
     }
    ]
@@ -600,6 +726,10 @@
        "name": "Xinhua",
        "url": "https://english.news.cn/20261101/c44843d14a2a41a4bbb81fc1d0943cff/c.html"
       }
+     ],
+     "topic": [
+      "geopolitics",
+      "world"
      ]
     },
     {
@@ -615,6 +745,10 @@
        "name": "Anadolu",
        "url": "https://www.aa.com.tr/en/world/morning-briefing-nov-1-2026/4107709"
       }
+     ],
+     "topic": [
+      "war",
+      "geopolitics"
      ]
     },
     {
@@ -626,6 +760,10 @@
        "name": "AP",
        "url": "https://apnews.com/article/protests-europe-youth-france-germany-spain-362a7cb69871ab21bd894290dad639f5"
       }
+     ],
+     "topic": [
+      "geopolitics",
+      "world"
      ]
     }
    ]
@@ -645,7 +783,12 @@
      "id": "w-maro",
      "title": "@KevInvestingYT: the full midterm-week bear thesis",
      "url": "https://x.com/KevInvestingYT/status/2116676362903703788",
-     "why": "Long, hedged and worth arguing with."
+     "why": "Long, hedged and worth arguing with.",
+     "topic": [
+      "politics",
+      "elections",
+      "markets"
+     ]
     },
     {
      "type": "link",
@@ -659,14 +802,21 @@
      "id": "w-dst",
      "title": "NHPR: Clocks fell back. What could the future hold?",
      "url": "https://www.nhpr.org/nh-news/2026-10-31/daylight-saving-time-ends-fall-back-possible-future-changes",
-     "why": "NH lawmakers are still debating permanent standard time."
+     "why": "NH lawmakers are still debating permanent standard time.",
+     "topic": [
+      "local"
+     ]
     },
     {
      "type": "link",
      "id": "w-ap-bases",
      "title": "AP: What Iran's strikes on U.S. bases actually hit",
      "url": "https://www.timesargus.com/news/national/ap-news-summary-at-9-31-a-m-edt/article_05a06bbc-4847-59bf-a4e9-60272dcff374.html",
-     "why": "Includes AP's analysis of Iran's strikes on 26 U.S. bases."
+     "why": "Includes AP's analysis of Iran's strikes on 26 U.S. bases.",
+     "topic": [
+      "war",
+      "geopolitics"
+     ]
     }
    ]
   },
