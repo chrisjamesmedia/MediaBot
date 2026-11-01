@@ -1,7 +1,5 @@
 # MediaBot
 
-Published via GitHub Pages: https://chrisjamesmedia.github.io/MediaBot/
-
 MediaBot makes small daily papers. Each paper has its own name, design, sources and preferences,
 and each edition is finite: a front page, a handful of sections, and a clear end. There is no
 infinite scroll, no ads and no rabbit holes. It is meant to replace a morning of scrolling X with
@@ -20,7 +18,7 @@ The first paper is **Signal Seeker** (`papers/signal-seeker/`), Chris James's pa
 ```
 build.py                    the one build command
 site.yaml                   site name, one-line about, web_base (https://chrisjamesmedia.github.io/mediabot)
-papers/<slug>/paper.yaml    a paper: name, version, sections, sources, print size, public/private
+papers/<slug>/paper.yaml    a paper: name, sections, sources, print size, public/private
 papers/<slug>/sources/      account lists (X tiers)
 papers/<slug>/editions/<date>/edition.json (+ images/, weather.json)
 papers/<slug>/feedback/     exported reader feedback (+ summary.json written by the build)
@@ -68,9 +66,10 @@ Sections with nothing worth printing are left out. Nothing is ever padded to rea
 
 ## Make or edit a paper
 Copy `papers/example/` to `papers/<new-slug>/` and edit `paper.yaml`:
-- `name`, `version`, `slug`, `public`, `description`. The description becomes the paper page's
+- `name`, `slug`, `public`, `description`. The description becomes the paper page's
   meta description.
-- `masthead.weather`: a label plus lat/lon/timezone, fetched from Open-Meteo. Delete it for no weather.
+- `masthead.weather`: a label plus lat/lon/timezone, fetched from Open-Meteo. Only the current conditions are
+  shown, as one line ("Boston · 32°F, sunny"); there is no forecast. Delete it for no weather.
 - `print.size`: `small`, `medium` or `large`. The sheet targets and maximums are in `print.sizes`.
   Medium is 4–5 sheets duplex. The build trims the lowest-weight sections if an edition would go
   over the maximum, and warns (but never pads) when it is under.
@@ -84,17 +83,29 @@ A fork is the same thing: copy someone's `paper.yaml` under a new slug.
 `public: false` keeps a paper off the root page and adds `noindex`. It is **not** access control:
 anyone with the URL can still open it (see docs/feedback.md, "Sign-in later").
 
-## Signal Seeker v0.5: what's on and off
+## Signal Seeker: what's on and off
 - **Live sources in v1:** X, plus the web and legacy outlets.
 - **Section order:** Front Page, From Your X, The GOATs, Investments (by theme), Your Holdings
   (by company), Tech & AI, Worth Reading, Business, Science & Health, Local, The Big Stuff (box),
-  Worth Your Time (links).
+  Worth Your Time (links). That is the order in paper.yaml and the order trimming works on.
+- **Reading order (by source):** each edition is regrouped at render time by where items came
+  from: Front Page, then X, Substack, YouTube, News, Around the Web, Funnies. Topics are subgroups
+  inside each source (`build.py: item_source / by_source`; a section can set `source_group:` to
+  override). An "In this edition" contents block sits under the masthead: anchor links on the web
+  (with a quiet "↑ Contents" link after each part), internal links with page numbers in the digital
+  PDF, and a compact list with page numbers in print (page numbers come from a second render pass
+  that reads the PDF's named destinations with pypdf).
+- **Masthead:** the paper name, left-aligned, with no version string; the date line; a one-line
+  weather strip. On the web, a Print button (opens the print PDF in a new tab) and a smaller
+  Digital PDF link sit on the date line. They are hidden when the page itself is printed.
+- **Site pages:** the root page is "Papers"; each paper page is "Editions", a plain list of dates,
+  newest first, with Print / Digital links per row and a small "with Funnies" tag on Sundays.
 - **Off in config:** Substack and YouTube. They need real sources before they are switched on;
   nothing is faked for them. Odds & Ends is private (below).
 - **Sundays:** the `sunday:` block in paper.yaml makes the paper large and turns on Funnies (an
   xkcd comic from its RSS feed, a sudoku and a word search). Run `tools/funnies.py <slug> <date>`
   before `build.py` on Sundays. There is no public notes section, so Sunday adds no notes.
-- **Print:** pure white, black ink, no fills. Footer "Sheet N of M · Front/Back"; an odd page
+- **Print:** pure white, black ink, no fills. Footer "Sheet N of M · Front/Back · p. N"; an odd page
   count gets one blank back so it duplexes cleanly. Web and digital PDF use a warm paper tone.
 - **Quoted posts:** drawn as a small inset when edition.json carries `quoted` (tools/x_quoted.py).
 - **Reader feedback:** stored per browser, with an exported JSON file (docs/feedback.md). There are

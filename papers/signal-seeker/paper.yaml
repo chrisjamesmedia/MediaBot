@@ -2,7 +2,6 @@
 # Everything the build and the daily routine need about this paper lives here.
 
 name: Signal Seeker
-version: v0.5
 slug: signal-seeker            # URL: /signal-seeker/ and /signal-seeker/YYYY-MM-DD/
 public: true                   # false = left off the root index, pages carry noindex
 reader: Chris James
@@ -11,7 +10,7 @@ description: >-
   plus the news that matters, with a clear end.
 
 masthead:
-  style: quiet                 # quiet = small serif name, grey version, no tagline
+  style: quiet                 # quiet = small serif name, left-aligned, no tagline
   weather:
     label: Boston
     lat: 42.36

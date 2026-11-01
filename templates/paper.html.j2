@@ -1,24 +1,20 @@
 {% extends "_base.html.j2" %}
-{% set title = paper.name ~ (" " ~ paper.version if paper.version else "") ~ ": daily editions" %}
+{% set title = paper.name ~ ": editions" %}
 {% set description = paper.description | trim %}
 {% set noindex = not paper.public %}
 {% set body_class = "paperpage" %}
 {% block body %}
-<header class="mast wrap">
-  <h1><a href="./">{{ paper.name }}{% if paper.version %}<span class="ver">{{ paper.version }}</span>{% endif %}</a></h1>
-  <div class="under solo"></div>
-</header>
 <main class="wrap narrow">
-  {% set e = editions[0] %}
-  <a class="latest" href="{{ e.date }}/">
-    <span class="d">{{ e.date_long }}</span>
-    <span class="h">{{ e.lead }}</span>
-  </a>
-  <p class="endlinks"><a href="{{ e.date }}/{{ e.pdfs.print }}">Print edition</a><span class="dot"> · </span><a href="{{ e.date }}/{{ e.pdfs.digital }}">Digital PDF</a></p>
-  {% if editions|length > 1 %}
-  <h2>Earlier editions</h2>
-  <ol class="archive">{% for e in editions[1:] %}<li><a href="{{ e.date }}/"><time datetime="{{ e.date }}">{{ e.date_long }}</time> <span class="mute">{{ e.lead }}</span></a></li>{% endfor %}</ol>
-  {% endif %}
-  <p class="about mute">{{ paper.description | trim }}</p>
+  <a class="kicker" href="../">← Papers</a>
+  <h1 class="pagehead">Editions</h1>
+  <ol class="editions">
+    {% for e in editions %}
+    <li>
+      <a class="ed-d" href="{{ e.date }}/"><time datetime="{{ e.date }}">{{ e.date_long }}</time>{% if 'Funnies' in e.sections %}<span class="tag">with Funnies</span>{% endif %}</a>
+      <span class="pdfs"><a href="{{ e.date }}/{{ e.pdfs.print }}" target="_blank" rel="noopener">Print</a><span class="dot"> · </span><a href="{{ e.date }}/{{ e.pdfs.digital }}" target="_blank" rel="noopener">Digital</a></span>
+    </li>
+    {% endfor %}
+  </ol>
+  <p class="about mute">{{ paper.name }}: {{ paper.description | trim }}</p>
 </main>
 {% endblock %}

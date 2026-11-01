@@ -2,7 +2,7 @@
     Print carries no photos; its only image is one masthead QR, and only once the site has a public URL.
     Digital adds the lead photo and keeps every link clickable. -#}
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<title>{{ paper.name }} {{ paper.version }} · {{ date_long }}{{ ' (print)' if mode == 'print' else '' }}</title>
+<title>{{ paper.name }} · {{ date_long }}{{ ' (print)' if mode == 'print' else '' }}</title>
 <style>
 @font-face{font-family:"SG Serif";src:url({{ static }}/fonts/SourceSerifPro-Regular.ttf);font-weight:400}
 @font-face{font-family:"SG Serif";src:url({{ static }}/fonts/SourceSerifPro-It.ttf);font-weight:400;font-style:italic}
@@ -12,8 +12,8 @@
 {% if mode == 'print' %}
 {#- Print: pure white, black ink, no fills. Footer names the duplex sheet and side; build.py pads to an even page count. #}
 @page{size:Letter;margin:.5in .5in .55in;background:#fff}
-@page :right{counter-increment:sheet;@bottom-center{content:"Sheet " counter(sheet) " of {{ sheets or 1 }} · Front";font:400 6.8pt "SG Sans",sans-serif;color:#000}}
-@page :left{@bottom-center{content:"Sheet " counter(sheet) " of {{ sheets or 1 }} · Back";font:400 6.8pt "SG Sans",sans-serif;color:#000}}
+@page :right{counter-increment:sheet;@bottom-center{content:"Sheet " counter(sheet) " of {{ sheets or 1 }} · Front · p. " counter(page);font:400 6.8pt "SG Sans",sans-serif;color:#000}}
+@page :left{@bottom-center{content:"Sheet " counter(sheet) " of {{ sheets or 1 }} · Back · p. " counter(page);font:400 6.8pt "SG Sans",sans-serif;color:#000}}
 {% else %}
 {#- Digital: soft warm paper, near-black warm ink. #}
 @page{size:Letter;margin:.5in .5in .55in;background:#f4ecdc;
@@ -26,8 +26,7 @@ a{color:inherit;text-decoration:none}
 .sans{font-family:"SG Sans",sans-serif}
 /* masthead */
 .mast{display:flex;align-items:flex-end;justify-content:space-between;gap:12pt;padding-bottom:4pt;border-bottom:.6pt solid #000}
-.name{font:400 19pt/1 "SG Serif",serif;letter-spacing:.01em}
-.name .ver{font:400 6.5pt "SG Sans",sans-serif;color:#555;margin-left:4pt;vertical-align:.95em;letter-spacing:.04em}
+.name{text-align:left;font:400 19pt/1 "SG Serif",serif;letter-spacing:.01em}
 .mast .date{font:500 8pt/1.25 "SG Sans",sans-serif;text-align:right;margin-left:auto}
 .qr{width:.5in;height:.5in;display:block}
 .strip{display:flex;justify-content:space-between;gap:14pt;padding:3pt 0;border-bottom:1.6pt double #000;
@@ -45,6 +44,21 @@ a{color:inherit;text-decoration:none}
 h2{font:700 7.6pt/1 "SG Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;margin:12pt 0 5pt;padding-top:3.5pt;
   border-top:1.4pt solid #000;break-after:avoid}
 .cols > section:first-child h2,.lead + section h2{margin-top:0}
+/* source parts (X, News, …) hold topic sections */
+.part{margin-top:10pt}
+.parth{font:400 13pt/1.1 "SG Serif",serif;margin:0 0 6pt;padding-top:4pt;border-top:1.6pt double #000;break-after:avoid}
+.tp{font:700 7.6pt/1 "SG Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;margin:12pt 0 5pt;padding-top:3.5pt;
+  border-top:1.4pt solid #000;break-after:avoid}
+.cols > section:first-child .tp{margin-top:0}
+/* contents */
+.toc{margin:0 0 9pt;padding:0 0 6pt;border-bottom:.6pt solid #000;font:400 7.2pt/1.45 "SG Sans",sans-serif;column-count:{{ 3 if mode == 'print' else 2 }};column-gap:.24in}
+.toc .th{column-span:all;font:700 6.8pt/1 "SG Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;margin:0 0 4pt}
+.toc p{margin:0 0 2.5pt;break-inside:avoid}
+.toc .tpa{display:flex;font-weight:600}
+.toc .ts{display:flex;padding-left:8pt;color:{{ '#000' if mode == 'print' else '#3a352d' }}}
+.toc a{flex:0 1 auto}
+.toc .lead-dots{flex:1;border-bottom:.4pt dotted {{ '#000' if mode == 'print' else '#8a8170' }};margin:0 3pt 2.2pt;min-width:6pt}
+.toc .pg{flex:0 0 auto;min-width:9pt;text-align:right;font-variant-numeric:tabular-nums}
 h4{font:600 6.8pt/1.2 "SG Sans",sans-serif;letter-spacing:.09em;text-transform:uppercase;margin:7pt 0 3pt;color:#222;break-after:avoid}
 h2 + h4{margin-top:2pt}
 .it{break-inside:avoid;margin:0 0 6.5pt}
@@ -56,7 +70,8 @@ p .src{margin-left:3pt}
 {% if mode == 'digital' %}.src a,.wl a{text-decoration:underline;text-decoration-color:#aaa}{% endif %}
 /* X post cards */
 .post{break-inside:avoid;border:.6pt solid #000;border-radius:4pt;padding:4.5pt 6pt 4pt;margin:0 0 6pt}
-.post .hd{display:flex;align-items:center;gap:5pt;margin-bottom:2.5pt;font:400 7pt/1.2 "SG Sans",sans-serif}
+.post.long{break-inside:auto;box-decoration-break:slice}
+.post .hd{break-after:avoid;display:flex;align-items:center;gap:5pt;margin-bottom:2.5pt;font:400 7pt/1.2 "SG Sans",sans-serif}
 .post .av{width:15pt;height:15pt;border-radius:50%;border:.6pt solid #000;display:flex;align-items:center;justify-content:center;
   font:600 5.6pt/1 "SG Sans",sans-serif;flex:0 0 15pt}
 .post .hd b{font-weight:700;font-size:7.6pt}
@@ -66,7 +81,7 @@ p .src{margin-left:3pt}
 /* lines, box, links */
 .ln{break-inside:avoid;margin:0 0 3.5pt}
 .box{border:.8pt solid #000;padding:5pt 7pt 3pt;margin:12pt 0 6pt;break-inside:avoid}
-.box h2{border-top:0;padding-top:0;margin-top:0}
+.box h2,.box .tp{border-top:0;padding-top:0;margin-top:0}
 .wl{margin:0 0 4pt;break-inside:avoid}
 .wl b{font-weight:600}
 .end{text-align:center;margin-top:8pt;padding-top:5pt;border-top:1.6pt double #000;
@@ -76,7 +91,7 @@ p .src{margin-left:3pt}
 .qt b{font-weight:700}
 .qt .h{color:#333}
 /* funnies: comics full width, puzzles in black line only */
-.funnies{column-span:all;break-before:auto}
+.funnies .parth{margin-bottom:8pt}
 .comic{margin:0 0 8pt;break-inside:avoid;text-align:center}
 .comic img{max-width:100%;max-height:6.2in;filter:grayscale(1)}
 .comic figcaption{font:400 6.4pt/1.3 "SG Sans",sans-serif;color:#333;margin-top:2pt}
@@ -106,7 +121,7 @@ p .src{margin-left:3pt}
 {%- endmacro -%}
 {%- macro item(it) -%}
 {% if it.type == 'post' %}
-<div class="post"><div class="hd"><span class="av">{{ it.author | initials }}</span><b>{{ it.author }}</b><span>@{{ it.handle }}{% if it.date_short %} · {{ it.date_short }}{% endif %}</span></div>
+<div class="post{% if (it.text or "")|length > 520 %} long{% endif %}"><div class="hd"><span class="av">{{ it.author | initials }}</span><b>{{ it.author }}</b><span>@{{ it.handle }}{% if it.date_short %} · {{ it.date_short }}{% endif %}</span></div>
 <div class="tx">{{ it.text }}</div>
 {% if it.quoted %}{% set ex = it.quoted.text | excerpt %}<div class="qt"><b>{{ it.quoted.author }}</b> <span class="h">@{{ it.quoted.handle }}</span>{% if ex %}<br>{{ ex }}{% endif %}</div>{% endif %}
 <div class="u">{% if mode == 'digital' %}<a href="{{ it.url }}">{{ it.url | replace('https://', '') }}</a>{% else %}{{ it.url | replace('https://', '') }}{% endif %}</div></div>
@@ -118,35 +133,58 @@ p .src{margin-left:3pt}
 <div class="it{% if it.brief %} brief{% endif %}"><h3>{{ it.headline }}</h3><p>{{ it.print_text }} {{ srcs(it.sources) }}</p></div>
 {% endif %}
 {%- endmacro -%}
+{% set parts = sections | by_source %}
+{% set front = sections | selectattr('id', 'equalto', 'front') | first %}
+{% set show_toc = (parts|length + (1 if front else 0) > 1) or (parts and parts[0].subs|length > 1) %}
+{%- macro tocline(cls, anchor, title) -%}
+<span class="{{ cls }}"><a href="#{{ anchor }}">{{ title }}</a>{% if toc_pages[anchor] %}<span class="lead-dots"></span><span class="pg">{{ toc_pages[anchor] }}</span>{% endif %}</span>
+{%- endmacro -%}
 <div class="mast">
-  <div class="name">{{ paper.name }}{% if paper.version %}<span class="ver">{{ paper.version }}</span>{% endif %}</div>
+  <div class="name">{{ paper.name }}</div>
   <div class="date">{{ date_long }}</div>
   {% if qr and mode == 'print' %}<img class="qr" src="{{ qr }}" alt="">{% endif %}
 </div>
 <div class="strip">
-  <span>{% if weather.ok %}<b>{{ weather.label }}</b> {{ weather.now }}° {{ weather.cond }} · H {{ weather.hi }}° L {{ weather.lo }}°{% for d in weather.days %} · {{ d.name }} {{ d.hi }}°/{{ d.lo }}°{% endfor %}{% endif %}</span>
+  <span>{% if weather.ok %}{{ weather.line }}{% endif %}</span>
   {% if note %}<span class="nt">{{ note }}</span>{% endif %}
 </div>
-<div class="cols">
-{% for sec in sections %}
-{% if sec.id == 'front' %}
-  {% set l = sec['items'][0] %}
+{% if show_toc %}
+<nav class="toc"><div class="th">In this edition</div>
+  {% if front %}<p>{{ tocline('tpa', 'front', 'Front Page') }}</p>{% endif %}
+  {% for p in parts %}<p>{{ tocline('tpa', p.anchor, p.title) }}{% if p.subs|length > 1 %}{% for t in p.subs %}{{ tocline('ts', t.anchor, t.title) }}{% endfor %}{% endif %}</p>{% endfor %}
+</nav>
+{% endif %}
+{% if front %}
+<div class="cols" id="front">
+  {% set l = front['items'][0] %}
   <div class="lead"><h3>{{ l.headline }}</h3>
     <div class="wrapl">{% if mode == 'digital' and l.image %}<figure><img src="{{ l.image.abs }}" alt=""><figcaption>{{ l.image.credit }}</figcaption></figure>{% endif %}
     <p>{{ l.print_text }} {{ srcs(l.sources) }}</p></div></div>
-  <section>{% for it in sec['items'][1:] %}{{ item(it) }}{% endfor %}</section>
-{% elif sec.id == 'funnies' %}
-  <section class="funnies"><h2>{{ sec.title }}</h2>{{ funnies(sec, mode) }}</section>
-{% elif sec.style == 'box' %}
-  <section class="box"><h2>{{ sec.title }}</h2>{% for it in sec['items'] %}{{ item(it) }}{% endfor %}</section>
-{% else %}
-  <section><h2>{{ sec.title }}</h2>
-  {% if sec.groups %}{% for g in sec.groups %}{% if g.title %}<h4>{{ g.title }}</h4>{% endif %}{% for it in g['items'] %}{{ item(it) }}{% endfor %}{% endfor %}
-  {% else %}{% for it in sec['items'] %}{{ item(it) }}{% endfor %}{% endif %}
-  </section>
-{% endif %}
-{% endfor %}
-  <div class="end">End of today’s paper.{% if coverage %}<span class="cov">{{ coverage }}{% if mode == 'print' %} Links are in the web edition.{% endif %}</span>{% endif %}</div>
+  <section>{% for it in front['items'][1:] %}{{ item(it) }}{% endfor %}</section>
 </div>
+{% endif %}
+{% for p in parts %}
+<section class="part{% if p.id == 'funnies' %} funnies{% endif %}" id="{{ p.anchor }}">
+  <h2 class="parth">{{ p.title }}</h2>
+  {% if p.id == 'funnies' %}
+  {% for sec in p.subs %}<div id="{{ sec.anchor }}">{{ funnies(sec, mode) }}</div>{% endfor %}
+  {% else %}
+  <div class="cols">
+  {% for sec in p.subs %}
+    {% set th = p.subs|length > 1 %}
+    {% if sec.style == 'box' %}
+    <section class="box" id="{{ sec.anchor }}">{% if th %}<h3 class="tp">{{ sec.title }}</h3>{% endif %}{% for it in sec['items'] %}{{ item(it) }}{% endfor %}</section>
+    {% else %}
+    <section id="{{ sec.anchor }}">{% if th %}<h3 class="tp">{{ sec.title }}</h3>{% endif %}
+    {% if sec.groups %}{% for g in sec.groups %}{% if g.title %}<h4>{{ g.title }}</h4>{% endif %}{% for it in g['items'] %}{{ item(it) }}{% endfor %}{% endfor %}
+    {% else %}{% for it in sec['items'] %}{{ item(it) }}{% endfor %}{% endif %}
+    </section>
+    {% endif %}
+  {% endfor %}
+  </div>
+  {% endif %}
+</section>
+{% endfor %}
+<div class="end">End of today’s paper.{% if coverage %}<span class="cov">{{ coverage }}{% if mode == 'print' %} Links are in the web edition.{% endif %}</span>{% endif %}</div>
 {% if pad %}<div class="padpage"></div>{% endif %}
 </body></html>

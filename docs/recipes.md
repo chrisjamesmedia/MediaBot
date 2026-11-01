@@ -32,3 +32,9 @@ The editor (`site/edit/`) is a static page. It saves your choices in your browse
 the recipe to copy or download. Send it to MediaBot to build: the site can't run a build itself.
 
 A section with no source yet (Substack, YouTube) simply comes out empty and is skipped.
+
+## Layout of a recipe edition
+A recipe edition uses the same templates as the daily paper. Its sections are regrouped by source
+(X, Substack, YouTube, News, Around the Web, Funnies) and get an "In this edition" contents block
+when there is more than one part or topic. Recipe editions are not listed on the paper's Editions
+page; they live under `site/<slug>/custom/<recipe>/<date>/`.

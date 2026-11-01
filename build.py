@@ -87,23 +87,19 @@ def weather(paper, ed_dir, refresh):
     except Exception as e:      # never invent numbers
         print("  weather unavailable:", e)
         return {"ok": False, "label": w.get("label", "")}
-    d, c = data["daily"], data["current"]
+    c = data["current"]
     fetched = datetime.datetime.fromisoformat(data["fetched_at"])
     if w.get("timezone"):
         from zoneinfo import ZoneInfo
         fetched = fetched.astimezone(ZoneInfo(w["timezone"]))
-    days = []
-    for i in (1, 2):
-        dt = datetime.date.fromisoformat(d["time"][i])
-        days.append({"name": dt.strftime("%a"), "hi": round(d["temperature_2m_max"][i]), "lo": round(d["temperature_2m_min"][i]),
-                     "cond": WMO.get(d["weather_code"][i], ""), "icon": icon_kind(d["weather_code"][i])})
     cond = WMO.get(c["weather_code"], "")
     if c.get("is_day") and cond in ("Clear", "Mostly clear"):
         cond = cond.replace("clear", "sunny").replace("Clear", "Sunny")
-    t = fetched.strftime("%-I:%M %p").replace("AM", "a.m.").replace("PM", "p.m.")
-    return {"ok": True, "label": w.get("label", ""), "now": round(c["temperature_2m"]), "cond": cond,
-            "icon": icon_kind(c["weather_code"]), "hi": round(d["temperature_2m_max"][0]), "lo": round(d["temperature_2m_min"][0]),
-            "days": days, "asof": t, "asof_full": fetched.strftime("%b %-d, %-I:%M %p %Z").strip()}
+    # Current conditions only: one quiet line, e.g. "Boston · 48°F, partly cloudy".
+    now = round(c["temperature_2m"])
+    line = f"{w.get('label', '')} · {now}°F" + (f", {cond[0].lower() + cond[1:]}" if cond else "")
+    return {"ok": True, "label": w.get("label", ""), "now": now, "cond": cond, "line": line,
+            "asof_full": fetched.strftime("%b %-d, %-I:%M %p %Z").strip()}
 
 
 # ---------- feedback ----------
@@ -206,6 +202,63 @@ def assemble(paper, ed, size, private=False):
                              for k in order if k in groups]
         out.append(sec)
     return out
+
+
+# ---------- source grouping ----------
+# The edition reads by where content comes from; topics (paper.yaml sections) nest inside each source.
+SOURCES = [("x", "X"), ("substack", "Substack"), ("youtube", "YouTube"), ("news", "News"),
+           ("web", "Around the Web"), ("funnies", "Funnies"), ("private", "Odds & Ends")]
+
+
+def item_source(sec, it):
+    if sec.get("source_group"): return sec["source_group"]
+    if sec["id"] in ("substack", "youtube", "funnies"): return sec["id"]
+    if sec.get("private"): return "private"
+    return {"post": "x", "link": "web"}.get(it.get("type", "story"), "news")
+
+
+def by_source(sections):
+    """[{id, title, subs: [section-with-only-that-source's-items + anchor]}], in SOURCES order. Front page stays apart."""
+    parts = {}
+    for sec in sections:
+        if sec["id"] == "front":
+            continue
+        split = {}
+        for it in sec["items"]:
+            split.setdefault(item_source(sec, it), []).append(it)
+        for src, items in split.items():
+            sub = dict(sec, items=items, anchor=f"{src}-{sec['id']}" if sec["id"] != src else f"{src}-all")
+            if sec.get("groups"):
+                ids = {id(i) for i in items}
+                sub["groups"] = [g2 for g2 in ({**g, "items": [i for i in g["items"] if id(i) in ids]} for g in sec["groups"]) if g2["items"]]
+            parts.setdefault(src, []).append(sub)
+    return [{"id": k, "title": t, "anchor": k, "subs": parts[k]} for k, t in SOURCES if k in parts]
+
+
+def toc_entries(sections, parts):
+    """Every anchor the contents block links to, in reading order."""
+    out = [{"anchor": "front", "title": "Front Page"}] if any(s["id"] == "front" for s in sections) else []
+    for p in parts:
+        out.append({"anchor": p["anchor"], "title": p["title"]})
+        if len(p["subs"]) > 1:
+            out += [{"anchor": s["anchor"], "title": s["title"]} for s in p["subs"]]
+    return out
+
+
+def pdf_anchor_pages(pdf):
+    """{anchor: page number} from the internal links of the contents block in a Chrome-made PDF."""
+    try:
+        from pypdf import PdfReader
+    except ImportError:
+        return {}
+    r = PdfReader(str(pdf))
+    pages = {}
+    for name, dest in (r.named_destinations or {}).items():
+        try:
+            pages[str(name).lstrip("/")] = r.get_destination_page_number(dest) + 1
+        except Exception:
+            pass
+    return pages
 
 
 def balance(items, n=2):
@@ -317,7 +370,7 @@ def build_editor(site_cfg):
 # ---------- rendering ----------
 def env():
     e = Environment(loader=FileSystemLoader(TPL), autoescape=True, trim_blocks=True, lstrip_blocks=True)
-    e.filters.update(balance=balance, initials=initials, host=short_host, plain=plain, excerpt=excerpt)
+    e.filters.update(by_source=by_source, balance=balance, initials=initials, host=short_host, plain=plain, excerpt=excerpt)
     return e
 
 
@@ -433,10 +486,11 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
         trimmed = []
         pdf = out / pdfs[kind]
 
-        def render(sheets=0, pad=False):
+        def render(sheets=0, pad=False, toc_pages=None):
             h = E.get_template("print.html.j2").render(ctx, sections=psecs if kind == "print" else sections, mode=kind,
                                                        pt=PRINT_TYPE[size] + (0.6 if kind == "digital" else 0),
-                                                       static=STATIC.resolve().as_uri(), qr=qr, sheets=sheets, pad=pad)
+                                                       static=STATIC.resolve().as_uri(), qr=qr, sheets=sheets, pad=pad,
+                                                       toc_pages=toc_pages or {})
             hp = work / f"{kind}.html"
             hp.write_text(h)
             render_pdf(hp, pdf)
@@ -448,11 +502,17 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
             t = trim_lowest(psecs)
             if not t: break
             trimmed.append(t)
-        if kind == "print":
-            # Duplex: second pass with the real sheet count in the footer, plus one blank back when odd.
-            pad = n % 2 == 1
-            n = render((n + 1) // 2, pad)
-            if n % 2: print(f"  ! print came out at {n} pages after padding")
+        # Final pass(es): contents page numbers read back from the PDF's own anchors; print also gets the
+        # real sheet count in the duplex footer, plus one blank back when odd.
+        pad = kind == "print" and n % 2 == 1
+        nsheets = (n + 1) // 2 if kind == "print" else 0
+        tp = pdf_anchor_pages(pdf)
+        for _ in range(2):
+            n = render(nsheets, pad, tp)
+            again = pdf_anchor_pages(pdf)
+            if again == tp: break
+            tp = again
+        if kind == "print" and n % 2: print(f"  ! print came out at {n} pages after padding")
         pages[kind] = n
         sheets = (n + 1) // 2
         msg = f"  {kind}: {pdf.relative_to(ROOT)}  {n} pages" + (" (last back blank)" if kind == "print" and pad else "")
