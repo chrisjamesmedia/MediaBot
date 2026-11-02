@@ -1,0 +1,22 @@
+{
+ "date": "2026-11-01",
+ "date_long": "Sunday, November 1, 2026",
+ "lead": "Stephen Penders on X",
+ "pages": {
+  "print": 4,
+  "digital": 3
+ },
+ "pdfs": {
+  "print": "slow-signal-2026-11-01-print.pdf",
+  "digital": "slow-signal-2026-11-01-digital.pdf"
+ },
+ "sections": [
+  "Ideas & Life",
+  "Science & Health",
+  "Nature & History",
+  "Books & Faith",
+  "Lighter"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-02T02:37:04+00:00"
+}

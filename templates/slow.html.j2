@@ -1,0 +1,88 @@
+{#- Slow Signal web edition: one quiet centered column, warm paper, no live X links, a clear end.
+    Built by build.py when paper.yaml has `layout: slow`. -#}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ paper.name }} · {{ date_long }}</title>
+<meta name="description" content="{{ description }}">
+{% if noindex or private_copy or not paper.public %}<meta name="robots" content="noindex">
+{% endif %}
+{% if base %}<link rel="canonical" href="{{ base }}{{ url_path }}">
+<meta property="og:url" content="{{ base }}{{ url_path }}">
+{% endif %}
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ paper.name }} · {{ date_long }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#1c1914">
+<style>
+@font-face{font-family:"SG Serif";src:url({{ root }}assets/fonts/SourceSerifPro-Regular.ttf);font-weight:400}
+@font-face{font-family:"SG Serif";src:url({{ root }}assets/fonts/SourceSerifPro-It.ttf);font-weight:400;font-style:italic}
+@font-face{font-family:"SG Serif";src:url({{ root }}assets/fonts/SourceSerifPro-Semibold.ttf);font-weight:600}
+@font-face{font-family:"SG Sans";src:url({{ root }}assets/fonts/LibreFranklin.ttf);font-weight:100 900}
+:root{--bg:#1c1914;--ink:#f4ecdc;--soft:rgba(244,236,220,.62);--faint:rgba(244,236,220,.16)}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 19.5px/1.62 "SG Serif",Georgia,serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+.col{max-width:650px;margin:0 auto;padding:56px 24px 96px}
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font:400 14px/1.4 "SG Sans",sans-serif;color:var(--soft);margin-bottom:72px}
+.top .t{font:400 17px/1.2 "SG Serif",serif;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.top .meta{display:flex;gap:14px;flex-wrap:wrap;align-items:baseline}
+.top .pb{font:inherit;color:var(--soft);text-decoration:none;border:1px solid var(--faint);border-radius:999px;padding:3px 12px}
+.top .pb:hover,.top .pb:focus{color:var(--ink);border-color:var(--soft)}
+.post{margin:0 0 76px}
+.who{font:400 13.5px/1.4 "SG Sans",sans-serif;color:var(--soft);margin:0 0 12px;letter-spacing:.01em}
+.who b{font-weight:600;color:var(--ink)}
+.who .tag{margin-left:8px;white-space:nowrap;display:inline-block;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;opacity:.75}
+.post p{margin:0 0 .9em}
+.post p:last-child{margin-bottom:0}
+blockquote{margin:22px 0 0;padding:4px 0 4px 20px;border-left:2px solid var(--faint);font-size:17.5px;line-height:1.55;color:rgba(244,236,220,.82)}
+blockquote .who{font-size:12.5px;margin-bottom:8px}
+.end{margin:100px 0 0;text-align:center}
+.end .line{font:italic 400 21px/1.4 "SG Serif",serif;margin:0 0 18px}
+.end .mark{display:block;color:var(--soft);letter-spacing:.6em;margin-bottom:28px;font-size:14px}
+.note{font:400 12.5px/1.6 "SG Sans",sans-serif;color:var(--soft);margin:0}
+.note a{color:var(--soft)}
+@media (max-width:520px){body{font-size:19px}.col{padding:36px 20px 72px}.top{margin-bottom:52px}.post{margin-bottom:60px}}
+@media print{.top .pb{display:none}}
+</style>
+</head>
+<body>
+<main class="col">
+  <header class="top">
+    <a class="t" href="{{ home or '../' }}" title="All editions">{{ paper.name }}</a>
+    <span class="meta">
+      <time datetime="{{ date }}">{{ date_long }}</time>
+      {% if weather.ok and weather.hi is defined %}<span title="Open-Meteo, as of {{ weather.asof_full }}">{{ weather.label }} {{ weather.hi }}° / {{ weather.lo }}°</span>{% endif %}
+      <a class="pb" href="{{ pdfs.print }}" target="_blank" rel="noopener" title="Letter, black on white">Print</a>
+    </span>
+  </header>
+{% for sec in sections %}
+{% for p in sec["items"] %}
+  <article class="post" id="{{ p.id }}">
+    <p class="who"><b>{{ p.author }}</b> @{{ p.handle }}{% if p.date_short %} · {{ p.date_short }}{% endif %}{% if paper.web.topic_labels | default(true) %}<span class="tag">{{ sec.title }}</span>{% endif %}</p>
+    {% for para in p.text | paras %}<p>{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+    {% endfor %}
+    {% if p.quoted %}<blockquote>
+      <p class="who"><b>{{ p.quoted.author }}</b> @{{ p.quoted.handle }}</p>
+      {% for para in p.quoted.text | paras %}<p>{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+      {% endfor %}
+    </blockquote>{% endif %}
+  </article>
+{% endfor %}
+{% endfor %}
+  <footer class="end">
+    <span class="mark" aria-hidden="true">· · ·</span>
+    <p class="line">{{ paper.web.end_line }}</p>
+    <p class="note">{{ paper.web.source_note }}{% if coverage %} {{ coverage }}{% endif %}</p>
+    <p class="note"><a href="{{ home or '../' }}">Past editions</a> · <a href="{{ pdfs.digital }}" target="_blank" rel="noopener">Digital PDF</a></p>
+  </footer>
+</main>
+</body>
+</html>
