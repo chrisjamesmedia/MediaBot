@@ -94,8 +94,10 @@ sections:
   # Not connected yet. Turn on once a source exists; never filled with stand-in content.
   - {id: substack,    title: Substack,         enabled: false, weight: 8,  max_items: 4}
   - {id: youtube,     title: YouTube,          enabled: false, weight: 6,  max_items: 3}
-  # Funnies: real comics from feeds (tools/funnies.py, xkcd RSS) plus generated sudoku and word search. On Sundays.
-  - {id: funnies,     title: Funnies,          enabled: false, weight: 1,  max_items: 4}
+  # Funnies (tools/funnies.py), on Sundays: 3 real comic strips from the artists' feeds (xkcd + 2 rotating), 2
+  # one-liners from jokes.json (exact text, comedian, source link), 1-2 funny posts from your X feed, sudoku, word search.
+  # Nothing funny is ever written by AI.
+  - {id: funnies,     title: Funnies,          enabled: false, weight: 1,  max_items: 9}
   # The Passage: one quote, poem, scripture or short speech excerpt a day (tools/passage.py). Verified items in
   # passages.json carry a fetched source URL that prints with them; throwbacks from Chris's old quote bank
   # (quote_bank.json, local only) print as "From your old quote bank", text and author only.

@@ -384,6 +384,13 @@ a.kicker:hover{color:var(--ink)}
 .funnies .comic img{max-width:100%;height:auto;background:#fff;border:1px solid var(--rule)}
 .funnies figcaption{font:400 13px/1.4 var(--sans);color:var(--mute);margin-top:6px}
 .funnies figcaption a{color:var(--ink)}
+.funrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin:0 0 30px;padding-top:18px;border-top:1px solid var(--rule)}
+.funrow h4{font:700 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;margin:0 0 12px}
+.funnies .joke,.funnies .fpost{margin:0 0 18px}
+.joke blockquote,.fpost blockquote{margin:0;font:italic 400 19px/1.45 var(--serif);color:var(--ink);white-space:pre-line}
+.joke figcaption,.fpost figcaption{margin-top:5px;text-align:left}
+.joke .src,.fpost .src{margin-left:6px}
+.fpost img{display:block;max-width:100%;max-height:420px;border-radius:8px;border:1px solid var(--rule);margin:0 0 8px}
 .puzzles{display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start}
 .pz h4{font:700 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
 .sudoku,.ws{display:grid;grid-template-columns:repeat(var(--n),var(--c));border:2px solid var(--ink);width:max-content}

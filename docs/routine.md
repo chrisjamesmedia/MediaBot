@@ -52,7 +52,8 @@ ORDER (paper.yaml sets it; fill these sections):
    a. user-X get_users_timeline, id 460613058 (@ChrisJamesUSA), max_results 100, exclude ["replies"],
       tweet_fields created_at,public_metrics,author_id,lang,conversation_id,referenced_tweets,note_tweet,
       in_reply_to_user_id, expansions author_id,referenced_tweets.id,referenced_tweets.id.author_id,
-      user_fields username,name,verified,public_metrics. Follow meta.next_token until the oldest post is
+      attachments.media_keys, user_fields username,name,verified,public_metrics, media_fields
+      type,url,alt_text (media lets a funny post's photo run in the Funnies). Follow meta.next_token until the oldest post is
       older than window_hours (about 14 pages at ~100 posts/hour). end_time, if set, must be >=10 s ago.
       Save each raw page as JSON OUTSIDE the repo (e.g. /tmp/feed/p01.json ...). Read-only: never like,
       repost, bookmark, follow or reply.
@@ -71,6 +72,8 @@ ORDER (paper.yaml sets it; fill these sections):
       Worth Reading / Worth Your Time, put up to web.seconds.socials of them in edition.json
       "seconds".socials (same item shape, real URLs only). x_feed --write keeps that list.
    d. If the timeline can't be read, leave the section out and say so in your run notes.
+   e. --write also saves edition.json "funny_candidates": short or off-topic posts that the feed drops,
+      ranked by the same score (top 40). Only Funnies (step 6) uses them.
 2. From Your X / The GOATs / Investments / Tech & AI: posts from his X timeline and lists.
 3. Substack and YouTube: Worth Reading, plus new episodes and essays from the people he follows.
 4. evergreen "Evergreen": 2–4 real long-form items from his X (X Articles, long threads, long posts) that
@@ -88,8 +91,27 @@ ORDER (paper.yaml sets it; fill these sections):
    Tag such items with "topic" (e.g. ["war","oil"]) so the build cuts them. Set "major": true ONLY if it is
    genuinely huge (a war starting or ending, a market crash or circuit breaker, a once-a-decade event);
    "major" bypasses the cut.
-6. Funnies (Sundays): run tools/funnies.py signal-seeker <TODAY> AFTER sections 1-5 are final: the
-   word search takes its words only from headlines/titles that survive the build's cuts.
+6. Funnies (Sundays): run tools/funnies.py signal-seeker <TODAY> --posts <id,id> AFTER sections 1-5 are
+   final (the word search takes its words only from headlines/titles that survive the build's cuts).
+   NOTHING FUNNY IS EVER WRITTEN, REWORDED OR INVENTED BY YOU. Only real published content, exact, credited
+   and linked. funnies.py puts in:
+   - 3 comic strips: xkcd plus 2 that rotate weekly (Poorly Drawn Lines, Dinosaur Comics, Wondermark, PBF,
+     Extra Ordinary), each the newest strip not in comics_seen.json, from the artist's own feed.
+   - 2 One-liners from papers/signal-seeker/jokes.json (no repeats until all have run; jokes_seen.json).
+   - 1-2 funny posts from edition.json "funny_candidates" (step 1b e). Choose them yourself: read the
+     candidates (text, handle, score, image_url) and pass the 1-2 that are actually funny, by status id, with
+     --posts <id,id>. The candidates are ranked by engagement, not humor, so most are not funny; read past
+     the top. Skip anything mean, crude, political, a promo, or a joke that needs a video. If none is funny,
+     pass --posts none. A photo runs if the candidate has image_url. If your timeline pull lacked media,
+     you may fetch the chosen posts with get_posts_by_ids (expansions attachments.media_keys, media_fields
+     type,url,alt_text), save the reply outside the repo, and rerun x_feed.py ... --media <file> --write.
+   Then look at what it picked (the comics too). Veto anything that is not tasteful (mean, crude, political,
+   offensive) with --skip <id,...> (a comic's URL, a joke id like "wilde-2", a post id) and run it again;
+   the next in line moves up. If a comic feed is down, the next feed fills in; say so in your run notes.
+   ADDING to jokes.json (when fewer than ~10 have not run): only from a page you fetched (Wikiquote comedian
+   pages, the Dave Funniest Joke of the Fringe lists on comedy.co.uk, BBC or the Guardian), text copied
+   exactly, author and source_url set; then run tools/jokes_check.py signal-seeker (it re-fetches every
+   source and fails a joke whose exact text is not on its page). Never from memory, never "joke sites".
 7. The Passage: run tools/passage.py signal-seeker <TODAY>. One item a day, never repeated
    (passages_seen.json), skipping taste.json "never" picks. Weekly rotation by weekday:
      Sun, Thu  the Bible (about 2 a week; KJV, less-worn passages, cited book chapter:verse + translation)
