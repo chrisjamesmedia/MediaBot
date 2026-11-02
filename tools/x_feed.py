@@ -4,13 +4,23 @@
     .venv/bin/python tools/x_feed.py signal-seeker 2026-11-01 /tmp/feed/p*.json            # dry run: print the pick
     .venv/bin/python tools/x_feed.py signal-seeker 2026-11-01 /tmp/feed/p*.json --write    # write it into edition.json
     ... --skip 2116...,2116...   veto posts by id (off-topic for the paper), the next ones move up
+    ... --media /tmp/feed/media.json   photos for posts: a saved get_posts_by_ids reply (expansions=attachments.media_keys,
+                                       media.fields=type,url,alt_text), for when the timeline dump has no media
+
+Funny candidates: short or off-topic posts used to be dropped, but that is where the jokes and memes are. Posts
+cut only for "too short" or "off your topics" (still not replies, promo, cut topics, noise accounts or reposts of
+strangers; text at most 400 chars) are ranked by the same score and listed as "Funny candidates". With --write the
+top 40 go to edition.json "funny_candidates" (not printed anywhere by themselves). On Funnies days the routine
+reads that list, judges which are actually funny, and tools/funnies.py puts 1-2 of them in the Funnies section
+(--skip there vetoes the rest). Nothing is rewritten: real handle, exact text, real x.com link.
 
 Input: raw replies of the user-X MCP tool `get_users_timeline` (the reader's home timeline, reverse-chronological;
 the algorithmic For You feed is not in the API), one file per page, saved outside the repo. Request:
     exclude=replies  max_results=100  start_time=<now-24h>  end_time=<now-1min>
     post.fields=created_at,public_metrics,author_id,lang,conversation_id,referenced_tweets,note_tweet,in_reply_to_user_id
-    expansions=author_id,referenced_tweets.id,referenced_tweets.id.author_id
-    user.fields=name,username,verified,public_metrics
+    expansions=author_id,referenced_tweets.id,referenced_tweets.id.author_id,attachments.media_keys
+    user.fields=name,username,verified,public_metrics   media.fields=type,url,alt_text   (media is optional:
+    with it, a funny post's photo can run in the Funnies)
 and follow meta.next_token until it is absent or the posts are older than the window.
 
 Config (paper.yaml): the `feed` section's `enabled` and `max_items` (the count), and `sources.x.home_feed`
@@ -64,6 +74,8 @@ def main(argv):
     for i, a in enumerate(argv):
         if a == "--skip" and i + 1 < len(argv): skip_ids |= set(argv[i + 1].split(","))
     if "--skip" in argv: args.remove(argv[argv.index("--skip") + 1])
+    media_files = argv[argv.index("--media") + 1].split(",") if "--media" in argv else []
+    if "--media" in argv: args.remove(argv[argv.index("--media") + 1])
     if len(args) < 3: sys.exit(__doc__)
     slug, date, dumps = args[0], args[1], args[2:]
     pdir = ROOT / "papers" / slug
@@ -100,7 +112,7 @@ def main(argv):
     ed_wo_feed = dict(ed, sections=[s for s in ed["sections"] if s["id"] != "feed"])
     in_edition = status_ids(ed_wo_feed)
 
-    posts, users, seen_rows = {}, {}, 0
+    posts, users, media, seen_rows = {}, {}, {}, 0
     reposters = {}            # original id -> set of followed accounts that reposted it in the window
     timeline = []             # (kind, post) rows from data[]
     newest = None
@@ -109,6 +121,7 @@ def main(argv):
         if "data" not in d and isinstance(d.get("result"), dict): d = d["result"]
         inc = d.get("includes") or {}
         for u in inc.get("users", []): users[u["id"]] = u
+        for m_ in inc.get("media", []): media[m_.get("media_key")] = m_
         for t in inc.get("posts", []) + inc.get("tweets", []): posts.setdefault(t["id"], t)
         for t in d.get("data") or []:
             seen_rows += 1
@@ -117,6 +130,12 @@ def main(argv):
             timeline.append((kinds, t))
             c = ts(t["created_at"])
             newest = c if newest is None or c > newest else newest
+    attach = {}               # post id -> media keys, from --media lookups (photos only; never ranked)
+    for f in media_files:
+        d = json.loads(Path(f).read_text())
+        if "data" not in d and isinstance(d.get("result"), dict): d = d["result"]
+        for m_ in (d.get("includes") or {}).get("media", []): media[m_.get("media_key")] = m_
+        for t in d.get("data") or []: attach[t["id"]] = (t.get("attachments") or {}).get("media_keys") or []
     if not timeline: sys.exit("no timeline posts in the dumps")
     start = newest - datetime.timedelta(hours=window)
 
@@ -135,7 +154,24 @@ def main(argv):
 
     def handle(t): return (users.get(t.get("author_id")) or {}).get("username", "")
 
-    scored = []
+    def score_of(pid, t, h, text):
+        m = t.get("public_metrics") or {}
+        eng = (m.get("like_count", 0) + 2 * m.get("repost_count", 0) + 2 * m.get("quote_count", 0)
+               + 3 * m.get("bookmark_count", 0) + 0.5 * m.get("reply_count", 0))
+        fol = ((users.get(t["author_id"]) or {}).get("public_metrics") or {}).get("followers_count", 0)
+        net = len(reposters.get(pid, set()) - {t["author_id"]})
+        substance = 1 + min(m.get("bookmark_count", 0) / (m.get("like_count", 0) + 1), 0.5)
+        on_topic = 1.3 if topic_re and topic_re.search(text) else 1.0
+        mine = 1.3 if h in listed else 1.0
+        return math.log1p(eng) / (1 + fol / 1e5) ** 0.15 * (1 + 0.25 * min(net, 4)) * substance * on_topic * mine, net
+
+    def photo(t):
+        for k in (t.get("attachments") or {}).get("media_keys") or attach.get(t["id"]) or []:
+            m_ = media.get(k) or {}
+            if m_.get("type") == "photo" and m_.get("url"): return m_
+        return None
+
+    scored, humor = [], []
     for pid, t in cands.items():
         h = handle(t).lower()
         text = full_text(t)
@@ -155,17 +191,13 @@ def main(argv):
         elif t["author_id"] not in followed and h not in listed and len(reposters.get(pid, set())) < min_reposters:
             reason = "repost of an account you don't follow"
         elif require_topic and not (topic_re and topic_re.search(text)) and h not in listed: reason = "off your topics"
+        if reason in ("too short", "off your topics") and len(text) <= 400 and (len(bare) >= 15 or photo(t)) \
+                and not PROMO.search(text) and not (skip_re and skip_re.search(text)) \
+                and (t["author_id"] in followed or h in listed or len(reposters.get(pid, set())) >= min_reposters):
+            humor.append((*score_of(pid, t, h, text)[:1], pid, t, 0))     # a funny candidate, not a feed pick
         if reason:
             why_out[pid] = reason; continue
-        m = t.get("public_metrics") or {}
-        eng = (m.get("like_count", 0) + 2 * m.get("repost_count", 0) + 2 * m.get("quote_count", 0)
-               + 3 * m.get("bookmark_count", 0) + 0.5 * m.get("reply_count", 0))
-        fol = ((users.get(t["author_id"]) or {}).get("public_metrics") or {}).get("followers_count", 0)
-        net = len(reposters.get(pid, set()) - {t["author_id"]})
-        substance = 1 + min(m.get("bookmark_count", 0) / (m.get("like_count", 0) + 1), 0.5)
-        on_topic = 1.3 if topic_re and topic_re.search(text) else 1.0
-        mine = 1.3 if h in listed else 1.0
-        score = math.log1p(eng) / (1 + fol / 1e5) ** 0.15 * (1 + 0.25 * min(net, 4)) * substance * on_topic * mine
+        score, net = score_of(pid, t, h, text)
         scored.append((score, pid, t, net))
     scored.sort(key=lambda x: -x[0])
 
@@ -188,9 +220,17 @@ def main(argv):
             qu = users[posts[q]["author_id"]]
             it["quoted"] = {"author": qu.get("name") or qu["username"], "handle": qu["username"],
                             "text": clip(full_text(posts[q]), max_chars // 2), "url": f"https://x.com/{qu['username']}/status/{q}"}
+        ph = photo(t)
+        if ph: it["image_url"], it["image_alt"] = ph["url"], ph.get("alt_text") or ""
         return it
     items = [to_item(*p) for p in pick]
     more_items = [to_item(*p, prefix="more") for p in more]
+    humor.sort(key=lambda x: -x[0])
+    funny, fper = [], set()
+    for p in humor:
+        if p[2]["author_id"] in fper: continue
+        fper.add(p[2]["author_id"]); funny.append(dict(to_item(*p, prefix="funny"), score=round(p[0], 2)))
+        if len(funny) >= 40: break
 
     from collections import Counter
     print(f"home timeline: {seen_rows} rows, {len(cands)} candidate posts, window {start:%Y-%m-%d %H:%M}Z → {newest:%Y-%m-%d %H:%M}Z")
@@ -206,14 +246,18 @@ def main(argv):
     taken = {p[1] for p in pick + more}
     for score, pid, t, net in [s for s in scored if s[1] not in taken][:8]:
         print(f"  {score:5.2f}  @{handle(t):<18} {pid}  {' '.join(full_text(t).split())[:90]}")
+    print("\nFunny candidates (short / off-topic posts, same ranking; judge which are really funny):")
+    for it in funny:
+        print(f"  {it['score']:5.2f}  @{it['handle']:<18} {it['id'][6:]}{'  [photo]' if it.get('image_url') else ''}\n         {' '.join(it['text'].split())[:150]}")
     if write:
+        ed["funny_candidates"] = funny
         ed["sections"] = [s for s in ed["sections"] if s["id"] != "feed"]
         ed["sections"].insert(min(1, len(ed["sections"])), {"id": "feed", "items": items})
         if extra:   # web-only, hidden until the reader asks; keeps any socials extras the routine added
             ed["seconds"] = dict(ed.get("seconds") or {}, items=more_items)
         ep.write_text(json.dumps(ed, indent=1, ensure_ascii=False) + "\n")
         print(f"\nwrote {len(items)} items to {ep.relative_to(ROOT)} (section 'feed')"
-              + (f" and {len(more_items)} to 'seconds'" if extra else ""))
+              + (f" and {len(more_items)} to 'seconds'" if extra else "") + f"; {len(funny)} funny candidates")
 
 
 if __name__ == "__main__":

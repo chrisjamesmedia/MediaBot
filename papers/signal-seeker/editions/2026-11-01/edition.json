@@ -922,100 +922,6 @@
    ]
   },
   {
-   "id": "funnies",
-   "items": [
-    {
-     "type": "comic",
-     "id": "comic-xkcd",
-     "title": "xkcd: Earth Sized Planets",
-     "byline": "Randall Munroe",
-     "url": "https://xkcd.com/3318/",
-     "alt": "It probably has an icy mantle over the real silicate geology, but I'm hoping something weird happened to burn off most of the water like with Io.",
-     "image": {
-      "file": "images/comic-xkcd-earth_sized_planets.png",
-      "credit": "xkcd",
-      "src": "https://imgs.xkcd.com/comics/earth_sized_planets.png"
-     },
-     "sources": [
-      {
-       "name": "xkcd",
-       "url": "https://xkcd.com/3318/"
-      }
-     ]
-    },
-    {
-     "type": "sudoku",
-     "id": "sudoku-2026-11-01",
-     "title": "Sudoku",
-     "grid": [
-      "7...1...2",
-      "3...64...",
-      "..52.8..6",
-      "2....36..",
-      "9.38....1",
-      "..69..4..",
-      "..4.31.59",
-      ".2....1.4",
-      ".3..2...."
-     ],
-     "solution": [
-      "768315942",
-      "392764518",
-      "415298376",
-      "287143695",
-      "943856721",
-      "156972483",
-      "874631259",
-      "629587134",
-      "531429867"
-     ]
-    },
-    {
-     "type": "wordsearch",
-     "id": "wordsearch-2026-11-01",
-     "title": "Word Search",
-     "grid": [
-      "PTHMILLIONCM",
-      "TVCARGABKVEB",
-      "MEEACDAVIDBV",
-      "CRGBPKFVMIYU",
-      "YSPKKTIJOUKV",
-      "DUKBNNUNDLLD",
-      "PSIRJPKRGSJY",
-      "WOIPLHFMITLA",
-      "FOREGARDINGR",
-      "PRAISEUSMMGY",
-      "CLIBGUFYWKCE",
-      "INTELYLPARWV"
-     ],
-     "words": [
-      "CAPTURING",
-      "REGARDING",
-      "HACKING",
-      "MILLION",
-      "VERSUS",
-      "DAVID",
-      "INTEL",
-      "RAISE"
-     ],
-     "solution": [
-      "..HMILLION..",
-      ".VCA........",
-      ".E.ACDAVID..",
-      ".R..PK......",
-      ".S...TI.....",
-      ".U....UN....",
-      ".S.....RG...",
-      "........I...",
-      "..REGARDING.",
-      ".RAISE....G.",
-      "............",
-      "INTEL......."
-     ]
-    }
-   ]
-  },
-  {
    "id": "passage",
    "items": [
     {
@@ -1250,6 +1156,192 @@
      "a": "A comb."
     }
    ]
+  },
+  {
+   "id": "funnies",
+   "items": [
+    {
+     "type": "comic",
+     "id": "comic-xkcd",
+     "title": "xkcd: Earth Sized Planets",
+     "byline": "Randall Munroe",
+     "url": "https://xkcd.com/3318/",
+     "alt": "It probably has an icy mantle over the real silicate geology, but I'm hoping something weird happened to burn off most of the water like with Io.",
+     "image": {
+      "file": "images/comic-xkcd-earth_sized_planets.png",
+      "credit": "xkcd",
+      "src": "https://imgs.xkcd.com/comics/earth_sized_planets.png"
+     },
+     "sources": [
+      {
+       "name": "xkcd",
+       "url": "https://xkcd.com/3318/"
+      }
+     ]
+    },
+    {
+     "type": "joke",
+     "id": "joke-wilde-2",
+     "text": "I never travel without my diary. One should always have something sensational to read in the train.",
+     "author": "Oscar Wilde",
+     "where": "The Importance of Being Earnest (1895)",
+     "url": "https://en.wikiquote.org/wiki/Oscar_Wilde",
+     "source_name": "Wikiquote"
+    },
+    {
+     "type": "joke",
+     "id": "joke-foxx-1",
+     "text": "My grandma describes herself as being in her \"twilight years\" which I love because they're great films",
+     "author": "Daniel Foxx",
+     "where": "Dave's Funniest Joke of the Fringe 2023, top 10",
+     "url": "https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-66569215",
+     "source_name": "BBC News"
+    },
+    {
+     "type": "funnypost",
+     "id": "funny-2116708905405579286",
+     "author": "Nic Cruz Patane",
+     "handle": "niccruzpatane",
+     "text": "Tesla Roadster ramp Halloween Costume 😂🔥🔥",
+     "url": "https://x.com/niccruzpatane/status/2116708905405579286",
+     "date": "2026-11-01T01:48:24Z",
+     "image": {
+      "file": "images/funny-2116708905405579286.jpg",
+      "credit": "@niccruzpatane",
+      "src": "https://pbs.twimg.com/media/HWAHKJla8AA7jBr.jpg",
+      "alt": ""
+     },
+     "sources": [
+      {
+       "name": "X @niccruzpatane",
+       "url": "https://x.com/niccruzpatane/status/2116708905405579286"
+      }
+     ]
+    },
+    {
+     "type": "funnypost",
+     "id": "funny-2116935650511585696",
+     "author": "Tibo",
+     "handle": "thsottiaux",
+     "text": "Dot still autocorrects to dog and that makes many texts I receive hilarious",
+     "url": "https://x.com/thsottiaux/status/2116935650511585696",
+     "date": "2026-11-01T16:49:24Z",
+     "sources": [
+      {
+       "name": "X @thsottiaux",
+       "url": "https://x.com/thsottiaux/status/2116935650511585696"
+      }
+     ]
+    },
+    {
+     "type": "sudoku",
+     "id": "sudoku-2026-11-01",
+     "title": "Sudoku",
+     "grid": [
+      "7...1...2",
+      "3...64...",
+      "..52.8..6",
+      "2....36..",
+      "9.38....1",
+      "..69..4..",
+      "..4.31.59",
+      ".2....1.4",
+      ".3..2...."
+     ],
+     "solution": [
+      "768315942",
+      "392764518",
+      "415298376",
+      "287143695",
+      "943856721",
+      "156972483",
+      "874631259",
+      "629587134",
+      "531429867"
+     ]
+    },
+    {
+     "type": "wordsearch",
+     "id": "wordsearch-2026-11-01",
+     "title": "Word Search",
+     "grid": [
+      "PTHMILLIONCM",
+      "TVCARGABKVEB",
+      "MEEACDAVIDBV",
+      "CRGBPKFVMIYU",
+      "YSPKKTIJOUKV",
+      "DUKBNNUNDLLD",
+      "PSIRJPKRGSJY",
+      "WOIPLHFMITLA",
+      "FOREGARDINGR",
+      "PRAISEUSMMGY",
+      "CLIBGUFYWKCE",
+      "INTELYLPARWV"
+     ],
+     "words": [
+      "CAPTURING",
+      "REGARDING",
+      "HACKING",
+      "MILLION",
+      "VERSUS",
+      "DAVID",
+      "INTEL",
+      "RAISE"
+     ],
+     "solution": [
+      "..HMILLION..",
+      ".VCA........",
+      ".E.ACDAVID..",
+      ".R..PK......",
+      ".S...TI.....",
+      ".U....UN....",
+      ".S.....RG...",
+      "........I...",
+      "..REGARDING.",
+      ".RAISE....G.",
+      "............",
+      "INTEL......."
+     ]
+    },
+    {
+     "type": "comic",
+     "id": "comic-dinosaur-comics",
+     "title": "Dinosaur Comics: jerks ahoy",
+     "byline": "Ryan North",
+     "url": "http://www.qwantz.com/index.php?comic=4537",
+     "alt": "Jerks Georg, who hangs around exclusively with jerks without being one himself, is an outlier and should not have been included.  he should however be included in new friend groups because WOW that must SUCK",
+     "image": {
+      "file": "images/comic-dinosaur-comics-comic2-5235.png",
+      "credit": "Dinosaur Comics",
+      "src": "http://www.qwantz.com/comics/comic2-5235.png"
+     },
+     "sources": [
+      {
+       "name": "Dinosaur Comics",
+       "url": "http://www.qwantz.com/index.php?comic=4537"
+      }
+     ]
+    },
+    {
+     "type": "comic",
+     "id": "comic-wondermark",
+     "title": "Wondermark: #1591; Feed Me, See More",
+     "byline": "David Malki !",
+     "url": "https://wondermark.com/c/1591/",
+     "alt": "",
+     "image": {
+      "file": "images/comic-wondermark-2026-09-21-1591message_1600px.png",
+      "credit": "Wondermark",
+      "src": "https://wondermark.com/wp-content/uploads/2026/09/2026-09-21-1591message_1600px.png"
+     },
+     "sources": [
+      {
+       "name": "Wondermark",
+       "url": "https://wondermark.com/c/1591/"
+      }
+     ]
+    }
+   ]
   }
  ],
  "seconds": {
@@ -1345,5 +1437,525 @@
     "date": "2026-11-01T16:09:00Z"
    }
   ]
- }
+ },
+ "funny_candidates": [
+  {
+   "type": "post",
+   "id": "funny-2116787750678745490",
+   "author": "Karan",
+   "handle": "karankendre",
+   "text": "Me buying a MacBook with 128GB of RAM just to run AI models locally\n\nSam Altman : https://t.co/f7OCnGf4aa",
+   "url": "https://x.com/karankendre/status/2116787750678745490",
+   "date": "2026-11-01T07:01:42Z",
+   "score": 19.51
+  },
+  {
+   "type": "post",
+   "id": "funny-2116614711668297821",
+   "author": "Paradis",
+   "handle": "ParadisLabs",
+   "text": "Bruh...I should've listened to my own advice 😭\n\nApparently the trade has been: Long Biotech, Short AI... https://t.co/g3aZm3O1ls https://t.co/iZ8Yi95W8G",
+   "url": "https://x.com/ParadisLabs/status/2116614711668297821",
+   "date": "2026-10-31T19:34:06Z",
+   "quoted": {
+    "author": "Paradis",
+    "handle": "ParadisLabs",
+    "text": "@SKYBRIGHT_LIANG Biotech does look good esp. from a flows pov lately - I don't have much knowledge on the sector at all, so an ETF may be the way to go personally speaking.",
+    "url": "https://x.com/ParadisLabs/status/2108676694085177824"
+   },
+   "score": 11.99
+  },
+  {
+   "type": "post",
+   "id": "funny-2116750296735203556",
+   "author": "Alexandr Wang",
+   "handle": "alexandr_wang",
+   "text": "grok might be the most truth-seeking ai after all https://t.co/0khOgUztmU",
+   "url": "https://x.com/alexandr_wang/status/2116750296735203556",
+   "date": "2026-11-01T04:32:52Z",
+   "score": 11.13
+  },
+  {
+   "type": "post",
+   "id": "funny-2116709335091081653",
+   "author": "Paul Millerd",
+   "handle": "p_millerd",
+   "text": "The perfect gift for your friend that really should finally quit their job\n\nhttps://t.co/TdyRVNUnX8 https://t.co/yn7umUR9oD",
+   "url": "https://x.com/p_millerd/status/2116709335091081653",
+   "date": "2026-11-01T01:50:06Z",
+   "score": 10.87
+  },
+  {
+   "type": "post",
+   "id": "funny-2116682634516459534",
+   "author": "DVB",
+   "handle": "DeepValueBagger",
+   "text": "$amd vs $intc datacenter revenue trend. Surprisingly it tracks the same trend. https://t.co/t7yv6Kg2Ga",
+   "url": "https://x.com/DeepValueBagger/status/2116682634516459534",
+   "date": "2026-11-01T00:04:00Z",
+   "score": 10.73
+  },
+  {
+   "type": "post",
+   "id": "funny-2116707485801381938",
+   "author": "Jukan",
+   "handle": "jukan05",
+   "text": "Why did Anthropic pay SpaceX such a hefty premium while renegotiating prices with other cloud providers? https://t.co/MxnCQ72Ta9",
+   "url": "https://x.com/jukan05/status/2116707485801381938",
+   "date": "2026-11-01T01:42:45Z",
+   "quoted": {
+    "author": "FUNDA",
+    "handle": "FundaAI",
+    "text": "Breaking down Anthropic’s 3Q26 inference costs, we can see that SpaceX captured the vast majority of the incremental spend, while AWS, GCP, and, to a lesser extent, Azure captured just $820 million combined. …",
+    "url": "https://x.com/FundaAI/status/2116706904181510311"
+   },
+   "score": 9.93
+  },
+  {
+   "type": "post",
+   "id": "funny-2116930145877680134",
+   "author": "Noah",
+   "handle": "antibearthesis",
+   "text": "I ranked the MOAT of popular stocks https://t.co/kJ0glkMaCO",
+   "url": "https://x.com/antibearthesis/status/2116930145877680134",
+   "date": "2026-11-01T16:27:32Z",
+   "score": 9.58
+  },
+  {
+   "type": "post",
+   "id": "funny-2116605169869980071",
+   "author": "Every 📧",
+   "handle": "every",
+   "text": "All the illustrations in How Codex Happened started in Midjourney.\n\nTo animate them and make them interactive, @dealville used Codex to build custom tools for dialing each one in. Here's a look at those tools.\n\nRead the story by @danshipper: https://t.co/su46aVLk5k https://t.co/WBQgPhGOg7",
+   "url": "https://x.com/every/status/2116605169869980071",
+   "date": "2026-10-31T18:56:11Z",
+   "score": 9.45
+  },
+  {
+   "type": "post",
+   "id": "funny-2116665920169119755",
+   "author": "Deirdre Bosa",
+   "handle": "dee_bosa",
+   "text": "Hedge funds are pulling back from the stock mkt at the fastest pace in nearly a decade https://t.co/MdHglUXg91",
+   "url": "https://x.com/dee_bosa/status/2116665920169119755",
+   "date": "2026-10-31T22:57:35Z",
+   "quoted": {
+    "author": "Morgan Stanley Derivatives",
+    "handle": "MgnStnlyDerivs",
+    "text": "The unwind in Hedge Fund equity exposures this year has been the biggest since at least 2017.\n \nActive de-grossing (reduction in long + short positions) by global hedge funds has now hit over 8% of total gross exposure since June, according to the Morgan Stanley Prime Brokerage Content team. …",
+    "url": "https://x.com/MgnStnlyDerivs/status/2116246769960911083"
+   },
+   "score": 9.25
+  },
+  {
+   "type": "post",
+   "id": "funny-2116642833247662472",
+   "author": "Roger",
+   "handle": "rdd147",
+   "text": "Exit liquidity is ample in Ai. \n\nHorrific position to be in as more margin calls hit. https://t.co/bCuZFocz3U",
+   "url": "https://x.com/rdd147/status/2116642833247662472",
+   "date": "2026-10-31T21:25:51Z",
+   "quoted": {
+    "author": "MacroEdge",
+    "handle": "MacroEdgeRes",
+    "text": "Speculators piled in nearly $1 billion into 3x leveraged Nasdaq 100 ETF after Friday’s 3.5% drop in $QQQ. This is the fifth largest single day inflow on record\n\n#MacroEdge",
+    "url": "https://x.com/MacroEdgeRes/status/2116630286985470060"
+   },
+   "score": 9.17
+  },
+  {
+   "type": "post",
+   "id": "funny-2116766220997337499",
+   "author": "Richard D. Bartlett",
+   "handle": "RichDecibels",
+   "text": "feral free agent friends of twitter: if you want to get that bag in 2027 follow Ashe today https://t.co/bWEKieQxLI",
+   "url": "https://x.com/RichDecibels/status/2116766220997337499",
+   "date": "2026-11-01T05:36:09Z",
+   "quoted": {
+    "author": "ashe",
+    "handle": "ashebytes",
+    "text": "now you only have to be good at talking to the camera \nnow you only have to be good at talking to the camera\nnow you only have to be good at talking to the camera …",
+    "url": "https://x.com/ashebytes/status/2116671951007826119"
+   },
+   "score": 9.16
+  },
+  {
+   "type": "post",
+   "id": "funny-2116616350852591855",
+   "author": "Will Manidis",
+   "handle": "WillManidis",
+   "text": "very thoughtful reply, worth a read https://t.co/mgAECeZtIc",
+   "url": "https://x.com/WillManidis/status/2116616350852591855",
+   "date": "2026-10-31T19:40:37Z",
+   "quoted": {
+    "author": "Joshua Clemans",
+    "handle": "JoshuaClemans",
+    "text": "There are a few things that Manidis and Roberts get exactly right.\n\nSmall firms will achieve outcomes completely disproportionate to their headcount. These “raiding party” sized groups will outperform at a shocking scale. …",
+    "url": "https://x.com/JoshuaClemans/status/2116612581700059296"
+   },
+   "score": 8.91
+  },
+  {
+   "type": "post",
+   "id": "funny-2116625418929459341",
+   "author": "@ratlimit",
+   "handle": "ratlimit",
+   "text": "Words that are NOT etymologically related: https://t.co/UWUfElRmWI",
+   "url": "https://x.com/ratlimit/status/2116625418929459341",
+   "date": "2026-10-31T20:16:39Z",
+   "image_url": "https://pbs.twimg.com/media/HV_DiisWAAA4mG9.jpg",
+   "image_alt": "",
+   "score": 8.84
+  },
+  {
+   "type": "post",
+   "id": "funny-2116827550588539336",
+   "author": "Tom Nash",
+   "handle": "iamtomnash",
+   "text": "Excellent breakdown by Shay https://t.co/ggmOvDoF8w",
+   "url": "https://x.com/iamtomnash/status/2116827550588539336",
+   "date": "2026-11-01T09:39:51Z",
+   "quoted": {
+    "author": "Shay Boloor",
+    "handle": "StockSavvyShay",
+    "text": "ULTIMATE SPACE ECONOMY CHEAT SHEET\n\nCONNECTIVITY LAYER\n• $ASTS connecting ordinary smartphones directly to satellites using existing carrier spectrum\n• $SPCX combining Starlink satellite broadband with reusable rockets & expanding AI infrastructure …",
+    "url": "https://x.com/StockSavvyShay/status/2116530871985639675"
+   },
+   "score": 8.42
+  },
+  {
+   "type": "post",
+   "id": "funny-2116946771624722832",
+   "author": "GREG ISENBERG",
+   "handle": "gregisenberg",
+   "text": "Is your business AI proof?\n\n0-1 points = at risk\n2 points = solid\n3+ points = really solid https://t.co/gLNGinxGIT",
+   "url": "https://x.com/gregisenberg/status/2116946771624722832",
+   "date": "2026-11-01T17:33:35Z",
+   "score": 7.94
+  },
+  {
+   "type": "post",
+   "id": "funny-2116908159591981327",
+   "author": "Fiscal.ai",
+   "handle": "Fiscal_ai",
+   "text": "Anthropic is the fastest growing company of all-time.\n\n$ANT https://t.co/SIo1mkUY8D",
+   "url": "https://x.com/Fiscal_ai/status/2116908159591981327",
+   "date": "2026-11-01T15:00:10Z",
+   "score": 7.73
+  },
+  {
+   "type": "post",
+   "id": "funny-2116708905405579286",
+   "author": "Nic Cruz Patane",
+   "handle": "niccruzpatane",
+   "text": "Tesla Roadster ramp Halloween Costume 😂🔥🔥 https://t.co/n2fxcnhPWN",
+   "url": "https://x.com/niccruzpatane/status/2116708905405579286",
+   "date": "2026-11-01T01:48:24Z",
+   "image_url": "https://pbs.twimg.com/media/HWAHKJla8AA7jBr.jpg",
+   "image_alt": "",
+   "score": 7.72
+  },
+  {
+   "type": "post",
+   "id": "funny-2116879932160876704",
+   "author": "Vebjørn",
+   "handle": "VJNCapital",
+   "text": "After the $GOOGL selloff it might actually be the best bet between the hyperscalers again https://t.co/qqMZrFvwUg",
+   "url": "https://x.com/VJNCapital/status/2116879932160876704",
+   "date": "2026-11-01T13:08:00Z",
+   "score": 7.68
+  },
+  {
+   "type": "post",
+   "id": "funny-2116746435341545895",
+   "author": "Palmer Luckey",
+   "handle": "PalmerLuckey",
+   "text": "Dear VP Dumbledore, \n\nWe are eating plenty of candy.  Tell Dobby to pick up the pace.\n\nLove, \nPotter and Malfoid https://t.co/ROqTPvAABX https://t.co/qcCf3v9o4l",
+   "url": "https://x.com/PalmerLuckey/status/2116746435341545895",
+   "date": "2026-11-01T04:17:32Z",
+   "quoted": {
+    "author": "JD Vance",
+    "handle": "JDVance",
+    "text": "Happy Halloween everyone! https://t.co/RkEgQiT9xM",
+    "url": "https://x.com/JDVance/status/2116654367952519597"
+   },
+   "score": 7.54
+  },
+  {
+   "type": "post",
+   "id": "funny-2116621355307212930",
+   "author": "J.B.",
+   "handle": "VibeMarketer_",
+   "text": "pov: agentic editing is here https://t.co/3z0Fq3pAaS",
+   "url": "https://x.com/VibeMarketer_/status/2116621355307212930",
+   "date": "2026-10-31T20:00:30Z",
+   "score": 7.28
+  },
+  {
+   "type": "post",
+   "id": "funny-2116673179905360299",
+   "author": "Adrian Dittmann",
+   "handle": "AdrianDittmann",
+   "text": "To be strong, you must risk making some people sad and angry, for their approval will not save you, nor will their rage be your undoing.",
+   "url": "https://x.com/AdrianDittmann/status/2116673179905360299",
+   "date": "2026-10-31T23:26:26Z",
+   "score": 7.14
+  },
+  {
+   "type": "post",
+   "id": "funny-2116726281756672372",
+   "author": "Ren",
+   "handle": "ren_stocks",
+   "text": "$ANT +4% today, over the weekend.\n\nSomeone always knows.\n\nWatch Anthropic's October MRR set the record for the month. https://t.co/fJWfaSpXPF https://t.co/44cFuttGgQ",
+   "url": "https://x.com/ren_stocks/status/2116726281756672372",
+   "date": "2026-11-01T02:57:27Z",
+   "quoted": {
+    "author": "tae kim",
+    "handle": "firstadopter",
+    "text": "Degen traders agree https://t.co/xt9BQqlE9H https://t.co/2JJH2dMKsZ",
+    "url": "https://x.com/firstadopter/status/2116657305194258544"
+   },
+   "score": 7.1
+  },
+  {
+   "type": "post",
+   "id": "funny-2116710093269991731",
+   "author": "Simone & Malcolm Collins",
+   "handle": "SimoneHCollins",
+   "text": "Happy Halloween! 👻🎃 https://t.co/9ZpWA6BNng",
+   "url": "https://x.com/SimoneHCollins/status/2116710093269991731",
+   "date": "2026-11-01T01:53:07Z",
+   "score": 6.89
+  },
+  {
+   "type": "post",
+   "id": "funny-2116708009380299137",
+   "author": "Joseph Norman",
+   "handle": "normonics",
+   "text": "Peak Halloween magic https://t.co/V1vapT8ZMD",
+   "url": "https://x.com/normonics/status/2116708009380299137",
+   "date": "2026-11-01T01:44:50Z",
+   "score": 6.66
+  },
+  {
+   "type": "post",
+   "id": "funny-2116640900625695061",
+   "author": "Simon Sarris",
+   "handle": "simonsarris",
+   "text": "Another garlic season https://t.co/1J1v8FTHtw https://t.co/esrTYQYNQs",
+   "url": "https://x.com/simonsarris/status/2116640900625695061",
+   "date": "2026-10-31T21:18:10Z",
+   "quoted": {
+    "author": "Simon Sarris",
+    "handle": "simonsarris",
+    "text": "Garlic, November to now https://t.co/7vYSYupE2r",
+    "url": "https://x.com/simonsarris/status/1691248988849106945"
+   },
+   "score": 6.65
+  },
+  {
+   "type": "post",
+   "id": "funny-2116633848016666723",
+   "author": "Bill Ackman",
+   "handle": "BillAckman",
+   "text": "A well-articulated, exhaustive and highly elucidating discourse on Islamism and the Muslim Brotherhood by @RobertKennedyJr https://t.co/Inp7FUGeVA",
+   "url": "https://x.com/BillAckman/status/2116633848016666723",
+   "date": "2026-10-31T20:50:09Z",
+   "quoted": {
+    "author": "Robert F. Kennedy Jr",
+    "handle": "RobertKennedyJr",
+    "text": "Leftist mainstream media outlets piled on this week to express outrage at my observation, during a speech in Grand Rapids for Mike Rogers, about the troubling dearth of scientific output from the world’s 22 Arab nations over the past five decades. …",
+    "url": "https://x.com/RobertKennedyJr/status/2116195007203840288"
+   },
+   "score": 6.59
+  },
+  {
+   "type": "post",
+   "id": "funny-2116935506264997909",
+   "author": "Beanie",
+   "handle": "beaniemaxi",
+   "text": "The founder and CEO is usually the last to know about a shut down. https://t.co/hspoE5qmys",
+   "url": "https://x.com/beaniemaxi/status/2116935506264997909",
+   "date": "2026-11-01T16:48:50Z",
+   "quoted": {
+    "author": "Market Insider",
+    "handle": "MrketInsider",
+    "text": "JUST IN: LUCA NETZ SAYS HE WAS BLIND-SIDED BY THE DECISION TO SHUT DOWN ABSTRACT\n\n“THE DECISION TO SHUT IT DOWN HAPPENED 10 DAYS BEFORE WE TWEETED. BLIND-SIDED ME AS MUCH AS THE NEXT PERSON” https://t.co/HUMqbQRjA2",
+    "url": "https://x.com/MrketInsider/status/2116684286355276168"
+   },
+   "score": 6.48
+  },
+  {
+   "type": "post",
+   "id": "funny-2116731425294848293",
+   "author": "Bennett's Phylactery",
+   "handle": "extradeadjcb",
+   "text": "Millions of Americans are denied equal protection of the nation's laws every day in inner-city no-go zones\n\nConstitutional Action will prosecute DAs &amp; judges - &amp; disincorporate cities - that systematically violate Americans' 14th Amendment rights in this way https://t.co/Q4hf8gj9Eg",
+   "url": "https://x.com/extradeadjcb/status/2116731425294848293",
+   "date": "2026-11-01T03:17:53Z",
+   "quoted": {
+    "author": "Austin Justice",
+    "handle": "AustinJustice",
+    "text": "AUSTIN MAN slams into a stopped minivan at 103 mph on Mother's Day, right in front of a cop, and kills a fire captain hours after his fifth son was born. DA Jose Garza's office asked him to pay a small fine. …",
+    "url": "https://x.com/AustinJustice/status/2116574145550983574"
+   },
+   "score": 6.36
+  },
+  {
+   "type": "post",
+   "id": "funny-2116628415189340240",
+   "author": "Jim Liu",
+   "handle": "jiahanjimliu",
+   "text": "Evan gives really good color on the dynamics around GPU pricing and availability. https://t.co/ZcLrFAVguz",
+   "url": "https://x.com/jiahanjimliu/status/2116628415189340240",
+   "date": "2026-10-31T20:28:33Z",
+   "quoted": {
+    "author": "evan conrad",
+    "handle": "evanjconrad",
+    "text": "I’m saying that in the medium term (next year or two), opencode will struggle to get their next clusters to scale, and their largest bottleneck will be credit. …",
+    "url": "https://x.com/evanjconrad/status/2116564884238573650"
+   },
+   "score": 6.23
+  },
+  {
+   "type": "post",
+   "id": "funny-2116620578329382976",
+   "author": "Babyfolio",
+   "handle": "babyfolio",
+   "text": "So rarely anyone panicking? Interesting. https://t.co/b6Em8UUFzN",
+   "url": "https://x.com/babyfolio/status/2116620578329382976",
+   "date": "2026-10-31T19:57:25Z",
+   "quoted": {
+    "author": "Babyfolio",
+    "handle": "babyfolio",
+    "text": "What's your panic level guys?",
+    "url": "https://x.com/babyfolio/status/2116224488400408675"
+   },
+   "score": 6.13
+  },
+  {
+   "type": "post",
+   "id": "funny-2116611426454290585",
+   "author": "James Cat",
+   "handle": "TSLAFanMtl",
+   "text": "I honestly doubt we're even at the mid-teens level. But yes. https://t.co/9jeoWZFchK",
+   "url": "https://x.com/TSLAFanMtl/status/2116611426454290585",
+   "date": "2026-10-31T19:21:03Z",
+   "quoted": {
+    "author": "Markets & Mayhem",
+    "handle": "Mayhem4Markets",
+    "text": "We're so early. https://t.co/drFFYhBjUR",
+    "url": "https://x.com/Mayhem4Markets/status/2116519480264409417"
+   },
+   "score": 5.93
+  },
+  {
+   "type": "post",
+   "id": "funny-2116632671040545102",
+   "author": "Irrational Analysis",
+   "handle": "insane_analyst",
+   "text": "Matt Murphy dressing up as Ash Ketchum this Halloween. Spooky levels of incompetence. https://t.co/9iyo4hYK3a",
+   "url": "https://x.com/insane_analyst/status/2116632671040545102",
+   "date": "2026-10-31T20:45:28Z",
+   "score": 5.8
+  },
+  {
+   "type": "post",
+   "id": "funny-2116935650511585696",
+   "author": "Tibo",
+   "handle": "thsottiaux",
+   "text": "Dot still autocorrects to dog and that makes many texts I receive hilarious",
+   "url": "https://x.com/thsottiaux/status/2116935650511585696",
+   "date": "2026-11-01T16:49:24Z",
+   "score": 5.64
+  },
+  {
+   "type": "post",
+   "id": "funny-2116884336926511462",
+   "author": "CrowdHealth",
+   "handle": "crowdhealth",
+   "text": "Welcome to the 2,232 new Crowdies who joined us in October!",
+   "url": "https://x.com/crowdhealth/status/2116884336926511462",
+   "date": "2026-11-01T13:25:30Z",
+   "score": 5.64
+  },
+  {
+   "type": "post",
+   "id": "funny-2116605498300723573",
+   "author": "Wilbur",
+   "handle": "iluvpandas6969",
+   "text": "Forced-monogamy neutered Christian men\n\nAlso why Islam is so dominant in comparison. They recognize the biblical and natural fact that men are permitted to have multiple wives\n\nMonogamy leads to the wife having more leverage than the husband. Thus subverting the natural order https://t.co/uJiKQWbpwf",
+   "url": "https://x.com/iluvpandas6969/status/2116605498300723573",
+   "date": "2026-10-31T18:57:30Z",
+   "quoted": {
+    "author": "Adam Lane Smith | The Attachment Specialist",
+    "handle": "AdamLaneSmith",
+    "text": "I once attended a pro-marriage conference led by Millennial men to convince GenZ men that marriage is wonderful.\n\nThe married presenters spent the entire conference making “my wife hates me” and “we never have sex” jokes in every speech.\n\n“Why don’t young people get married?”🤔",
+    "url": "https://x.com/AdamLaneSmith/status/2115792042295218397"
+   },
+   "score": 5.54
+  },
+  {
+   "type": "post",
+   "id": "funny-2116906221508903353",
+   "author": "Yun-Ta Tsai",
+   "handle": "yunta_tsai",
+   "text": "Trick or treat mode is a hit. Very well done.",
+   "url": "https://x.com/yunta_tsai/status/2116906221508903353",
+   "date": "2026-11-01T14:52:28Z",
+   "score": 5.45
+  },
+  {
+   "type": "post",
+   "id": "funny-2116933461714026755",
+   "author": "Ben Justman🍷",
+   "handle": "BenJustman",
+   "text": "Let the Force run through you. https://t.co/O4whqzsUJz",
+   "url": "https://x.com/BenJustman/status/2116933461714026755",
+   "date": "2026-11-01T16:40:42Z",
+   "score": 5.41
+  },
+  {
+   "type": "post",
+   "id": "funny-2116619196247220440",
+   "author": "Mark Hogan",
+   "handle": "MB_Hogan",
+   "text": "$NBIS : GAAP net income\nPROFITABLE by H2 2027? https://t.co/FmjWy091XC",
+   "url": "https://x.com/MB_Hogan/status/2116619196247220440",
+   "date": "2026-10-31T19:51:55Z",
+   "quoted": {
+    "author": "Daniel",
+    "handle": "danielisdizzy",
+    "text": "I see an EXTREMELY HIGH probability of $NBIS becoming GAAP net income profitable in H2 2027.\n\nNebius has stated that it could have sold its entire 2027 compute capacity multiple times over, but deliberately chose to preserve part of it rather than locking everything into long-term contracts. …",
+    "url": "https://x.com/danielisdizzy/status/2116277606815351281"
+   },
+   "score": 5.34
+  },
+  {
+   "type": "post",
+   "id": "funny-2116617926472016007",
+   "author": "Elon Musk",
+   "handle": "elonmusk",
+   "text": "This will happen again https://t.co/psCLTZqxuu",
+   "url": "https://x.com/elonmusk/status/2116617926472016007",
+   "date": "2026-10-31T19:46:53Z",
+   "quoted": {
+    "author": "Sabine Hossenfelder",
+    "handle": "skdh",
+    "text": "The dinosaurs probably died much faster -- and much more horribly -- than we thought. https://t.co/WlU8AOGVKM",
+    "url": "https://x.com/skdh/status/2116549037864128678"
+   },
+   "score": 5.32
+  },
+  {
+   "type": "post",
+   "id": "funny-2116654360281178543",
+   "author": "Natalie Brunell ⚡️",
+   "handle": "natbrunell",
+   "text": "Happy Halloweenie from a couple of ₿umble ₿ees 🧡🐝 https://t.co/MbGxpDhiFy",
+   "url": "https://x.com/natbrunell/status/2116654360281178543",
+   "date": "2026-10-31T22:11:39Z",
+   "score": 5.26
+  }
+ ]
 }

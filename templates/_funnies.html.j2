@@ -1,4 +1,4 @@
-{#- Funnies: comics (real feeds only, credited and linked) and generated puzzles; Games (tools/games.py); The Passage
+{#- Funnies: comics (real feeds only, credited and linked), verified one-liners, funny posts from the reader's feed, and generated puzzles; Games (tools/games.py); The Passage
     (tools/passage.py). Shared by web and PDFs. Answers: web = "Show answer" toggles; print/digital = answers() block
     at the very end of the paper. -#}
 {% macro grid(rows, cls, sudoku=false) -%}
@@ -6,12 +6,32 @@
 {%- endmacro %}
 {% macro funnies(sec, mode) -%}
 {% set link = mode != 'print' %}
-{% for c in sec['items'] if c.type == 'comic' and c.image %}
-<figure class="comic">
+{% set cs = sec['items'] | selectattr('type', 'equalto', 'comic') | selectattr('image') | list %}
+{% if cs %}<div class="comics">
+{% for c in cs %}
+<figure class="comic{{ ' c1' if loop.first }}">
   <img src="{{ c.image.abs if mode in ('print', 'digital') else c.image.web }}" alt="{{ c.alt or c.title }}"{% if c.alt and link %} title="{{ c.alt }}"{% endif %}>
-  <figcaption>{% if link %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.title }}</a>{% else %}{{ c.title }}{% endif %} · {{ c.byline }}{% if mode == 'print' %} · {{ c.url | replace('https://', '') }}{% endif %}</figcaption>
+  <figcaption>{% if link %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.title }}</a>{% else %}{{ c.title }}{% endif %} · {{ c.byline }}{% if mode == 'print' %} · {{ c.url | replace('https://', '') | replace('http://', '') }}{% endif %}</figcaption>
 </figure>
 {% endfor %}
+</div>{% endif %}
+{#- One-liners: exact text from papers/<slug>/jokes.json, comedian named, source linked. From your feed: real posts. -#}
+{% set jk = sec['items'] | selectattr('type', 'equalto', 'joke') | list %}
+{% set fp = sec['items'] | selectattr('type', 'equalto', 'funnypost') | list %}
+{% if jk or fp %}<div class="funrow">
+  {% if jk %}<div class="oneliners"><h4>One-liners</h4>
+  {% for j in jk %}<figure class="joke" id="{{ j.id }}"><blockquote>{{ j.text }}</blockquote>
+    <figcaption>— {{ j.author }}{% if j.where %}, {{ j.where }}{% endif %}
+    <span class="src">{% if link %}<a href="{{ j.url }}" target="_blank" rel="noopener">{{ j.source_name }}</a>{% else %}{{ j.url | replace('https://', '') }}{% endif %}</span></figcaption></figure>
+  {% endfor %}</div>{% endif %}
+  {% if fp %}<div class="funposts"><h4>From your feed</h4>
+  {% for p in fp %}<figure class="fpost" id="{{ p.id }}">
+    {% if p.image %}<img src="{{ p.image.abs if mode in ('print', 'digital') else p.image.web }}" alt="{{ p.image.alt or ('Photo posted by @' ~ p.handle) }}">{% endif %}
+    {% if p.text %}<blockquote>{{ p.text }}</blockquote>{% endif %}
+    <figcaption>{{ p.author }} <span class="h">@{{ p.handle }}</span>
+    <span class="src">{% if link %}<a href="{{ p.url }}" target="_blank" rel="noopener">View on X</a>{% else %}{{ p.url | replace('https://', '') }}{% endif %}</span></figcaption></figure>
+  {% endfor %}</div>{% endif %}
+</div>{% endif %}
 {% set pz = sec['items'] | selectattr('type', 'in', ['sudoku', 'wordsearch']) | list %}
 {% if pz %}
 <div class="puzzles">

@@ -104,9 +104,12 @@ anyone with the URL can still open it (see docs/feedback.md, "Sign-in later").
   newest first, with Print / Digital links per row and a small "with Funnies" tag on Sundays.
 - **Off in config:** Substack and YouTube. They need real sources before they are switched on;
   nothing is faked for them. Odds & Ends is private (below).
-- **Sundays:** the `sunday:` block in paper.yaml makes the paper large and turns on Funnies (an
-  xkcd comic from its RSS feed, a sudoku and a word search). Run `tools/funnies.py <slug> <date>`
-  before `build.py` on Sundays. There is no public notes section, so Sunday adds no notes.
+- **Sundays:** the `sunday:` block in paper.yaml makes the paper large and turns on Funnies: three
+  real comic strips from the artists' feeds (xkcd plus two rotating), two verified one-liners from
+  `jokes.json` (exact text, comedian, source link; `tools/jokes_check.py` re-checks them), one or two
+  funny posts picked from your X feed (`x_feed.py` saves the candidates), a sudoku and a word search.
+  Nothing funny is written by AI. Run `tools/funnies.py <slug> <date> --posts <id,id>` before
+  `build.py` on Sundays. There is no public notes section, so Sunday adds no notes.
 - **The Passage (daily):** one quote, poem, scripture or short speech excerpt (`tools/passage.py`), from
   verified sources with the link printed (papers/<slug>/passages.json), the Bible about twice a week,
   other ancient texts rarely, and throwbacks from Chris's old quote bank (local-only quote_bank.json,

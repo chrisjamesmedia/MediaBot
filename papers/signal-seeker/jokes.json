@@ -1,0 +1,645 @@
+{
+ "_note": "Verified one-liners for the Sunday Funnies. Every text is copied exactly from source_url, which was fetched and checked to contain it (2026-11-01). Never add, reword or invent a joke here; add only real published jokes, credited, with a source that contains the exact text.",
+ "jokes": [
+  {
+   "id": "wright-1",
+   "text": "I have a large seashell collection which I keep scattered on the beaches all over the world. Maybe you've seen it.",
+   "author": "Steven Wright",
+   "where": "I Have A Pony (1985)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "wright-2",
+   "text": "When I first read the dictionary, I thought it was a long poem about everything.",
+   "author": "Steven Wright",
+   "where": "I Have A Pony (1985)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "wright-3",
+   "text": "I went to a museum where they had all the heads and arms from the statues that are in all the other museums.",
+   "author": "Steven Wright",
+   "where": "Steven Wright Special (1985)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "wright-4",
+   "text": "Everywhere is walking distance if you've got the time.",
+   "author": "Steven Wright",
+   "where": "Steven Wright Special (1985)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "wright-5",
+   "text": "I bought some powdered water, but I don't know what to add.",
+   "author": "Steven Wright",
+   "where": "Steven Wright Special (1985)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "wright-6",
+   "text": "A lot of people are afraid of heights; not me, I'm afraid of widths.",
+   "author": "Steven Wright",
+   "where": "Steven Wright Special (1985)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "wright-7",
+   "text": "It's a good thing a lot of people speak foreign languages, otherwise those people would have no one to talk to.",
+   "author": "Steven Wright",
+   "where": "When the Leaves Blow Away (2006) / I Still Have a Pony (2007)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "wright-8",
+   "text": "I bought a new camera. It's very advanced. You don't even need it.",
+   "author": "Steven Wright",
+   "where": "When the Leaves Blow Away (2006) / I Still Have a Pony (2007)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "hedberg-1",
+   "text": "I bought a $7 pen because I always lose pens and I got sick of not caring.",
+   "author": "Mitch Hedberg",
+   "where": "Strategic Grill Locations",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Mitch_Hedberg"
+  },
+  {
+   "id": "hedberg-2",
+   "text": "I'm against picketing, but I don't know how to show it.",
+   "author": "Mitch Hedberg",
+   "where": "Strategic Grill Locations",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Mitch_Hedberg"
+  },
+  {
+   "id": "hedberg-3",
+   "text": "I haven't slept for ten days, because that would be too long.",
+   "author": "Mitch Hedberg",
+   "where": "Strategic Grill Locations",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Mitch_Hedberg"
+  },
+  {
+   "id": "hedberg-4",
+   "text": "My fake plants died because I did not pretend to water them.",
+   "author": "Mitch Hedberg",
+   "where": "Mitch All Together (2003)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Mitch_Hedberg"
+  },
+  {
+   "id": "hedberg-5",
+   "text": "I'm an ice sculptor - last night I made a cube.",
+   "author": "Mitch Hedberg",
+   "where": "Do You Believe in Gosh?",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Mitch_Hedberg"
+  },
+  {
+   "id": "hedberg-6",
+   "text": "A burrito is a sleeping bag for ground beef.",
+   "author": "Mitch Hedberg",
+   "where": "Do You Believe in Gosh?",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Mitch_Hedberg"
+  },
+  {
+   "id": "hedberg-7",
+   "text": "I went to a record store, they said they specialized in hard-to-find records. Nothing was alphabetized.",
+   "author": "Mitch Hedberg",
+   "where": "Do You Believe in Gosh?",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Mitch_Hedberg"
+  },
+  {
+   "id": "hedberg-8",
+   "text": "Dogs are forever in the push-up position.",
+   "author": "Mitch Hedberg",
+   "where": "Live from Chicago",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Mitch_Hedberg"
+  },
+  {
+   "id": "hedberg-9",
+   "text": "I did comedy for a fundraiser, cuz I have a big heart. We were trying to raise money for one of those machines that shows how much money has been raised.",
+   "author": "Mitch Hedberg",
+   "where": "Live from Chicago",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Mitch_Hedberg"
+  },
+  {
+   "id": "hedberg-10",
+   "text": "I like rice. Rice is great when you're hungry and you want 2,000 of something.",
+   "author": "Mitch Hedberg",
+   "where": "Just For Laughs: On The Edge - 2002",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Mitch_Hedberg"
+  },
+  {
+   "id": "handey-1",
+   "text": "If trees could scream, would we be so cavalier about cutting them down? We might, if they screamed all the time, for no good reason.",
+   "author": "Jack Handey",
+   "where": "Deep Thoughts (1992)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Jack_Handey"
+  },
+  {
+   "id": "handey-2",
+   "text": "It takes a big man to cry, but it takes an even bigger man to laugh at that man.",
+   "author": "Jack Handey",
+   "where": "Deep Thoughts (1992)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Jack_Handey"
+  },
+  {
+   "id": "handey-3",
+   "text": "I guess we were kinda poor when we were kids, but we didn't know it. That's because my dad always refused to let us look at the family's financial records.",
+   "author": "Jack Handey",
+   "where": "Fuzzy Memories (1996)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Jack_Handey"
+  },
+  {
+   "id": "philips-1",
+   "text": "People come up to me and say, \"Emo, do people really come up to you?\"",
+   "author": "Emo Philips",
+   "where": "E=MO² (1985)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Emo_Philips"
+  },
+  {
+   "id": "philips-2",
+   "text": "How many people here have telekinetic powers? Raise my hand.",
+   "author": "Emo Philips",
+   "where": "E=MO² (1985)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Emo_Philips"
+  },
+  {
+   "id": "twain-1",
+   "text": "Clothes make the man. Naked people have little or no influence on society.",
+   "author": "Mark Twain",
+   "where": "More Maxims of Mark (1927)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Mark_Twain"
+  },
+  {
+   "id": "twain-2",
+   "text": "Always do right. This will gratify some people, and astonish the rest.",
+   "author": "Mark Twain",
+   "where": "To the Young People's Society, Greenpoint Presbyterian Church, Brooklyn (16 February 1901)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Mark_Twain"
+  },
+  {
+   "id": "twain-3",
+   "text": "To create man was a fine and original idea; but to add the sheep was a tautology.",
+   "author": "Mark Twain",
+   "where": "St. Louis Post-Dispatch (30 May 1902)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Mark_Twain"
+  },
+  {
+   "id": "wilde-1",
+   "text": "I can resist everything except temptation.",
+   "author": "Oscar Wilde",
+   "where": "Lady Windermere's Fan (1892)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Oscar_Wilde"
+  },
+  {
+   "id": "wilde-2",
+   "text": "I never travel without my diary. One should always have something sensational to read in the train.",
+   "author": "Oscar Wilde",
+   "where": "The Importance of Being Earnest (1895)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Oscar_Wilde"
+  },
+  {
+   "id": "wilde-3",
+   "text": "Life is far too important a thing ever to talk seriously about it.",
+   "author": "Oscar Wilde",
+   "where": "Lady Windermere's Fan (1892)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Oscar_Wilde"
+  },
+  {
+   "id": "vine-1",
+   "text": "I've just been on a once-in-a-lifetime holiday. I'll tell you what, never again.",
+   "author": "Tim Vine",
+   "where": "Dave's Funniest Joke of the Fringe 2010, winner",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2010/"
+  },
+  {
+   "id": "vine-2",
+   "text": "Crime in multi-storey car parks. That is wrong on so many different levels.",
+   "author": "Tim Vine",
+   "where": "Dave's Funniest Joke of the Fringe 2011, 2nd",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2011/"
+  },
+  {
+   "id": "kirshen-1",
+   "text": "I was playing chess with my friend and he said, 'Let's make this interesting'. So we stopped playing chess.",
+   "author": "Matt Kirshen",
+   "where": "Dave's Funniest Joke of the Fringe 2011, 5th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2011/"
+  },
+  {
+   "id": "sharp-1",
+   "text": "I was in a band which we called The Prevention, because we hoped people would say we were better than The Cure.",
+   "author": "Alan Sharp",
+   "where": "Dave's Funniest Joke of the Fringe 2011, 7th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2011/"
+  },
+  {
+   "id": "francis-1",
+   "text": "I saw a documentary on how ships are kept together. Riveting!",
+   "author": "Stewart Francis",
+   "where": "Dave's Funniest Joke of the Fringe 2012, 8th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2012/"
+  },
+  {
+   "id": "turner-1",
+   "text": "I'm good friends with 25 letters of the alphabet... I don't know why.",
+   "author": "Chris Turner",
+   "where": "Dave's Funniest Joke of the Fringe 2012, 5th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2012/"
+  },
+  {
+   "id": "vine-3",
+   "text": "I've decided to sell my hoover... well, it was just collecting dust.",
+   "author": "Tim Vine",
+   "where": "Dave's Funniest Joke of the Fringe 2014, winner",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2014/"
+  },
+  {
+   "id": "graham-1",
+   "text": "I've written a joke about a fat badger, but I couldn't fit it into my set.",
+   "author": "Masai Graham",
+   "where": "Dave's Funniest Joke of the Fringe 2014, 2nd",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2014/"
+  },
+  {
+   "id": "cheng-1",
+   "text": "I'm not a fan of the new pound coin, but then again, I hate all change.",
+   "author": "Ken Cheng",
+   "where": "Dave's Funniest Joke of the Fringe 2017, winner",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2017/"
+  },
+  {
+   "id": "sayle-1",
+   "text": "I've given up asking rhetorical questions. What's the point?",
+   "author": "Alexei Sayle",
+   "where": "Dave's Funniest Joke of the Fringe 2017, 3rd",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2017/"
+  },
+  {
+   "id": "field-1",
+   "text": "I like to imagine the guy who invented the umbrella was going to call it the 'brella'. But he hesitated.",
+   "author": "Andy Field",
+   "where": "Dave's Funniest Joke of the Fringe 2017, 5th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2017/"
+  },
+  {
+   "id": "jimeoin-1",
+   "text": "I'm rubbish with names. It's not my fault, it's a condition. There's a name for it...",
+   "author": "Jimeoin",
+   "where": "Dave's Funniest Joke of the Fringe 2017, 7th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2017/"
+  },
+  {
+   "id": "lambert-1",
+   "text": "A cowboy asked me if I could help him round up 18 cows. I said, 'Yes, of course. That's 20 cows'.",
+   "author": "Jake Lambert",
+   "where": "Dave's Funniest Joke of the Fringe 2019, 4th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2019/"
+  },
+  {
+   "id": "smith-1",
+   "text": "A thesaurus is great. There's no other word for it.",
+   "author": "Ross Smith",
+   "where": "Dave's Funniest Joke of the Fringe 2019, 5th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2019/"
+  },
+  {
+   "id": "cliff-1",
+   "text": "I accidentally booked myself onto an escapology course; I'm really struggling to get out of it.",
+   "author": "Adele Cliff",
+   "where": "Dave's Funniest Joke of the Fringe 2019, 7th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2019/"
+  },
+  {
+   "id": "pulsford-1",
+   "text": "After learning 6 hours of basic semaphore, I was flagging.",
+   "author": "Richard Pulsford",
+   "where": "Dave's Funniest Joke of the Fringe 2019, 8th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2019/"
+  },
+  {
+   "id": "graham-2",
+   "text": "I tried to steal spaghetti from the shop, but the female guard saw me and I couldn't get pasta.",
+   "author": "Masai Graham",
+   "where": "Dave's Funniest Joke of the Fringe 2022, winner",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2022/"
+  },
+  {
+   "id": "vine-4",
+   "text": "I used to live hand to mouth. Do you know what changed my life? Cutlery.",
+   "author": "Tim Vine",
+   "where": "Dave's Funniest Joke of the Fringe 2022, 8th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2022/"
+  },
+  {
+   "id": "simmons-1",
+   "text": "I was going to sail around the globe in the world's smallest ship but I bottled it.",
+   "author": "Mark Simmons",
+   "where": "Dave's Funniest Joke of the Fringe 2024, winner",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2024/"
+  },
+  {
+   "id": "falafel-1",
+   "text": "I remember thinking, as I taped a piranha to my boomerang, this could come back to bite me.",
+   "author": "Olaf Falafel",
+   "where": "Dave's Funniest Joke of the Fringe 2026, winner",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2026/"
+  },
+  {
+   "id": "falafel-2",
+   "text": "My paper manufacturing business has folded seven times so I'm pretty sure it can't happen again.",
+   "author": "Olaf Falafel",
+   "where": "Dave's Funniest Joke of the Fringe 2026, 2nd",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2026/"
+  },
+  {
+   "id": "rose-1",
+   "text": "I did my horse-riding training before I did my philosophy degree. I didn't want to put Descartes before the horse.",
+   "author": "David Rose",
+   "where": "Dave's Funniest Joke of the Fringe 2026, 6th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2026/"
+  },
+  {
+   "id": "swift-1",
+   "text": "You can learn a lot about camping online but you learn so much more in the field.",
+   "author": "Roger Swift",
+   "where": "Dave's Funniest Joke of the Fringe 2026, 8th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2026/"
+  },
+  {
+   "id": "obrien-1",
+   "text": "I'll never forget the look on my dad's face, when I told him I had a photographic memory.",
+   "author": "Kevin O'Brien",
+   "where": "Dave's Funniest Joke of the Fringe 2026, 9th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2026/"
+  },
+  {
+   "id": "falafel-3",
+   "text": "I suffer from FOMO. Fear of messing up acronyms.",
+   "author": "Olaf Falafel",
+   "where": "Dave's Funniest Joke of the Fringe 2026, 10th",
+   "source_name": "British Comedy Guide",
+   "source_url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2026/"
+  },
+  {
+   "id": "treen-1",
+   "text": "I started dating a zookeeper, but it turned out he was a cheetah",
+   "author": "Lorna Rose Treen",
+   "where": "Dave's Funniest Joke of the Fringe 2023, winner",
+   "source_name": "BBC News",
+   "source_url": "https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-66569215"
+  },
+  {
+   "id": "guterbock-1",
+   "text": "The most British thing I've ever heard? A lady who said 'Well I'm sorry, but I don't apologise.'",
+   "author": "Liz Guterbock",
+   "where": "Dave's Funniest Joke of the Fringe 2023, top 10",
+   "source_name": "BBC News",
+   "source_url": "https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-66569215"
+  },
+  {
+   "id": "graham-3",
+   "text": "I thought I'd start off with a joke about The Titanic - just to break the ice",
+   "author": "Masai Graham",
+   "where": "Dave's Funniest Joke of the Fringe 2023, top 10",
+   "source_name": "BBC News",
+   "source_url": "https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-66569215"
+  },
+  {
+   "id": "arron-1",
+   "text": "I entered the 'How not to surrender' competition and I won hands down",
+   "author": "Bennett Arron",
+   "where": "Dave's Funniest Joke of the Fringe 2023, top 10",
+   "source_name": "BBC News",
+   "source_url": "https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-66569215"
+  },
+  {
+   "id": "stone-1",
+   "text": "Nationwide must have looked pretty silly when they opened their first branch",
+   "author": "William Stone",
+   "where": "Dave's Funniest Joke of the Fringe 2023, top 10",
+   "source_name": "BBC News",
+   "source_url": "https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-66569215"
+  },
+  {
+   "id": "foxx-1",
+   "text": "My grandma describes herself as being in her \"twilight years\" which I love because they're great films",
+   "author": "Daniel Foxx",
+   "where": "Dave's Funniest Joke of the Fringe 2023, top 10",
+   "source_name": "BBC News",
+   "source_url": "https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-66569215"
+  },
+  {
+   "id": "walsh-1",
+   "text": "I just deleted all the German names off my phone. It's Hans free.",
+   "author": "Darren Walsh",
+   "where": "Dave's Funniest Joke of the Fringe 2015, winner",
+   "source_name": "BBC News",
+   "source_url": "https://www.bbc.co.uk/news/uk-scotland-49394802"
+  },
+  {
+   "id": "navabi-1",
+   "text": "I have an unconscious bias. I’m biased firmly towards being unconscious.",
+   "author": "Leila Navabi",
+   "where": "Funniest jokes of the Edinburgh Fringe 2023",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/2023/aug/14/need-a-good-laugh-the-10-best-jokes-from-the-edinburgh-festival-2023"
+  },
+  {
+   "id": "guterbock-2",
+   "text": "The UK is so small, they’ve got to keep all their lakes in one district.",
+   "author": "Liz Guterbock",
+   "where": "Funniest jokes of the Edinburgh Fringe 2023",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/2023/aug/14/need-a-good-laugh-the-10-best-jokes-from-the-edinburgh-festival-2023"
+  },
+  {
+   "id": "gill-1",
+   "text": "Last year, I had a great joke about inflation. But it’s hardly worth it now.",
+   "author": "Amos Gill",
+   "where": "Funniest jokes of the Edinburgh Fringe 2023",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/2023/aug/14/need-a-good-laugh-the-10-best-jokes-from-the-edinburgh-festival-2023"
+  },
+  {
+   "id": "falafel-4",
+   "text": "Getting mythology wrong is my Hercules ankle.",
+   "author": "Olaf Falafel",
+   "where": "Funniest jokes of the Edinburgh Fringe 2023",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/2023/aug/14/need-a-good-laugh-the-10-best-jokes-from-the-edinburgh-festival-2023"
+  },
+  {
+   "id": "falafel-5",
+   "text": "My desire to spontaneously sing The Lion Sleeps Tonight is always just a whim away.",
+   "author": "Olaf Falafel",
+   "where": "Funniest jokes of the Edinburgh Fringe 2024",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/article/2024/aug/12/10-funniest-jokes-edinburgh-fringe-2024"
+  },
+  {
+   "id": "morton-1",
+   "text": "How do you know that Edinburgh is the most haunted city in the UK? You measure it with a spirit level.",
+   "author": "Eleanor Morton",
+   "where": "Funniest jokes of the Edinburgh Fringe 2024",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/article/2024/aug/12/10-funniest-jokes-edinburgh-fringe-2024"
+  },
+  {
+   "id": "wambaugh-1",
+   "text": "Cabinets: what are they hiding? Tables: are they really furniture – or just more floor on stilts?",
+   "author": "Abby Wambaugh",
+   "where": "Funniest jokes of the Edinburgh Fringe 2024",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/article/2024/aug/12/10-funniest-jokes-edinburgh-fringe-2024"
+  },
+  {
+   "id": "adejuyigbe-1",
+   "text": "I don’t like when a casino says: “House rules.” It got a little boring for me in the last season.",
+   "author": "Demi Adejuyigbe",
+   "where": "Funniest jokes of the Edinburgh Fringe 2024",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/article/2024/aug/12/10-funniest-jokes-edinburgh-fringe-2024"
+  },
+  {
+   "id": "turner-2",
+   "text": "The Romans invented Vaseline. Or was it Ancient Grease?",
+   "author": "Chris Turner",
+   "where": "Funniest jokes of the Edinburgh Fringe 2024",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/article/2024/aug/12/10-funniest-jokes-edinburgh-fringe-2024"
+  },
+  {
+   "id": "falafel-6",
+   "text": "We named our children War and Peace – it’s a long story.",
+   "author": "Olaf Falafel",
+   "where": "Funniest jokes of the Edinburgh Fringe 2025",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/2025/aug/11/bad-dates-and-bath-bombs-10-of-the-funniest-jokes-from-the-edinburgh-fringe-2025"
+  },
+  {
+   "id": "auton-1",
+   "text": "Everyone is worried about AI. I’m more concerned with what the other vowels are up to.",
+   "author": "Rob Auton",
+   "where": "Funniest jokes of the Edinburgh Fringe 2025",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/2025/aug/11/bad-dates-and-bath-bombs-10-of-the-funniest-jokes-from-the-edinburgh-fringe-2025"
+  },
+  {
+   "id": "smith-2",
+   "text": "People who say bath bombs are relaxing have clearly never tried to carry one home in the rain.",
+   "author": "Ian Smith",
+   "where": "Funniest jokes of the Edinburgh Fringe 2025",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/2025/aug/11/bad-dates-and-bath-bombs-10-of-the-funniest-jokes-from-the-edinburgh-fringe-2025"
+  },
+  {
+   "id": "sikisa-1",
+   "text": "This spider has been in my house so long, it should pay half the wifi. As a web developer, it can afford to.",
+   "author": "Sikisa",
+   "where": "Funniest jokes of the Edinburgh Fringe 2025",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/2025/aug/11/bad-dates-and-bath-bombs-10-of-the-funniest-jokes-from-the-edinburgh-fringe-2025"
+  },
+  {
+   "id": "grace-1",
+   "text": "I went on a date with a matador but there were too many red flags.",
+   "author": "Chris Grace",
+   "where": "Funniest jokes of the Edinburgh Fringe 2025",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/2025/aug/11/bad-dates-and-bath-bombs-10-of-the-funniest-jokes-from-the-edinburgh-fringe-2025"
+  },
+  {
+   "id": "karia-1",
+   "text": "I’m not nostalgic but I used to be. Those were the days.",
+   "author": "Rajiv Karia",
+   "where": "Funniest jokes of the Edinburgh Fringe 2025",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/2025/aug/11/bad-dates-and-bath-bombs-10-of-the-funniest-jokes-from-the-edinburgh-fringe-2025"
+  },
+  {
+   "id": "gorelick-1",
+   "text": "I dated a magician – I was seeing him, now I don’t.",
+   "author": "Jenny Gorelick",
+   "where": "Funniest jokes of the Edinburgh Fringe 2026",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/2026/aug/20/magicians-and-margarine-10-of-the-funniest-jokes-from-the-edinburgh-fringe-2026"
+  },
+  {
+   "id": "hull-1",
+   "text": "I lost my nail file, so I’ve just been using the pavement. As a method, it’s concrete.",
+   "author": "Bella Hull",
+   "where": "Funniest jokes of the Edinburgh Fringe 2026",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/2026/aug/20/magicians-and-margarine-10-of-the-funniest-jokes-from-the-edinburgh-fringe-2026"
+  },
+  {
+   "id": "kitson-1",
+   "text": "I spent all day writing a joke about margarine and I can’t believe it’s not better.",
+   "author": "Alex Kitson",
+   "where": "Funniest jokes of the Edinburgh Fringe 2026",
+   "source_name": "The Guardian",
+   "source_url": "https://www.theguardian.com/stage/2026/aug/20/magicians-and-margarine-10-of-the-funniest-jokes-from-the-edinburgh-fringe-2026"
+  },
+  {
+   "id": "handey-4",
+   "text": "IF YOU ever drop your keys into a river of molten lava, let 'em go, because man, they're gone.",
+   "author": "Jack Handey",
+   "where": "Deep Thoughts (1992)",
+   "source_name": "Wikiquote",
+   "source_url": "https://en.wikiquote.org/wiki/Jack_Handey"
+  }
+ ]
+}

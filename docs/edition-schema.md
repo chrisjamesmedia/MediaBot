@@ -87,8 +87,14 @@ the News and topic cuts, so a link whose twin story was cut stays).
   "url": "https://xkcd.com/3318/", "alt": "…", "image": { "file": "images/comic-xkcd-….png", "credit": "xkcd.com, CC BY-NC 2.5" } }
 { "type": "sudoku", "id": "sudoku-2026-11-01", "title": "Sudoku", "grid": ["7...1...2", …], "solution": ["7…", …] }
 { "type": "wordsearch", "id": "ws-2026-11-01", "title": "Word Search", "grid": ["KBNT…", …], "words": ["…"], "solution": ["K..T…", …] }
+{ "type": "joke", "id": "joke-wilde-2", "text": "…exact…", "author": "Oscar Wilde", "where": "The Importance of Being Earnest (1895)",
+  "url": "https://en.wikiquote.org/wiki/Oscar_Wilde", "source_name": "Wikiquote" }
+{ "type": "funnypost", "id": "funny-2116…", "author": "…", "handle": "…", "text": "…exact…", "url": "https://x.com/…/status/2116…",
+  "image": { "file": "images/funny-2116….jpg", "credit": "@…" } }
 ```
-Comics come only from real feeds (xkcd RSS today), credited and linked; never invented. Puzzles are
+Comics come only from the artists' own feeds (xkcd + 2 rotating; see FEEDS in tools/funnies.py), credited
+and linked; never invented. Jokes come only from `jokes.json` (each checked against its source_url), posts
+only from edition.json `"funny_candidates"` (written by `x_feed.py --write`; not rendered by itself). Puzzles are
 generated and checked (the sudoku has exactly one solution; word-search words come only from headlines
 and titles that survive the build's cuts, via `build.surviving_sections`). Solutions: on the web behind
 "Show answers"; in print and the digital PDF in the Answers block on the last page.
