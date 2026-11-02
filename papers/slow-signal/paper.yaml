@@ -1,0 +1,127 @@
+# Slow Signal: a calm, X-only paper with no AI and no investing. Made with MediaBot.
+# Why it exists: Signal Seeker's AI and markets posts pulled Chris back into X ("a little free sample").
+# This paper is the opposite: a few lasting posts from his own X, printed in full, with no way back into the feed.
+
+name: Slow Signal
+slug: slow-signal              # URL: /slow-signal/ and /slow-signal/YYYY-MM-DD/
+public: true
+reader: Chris James
+layout: slow                   # its own templates (slow.html.j2, slow-print.html.j2): one reading column, no newspaper
+description: >-
+  A short, calm read of posts from Chris James's X that are not about AI or
+  investing: science, health, ideas, craft, nature, history, faith, books and
+  a little humor. Printed in full, a few a day, with a clear end.
+
+masthead:
+  style: slow                  # one small title line: name, date, weather high/low
+  weather:
+    label: Boston
+    lat: 42.36
+    lon: -71.06
+    timezone: America/New_York
+    simple: true               # only the day's condition, high and low
+
+print:
+  size: medium
+  sizes:                       # one letter-size column; 2–4 sides
+    small:  {target_sheets: [1, 1], max_sheets: 1}
+    medium: {target_sheets: [1, 2], max_sheets: 2}
+    large:  {target_sheets: [1, 2], max_sheets: 2}
+  photos: false
+  qr: false                    # nothing that leads back to a screen
+  pt: 11                       # body type size (pt) for the one-column letter cards
+  even_pages: true             # pad to an even page count (one blank back) for duplex
+
+web:
+  images: false
+  x_links: false               # no live links to x.com on posts: handle and date are plain text
+  end_line: "That’s all for today."
+  source_note: "All posts are from X, quoted in full as posted."
+  topic_labels: true           # small topic word beside each byline
+
+# Sections are light topic groups, in reading order. Every item is an X post (tools/slow_signal.py writes them).
+# The build caps the whole paper at total_max posts.
+total_max: 10
+sections:
+  - {id: ideas,   title: Ideas & Life,      enabled: true, weight: 6, max_items: 4}
+  - {id: science, title: Science & Health,  enabled: true, weight: 6, max_items: 4}
+  - {id: making,  title: Building & Making, enabled: true, weight: 5, max_items: 3}
+  - {id: nature,  title: Nature & History,  enabled: true, weight: 5, max_items: 3}
+  - {id: books,   title: Books & Faith,     enabled: true, weight: 5, max_items: 3}
+  - {id: lighter, title: Lighter,           enabled: true, weight: 4, max_items: 2}
+
+sources:
+  x:
+    reader_handle: "@ChrisJamesUSA"     # the reader's own posts are never picked
+    # Read-only pulls, the same as Signal Seeker: home timeline (get_users_timeline), his Lists, bookmarks, likes.
+    # Saved raw OUTSIDE the repo; tools/slow_signal.py reads them.
+    slow:
+      count: 9                 # posts per edition (6–10); one per author
+      min_count: 6
+      max_age_days: 3          # posts older than this (vs the edition date) are not candidates…
+      evergreen_age_days: 400  # …except from bookmark/like dumps (pass with --evergreen), which may be older
+      min_chars: 100           # substantive posts (URLs/@mentions don't count)
+      hook_accounts: sources/hook_accounts.json   # never printed: accounts that mostly post AI/markets/crypto/Tesla
+      # His own "worth reading" and science/health voices (Signal Seeker's x_accounts.json): ranked a little higher.
+      prefer: ["@FU_joehudson", "@p_millerd", "@naval", "@paulg", "@davidsenra", "@david_perell", "@nopranablem",
+               "@JK_Lundblad", "@simonsarris", "@GeorgiaEdeMD", "@mimikmorgan", "@Metabolic_Mind", "@StevePhillipsMD",
+               "@Mad_In_America", "@MHTMakerspace", "@BenSchwartz_MD", "@raechellambert", "@paulsaladinomd", "@TheBabylonBee"]
+      noise: ["@TheGNPE", "@TheValueist", "@PortPolitics1", "@PBDsPodcast", "@TickerDUBS", "@ndenverco",
+              "@newstart_2024", "@kator1313", "@LibertyCappy", "@cheruiyotkb", "@squawksquare"]
+      # Hard exclusions. Whole words (plural ok); a trailing * matches any ending. Checked against the post AND
+      # any post it quotes. Cashtags ($NBIS) are always cut. The worker still reads every pick (--skip).
+      exclude:
+        ai: [ai, a.i., agi, asi, llm*, gpt*, chatgpt, openai, anthropic, claude, gemini, grok, xai, copilot, deepmind,
+             mistral, perplexity, midjourney, "artificial intelligence", "machine learning", "neural net*", "deep learning",
+             nvidia, gpu*, tpu*, compute, inference, datacenter*, "data center*", agent*, agentic, chatbot*, prompt*,
+             token*, "ai model*", "language model*", "frontier model*", "foundation model*", superintelligen*,
+             singularity, alignment, robot*, humanoid*, optimus, automat*, fsd, "self-driving", autonomous, robotaxi*,
+             cybercab, tesla, tsla, elon, musk, spacex, starship, starlink, neuralink, cybertruck, altman, karpathy,
+             zuckerberg, thiel, "meta ai", "vibe cod*", assistant*, bot, bots, nebius, micron,
+             sandisk, hynix, amazon, meta, google, microsoft, apple, "big tech", "fintwit", algo, algorithm*, coding, codex, software, saas, startup*, "y combinator", yc]
+        money: [invest*, stock*, "share price*", shareholder*, "market*", earnings, revenue*, valuation*, ipo, ipos,
+                nasdaq, "s&p", dow, spy, qqq, etf*, portfolio*, trading, trade, trader*, options, leaps, bullish, bearish,
+                "bull market", "bear market", rally, selloff, "sell-off", crash, ath, crypto*, bitcoin, btc, eth,
+                ethereum, solana, blockchain, nft*, defi, coinbase, memecoin*, fed, "interest rate*", "rate cut*",
+                inflation, recession, gdp, macro, yield*, bond*, treasur*, dividend*, "hedge fund*", vc, "venture capital",
+                capex, hyperscaler*, "wall street", wealth, wealthy, millionaire*, billionaire*, "net worth",
+                financ*, fund, funds, funding, "price target*", profit*, "compound interest", money, dollar*, "$",
+                economy, economic*, tariff*, debt, margin*, bubble, gfc, rich, richest, "get rich", "real estate", mortgage*, "401k", retire*]
+        politics_war: [trump*, biden, harris, vance, obama, democrat*, republican*, gop, maga, liberal*, conservative*,
+                       leftist*, left-wing, right-wing, woke, dei, election*, ballot*, voter*, vote, voting, midterm*,
+                       congress*, senate, senator*, governor*, mayor*, president*, "white house", administration,
+                       "supreme court", parliament, labour, tory, starmer, farage, migrant*, immigra*, deport*, border,
+                       ice, israel*, gaza, hamas, hezbollah, palestin*, ukrain*, russia*, putin, zelensk*, iran*, china,
+                       chinese, ccp, taiwan, war, wars, missile*, military, troops, nato, ceasefire, terror*, police,
+                       arrest*, protest*, riot*, crime, killed, murder*, shooting, stabbing, prison, epstein, "charlie kirk",
+                       socialis*, communis*, marxis*, fascis*, antifa, shutdown, government, politic*, partisan,
+                       globalis*, carney, rfk, maha, "legacy media", censor*, army, "october 7", antisemit*, snap, medicare, obamacare, visa, visas, "two-tier",
+                        trudeau, "eu", "european union", admission*, affirmative, "j6", judge*, pardon*,
+                       patriot*, leftis*, "the left", "the right", feminis*, "young men", "men vs", migrat*, refugee*, islam*, muslim*]
+        ragebait: [breaking, "just in", unhinged, insane, disgusting, destroyed, owned, ratio, cancel*, boycott,
+                   outrage*, furious, slams, "you won't believe", "nobody is talking", "wake up", "🚨", giveaway*,
+                   "use code", sponsored, "link in bio", "comment below", "drop your", "tag a friend", "save this",
+                   "bookmark this", "follow me", webinar, presale, airdrop, "sign up", "limited time", discount]
+      # Topic words sort survivors into the light topic groups (first match wins in this order). A post with no
+      # topic word is only printed if the worker files it with --topic <id>=<section> after reading it.
+      topics:
+        science: [science, scientist*, study, studies, research*, researcher*, physics, biolog*, chemistry, brain*,
+                  neuro*, cell, cells, gene, genes, genetic*, dna, evolution*, metabolic, metabolism, keto*, insulin,
+                  glucose, psychedelic*, psilocybin, mdma, ketamine, lsd, ayahuasca, psychiatr*, "mental health",
+                  depression, anxiety, health, healthy, sleep, exercise, nutrition, diet, protein, fasting, longevity,
+                  disease*, cancer, doctor*, medicine, medical, patient*, trial, vaccine*, virus, microbiome, gut,
+                  space, nasa, telescope, galaxy, planet*, moon, mars, universe, cosmos, astronom*, math*, fossil*]
+        ideas: [life, meaning, wisdom, wise, philosoph*, truth, love, fear, happiness, happy, joy, grief, attention,
+                culture, idea*, think*, learn*, education, school*, teach*, kid, kids, child, children, parent*, family,
+                friend*, community, rest, habit*, purpose, freedom, curiosity, curious, honest*, feeling*, emotion*,
+                courage, kindness, patience, work, career, writing, write, writer*, essay*, art, artist*, music,
+                film, song*, beauty, beautiful, marriage, relationship*, conversation*, silence, solitude, walk*]
+        making: [build, building, built, craft*, maker*, making, handmade, woodwork*, carpent*, furniture, garden*,
+                 cook*, recipe*, bread, bake*, kitchen, design*, architect*, house, houses, home, tool, tools,
+                 engineer*, repair*, sewing, knit*, pottery, workshop, farm*, homestead*]
+        nature: [nature, natural, forest*, tree, trees, bird*, animal*, river*, ocean*, sea, mountain*, wildlife,
+                 season*, autumn, winter, spring, leaves, flower*, history, historic*, century, centuries, ancient,
+                 medieval, archaeolog*, museum*, cathedral*, ruins, roman, greek, empire, 18th, 19th, 1800s, 1900s]
+        books: [book*, read, reading, reader*, novel*, author*, poem*, poet*, poetry, library, libraries, god, faith,
+                pray*, church, scripture, bible, jesus, christ, christian*, spiritual*, soul, meditat*, prayer, gospel,
+                psalm*, saint*, monk*, zen, tao, stoic*]

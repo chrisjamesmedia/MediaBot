@@ -1,7 +1,8 @@
-# The morning routine prompt (Signal Seeker)
+# The morning routine prompt (Signal Seeker and Slow Signal)
 
 This is the exact text the daily Grok Bot routine should use to compile `edition.json` before
-running `tools/publish.sh`. Keep it in sync with `papers/signal-seeker/paper.yaml`.
+running `tools/publish.sh`. Keep it in sync with `papers/signal-seeker/paper.yaml`. The same routine also
+builds Slow Signal (see "Slow Signal" at the end) BEFORE publishing, so one commit carries both papers.
 
 ```text
 Compile today's Signal Seeker (papers/signal-seeker/editions/<TODAY>/edition.json, schema in
@@ -155,4 +156,56 @@ evergreen_seen.json. Read the build output: it lists every cut item and the page
 even, with "Sheet N of M" footers). Commit evergreen_seen.json, passages_seen.json and taste.json with
 the edition (never quote_bank.json: it is gitignored and must stay private). The public build refuses
 any item carrying quote-bank doc refs (source_doc_title / source_doc_id).
+```
+
+## Slow Signal
+
+The daily routine builds both papers. Do Slow Signal right after Signal Seeker's X pulls (it reuses the
+same saved pages) and before `tools/publish.sh`, so the one publish commit carries both.
+
+```text
+Compile today's Slow Signal (papers/slow-signal/editions/<TODAY>/edition.json). It is a calm, X-only
+paper for Chris with NO AI and NO investing: about 6-10 posts, one per author, full text, ending with
+"That's all for today." Signal Seeker carries AI and markets; this paper must not.
+
+RULES: X is read-only: never post, like, follow, bookmark, reply or DM. Never invent facts, quotes or
+attributions; post text is quoted exactly (the build prints it as written, no summaries, no headlines).
+Nothing personal goes in the public build, and never say in the paper that a post came from his
+bookmarks or likes.
+
+1. PULL (read-only user-X tools; save every raw reply OUTSIDE the repo, e.g. /tmp/slow/):
+   a. Home timeline: reuse Signal Seeker's step 1b pages (/tmp/feed/p*.json), or pull them the same way.
+   b. Lists: the posts of his non-investing lists and "2026 GOATS" (get_lists_posts, max_results 100,
+      same post fields and expansions as 1b).
+   c. Bookmarks and likes (get_users_bookmarks / get_users_liked_posts, a page or two each): these are
+      EVERGREEN candidates and may be up to evergreen_age_days old.
+   Send post.fields created_at,public_metrics,author_id,lang,conversation_id,referenced_tweets,
+   note_tweet,in_reply_to_user_id and expansions author_id,referenced_tweets.id,
+   referenced_tweets.id.author_id with user.fields username,name,verified,public_metrics.
+2. DRY RUN: .venv/bin/python tools/slow_signal.py slow-signal <TODAY> /tmp/feed/p*.json /tmp/slow/list*.json
+      --evergreen /tmp/slow/bookmarks.json,/tmp/slow/likes.json
+   It drops replies, the reader's own posts, posts already run in an earlier edition, hook accounts
+   (papers/slow-signal/sources/hook_accounts.json: accounts that usually post AI or finance, plus anything
+   quoting them), the noise list, stale, non-English and short posts, and any post whose text (or quoted
+   text) hits the exclude words: ai, money, politics_war, ragebait (paper.yaml sources.x.slow.exclude;
+   "*" = prefix). It prints every cut reason with examples, the pick (topic + score), the next in line,
+   and kept posts that match no topic word.
+3. READ the pick and the next in line as an editor. Prefer posts with a lasting idea. Veto hype,
+   promos, culture-war, grief-bait or anything that pulls back into the feed with --skip <id,id>;
+   promote a better post with --pin <id,id>; file a no-topic post with --topic <id>=<section>.
+   Sections: ideas, science (health: metabolic, psychedelic), making, nature (incl. history), books
+   (incl. faith), lighter (humor). If a good post was cut by a word by mistake, --pin it.
+4. FULL TEXT: bookmark/like pages (and some quoted posts) can be cut at ~280 characters. Re-read the
+   picked ids with get_posts_by_ids (post.fields incl. note_tweet; the expansions above), save it
+   outside the repo, and pass that file LAST in --evergreen so its full text wins.
+5. WRITE: rerun with the same flags plus --write. Check the file: every post's text exactly as on X,
+   quoted posts inset with their real author, no URLs printed. Set "coverage" to one plain line (e.g.
+   "Nine posts, February-November 2026. Compiled Sunday, Nov. 1, ET.").
+6. BUILD: .venv/bin/python build.py slow-signal <TODAY> --weather   (Boston high/low only; no news,
+   holdings, Passage, games or funnies). It writes site/slow-signal/<TODAY>/, the PDFs and
+   site/slow-signal/latest/. Read the output: print is one column of ruled cards on letter, about 2-4
+   pages (padded to even for duplex when even_pages is true).
+7. CHECK: no x.com links on the web posts:
+      grep -rnoE 'href="[^"]*(x\.com|twitter\.com|t\.co)' site/slow-signal/ || echo none
+   then publish with Signal Seeker (tools/publish.sh signal-seeker <TODAY> --weather), which commits both.
 ```
