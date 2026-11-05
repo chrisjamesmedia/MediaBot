@@ -598,9 +598,15 @@ def build_editor(site_cfg):
 
 
 # ---------- rendering ----------
+def paras(s):
+    """Post text -> paragraphs (split on blank lines), each a list of lines. Text is kept exactly; only whitespace splits."""
+    return [[ln.strip() for ln in blk.split("\n")] for blk in re.split(r"\n\s*\n", (s or "").strip()) if blk.strip()]
+
+
 def env():
     e = Environment(loader=FileSystemLoader(TPL), autoescape=True, trim_blocks=True, lstrip_blocks=True)
-    e.filters.update(by_source=by_source, balance=balance, initials=initials, host=short_host, plain=plain, excerpt=excerpt)
+    e.filters.update(by_source=by_source, balance=balance, initials=initials, host=short_host, plain=plain, excerpt=excerpt,
+                     paras=paras)
     return e
 
 
@@ -704,6 +710,9 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
                noindex=bool(rc), home="../../../" if rc else "../", edition_key=f"{date}~{rc['slug']}" if rc else date,
                description=ed.get("description") or describe(paper, sections, date_long))
     E = env()
+    slow = paper.get("layout") == "slow"       # Slow Signal: one quiet column on the web, letter cards in print
+    print_tpl, web_tpl = ("slow-print.html.j2", "slow.html.j2") if slow else ("print.html.j2", "edition.html.j2")
+    even = (paper.get("print") or {}).get("even_pages", True)
 
     # print + digital PDFs
     CACHE.mkdir(exist_ok=True)
@@ -726,8 +735,8 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
         pdf = out / pdfs[kind]
 
         def render(sheets=0, pad=False, toc_pages=None):
-            h = E.get_template("print.html.j2").render(ctx, sections=psecs if kind == "print" else sections, mode=kind,
-                                                       pt=PRINT_TYPE[size] + (0.6 if kind == "digital" else 0),
+            h = E.get_template(print_tpl).render(ctx, sections=psecs if kind == "print" else sections, mode=kind,
+                                                       pt=((paper.get("print") or {}).get("pt") or PRINT_TYPE[size]) + (0.6 if kind == "digital" else 0),
                                                        static=STATIC.resolve().as_uri(), qr=qr, sheets=sheets, pad=pad,
                                                        toc_pages=toc_pages or {})
             hp = work / f"{kind}.html"
@@ -743,7 +752,7 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
             trimmed.append(t)
         # Final pass(es): contents page numbers read back from the PDF's own anchors; print also gets the
         # real sheet count in the duplex footer, plus one blank back when odd.
-        pad = kind == "print" and n % 2 == 1
+        pad = kind == "print" and n % 2 == 1 and even
         nsheets = (n + 1) // 2 if kind == "print" else 0
         tp = pdf_anchor_pages(pdf)
         for _ in range(2):
@@ -751,7 +760,7 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
             again = pdf_anchor_pages(pdf)
             if again == tp: break
             tp = again
-        if kind == "print" and n % 2: print(f"  ! print came out at {n} pages after padding")
+        if kind == "print" and n % 2 and even: print(f"  ! print came out at {n} pages after padding")
         pages[kind] = n
         sheets = (n + 1) // 2
         msg = f"  {kind}: {pdf.relative_to(ROOT)}  {n} pages" + (" (last back blank)" if kind == "print" and pad else "")
@@ -767,7 +776,7 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
                         str(work / f"{kind}-p1")], check=True)
 
     # web edition
-    (out / "index.html").write_text(E.get_template("edition.html.j2").render(ctx, sections=sections, root="../../../../" if rc else "../../", pages=pages))
+    (out / "index.html").write_text(E.get_template(web_tpl).render(ctx, sections=sections, root="../../../../" if rc else "../../", pages=pages))
     meta = {"date": date, "date_long": date_long, "lead": lead_title, "pages": pages,
             "pdfs": pdfs, "sections": [s["title"] for s in sections], "recipe": rc["name"] if rc else None, "built_at": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}
     (out / "edition.meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False))

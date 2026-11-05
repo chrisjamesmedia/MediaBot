@@ -1,0 +1,31 @@
+{
+ "date": "2026-11-05",
+ "date_long": "Thursday, November 5, 2026",
+ "lead": "The AI trade splits: hyperscalers rally while neoclouds sell off",
+ "pages": {
+  "print": 10,
+  "digital": 11
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-05-print.pdf",
+  "digital": "signal-seeker-2026-11-05-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Your Holdings",
+  "Tech & AI",
+  "Worth Reading",
+  "Evergreen",
+  "Business",
+  "Science & Health",
+  "The Big Stuff",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-05T12:22:12+00:00"
+}
