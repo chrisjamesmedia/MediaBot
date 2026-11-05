@@ -1,0 +1,51 @@
+{#- Slow Signal PDFs. mode=print: letter, one column, roomy margins, ruled cards, white with black ink.
+    mode=digital: the same pages on warm paper. Small page-number footer; no links, no QR. -#}
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>{{ paper.name }} · {{ date_long }}{{ ' (print)' if mode == 'print' else '' }}</title>
+<style>
+@font-face{font-family:"SG Serif";src:url({{ static }}/fonts/SourceSerifPro-Regular.ttf);font-weight:400}
+@font-face{font-family:"SG Serif";src:url({{ static }}/fonts/SourceSerifPro-It.ttf);font-weight:400;font-style:italic}
+@font-face{font-family:"SG Serif";src:url({{ static }}/fonts/SourceSerifPro-Semibold.ttf);font-weight:600}
+@font-face{font-family:"SG Sans";src:url({{ static }}/fonts/LibreFranklin.ttf);font-weight:100 900}
+{% set ink = '#000' if mode == 'print' else '#1c1914' %}
+{% set bg = '#fff' if mode == 'print' else '#f4ecdc' %}
+@page{size:Letter;margin:.9in 1.1in .85in;background:{{ bg }};
+  @bottom-center{content:"{{ paper.name }} · " counter(page);font:400 7.5pt "SG Sans",sans-serif;color:{{ ink }}}}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;color:{{ ink }};background:{{ bg }};font:400 {{ pt }}pt/1.5 "SG Serif",Georgia,serif;orphans:3;widows:3}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:12pt;margin:0 0 26pt;padding-bottom:7pt;border-bottom:.6pt solid {{ ink }}}
+.top .t{font:400 17pt/1 "SG Serif",serif;letter-spacing:.01em}
+.top .meta{font:400 8.5pt/1.3 "SG Sans",sans-serif;text-align:right}
+.card{border:.7pt solid {{ ink }};border-radius:3pt;padding:13pt 16pt 14pt;margin:0 0 16pt;break-inside:avoid}
+.who{font:400 8pt/1.3 "SG Sans",sans-serif;margin:0 0 7pt;letter-spacing:.01em}
+.who b{font-weight:600}
+.who .tag{float:right;font-size:6.8pt;letter-spacing:.1em;text-transform:uppercase}
+.card p{margin:0 0 .6em}
+.card p:last-child{margin-bottom:0}
+.q{margin:10pt 0 0;padding:2pt 0 2pt 11pt;border-left:1.4pt solid {{ ink }};font-size:{{ pt - 1 }}pt}
+.q .who{font-size:7.4pt;margin-bottom:4pt}
+.end{text-align:center;margin:26pt 0 0;break-inside:avoid}
+.end .mark{letter-spacing:.6em;font-size:9pt;margin:0 0 10pt}
+.end .line{font:italic 400 {{ pt + 3 }}pt/1.3 "SG Serif",serif;margin:0 0 10pt}
+.end .note{font:400 7.4pt/1.5 "SG Sans",sans-serif;margin:0}
+.pad{break-before:page;height:1in}
+</style></head><body>
+<header class="top"><span class="t">{{ paper.name }}</span>
+  <span class="meta">{{ date_long }}{% if weather.ok and weather.hi is defined %}<br>{{ weather.label }} · High {{ weather.hi }}° · Low {{ weather.lo }}°{% endif %}</span></header>
+{% for sec in sections %}
+{% for p in sec["items"] %}
+<section class="card">
+  <p class="who"><b>{{ p.author }}</b> @{{ p.handle }}{% if p.date_short %} · {{ p.date_short }}{% endif %}<span class="tag">{{ sec.title }}</span></p>
+  {% for para in p.text | paras %}<p>{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+  {% endfor %}
+  {% if p.quoted %}<div class="q"><p class="who"><b>{{ p.quoted.author }}</b> @{{ p.quoted.handle }}</p>
+    {% for para in p.quoted.text | paras %}<p>{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+    {% endfor %}</div>{% endif %}
+</section>
+{% endfor %}
+{% endfor %}
+<footer class="end"><p class="mark">· · ·</p><p class="line">{{ paper.web.end_line }}</p>
+  <p class="note">{{ paper.web.source_note }}{% if coverage %} {{ coverage }}{% endif %}</p></footer>
+{% if pad %}<div class="pad"></div>{% endif %}
+</body></html>

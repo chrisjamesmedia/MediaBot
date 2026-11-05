@@ -1,0 +1,20 @@
+{
+ "date": "2026-11-05",
+ "date_long": "Thursday, November 5, 2026",
+ "lead": "Vivid Void on X",
+ "pages": {
+  "print": 4,
+  "digital": 6
+ },
+ "pdfs": {
+  "print": "slow-signal-2026-11-05-print.pdf",
+  "digital": "slow-signal-2026-11-05-digital.pdf"
+ },
+ "sections": [
+  "Ideas & Life",
+  "Science & Health",
+  "Books & Faith"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-05T12:22:01+00:00"
+}

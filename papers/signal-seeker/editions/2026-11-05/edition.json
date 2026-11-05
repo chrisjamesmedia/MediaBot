@@ -1,0 +1,1582 @@
+{
+ "schema": 1,
+ "paper": "signal-seeker",
+ "date": "2026-11-05",
+ "coverage": "Covering roughly Nov 2–5, 2026. Compiled Thursday, ET.",
+ "note": "Nebius reports Nov. 12.",
+ "requests": [],
+ "sections": [
+  {
+   "id": "front",
+   "items": [
+    {
+     "type": "story",
+     "id": "ai-trade-split",
+     "headline": "The AI trade splits: hyperscalers rally while neoclouds sell off",
+     "summary": "On Wednesday, Amazon and Microsoft each jumped about 7% and Google about 4%, while CoreWeave fell nearly 10%, IREN about 11%, and Nebius about 6–7%. Commentators on X read the move as a bet that data-center pushback and local delays will hit pure-play neoclouds harder than the big cloud platforms, consolidating the market toward the hyperscalers. Separately, Oguz Erkan argued semiconductor valuations have already peaked relative to margins, with the easy money in chips largely made and demand expected to ease after 2027.",
+     "short": "AMZN/MSFT ~+7% vs CRWV/IREN/NBIS down hard; market prices neoclouds as more exposed to data-center delays.",
+     "sources": [
+      {
+       "name": "X @oguzerkan",
+       "url": "https://x.com/oguzerkan/status/2118077843615666550"
+      },
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2118088400431726885"
+      },
+      {
+       "name": "X @oguzerkan",
+       "url": "https://x.com/oguzerkan/status/2118286053777785066"
+      }
+     ],
+     "topic": [
+      "ai",
+      "markets",
+      "investing"
+     ],
+     "group": "AI cycle"
+    },
+    {
+     "type": "post",
+     "id": "x-2118119451401048497",
+     "author": "OpenAI",
+     "handle": "OpenAI",
+     "text": "Our security researchers built an autonomous cyber vulnerability discovery, exploitation, and patching pipeline.\n\nIn a single run with an upcoming cyber model, it validated and generated patches for 948 local privilege escalation vulnerabilities in the Linux kernel at a total API cost of $1.2 million.",
+     "url": "https://x.com/OpenAI/status/2118119451401048497",
+     "date": "2026-11-04T23:13:24Z",
+     "group": "AI cycle"
+    },
+    {
+     "type": "story",
+     "id": "starlink-mobile",
+     "headline": "Starlink Mobile: a nationwide satellite-plus-terrestrial phone network, with Qualcomm chips from 2027",
+     "summary": "Starlink said it is building the first fully integrated U.S. nationwide satellite and terrestrial network meant to keep phones connected everywhere, with 5G base stations using Qualcomm chips to accelerate deployment starting in 2027. On an earnings call, Qualcomm CEO Cristiano Amon said Starlink-related revenue should start to appear as Qualcomm exits fiscal 2027 and is mainly a fiscal 2028 story.",
+     "short": "Starlink Mobile + Qualcomm 5G base stations from 2027; QCOM says revenue mainly fiscal 2028.",
+     "sources": [
+      {
+       "name": "X @Starlink",
+       "url": "https://x.com/Starlink/status/2117973275414532165"
+      },
+      {
+       "name": "X @firesidealpha",
+       "url": "https://x.com/firesidealpha/status/2118113256430878902"
+      }
+     ],
+     "topic": [
+      "tech",
+      "space"
+     ],
+     "group": "Connectivity"
+    },
+    {
+     "type": "story",
+     "id": "micron-taiwan-fab",
+     "headline": "Micron scraps a planned Taiwan fab; less memory supply for 2028",
+     "summary": "Jukan reported that Micron scrapped plans for another Taiwan fab that was supposed to come online in 2028, after the local union pushed for higher bonuses — implying less supply hitting the market that year. Paradis noted Micron's Taiwan bonuses were about 4–5% of operating income versus roughly 10% at SK Hynix and Samsung, calling the gap ludicrous given Micron's recent operating income.",
+     "short": "Micron cancels a 2028 Taiwan fab amid bonus dispute; less HBM/DRAM supply later this decade.",
+     "sources": [
+      {
+       "name": "X @jukan05",
+       "url": "https://x.com/jukan05/status/2118271210983485859"
+      },
+      {
+       "name": "X @ParadisLabs",
+       "url": "https://x.com/ParadisLabs/status/2118282812214112635"
+      }
+     ],
+     "topic": [
+      "ai",
+      "investing"
+     ],
+     "group": "Memory"
+    }
+   ]
+  },
+  {
+   "id": "feed",
+   "items": [
+    {
+     "type": "post",
+     "id": "feed-2117986086890741953",
+     "author": "Rihard Jarc",
+     "handle": "RihardJarc",
+     "text": "Former $AMZN employee on why existing workloads are the strongest advantage in the hyperscalers'AI race and that $AMZN earns a higher margin on open-source tokens than Claude tokens:\n\n1. The expert emphasizes that $AMZN started out behind in AI, seen as an infrastructure provider and caught off guard by OpenAI and $MSFT. Without a competitive model, it competed on compliance, reliability, scalability, and GPU availability until it added $ANT's models, which let it compete on model quality too. …",
+     "url": "https://x.com/RihardJarc/status/2117986086890741953",
+     "date": "2026-11-04T14:23:28Z",
+     "image_url": "https://pbs.twimg.com/media/HWSZCA0XgAAk4WK.png",
+     "image_alt": ""
+    },
+    {
+     "type": "post",
+     "id": "feed-2118098188045275590",
+     "author": "DVB",
+     "handle": "DeepValueBagger",
+     "text": "The main reason people round trip is that people don't want to admit that they made a mistake and acknowledge there are other ways to make money.\n\nI have 3 favorite ways to do it.\n\n> If you pick up leaps in low vol,  a 20% stock movement give you 100% return.\n\n> Going into cash stops the bleed and use it to earn 10% every 2 weeks on stocks that have reached their 52 week low while earning 10% and put that toward building a new position. This is perfect for expected consolidation period for months.\n\n> Consolidate positions, and move it to winners.",
+     "url": "https://x.com/DeepValueBagger/status/2118098188045275590",
+     "date": "2026-11-04T21:48:55Z",
+     "quoted": {
+      "author": "DVB",
+      "handle": "DeepValueBagger",
+      "text": "A DVB Guide to not round trip your portfolio\n\n&gt; Accept that you missed selling the top (anywhere remotely close)\n&gt; Follow up with a de-risking plan\n&gt; Accept you will need to work more\n&gt; Find a new underrated sector/play.",
+      "url": "https://x.com/DeepValueBagger/status/2118071959372157119"
+     }
+    },
+    {
+     "type": "post",
+     "id": "feed-2118015527440515458",
+     "author": "Serenity",
+     "handle": "aleabitoreddit",
+     "text": "Little rant, but to show you how rampant deleveraging has become:\n\n- $CIFR is worth 44% LESS than when they announced their initial $GOOGL / $AMZN colo deals. \n\n- $AAOI is now ~ the same price BEFORE they secured major hyperscaler orders, raised $1.6B for capacity expansion and gave their suprising initial -> $378M+ projection ->  ~$471M revenue forecast.\n\n- $ESMT ($2B MC) is the perfect example representing the memory sector.\n\nB-BUT AI NAMES ARE NOT PROFITABLE??? Q3 Earnings: $526.2M gross profit, $330M net income. …",
+     "url": "https://x.com/aleabitoreddit/status/2118015527440515458",
+     "date": "2026-11-04T16:20:27Z",
+     "quoted": {
+      "author": "Noobverest Rice King",
+      "handle": "Noobverest",
+      "text": "@monymonykay @aleabitoreddit Yes its a joke\n\nMoving things from things that make money into things that make no money is the current trend",
+      "url": "https://x.com/Noobverest/status/2118010125038584212"
+     }
+    },
+    {
+     "type": "post",
+     "id": "feed-2117980011407786159",
+     "author": "Balaji Krishnamurthy",
+     "handle": "_balaji_km",
+     "text": "$UBER Q3'26 earnings are out — another strong quarter of growth and expanding profitability, with record engagement across our platform:\n\n✅Gross Bookings of $59.8 billion, up 20%+ for the fifth straight quarter\n✅Non-GAAP EPS grew 35% YoY to $0.88\n✅$10.4 billion in free cash flow on a TTM basis, another record high\n🚗Driver & courier earnings well over $25 billion = more than $100 billion annual runrate \n🤖Scaling fully driverless autonomous vehicles, with ~700 expected in 2026, 2,000+ in 2027, & tens of thousands starting in 2028 …",
+     "url": "https://x.com/_balaji_km/status/2117980011407786159",
+     "date": "2026-11-04T13:59:19Z",
+     "image_url": "https://pbs.twimg.com/media/HWSTgmVWAAEbnHd.jpg",
+     "image_alt": ""
+    },
+    {
+     "type": "post",
+     "id": "feed-2118059948936696023",
+     "author": "The Humanoid Hub",
+     "handle": "TheHumanoidHub",
+     "text": "One of the biggest data bottlenecks in robotics is turning raw human video into high-quality training labels.\n\nPerceptron Egocentric 1.0 is a self-service API that turns first-person human and robot video into structured training data:\n\n- Timestamped subtask timelines, down to sub-second actions\n- A separate activity timeline for each hand (or gripper)\n- State-of-the-art 3D hand reconstruction, no camera calibration needed\n\nIt claims to match GPT-6 Astra on subtask quality at ~1/8 the cost ($9 vs ~$76 per video-hour), full stack at $29. …",
+     "url": "https://x.com/TheHumanoidHub/status/2118059948936696023",
+     "date": "2026-11-04T19:16:58Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2117976162303348804",
+     "author": "Will Manidis",
+     "handle": "WillManidis",
+     "text": "a childish but correct way to think about the asset management business is you’re getting paid to increase unnecessary complexity around the main thing (owning lots of a consequential business) because just doing the main thing is terrifying difficult and singular. smart here. https://t.co/7xC6DGwCAV",
+     "url": "https://x.com/WillManidis/status/2117976162303348804",
+     "date": "2026-11-04T13:44:01Z",
+     "quoted": {
+      "author": "Sequoia Capital",
+      "handle": "sequoia",
+      "text": "https://t.co/ZuGVVQLF5E",
+      "url": "https://x.com/sequoia/status/2117961312143855764"
+     }
+    },
+    {
+     "type": "post",
+     "id": "feed-2118145592224616655",
+     "author": "Fireside Alpha",
+     "handle": "firesidealpha",
+     "text": "Larry Page says to spend 20% of your time on things that seem \"crazy and far out,\" because if you're behind it's probably too late to catch up\n\n“And so I think we underestimate the large-scale change and, also, as technologists, we are always way more optimistic it will only take a year to do. You know, I know I am super, I guess, optimistic in terms of how long it takes to do things.\" …",
+     "url": "https://x.com/firesidealpha/status/2118145592224616655",
+     "date": "2026-11-05T00:57:17Z",
+     "quoted": {
+      "author": "Fireside Alpha",
+      "handle": "firesidealpha",
+      "text": "Microsoft's Mustafa Suleyman reveals Larry Page told him at SpaceX that by the end of the century he’d be exploring the galaxies at the head of a von Neumann probe\n\n“Yeah, I remember in 2015 being in the canteen at SpaceX.” …",
+      "url": "https://x.com/firesidealpha/status/2115804084901167404"
+     }
+    },
+    {
+     "type": "post",
+     "id": "feed-2118110531555139749",
+     "author": "Daniel",
+     "handle": "danielisdizzy",
+     "text": "My predictions:\n\n• $AMZN becomes a $10T company by 2030.\n• $ORCL becomes a $1T+ company within the next 3 years.\n• $META smart glasses replace the iPhone.\n• $CBRS becomes the go-to solution for fast inference across every major AI cloud.\n• $GRAB becomes the operating system of Southeast Asia.\n• $LMND becomes the largest insurance company in the world.",
+     "url": "https://x.com/danielisdizzy/status/2118110531555139749",
+     "date": "2026-11-04T22:37:57Z"
+    }
+   ]
+  },
+  {
+   "id": "x",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2116957135661945283",
+     "author": "Andrej Karpathy",
+     "handle": "karpathy",
+     "text": "Weekend hack: HackerTube. I was annoyed with YouTube's recommendations so I had Claude filter down 43M comments over 20 years of HN to 6,454 videos that keep being recommended. *Significantly* better viewing experience, ~2 hours with Opus 5.5:\nhttps://t.co/JIhXN7OSh1\n\n- Excellent recs without any logins (state is kept in local browser session)\n- Thumbnail is a representative frame from middle of the video instead of the super duper A/B test hyper-optimized user uploads\n- Underlying data from the comment analysis as one zip file, point your Claude at it and ask for your own version\n- HackerTube Longs ✊\n\nA bit more on the process:\nI use Claude Code (desktop app for Mac), Opus 5.5 on Medium effort as my default. I only talk to Claude and have it do everything, the only \"manual work\" I helped with in tandem was in the browser (reminiscent of MenuGen): 1) I had to create some kind of API key from Google Cloud UI to query YouTube for video metadata, 2) I booted up a VPS box for serving and 3) I bought the domain name. Once the box was up I gave Claude the IP and told it update, secure, harden, deploy and optimize the code, and it did the whole thing.\n\nMany awesome projects that would have normally taken weeks/months even can now be few-shotted for breakfast. What else are we not thinking of.",
+     "url": "https://x.com/karpathy/status/2116957135661945283",
+     "date": "2026-11-01T18:14:46Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2118137612577968402",
+     "author": "cat",
+     "handle": "_catwu",
+     "text": "Some news: I’m joining OpenAI to lead product management for Core Products!\n\nI have a lot of respect for OpenAI for showing the world that scaling works, for bringing AI to over a billion people, and for believing great products are core to the mission.\n\nI’m excited to work with @thsottiaux, an incredible PM team, and everyone across OpenAI. Together, we’ll build agents that have your back and your team’s, and keep you in control, so you get more time for the people and work you love.\n\nLots to learn, and lots to build. Please keep your feedback coming!",
+     "url": "https://x.com/_catwu/status/2118137612577968402",
+     "date": "2026-11-05T00:25:34Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2118045232218743264",
+     "author": "Charlie Holtz",
+     "handle": "charlieholtz",
+     "text": "I am very excited to share that Conductor is joining Meta!\n\nWe have some big, crazy plans for the next interface. If you liked Conductor, you’re gonna love what’s coming.\n\nWe’re super excited to work with @natfriedman and @alexandr_wang at MSL to build it. They’ve been on an absolute tear, and I’m convinced MSL has the highest talent density of all the labs.\n\nA huge thank you to our earliest believers @aaron_epstein, @ilyasu, and @nabeel. And to everyone here who tried Conductor, sent us feedback, and prompt requests - you made this so much fun. Thank you ❤️🚂\n\nChoo choo!",
+     "url": "https://x.com/charlieholtz/status/2118045232218743264",
+     "date": "2026-11-04T18:18:29Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2118063143167693011",
+     "author": "ClaudeDevs",
+     "handle": "ClaudeDevs",
+     "text": "Background subagents in Claude Code now use less of your usage limit.\n\nA running subagent updates its status line every 30 seconds, and each update used to re-read its whole conversation. Now Haiku 5.5 writes it from short notes instead, so each update costs about 99% less. https://t.co/u4maCuWq6A",
+     "url": "https://x.com/ClaudeDevs/status/2118063143167693011",
+     "date": "2026-11-04T19:29:39Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2117734977312047537",
+     "author": "GREG ISENBERG",
+     "handle": "gregisenberg",
+     "text": "running a company nowadays feels kinda dystopian\n\nmy team is 50+ people in 12 countries, but i talk to my agents more than my human teammates\n\n- voice note to grokbot\n- mattpocock/skills /grill-me so the agent interrogates the idea before anything gets built\n- spec drops into linear through the linear mcp\n- exa + firecrawl agent reads every competitor site, pricing page and changelog\n- https://t.co/a5ARFnvSnA to find ideas and trends\n- apify pulls g2, reddit and app store reviews\n- prompt: \"find the 10 complaints that show up most and quote the users\"\n- context7 so the agent reads the latest docs before it touches any api\n\nthe design\n\n- claude code + paper mcp\n- 4 versions of every screen before a single line of code\n- pick pieces from 2, it merges them. diverge then converge\n- frontend-design skill from anthropic/skills + our own design system skill\n- cleanshot screenshots of any ui i like go straight in with \"make it feel like this\"\n\nthe build\n\n- pingdotgg/t3code as the control surface for every agent, from my phone too\n- stablyai/orca runs a fleet of agents in parallel, each in its own git worktree\n- graphify maps the whole codebase into a knowledge graph so agents navigate instead of guess\n- headroom compresses tool outputs before they hit the model, so tokens go 20-95% further\n- lsp plugins so the agent sees types and errors like an ide does\n- security guidance hook flags risky edits before they land\n- supabase mcp for the database, stripe for billing\n- github mcp opens the pr, vercel spins up a preview\n- loops run overnight, i check what shipped over coffee\n\nthe user testing\n\n- lightpanda as the headless browser, way lighter than chromium so you can run hundreds at once\n- agents click every flow on the preview like a first-time user\n- one persona is impatient, one is confused, one is on a phone\n- playwright + chrome devtools mcp for regression tests\n\nthe bugs\n\n- sentry mcp catches the error\n- agent reads the stack trace and opens a fix pr in under 10 minutes\n- human just approves\n\nthe data\n\n- posthog mcp cron at 7am on yesterday's funnel\n- any step that drops more than 10%, the agent watches 20 session replays and tells me why\n- stripe mcp pulls every cancellation reason into one doc every monday\n\nthe agents' tools\n\n- orgo so every agent gets its own computer\n- agentmail so every agent gets its own inbox\n- agentphone so i can call them from the car\n- composio connect-apps for every other connector\n- akitaonrails/ai-memory, a git-backed markdown wiki so they remember what we decided last week\n\nthe skills\n\n- wshobson/agents so skills work across claude code, codex and opencode\n- my writing voice\n- our design system\n- how we write specs\n- skill creator so the agents write new skills themselves\n\nsome helpful tricks\n\n- one agent per platform. the x agent never touches email\n- cheap model for triage, opus for anything that ships\n- every output gets scored 1-10 by an llm judge. under 8 goes back\n- every agent writes a 5-line log at night so i can read the whole company in 2 minutes\n- every agent mistake becomes a new skill, so it only happens once\n\nthe team\n\n- humans get version 5, not my voice note which they are happy about lol \n- their job is creative feedback, relationships and telling the agents what they got wrong\n\na human pm reviews the funnel once a week. this reviews it every morning\n\nrunning a company is now voice notes and inference",
+     "url": "https://x.com/gregisenberg/status/2117734977312047537",
+     "date": "2026-11-03T21:45:38Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2116992424459567297",
+     "author": "Jaber",
+     "handle": "Akashi203",
+     "text": "last month i was begging gpu providers for b300s at $7.9/hr\n\nnow they're begging me to take them at $4.6/hr, no commitment\n\nsomething big is happening soon. ai gave us all its dessert and now it's time for the veggies",
+     "url": "https://x.com/Akashi203/status/2116992424459567297",
+     "date": "2026-11-01T20:35:00Z"
+    }
+   ]
+  },
+  {
+   "id": "goats",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2117406414008152088",
+     "author": "Paradis",
+     "handle": "ParadisLabs",
+     "text": "Bill Ackman of Pershing Square released his Q3 shareholder letter today.\n\nIt is essential reading on AI, hyperscalers, neoclouds and financial markets.\n\nhttps://t.co/Jrq0b3rOXe",
+     "url": "https://x.com/ParadisLabs/status/2117406414008152088",
+     "date": "2026-11-03T00:00:03Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2117220957622255727",
+     "author": "Serenity",
+     "handle": "aleabitoreddit",
+     "text": "We've finally made it to November... holy crap October was brutal. \n\nPer Morgan Stanley data, the recent hedge fund de-grossing was the highest in the past 10 years. \n\nExceeding the:  \n- 2016 Chinese stock market crash\n- 2018 Volmageddon\n- March 2020 COVID crash\n- 2021 Archegos collapse / Evergrande crisis\n- 2022 bear market\n\nGoldman's prime brokerage desk reported on the 26th that it had also seen ~$20B of selling over 2 weeks vs. $23 billion during July's entire unwind. \n\nFrom $HOOD short interest data, from Sept -> Oct short float also increased from:\n\n$AAOI: 12.5% -> 19.84%+ \n$AEVA: 11% -> 25.64%+ \n$CBRS: 12.25% -> 20.12%+\n$AEHR: 14.33% -> 17.93%+\n$TSEM: 2.15% -> 4.73%+\n$CIFR: 19.94% -> 25.39%+\n$LWLG: 15.24% ->19.12%+ \n$OKLO: 17.72% ->22.93%+\n$CRWV: 17.91% ->26.58%+\n\nSubstantial deleveraging coinciding with surging short interest, kinda looks like a July setup after Midterms? \n\nThe recent rotation also kinda pushed names like $CRWD and cybersecurity to bubble valuations into hundreds of fwd P/E... \n\nEarnings on many AI capex + bottlenecks (not all like $INTC) looked strong: \n\neg. $AXTI guided annualized Q4 = 23.7x P/E now, not including potential InP substrate hikes + capacity expansion that can compress it to single digits. \n\n- $SKHY (~$59B operating profit) casually making more than trillion dollar companies like Amazon ($28.1B operating profit), backed with 5Y LTAs. \n\n- No signs of $MSFT / $AMZN materially cutting capex, while $SPCX secures $40B more for GPU procurement. \n\nSlightly painful, but I think the AI capex trade (specifically photonics/memory) is a generational opportunity, with extreme volatility in between.",
+     "url": "https://x.com/aleabitoreddit/status/2117220957622255727",
+     "date": "2026-11-02T11:43:07Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2117553790463479941",
+     "author": "Paul Millerd",
+     "handle": "p_millerd",
+     "text": "2027 Is going to be an absolutely wild year for knowledge work \n\nI actually think there will be far more opportunity in terms of jobs, but you are going to have to work with agentic coding models. It's still early so a lot of stuff isn't abstracted away \n\nI have had a surprising amount of people reach out to me in the last 2 months, wanting to just talk with somebody who's gone through letting go of a fancy work identity\n\nThe good news is that many people get to a spot where they feel happier about work.  Does that mean a guaranteed path to always making money in a very stable and secure way? No. But it does mean there are far more ways to work in today's world and be satisfied with that \n\nI think the key is to not trade your present for the future. Fear and worry. And the sense that you are \"behind,\" are always stealing your present. And the present is the only way you can actually channel curiosity or creativity - the best way to embrace an emergent path",
+     "url": "https://x.com/p_millerd/status/2117553790463479941",
+     "date": "2026-11-03T09:45:40Z"
+    }
+   ]
+  },
+  {
+   "id": "investments",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2118238897595465985",
+     "author": "Daniel Koss",
+     "handle": "daniel_koss",
+     "text": "Short $NBIS, long $ORCL.\n\nThis Citrini trade seems absolutely INSANE to me. \n\nThe exact OPPOSITE trade seems much smarter.\n\n1) COUNTERPARTY RISK: Oracle's largest customer is OpenAI (~$300B deal). Oracle is BBB-, one notch above junk, with ~$118B of long-term debt. Nebius's backlog sits on investment-grade Microsoft and Meta contracts and is financed against them.\n\n2) Execution risk: Oracle had reported OpenAI site delays and a slower Abilene ramp. Nebius delivered every Microsoft and Meta tranche on time.\n\n3) Regulatory risk: Oracle's Stargate footprint is heavily in TEXAS, the exact moratorium risk Citrini warns about. Nebius has ZERO disclosed Texas sites.\n\n4) Geographic flexibility: Nebius builds across Europe, the Middle East (Israel, NEOM) and is expanding into APAC.\n\nNo matter which angle you look from, this pair is the exact opposite of what you'd do for every reason Citrini seems to fear. Just makes no sense 🤷‍♂️",
+     "url": "https://x.com/daniel_koss/status/2118238897595465985",
+     "date": "2026-11-05T07:08:02Z",
+     "group": "Neoclouds",
+     "quoted": {
+      "author": "Liquid",
+      "handle": "liquidtrading",
+      "text": "JUST IN: Citrini Research publishes research note advising clients to take a short position in $NBIS https://t.co/ZDjwqLkesv",
+      "url": "https://x.com/liquidtrading/status/2118150776346284291"
+     }
+    },
+    {
+     "type": "post",
+     "id": "x-2118286053777785066",
+     "author": "Oguz Erkan",
+     "handle": "oguzerkan",
+     "text": "We are likely near the peak of the AI cycle.\n\nHistorically, semiconductor valuations peak just before margins peak, which indicates a turning point in the cycle.\n\nForward multiples have been contracting this year while margins have kept expanding. Given that multiples roll over before margins, we’ll likely see peak margins next year.\n\nThis means demand is expected to ease post-2027.\n\nSo, the easy money in semiconductors has already been made. There could still be some upside to $NVDA and $AMD, depending on how fast demand cools post-2027, but nobody should expect the violent upward moves we saw in the last 2–3 years.",
+     "url": "https://x.com/oguzerkan/status/2118286053777785066",
+     "date": "2026-11-05T10:15:25Z",
+     "group": "Semis cycle",
+     "quoted": {
+      "author": "Evan",
+      "handle": "StockMKTNewz",
+      "text": "Citrini Research said today it now thinks we have passed the peak in AI Infrastructure CAPEX cycle https://t.co/vXETi6OTds",
+      "url": "https://x.com/StockMKTNewz/status/2118110460440350740"
+     }
+    },
+    {
+     "type": "story",
+     "id": "cohr-photonlink",
+     "headline": "Coherent signs another ~$20 billion PhotonLink LTA with a major AI company",
+     "summary": "On its Q1 call, Coherent said it signed another significant PhotonLink long-term agreement with a major AI company, with total revenue value of about $20 billion over five years. Gaetano flagged that almost every recently signed TLA includes upfront customer funding — prepayments or development payments — so customers have skin in the game on the capacity being built.",
+     "short": "COHR: new ~$20B / 5yr PhotonLink LTA; TLAs increasingly prepaid by AI customers.",
+     "sources": [
+      {
+       "name": "X @Gaetano2026",
+       "url": "https://x.com/Gaetano2026/status/2118095856620773559"
+      },
+      {
+       "name": "X @Gaetano2026",
+       "url": "https://x.com/Gaetano2026/status/2118179161055621200"
+      }
+     ],
+     "topic": [
+      "ai",
+      "investing"
+     ],
+     "group": "Optical"
+    },
+    {
+     "type": "post",
+     "id": "x-2118099628218581074",
+     "author": "Citrini",
+     "handle": "citrini",
+     "text": "The regime shift means it’s going to be very easy for investors to get burnt applying frameworks that worked for the first part of the cycle to the next. \n\nOur 10th State of the Themes is about how we intend to avoid that. \n\nhttps://t.co/iw4Uet4ICy",
+     "url": "https://x.com/citrini/status/2118099628218581074",
+     "date": "2026-11-04T21:54:38Z",
+     "group": "Regime shift"
+    },
+    {
+     "type": "story",
+     "id": "hf-degrossing",
+     "headline": "October's hedge-fund de-grossing was the biggest in a decade",
+     "summary": "Serenity (@aleabitoreddit), citing Morgan Stanley, said the recent hedge-fund de-grossing was the highest in the past 10 years — exceeding 2016 China, Volmageddon, COVID, Archegos/Evergrande, and the 2022 bear market. Goldman's prime desk saw about $20 billion of selling over two weeks, and short interest jumped across many AI infrastructure names into the midterms week.",
+     "short": "MS: biggest HF de-grossing in 10 years; shorts rose hard into midterm week.",
+     "sources": [
+      {
+       "name": "X @aleabitoreddit",
+       "url": "https://x.com/aleabitoreddit/status/2117220957622255727"
+      }
+     ],
+     "topic": [
+      "markets",
+      "investing"
+     ],
+     "group": "Regime shift"
+    },
+    {
+     "type": "post",
+     "id": "x-2118110984124662124",
+     "author": "Citrini",
+     "handle": "citrini",
+     "text": "Acting like we haven’t been writing about pivoting away from semis exposure for the past 5 months is disingenuous. \n\nNot going to victory lap being down, but we pivoted away from semis back in June - bringing AI hardware exposure down from &gt;50% in May to &lt;10% in June. https://t.co/NouWLoOFvC https://t.co/3x19wkF1Wx",
+     "url": "https://x.com/citrini/status/2118110984124662124",
+     "date": "2026-11-04T22:39:45Z",
+     "group": "Regime shift",
+     "quoted": {
+      "author": "EB CAPITAL",
+      "handle": "EBCAPITAL1",
+      "text": "@citrini Only 40-50% lower too late are you, geniuses.",
+      "url": "https://x.com/EBCAPITAL1/status/2118105366852485366"
+     }
+    }
+   ]
+  },
+  {
+   "id": "holdings",
+   "items": [
+    {
+     "type": "line",
+     "id": "h-nbis",
+     "text": "<b>Nebius:</b> Sold off with other neoclouds Wednesday as the market priced data-center delays as hitting pure-plays harder than hyperscalers; bulls on X pushed back on a Citrini short-NBIS / long-ORCL pair trade.",
+     "sources": [
+      {
+       "name": "X @oguzerkan",
+       "url": "https://x.com/oguzerkan/status/2118077843615666550"
+      },
+      {
+       "name": "X @daniel_koss",
+       "url": "https://x.com/daniel_koss/status/2118238897595465985"
+      }
+     ],
+     "group": "NBIS",
+     "topic": [
+      "ai",
+      "investing"
+     ]
+    },
+    {
+     "type": "line",
+     "id": "h-mu",
+     "text": "<b>Micron:</b> Reported to have scrapped a planned Taiwan fab due in 2028 after a bonus dispute with the local union — less supply into the later decade.",
+     "sources": [
+      {
+       "name": "X @jukan05",
+       "url": "https://x.com/jukan05/status/2118271210983485859"
+      },
+      {
+       "name": "X @ParadisLabs",
+       "url": "https://x.com/ParadisLabs/status/2118282812214112635"
+      }
+     ],
+     "group": "MU",
+     "topic": [
+      "ai",
+      "investing"
+     ]
+    },
+    {
+     "type": "line",
+     "id": "h-amzn",
+     "text": "<b>Amazon:</b> Among the hyperscalers that led Wednesday's rally (~7%) as investors rotated toward platforms seen as more resilient to local data-center pushback.",
+     "sources": [
+      {
+       "name": "X @oguzerkan",
+       "url": "https://x.com/oguzerkan/status/2118077843615666550"
+      },
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2118088400431726885"
+      }
+     ],
+     "group": "AMZN",
+     "topic": [
+      "ai",
+      "investing"
+     ]
+    },
+    {
+     "type": "line",
+     "id": "h-meta",
+     "text": "<b>Meta:</b> Conductor (Charlie Holtz) is joining Meta's Superintelligence Lab under Nat Friedman and Alexandr Wang; Meta continues to staff personal-AI / Muse work.",
+     "sources": [
+      {
+       "name": "X @charlieholtz",
+       "url": "https://x.com/charlieholtz/status/2118045232218743264"
+      }
+     ],
+     "group": "META",
+     "topic": [
+      "ai",
+      "tech"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tech",
+   "items": [
+    {
+     "type": "story",
+     "id": "openai-jpmorgan",
+     "headline": "OpenAI papers a JPMorgan Chase deal for Codex and cyber models",
+     "summary": "Greg Brockman said OpenAI has papered a partnership with JPMorgan Chase in which the bank will use Codex and OpenAI's cyber models to secure itself, and deploy models for enterprise knowledge work. He also said OpenAI's mix has flipped to majority enterprise from about 30% enterprise previously, with consumer still growing. Separately, Brockman floated that AI could make real strides on curing diseases in the next 12–18 months and that \"death becoming a choice\" is possible.",
+     "short": "Unannounced JPMorgan deal for Codex + cyber models; OpenAI now majority enterprise.",
+     "sources": [
+      {
+       "name": "X @firesidealpha",
+       "url": "https://x.com/firesidealpha/status/2118209090203902439"
+      },
+      {
+       "name": "X @firesidealpha",
+       "url": "https://x.com/firesidealpha/status/2118216775368396890"
+      }
+     ],
+     "topic": [
+      "ai",
+      "tech"
+     ]
+    },
+    {
+     "type": "post",
+     "id": "x-2118010528123773297",
+     "author": "Kimi.ai",
+     "handle": "Kimi_Moonshot",
+     "text": "Releasing the model weights of Kimi K3.1 Pro: https://t.co/tJXcYUeSCj\nWe'll keep advancing open intelligence. https://t.co/BbWCJUYYSQ",
+     "url": "https://x.com/Kimi_Moonshot/status/2118010528123773297",
+     "date": "2026-11-04T16:00:35Z"
+    },
+    {
+     "type": "story",
+     "id": "apple-ai-budget",
+     "headline": "Apple puts employees on tighter AI spending budgets",
+     "summary": "Bloomberg reported Apple cut some engineers' daily AI spending limits from $300 to $200 and is considering further cuts to as little as $100, with many non-engineering teams already at $100 and talk of $25 caps. The budgets cover tokens on Claude, ChatGPT, and Gemini.",
+     "short": "Apple cuts daily AI token budgets for staff (Bloomberg via Milk Road).",
+     "sources": [
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2118112042074996787"
+      }
+     ],
+     "topic": [
+      "ai",
+      "tech"
+     ]
+    },
+    {
+     "type": "story",
+     "id": "jeff-dean-discovery",
+     "headline": "Jeff Dean's Discovery Loop: 400 interviews in three weeks, agent-first infrastructure",
+     "summary": "Jeff Dean said Discovery Loop did about 400 interviews in its first three weeks (mostly at Cafe Venetia on University Avenue), is housed in the old Zibibbo restaurant space, already has about 20 automated improvement loops running, and has built an agent harness meant to scale to tens or hundreds of thousands of agents. He also said he is bullish on specialized hardware for dominant workloads.",
+     "short": "Discovery Loop: 400 interviews, ~20 auto loops, agent harness built to massive scale.",
+     "sources": [
+      {
+       "name": "X @firesidealpha",
+       "url": "https://x.com/firesidealpha/status/2118204891726479471"
+      }
+     ],
+     "topic": [
+      "ai",
+      "tech"
+     ]
+    },
+    {
+     "type": "story",
+     "id": "databricks-singapore",
+     "headline": "Databricks opens a $350M+ Singapore hub and doubles down on Asia",
+     "summary": "Databricks opened a new regional headquarters in Singapore backed by more than $350 million: a 32,000-square-foot office four times its old space, meant as the hub for Asia Pacific and Japan. It plans to grow the Singapore team from about 250 to more than 500 over three years, including 200+ forward-deployed engineers.",
+     "short": "Databricks Singapore HQ: $350M+, team 250→500+, 200+ FDEs.",
+     "sources": [
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2118134706235645966"
+      }
+     ],
+     "topic": [
+      "ai",
+      "business"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2117995338846163260",
+     "author": "David Senra",
+     "handle": "davidsenra",
+     "text": "Scott Kupor (@skupor) was the first hire at Andreessen Horowitz. Marc and Ben still joke that if he had said yes sooner, the firm would be called Andreessen, Kupor, Horowitz.\n\nHis job description: \"We're going to invest, and you need to figure out everything else.\"\n\nScott spent 16 years helping grow a16z from 3 people to about 700. Now he runs the Office of Personnel Management, the HR department for 2 million federal employees.\n\nScott explains how a16z borrowed Michael Ovitz's playbook from CAA, why only 7% of the federal workforce is under 30, and why 400 million pages of retirement records sit in an underground limestone mine in Pennsylvania.\n\nThis is a fascinating conversation about incentives, talent, and what it takes to turn a 2.3-million-person oil tanker.\n\n0:00 Quitting HP mid-financial crisis to join a16z\n1:37 His first day\n4:00 How a16z copied Michael Ovitz's CAA playbook\n10:18 After-hours bourbon in Marc Andreessen's office\n13:31 The Skype deal that returned half the first fund\n18:37 Why VCs thought marketing was beneath them\n21:48 Swallowing his ego as a16z grew\n27:12 Why he left a16z to run the government's HR\n30:37 Why government is afraid to take any risk\n33:24 Why 99.7% of federal employees get a passing grade\n36:13 Recruiting 1,000 engineers into government\n38:37 Only 7% of the federal workforce is under 30\n40:31 Why \"a job for life\" is the wrong pitch\n43:09 Why the government would never have hired Big Balls\n46:39 Why DOGE had to be a big bang\n48:56 The underground mine with 400 million pages of paper\n55:28 Why government has to accept some failure\n57:14 How young people can join\n\nIncludes paid partnerships.",
+     "url": "https://x.com/davidsenra/status/2117995338846163260",
+     "date": "2026-11-04T15:00:13Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2118159209166680243",
+     "author": "Simon Sarris",
+     "handle": "simonsarris",
+     "text": "I have a theory that middle class life involving so much hoop-jumping is legitimately one of the reasons the birth rate is low. One thousand cuts of tiny complexities to juggle.\n\nyou'd hope a future would make this better but so far its just turning up the heat https://t.co/EbJZYfhE8p",
+     "url": "https://x.com/simonsarris/status/2118159209166680243",
+     "date": "2026-11-05T01:51:23Z",
+     "quoted": {
+      "author": "vie ⟢",
+      "handle": "viemccoy",
+      "text": "We live in an extremely temporary golden age where many delightful things (airline upgrades, access to higher quality medical care, refunds in general) are gated behind superhuman patience that only a small fraction of the population has access to. Entire chunks of the economy are made for this specific group, and now everyone has this type-of-guy working for them on demand. With agents making phone calls and waiting *literally forever*, anyone can now have access to what the \"patient elite\" have always enjoyed. This obviously will not last forever as companies realize everyone is doing this, though it may last longer than you think due to fragmented AI adoption.",
+      "url": "https://x.com/viemccoy/status/2118136848845607136"
+     }
+    }
+   ]
+  },
+  {
+   "id": "evergreen",
+   "items": [
+    {
+     "type": "evergreen",
+     "id": "ev-patrickc-liquid-software",
+     "kind": "Post",
+     "title": "Liquid software: an improvements box that an agent just implements",
+     "author": "Patrick Collison",
+     "handle": "patrickc",
+     "date": "2026-10-31",
+     "url": "https://x.com/patrickc/status/2116636967517798672",
+     "summary": "Collison is wiring a freeform \"improvements\" input into his personal apps so an agent will yolo-implement whatever users submit. Activation energy collapses; one user shipped 150 improvements in a few days. He calls the pattern liquid software — and says every app without it now feels slightly rigid."
+    },
+    {
+     "type": "evergreen",
+     "id": "ev-camillo-update-counter",
+     "kind": "Post",
+     "title": "Update the best argument against your own position",
+     "author": "Chris Camillo",
+     "handle": "ChrisCamillo",
+     "date": "2026-10-06",
+     "url": "https://x.com/ChrisCamillo/status/2107526902839738560",
+     "summary": "Camillo's discipline: constantly update the strongest case against your thesis, not to dismiss it. For Amazon, he walks through the agentic-commerce threat from Meta Muse and other agents that could own discovery — then explains why he still holds, with an updated conviction level rather than a slogan."
+    },
+    {
+     "type": "evergreen",
+     "id": "ev-gestalt-markets-si",
+     "kind": "Post",
+     "title": "Capital markets as a live experiment in narrow superintelligence",
+     "author": "GestaltU",
+     "handle": "GestaltU",
+     "date": "2026-10-09",
+     "url": "https://x.com/GestaltU/status/2108557623133864135",
+     "summary": "GestaltU argues we've already run a large-scale experiment in unleashing a superintelligence on a narrow objective: U.S. capital markets — millions of agents wired through prices, chasing risk-adjusted return. Spectacular at its job; also a cautionary tale about objective functions and side effects."
+    }
+   ]
+  },
+  {
+   "id": "business",
+   "items": [
+    {
+     "type": "story",
+     "id": "uber-eats-vs-dash",
+     "headline": "Uber Eats now looks cheap next to DoorDash on a sales multiple",
+     "summary": "Oguz Erkan notes Uber Eats generated about $20 billion of revenue in the last twelve months versus DoorDash's $17 billion. Valued at DoorDash's sales multiple, Eats alone would be a ~$100 billion business; DoorDash ex-Deliveroo is growing at a similar rate, which he reads as implying Uber's mobility business is being valued very cheaply after disruption fears.",
+     "short": "UBER Eats ~$20B LTM vs DASH $17B; at DASH multiples Eats alone ~$100B.",
+     "sources": [
+      {
+       "name": "X @oguzerkan",
+       "url": "https://x.com/oguzerkan/status/2118236880131047782"
+      }
+     ],
+     "topic": [
+      "business",
+      "investing"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "science",
+   "items": [
+    {
+     "type": "story",
+     "id": "brockman-biology",
+     "headline": "Brockman: AI may make real strides on curing disease in 12–18 months",
+     "summary": "OpenAI's Greg Brockman said he expects meaningful progress on biology and disease in the next year to a year and a half, and floated that \"death becoming a choice\" is among the longer-run possibilities if AI systems keep improving at scientific work. Treat it as a lab founder forecast, not a clinical result.",
+     "short": "OpenAI Brockman: disease-cure progress possible in 12–18 months (forecast, not a trial result).",
+     "sources": [
+      {
+       "name": "X @firesidealpha",
+       "url": "https://x.com/firesidealpha/status/2118216775368396890"
+      }
+     ],
+     "topic": [
+      "health",
+      "ai",
+      "science"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bigstuff",
+   "items": [
+    {
+     "type": "line",
+     "id": "bs-midterms",
+     "text": "<b>U.S. midterms:</b> Democrats won control of both the House and the Senate; Big Tech led a Wednesday rally as markets priced the result.",
+     "sources": [
+      {
+       "name": "X @MilkRoadAI",
+       "url": "https://x.com/MilkRoadAI/status/2118088400431726885"
+      }
+     ],
+     "major": true,
+     "topic": [
+      "elections",
+      "politics"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worth",
+   "items": [
+    {
+     "type": "link",
+     "id": "w-ackman",
+     "title": "Bill Ackman Q3 shareholder letter (via @ParadisLabs)",
+     "url": "https://x.com/ParadisLabs/status/2117406414008152088",
+     "why": "Essential reading on AI, hyperscalers, neoclouds and markets."
+    },
+    {
+     "type": "link",
+     "id": "w-citrini-sot",
+     "title": "Citrini: 10th State of the Themes — regime shift",
+     "url": "https://x.com/citrini/status/2118099628218581074",
+     "why": "How they intend to avoid replaying early-cycle frameworks."
+    },
+    {
+     "type": "link",
+     "id": "w-senra-kupor",
+     "title": "David Senra with Scott Kupor (a16z → OPM)",
+     "url": "https://x.com/davidsenra/status/2117995338846163260",
+     "why": "Incentives, talent, and turning a 2.3M-person oil tanker."
+    },
+    {
+     "type": "link",
+     "id": "w-hackertube",
+     "title": "Karpathy's HackerTube",
+     "url": "https://x.com/karpathy/status/2116957135661945283",
+     "why": "Claude-filtered HN comments → 6,454 lasting video recs."
+    }
+   ]
+  },
+  {
+   "id": "passage",
+   "items": [
+    {
+     "type": "passage",
+     "id": "bible-isa-40-28",
+     "text": "Hast thou not known? hast thou not heard, that the everlasting God, the LORD, the Creator of the ends of the earth, fainteth not, neither is weary? there is no searching of his understanding. He giveth power to the faint; and to them that have no might he increaseth strength. Even the youths shall faint and be weary, and the young men shall utterly fall: But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.",
+     "author": "The Bible",
+     "kind": "scripture",
+     "work": "Isaiah 40:28–31",
+     "source_url": "https://www.biblegateway.com/passage/?search=Isaiah+40%3A28-31&version=KJV",
+     "sources": [
+      {
+       "name": "biblegateway.com",
+       "url": "https://www.biblegateway.com/passage/?search=Isaiah+40%3A28-31&version=KJV"
+      }
+     ],
+     "translation": "KJV",
+     "label": "Scripture"
+    }
+   ]
+  },
+  {
+   "id": "games",
+   "items": [
+    {
+     "type": "mathq",
+     "id": "mathq-2026-11-05",
+     "title": "Mental Math",
+     "problems": [
+      {
+       "q": "24 × 4",
+       "a": "96",
+       "how": "24 × 4 = 20 × 4 + 4 × 4 = 96"
+      },
+      {
+       "q": "45% of 760",
+       "a": "342",
+       "how": "10% is 76, so 45% = 4 × 76 + half of 76 = 342"
+      },
+      {
+       "q": "Fermi: a resting heart beats about 70 times a minute. Roughly how many beats in a year?",
+       "a": "about 37 million",
+       "how": "70 × 60 × 24 × 365 = 36,792,000"
+      }
+     ]
+    },
+    {
+     "type": "wason",
+     "id": "wason-2026-11-05",
+     "title": "Four Cards",
+     "rule": "If a card has a vowel on one side, it has an even number on the other.",
+     "cards": [
+      "R",
+      "2",
+      "9",
+      "A"
+     ],
+     "answer": "A and 9",
+     "explanation": "A could hide something that breaks the rule; 9 breaks it if the other side turns out to be A. 2 can't break it (the rule never says only those cards have it), and R isn't covered by the rule at all. Most people pick the card that matches the rule's second half instead of the one that could falsify it."
+    },
+    {
+     "type": "crossword",
+     "id": "crossword-2026-11-05",
+     "title": "Mini Crossword",
+     "size": 5,
+     "cells": [
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 1
+       },
+       {
+        "n": 2
+       },
+       {
+        "n": 3
+       },
+       {
+        "b": true
+       }
+      ],
+      [
+       {
+        "n": 4
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": 5
+       }
+      ],
+      [
+       {
+        "n": 6
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "n": 7
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 8
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "b": true
+       }
+      ]
+     ],
+     "clues": {
+      "across": [
+       {
+        "n": 1,
+        "clue": "The atmosphere and outer space as viewed from the earth",
+        "len": 3,
+        "answer": "SKY"
+       },
+       {
+        "n": 4,
+        "clue": "A cloth having a crisscross design",
+        "len": 5,
+        "answer": "PLAID"
+       },
+       {
+        "n": 6,
+        "clue": "Of the highest quality",
+        "len": 5,
+        "answer": "SUPER"
+       },
+       {
+        "n": 7,
+        "clue": "Express or state indirectly",
+        "len": 5,
+        "answer": "IMPLY"
+       },
+       {
+        "n": 8,
+        "clue": "A number of sheets of paper fastened together along one edge",
+        "len": 3,
+        "answer": "PAD"
+       }
+      ],
+      "down": [
+       {
+        "n": 1,
+        "clue": "A noticeable deterioration in performance or quality",
+        "len": 5,
+        "answer": "SLUMP"
+       },
+       {
+        "n": 2,
+        "clue": "The 10th letter of the Greek alphabet",
+        "len": 5,
+        "answer": "KAPPA"
+       },
+       {
+        "n": 3,
+        "clue": "Production of a certain amount",
+        "len": 5,
+        "answer": "YIELD"
+       },
+       {
+        "n": 4,
+        "clue": "A unit of pressure",
+        "len": 3,
+        "answer": "PSI"
+       },
+       {
+        "n": 5,
+        "clue": "A reformer who opposes the use of intoxicating beverages",
+        "len": 3,
+        "answer": "DRY"
+       }
+      ]
+     },
+     "solution": [
+      "#SKY#",
+      "PLAID",
+      "SUPER",
+      "IMPLY",
+      "#PAD#"
+     ]
+    },
+    {
+     "type": "riddle",
+     "id": "riddle-2026-11-05",
+     "title": "Riddle",
+     "q": "What gets wetter the more it dries?",
+     "a": "A towel."
+    }
+   ]
+  }
+ ],
+ "funny_candidates": [
+  {
+   "type": "post",
+   "id": "funny-2118018628146835585",
+   "author": "Mr. Make It Happen",
+   "handle": "SupportThaNawf",
+   "text": "We have to say “Mississippi” after each number https://t.co/ZRYBeluqiM",
+   "url": "https://x.com/SupportThaNawf/status/2118018628146835585",
+   "date": "2026-11-04T16:32:46Z",
+   "score": 20.21
+  },
+  {
+   "type": "post",
+   "id": "funny-2118028617737224280",
+   "author": "Klonopin Centaur",
+   "handle": "facetedcarapace",
+   "text": "Youre laughing. The Wendy's Baconator is about to replaced with the Halal Chicken Shawarma Burger and you're laughing?",
+   "url": "https://x.com/facetedcarapace/status/2118028617737224280",
+   "date": "2026-11-04T17:12:28Z",
+   "score": 16.73
+  },
+  {
+   "type": "post",
+   "id": "funny-2118054715619766712",
+   "author": "Roger",
+   "handle": "rdd147",
+   "text": "$CRWV no longer has access to bond markets or sufficient equity to meet 2027 obligations. Bankrupt.",
+   "url": "https://x.com/rdd147/status/2118054715619766712",
+   "date": "2026-11-04T18:56:10Z",
+   "score": 13.17
+  },
+  {
+   "type": "post",
+   "id": "funny-2118016947459596577",
+   "author": "Vebjørn",
+   "handle": "VJNCapital",
+   "text": "The AI stock selloff continues https://t.co/1JOteJ46Qf",
+   "url": "https://x.com/VJNCapital/status/2118016947459596577",
+   "date": "2026-11-04T16:26:05Z",
+   "image_url": "https://pbs.twimg.com/media/HWS1L_sXkAAUOpr.jpg",
+   "image_alt": "",
+   "score": 11.86
+  },
+  {
+   "type": "post",
+   "id": "funny-2117975597045682468",
+   "author": "GREG ISENBERG",
+   "handle": "gregisenberg",
+   "text": "How to not write AI slop https://t.co/dUR5hdRwWU https://t.co/3ATdOPgBJn",
+   "url": "https://x.com/gregisenberg/status/2117975597045682468",
+   "date": "2026-11-04T13:41:47Z",
+   "quoted": {
+    "author": "GREG ISENBERG",
+    "handle": "gregisenberg",
+    "text": "1 HOUR MASTERCLASS ON HOW TO WRITE WITH AI (from someone who's made $30M+ writing online) https://t.co/H71tmePf0a",
+    "url": "https://x.com/gregisenberg/status/2102122041692270918"
+   },
+   "score": 11.72
+  },
+  {
+   "type": "post",
+   "id": "funny-2118170810841965023",
+   "author": "Dan Shipper",
+   "handle": "danshipper",
+   "text": "all of these new @openai hires obvoiusly because they read my codex piece https://t.co/UA75jNNUoJ",
+   "url": "https://x.com/danshipper/status/2118170810841965023",
+   "date": "2026-11-05T02:37:29Z",
+   "score": 11.7
+  },
+  {
+   "type": "post",
+   "id": "funny-2118038557109768423",
+   "author": "Kyle Reidhead | Milk Road",
+   "handle": "KyleReidhead",
+   "text": "Very good thread about Texas Data Centers and how decisions / policies are actually made https://t.co/BZpyTBHWlW",
+   "url": "https://x.com/KyleReidhead/status/2118038557109768423",
+   "date": "2026-11-04T17:51:57Z",
+   "quoted": {
+    "author": "Level39",
+    "handle": "level39",
+    "text": "1/ Everyone take a deep breath. Texas data centers aren't going anywhere. The Texas governor has very limited authority to stop them. Calls for a pause or moratorium must be approved by TCEQ—the permitting authority of Abbott appointees. …",
+    "url": "https://x.com/level39/status/2118015175622369503"
+   },
+   "score": 10.98
+  },
+  {
+   "type": "post",
+   "id": "funny-2118001818227642520",
+   "author": "travis kalanick",
+   "handle": "travisk",
+   "text": "Vintage seed raising gold.. 🤠🥇💰\n\nhttps://t.co/TVQtgel0GS https://t.co/n7y3efMcPh",
+   "url": "https://x.com/travisk/status/2118001818227642520",
+   "date": "2026-11-04T15:25:58Z",
+   "quoted": {
+    "author": "Collin Lemmon",
+    "handle": "Collin_Lemmon",
+    "text": "@travisk I'm a founder raising our first pre-seed round, and your @davidsenra episode changed how im thinking about raising. Ive watched it over 10 times.  im obsessing over the \"I never get attached to a price. I get attached to a process.\" line. …",
+    "url": "https://x.com/Collin_Lemmon/status/2117773518259601607"
+   },
+   "score": 10.92
+  },
+  {
+   "type": "post",
+   "id": "funny-2118109452142621146",
+   "author": "Babyfolio",
+   "handle": "babyfolio",
+   "text": "Curious to know what you guys think, is the AI trade gone?",
+   "url": "https://x.com/babyfolio/status/2118109452142621146",
+   "date": "2026-11-04T22:33:40Z",
+   "score": 9.79
+  },
+  {
+   "type": "post",
+   "id": "funny-2117965906081087734",
+   "author": "SandemanStocks",
+   "handle": "Sandeman52",
+   "text": "$NBIS during earnings I expect Arkady to address multiple FUD talking points.  In addition to killer guidance.",
+   "url": "https://x.com/Sandeman52/status/2117965906081087734",
+   "date": "2026-11-04T13:03:16Z",
+   "score": 9.6
+  },
+  {
+   "type": "post",
+   "id": "funny-2118051124066595221",
+   "author": "Jim Liu",
+   "handle": "jiahanjimliu",
+   "text": "Fantastic full detail post from @level39 on why I am not concern about datacenter ban or even pause for $IREN in Texas. https://t.co/1R4nsG6bY0",
+   "url": "https://x.com/jiahanjimliu/status/2118051124066595221",
+   "date": "2026-11-04T18:41:54Z",
+   "quoted": {
+    "author": "Level39",
+    "handle": "level39",
+    "text": "1/ Everyone take a deep breath. Texas data centers aren't going anywhere. The Texas governor has very limited authority to stop them. Calls for a pause or moratorium must be approved by TCEQ—the permitting authority of Abbott appointees. …",
+    "url": "https://x.com/level39/status/2118015175622369503"
+   },
+   "score": 9.51
+  },
+  {
+   "type": "post",
+   "id": "funny-2118181080314576928",
+   "author": "Chamath Palihapitiya",
+   "handle": "chamath",
+   "text": "I had the pleasure and honor of spending time with Rick Rubin and we recorded this conversation. https://t.co/AoPCyFcGKn",
+   "url": "https://x.com/chamath/status/2118181080314576928",
+   "date": "2026-11-05T03:18:18Z",
+   "quoted": {
+    "author": "Tetragrammaton",
+    "handle": "tetranow",
+    "text": "NEW EPISODE: “I'm going to zag when everybody zigs. Now the problem is that may mean half the time I'm just going to lose everything. And then you have this critical question: am I okay with that? …",
+    "url": "https://x.com/tetranow/status/2118091623947276774"
+   },
+   "score": 9.3
+  },
+  {
+   "type": "post",
+   "id": "funny-2117995140023226830",
+   "author": "Paradis",
+   "handle": "ParadisLabs",
+   "text": "Thanks for listening to my Ted Talk.\n\nIncredible strength in the hyperscalers as capital rotates out of Semis. https://t.co/IjCGmwTP97 https://t.co/jLHwpT9Ykf",
+   "url": "https://x.com/ParadisLabs/status/2117995140023226830",
+   "date": "2026-11-04T14:59:26Z",
+   "quoted": {
+    "author": "Paradis",
+    "handle": "ParadisLabs",
+    "text": "Feels like Anthropic's October ARR really needs to do some heavy lifting to restore some risk-on sentiment for the Semis.\n\nAMD fading isn't fun. YMTC cancelling their IPO due to weaker markets [RTRS] isn't fun either. Not to mention the obvious impacts from Democratic sweep at the Midterms. …",
+    "url": "https://x.com/ParadisLabs/status/2117971342528065909"
+   },
+   "image_url": "https://pbs.twimg.com/media/HWShWbHWYAAzve4.jpg",
+   "image_alt": "",
+   "score": 9.3
+  },
+  {
+   "type": "post",
+   "id": "funny-2117974382161076565",
+   "author": "DVB",
+   "handle": "DeepValueBagger",
+   "text": "Megacaps pre-market this morning. See the pattern? https://t.co/SpcasAFPQV",
+   "url": "https://x.com/DeepValueBagger/status/2117974382161076565",
+   "date": "2026-11-04T13:36:57Z",
+   "image_url": "https://pbs.twimg.com/media/HWSOZkhXMAAm5MF.jpg",
+   "image_alt": "",
+   "score": 9.29
+  },
+  {
+   "type": "post",
+   "id": "funny-2117955980868899221",
+   "author": "Zephyr",
+   "handle": "zephyr_z9",
+   "text": "YMTC paused its IPO due to a weakening market\nSK Hynix paused Solidigm IPO for the same reason",
+   "url": "https://x.com/zephyr_z9/status/2117955980868899221",
+   "date": "2026-11-04T12:23:50Z",
+   "score": 9.22
+  },
+  {
+   "type": "post",
+   "id": "funny-2118154010284671261",
+   "author": "Pranab",
+   "handle": "nopranablem",
+   "text": "a more mainstreamed, contemplative christianity is going to be so undeniably good https://t.co/hYa6CTjrCB",
+   "url": "https://x.com/nopranablem/status/2118154010284671261",
+   "date": "2026-11-05T01:30:44Z",
+   "quoted": {
+    "author": "Max Goodbird",
+    "handle": "owlthatissuperb",
+    "text": "“An incarnational politics would take seriously the idea that every person is God” \n\n❤️‍🔥❤️‍🔥❤️‍🔥\n https://t.co/ayoaHbe7bx",
+    "url": "https://x.com/owlthatissuperb/status/2118143999253069949"
+   },
+   "score": 9.2
+  },
+  {
+   "type": "post",
+   "id": "funny-2118052335066755456",
+   "author": "Will Manidis",
+   "handle": "WillManidis",
+   "text": "jen is very smart. my comment on this is its really hard to find a scaled PE platform that doesn't understand the thing that is coming is about to be fundamentally different, its not a titanic moment, and the thing that comes after will be OOM larger and they really want help https://t.co/oZ1vxOLYV4",
+   "url": "https://x.com/WillManidis/status/2118052335066755456",
+   "date": "2026-11-04T18:46:42Z",
+   "quoted": {
+    "author": "Jen Kha",
+    "handle": "jkhamehl",
+    "text": "https://t.co/fw1tvPY1Yt",
+    "url": "https://x.com/jkhamehl/status/2118004987192324159"
+   },
+   "score": 9.04
+  },
+  {
+   "type": "post",
+   "id": "funny-2118131165072863738",
+   "author": "@ratlimit",
+   "handle": "ratlimit",
+   "text": "New Hampshire is pretty, but as a Texan I don’t think I could handle living in a red state",
+   "url": "https://x.com/ratlimit/status/2118131165072863738",
+   "date": "2026-11-04T23:59:57Z",
+   "score": 8.67
+  },
+  {
+   "type": "post",
+   "id": "funny-2118017813311009256",
+   "author": "Irrational Analysis",
+   "handle": "insane_analyst",
+   "text": "I really want to see Anthropic IPO now just to see the chaos chart on day 1.",
+   "url": "https://x.com/insane_analyst/status/2118017813311009256",
+   "date": "2026-11-04T16:29:32Z",
+   "score": 8.65
+  },
+  {
+   "type": "post",
+   "id": "funny-2118058453415371119",
+   "author": "Nous Research",
+   "handle": "NousResearch",
+   "text": "Plugins, connectors, and skills for Hermes Agent are now unified in a single marketplace so you can easily browse and extend your Hermes experience in a few clicks.\n\nThe new Hermes Marketplace has everything your agent needs:\n\nhttps://t.co/zhZMKbTsLP https://t.co/nfMQ8nlxdg",
+   "url": "https://x.com/NousResearch/status/2118058453415371119",
+   "date": "2026-11-04T19:11:01Z",
+   "score": 8.42
+  },
+  {
+   "type": "post",
+   "id": "funny-2117974159015698694",
+   "author": "Natalie Brunell ⚡️",
+   "handle": "natbrunell",
+   "text": "“I’m going to sit up for this one.”\n\nThis is a powerful 5 minutes to watch and listen. \n\nDon’t miss my full show with @DariusDale42 streaming now on all platforms. https://t.co/wzY78eoj7U https://t.co/zE1OsxLqZG",
+   "url": "https://x.com/natbrunell/status/2117974159015698694",
+   "date": "2026-11-04T13:36:04Z",
+   "quoted": {
+    "author": "Natalie Brunell ⚡️",
+    "handle": "natbrunell",
+    "text": "Darius Dale says this is a conversation he couldn’t have on Bloomberg, and once you watch it you’ll understand why.\n\nA powerful listen before you head to the polls.\n\nThank you @DariusDale42 for being so open and direct. I hope someone who really needed this conversation gets to hear it today. …",
+    "url": "https://x.com/natbrunell/status/2117645356271796686"
+   },
+   "score": 8.4
+  },
+  {
+   "type": "post",
+   "id": "funny-2118058393290108928",
+   "author": "J.B.",
+   "handle": "VibeMarketer_",
+   "text": "my content tier list for actually building a brand people remember\n\nread the full article below for the breakdown + how to build each tier into your own content https://t.co/zkpG2LQKCw https://t.co/mXQ4ZMeJkk",
+   "url": "https://x.com/VibeMarketer_/status/2118058393290108928",
+   "date": "2026-11-04T19:10:47Z",
+   "quoted": {
+    "author": "J.B.",
+    "handle": "VibeMarketer_",
+    "text": "https://t.co/tQ7jzYwC3R",
+    "url": "https://x.com/VibeMarketer_/status/2117986818012676389"
+   },
+   "image_url": "https://pbs.twimg.com/media/HWTaWIBWYAEV_nA.jpg",
+   "image_alt": "",
+   "score": 8.4
+  },
+  {
+   "type": "post",
+   "id": "funny-2118049136587006232",
+   "author": "Chris Williamson",
+   "handle": "ChrisWillx",
+   "text": "The Cheating Double Standard Nobody Talks About - @dcoxpolls https://t.co/TUXu7orD8M",
+   "url": "https://x.com/ChrisWillx/status/2118049136587006232",
+   "date": "2026-11-04T18:34:00Z",
+   "score": 8.34
+  },
+  {
+   "type": "post",
+   "id": "funny-2118013839992295550",
+   "author": "Noah",
+   "handle": "antibearthesis",
+   "text": "I ranked popular stocks based on valuation https://t.co/Yf2ueFcOvY",
+   "url": "https://x.com/antibearthesis/status/2118013839992295550",
+   "date": "2026-11-04T16:13:44Z",
+   "image_url": "https://pbs.twimg.com/media/HWSyPWWXYAA-JhH.jpg",
+   "image_alt": "",
+   "score": 8.34
+  },
+  {
+   "type": "post",
+   "id": "funny-2118090917857157579",
+   "author": "Fiscal.ai",
+   "handle": "Fiscal_ai",
+   "text": "MercadoLibre has now delivered 31 straight quarters of 30%+ revenue growth.\n\n$MELI https://t.co/5CicJWzcrE",
+   "url": "https://x.com/Fiscal_ai/status/2118090917857157579",
+   "date": "2026-11-04T21:20:01Z",
+   "image_url": "https://pbs.twimg.com/media/HWT4dyBa4AAwsBX.jpg",
+   "image_alt": "",
+   "score": 8.28
+  },
+  {
+   "type": "post",
+   "id": "funny-2118168917009113574",
+   "author": "anu",
+   "handle": "anuatluru",
+   "text": "are you watching this space yet https://t.co/h89iMbLhZq",
+   "url": "https://x.com/anuatluru/status/2118168917009113574",
+   "date": "2026-11-05T02:29:58Z",
+   "quoted": {
+    "author": "anu",
+    "handle": "anuatluru",
+    "text": "For one, we like messages from people, not entities.\n\nNot enough Anthropic employees are speaking on timely topics, and as themselves. OpenAI is foregrounding employees now, letting them have personalities and opinions (and recruiting people willing to take that risk themselves). …",
+    "url": "https://x.com/anuatluru/status/2081504484191060240"
+   },
+   "score": 8.28
+  },
+  {
+   "type": "post",
+   "id": "funny-2118004359829278998",
+   "author": "Austen Allred",
+   "handle": "Austen",
+   "text": "I saw this bouncing around but actually listened to what he said.\n\nHoly hell. https://t.co/3O7wzTwk8f",
+   "url": "https://x.com/Austen/status/2118004359829278998",
+   "date": "2026-11-04T15:36:04Z",
+   "quoted": {
+    "author": "ALX 🇺🇸",
+    "handle": "alx",
+    "text": "At an event with Kara Swisher, Scott Galloway called for the execution of Elon Musk for being a “traitor to the west” live on stage. https://t.co/nRq5xnwEXO",
+    "url": "https://x.com/alx/status/2117782009183650297"
+   },
+   "score": 8.2
+  },
+  {
+   "type": "post",
+   "id": "funny-2118031250149745030",
+   "author": "Nate Endicott",
+   "handle": "EndicottInvests",
+   "text": "$NBIS Kimi K3.1 Pro live on token factory \n\nDay 0, of course. \n\nOne of the best open source models https://t.co/VQ91a0imkJ",
+   "url": "https://x.com/EndicottInvests/status/2118031250149745030",
+   "date": "2026-11-04T17:22:55Z",
+   "quoted": {
+    "author": "Nebius",
+    "handle": "nebiusai",
+    "text": "Day 0 Launch: Kimi K3.1 Pro is right now available on @nebiustf served from 🇺🇸 \n\nK3.1 Pro delivers substantial improvements across coding, 3D creation, financial research, and other agentic capabilities.\n\nTry it out here - https://t.co/a6IQTedWTI https://t.co/99m9KJ6NWw",
+    "url": "https://x.com/nebiusai/status/2118031075419316255"
+   },
+   "score": 8.12
+  },
+  {
+   "type": "post",
+   "id": "funny-2118004727053218010",
+   "author": "Serenity",
+   "handle": "aleabitoreddit",
+   "text": "We’re seeing the great rotation into safe, quality assets.\n\n$DUOL +34.86%\n$MU -4.41% https://t.co/1aNnHcDBUR",
+   "url": "https://x.com/aleabitoreddit/status/2118004727053218010",
+   "date": "2026-11-04T15:37:32Z",
+   "image_url": "https://pbs.twimg.com/media/HWSqEmubkAAswqJ.jpg",
+   "image_alt": "",
+   "score": 8.02
+  },
+  {
+   "type": "post",
+   "id": "funny-2118007910806765916",
+   "author": "sourcery",
+   "handle": "sourceryy",
+   "text": "Starcloud CEO Philip Johnston (@PhilipJohnston) on why data centers in space work:\n\n“In space, we don’t need permitted land.”\nhttps://t.co/Ch5xIGw0Od https://t.co/dpg57sWT0Y",
+   "url": "https://x.com/sourceryy/status/2118007910806765916",
+   "date": "2026-11-04T15:50:11Z",
+   "quoted": {
+    "author": "Elon Musk",
+    "handle": "elonmusk",
+    "text": "Data centers in space looking pretty appealing right now",
+    "url": "https://x.com/elonmusk/status/2117862462976594112"
+   },
+   "score": 7.86
+  },
+  {
+   "type": "post",
+   "id": "funny-2118063402065011141",
+   "author": "OpenClaw🦞",
+   "handle": "openclaw",
+   "text": "Knowledge: A New Approach to Memory in OpenClaw | The ClawCast Episode 16 https://t.co/nIfwkZnROW",
+   "url": "https://x.com/openclaw/status/2118063402065011141",
+   "date": "2026-11-04T19:30:41Z",
+   "score": 7.83
+  },
+  {
+   "type": "post",
+   "id": "funny-2118177524345868635",
+   "author": "Nic Cruz Patane",
+   "handle": "niccruzpatane",
+   "text": "Tesla Model 3 and Model Y have outsold every other EV in America combined so far in 2026. https://t.co/QruziEixAA",
+   "url": "https://x.com/niccruzpatane/status/2118177524345868635",
+   "date": "2026-11-05T03:04:10Z",
+   "image_url": "https://pbs.twimg.com/media/HWVHOsEXAAAbzXP.jpg",
+   "image_alt": "",
+   "score": 7.74
+  },
+  {
+   "type": "post",
+   "id": "funny-2118077158614827517",
+   "author": "Campbell",
+   "handle": "abcampbell",
+   "text": "anyone offering Jun/Dec 27 calls on B300 compute?\n\nphysical settlement only https://t.co/DkSlokkbQA",
+   "url": "https://x.com/abcampbell/status/2118077158614827517",
+   "date": "2026-11-04T20:25:21Z",
+   "image_url": "https://pbs.twimg.com/media/HWTr8ukaUAAa86y.jpg",
+   "image_alt": "",
+   "score": 7.72
+  },
+  {
+   "type": "post",
+   "id": "funny-2118131185591132537",
+   "author": "Nebulizer",
+   "handle": "SMASIMHO",
+   "text": "Nebulizer's Office Hours #2 https://t.co/R2WZHQKSv8",
+   "url": "https://x.com/SMASIMHO/status/2118131185591132537",
+   "date": "2026-11-05T00:00:02Z",
+   "score": 7.68
+  },
+  {
+   "type": "post",
+   "id": "funny-2118107195405668695",
+   "author": "Gaetano",
+   "handle": "Gaetano2026",
+   "text": "Well, people wanted to see different methods of financing outside of ATM\n\nHere you go! $AAOI https://t.co/acN6EK5UcK",
+   "url": "https://x.com/Gaetano2026/status/2118107195405668695",
+   "date": "2026-11-04T22:24:42Z",
+   "quoted": {
+    "author": "Jonkoo Capital",
+    "handle": "JonkooTrades",
+    "text": "$AAOI just secured a $200M credit facility, expandable to $250M. \n\nThe new agreement with East West Bank provides $170M in term loan commitments for equipment purchases and refinancing, alongside a $30M revolving credit line for working capital. …",
+    "url": "https://x.com/JonkooTrades/status/2118104277017059744"
+   },
+   "score": 7.6
+  },
+  {
+   "type": "post",
+   "id": "funny-2118019404751351843",
+   "author": "Paul Saladino, MD",
+   "handle": "paulsaladinomd",
+   "text": "Cheapest vs most expensive eggs - \nwhat’s the difference 👀 https://t.co/CvjAoSVFdU",
+   "url": "https://x.com/paulsaladinomd/status/2118019404751351843",
+   "date": "2026-11-04T16:35:51Z",
+   "score": 7.55
+  },
+  {
+   "type": "post",
+   "id": "funny-2118181867207696764",
+   "author": "Siddha Performance",
+   "handle": "KapilGuptaMD",
+   "text": "It is Seriousness\n\nThat cuts through excuses\n\nAnd through games\n\nAnd through clever ploys\n\nAnd through nonsense.\n\nIt is Seriousness\n\nThat captures\n\nThe heart of the matter.\n\nUntil a man becomes Serious\n\nWhat does he truly Deserve.",
+   "url": "https://x.com/KapilGuptaMD/status/2118181867207696764",
+   "date": "2026-11-05T03:21:25Z",
+   "score": 7.4
+  },
+  {
+   "type": "post",
+   "id": "funny-2117955346048410037",
+   "author": "Jim Cramer",
+   "handle": "jimcramer",
+   "text": "Apple winner... slowdown in build means inventories can build of DRAMs",
+   "url": "https://x.com/jimcramer/status/2117955346048410037",
+   "date": "2026-11-04T12:21:18Z",
+   "score": 7.38
+  },
+  {
+   "type": "post",
+   "id": "funny-2118157296949964884",
+   "author": "Bennett's Phylactery",
+   "handle": "extradeadjcb",
+   "text": "Stop thinking about the dysfunctions you need to get away from (there's no getting away from it, it's everywhere) &amp; start thinking about the people you need to get close to\n\nhttps://t.co/It54FqNNSU https://t.co/g15J9uEWlw",
+   "url": "https://x.com/extradeadjcb/status/2118157296949964884",
+   "date": "2026-11-05T01:43:47Z",
+   "quoted": {
+    "author": "Diomedes Appreciator",
+    "handle": "HomericFuturist",
+    "text": "You are gonna have an urge to head into the woods\n\nRemember, your network matters 10x more than your location or supply level\n\nTribe up",
+    "url": "https://x.com/HomericFuturist/status/2117810429749612702"
+   },
+   "score": 7.3
+  },
+  {
+   "type": "post",
+   "id": "funny-2118103670818750628",
+   "author": "Ben Justman🍷",
+   "handle": "BenJustman",
+   "text": "I'm learning how to read. https://t.co/h4BQAgPbe4",
+   "url": "https://x.com/BenJustman/status/2118103670818750628",
+   "date": "2026-11-04T22:10:42Z",
+   "image_url": "https://pbs.twimg.com/media/HWUEEIRa0AA21qK.jpg",
+   "image_alt": "",
+   "score": 7.23
+  }
+ ],
+ "seconds": {
+  "items": [
+   {
+    "type": "post",
+    "id": "more-2118087733205717440",
+    "author": "GREG ISENBERG",
+    "handle": "gregisenberg",
+    "text": "One of the most important questions of our time:\n\n\"If AI can build almost anything, what should I build?\"\n\nIt's the question behind most of the anxiety I hear about AI right now\n\nI broke down the 8 kinds of businesses I think get stronger as AI gets better https://t.co/cqr718RHur",
+    "url": "https://x.com/gregisenberg/status/2118087733205717440",
+    "date": "2026-11-04T21:07:22Z"
+   },
+   {
+    "type": "post",
+    "id": "more-2118010680054034879",
+    "author": "a16z",
+    "handle": "a16z",
+    "text": "Top-quartile venture beat top-quartile buyout through the internet buildout and again through mobile and cloud, and a16z's Jen Kha argues we're at the start of the next wave.\n\nTech buyouts have long been the \"safe\" bet in private markets. Now the stress is showing:\n\n- In the first half of 2026, venture funds marked their tech holdings up 16%, while buyout funds marked theirs down 4%\n\n- 70% of the debt foreclosed in 2025 and 2026 came from deals done in 2021 or 2022\n\n- A typical buyout now needs 10 to 12% EBITDA growth a year to make 2.5x in five years, up from about 5% in 2015 …",
+    "url": "https://x.com/a16z/status/2118010680054034879",
+    "date": "2026-11-04T16:01:11Z",
+    "quoted": {
+     "author": "Jen Kha",
+     "handle": "jkhamehl",
+     "text": "https://t.co/fw1tvPY1Yt",
+     "url": "https://x.com/jkhamehl/status/2118004987192324159"
+    },
+    "image_url": "https://pbs.twimg.com/media/HWSvfRwbMAAFEHb.jpg",
+    "image_alt": ""
+   },
+   {
+    "type": "post",
+    "id": "more-2118133582979813819",
+    "author": "SemiAnalysis",
+    "handle": "SemiAnalysis_",
+    "text": "BREAKING NEWS🚨: According to @theinformation, Microsoft's $5B less in capex in Q3 than it had planned was in part due to delays by $IREN.\n\nWe would not be surprised by this, considering that IREN continues to come up in our conversations with neocloud customers, usually for the wrong reasons. Multi-day power outages, network upgrades, storage failures, air quality controls leading to link flaps, XIDs everywhere. The #1 worst site in the industry, according to users.",
+    "url": "https://x.com/SemiAnalysis_/status/2118133582979813819",
+    "date": "2026-11-05T00:09:33Z",
+    "image_url": "https://pbs.twimg.com/media/HWUfRP8XAAAGpPG.jpg",
+    "image_alt": ""
+   },
+   {
+    "type": "post",
+    "id": "more-2118020261178126820",
+    "author": "Molly O’Shea",
+    "handle": "MollySOShea",
+    "text": "Shaun Maguire (@shaunmmaguire) on why we need to put data centers in space:\n\n\" We all know what's happening in AI. We're limited by power, and limited by regulation, which is probably even more restrictive.\"\n\n@elonmusk https://t.co/kpKUhX7eZ8",
+    "url": "https://x.com/MollySOShea/status/2118020261178126820",
+    "date": "2026-11-04T16:39:15Z"
+   },
+   {
+    "type": "post",
+    "id": "more-2118023930577314059",
+    "author": "KaizenInvestor",
+    "handle": "Kaizen_Investor",
+    "text": "I have always preached patience with $OUST. This was one of the most important quarters for them in my opinion. They partially delivered for me, and my fair price target for Ouster remains $40.\n\nThe revenue growth is great; Ouster posted a record $59.3 million in Q3 2026 revenue, up 50% year-over-year, beating the $57.34 million consensus. I think if we want to see them capture more market share from Chinese LiDAR suppliers, the top line should grow more aggressively. …",
+    "url": "https://x.com/Kaizen_Investor/status/2118023930577314059",
+    "date": "2026-11-04T16:53:50Z",
+    "quoted": {
+     "author": "KaizenInvestor",
+     "handle": "Kaizen_Investor",
+     "text": "Funny how quickly people forget. $OUST is a $40 stock but as I explained, but it will take time. \n\nSafe LIDAR act will only start in June, so we will only start to see the first results in Q3. Maybe even later as companies will buy some extra cheap Chinese Lidar as stock. …",
+     "url": "https://x.com/Kaizen_Investor/status/2051762782039859287"
+    },
+    "image_url": "https://pbs.twimg.com/media/HWS5k-DXYAARwKq.jpg",
+    "image_alt": ""
+   },
+   {
+    "type": "post",
+    "id": "more-2118051135869358396",
+    "author": "Rose Celine Investments 🌹",
+    "handle": "realroseceline",
+    "text": "$MELI reports earnings today, and as usual, there is no shortage of predictions, speculation, and opinions about what the numbers might look like.\n\nThere are dozens of metrics worth paying attention to, from revenue growth and profitability to GMV, TPV, and operating margins. I’m sure much of the conversation will revolve around margin compression, which is largely the result of management deliberately sacrificing current profitability to invest in future growth(aka $AMZN playbook for the last 2 decades). All of these numbers matter, some more than others. …",
+    "url": "https://x.com/realroseceline/status/2118051135869358396",
+    "date": "2026-11-04T18:41:56Z"
+   },
+   {
+    "type": "post",
+    "id": "more-2118201791758352695",
+    "author": "Citrini",
+    "handle": "citrini",
+    "text": "we bought the dram and the interconnects and the CPUs and the inference players and the agentic winners. \n\nand now? well, imagine a world where simply being a part of the AI supply chain isn’t enough to make a stock go up 100% a year. https://t.co/s8L6nzi3Of",
+    "url": "https://x.com/citrini/status/2118201791758352695",
+    "date": "2026-11-05T04:40:36Z",
+    "quoted": {
+     "author": "Citrini",
+     "handle": "citrini",
+     "text": "we bought the GPUs, the HBM, servers, datacenter stuff. we bid the model trainers.\n\nnow we will buy the CPUs and the dram and the interconnects. the inferrers and the inferred.\n\nreturn to basics &amp; remember we’re all kinda slow and stupid I guess. https://t.co/FJPlkerwyU https://t.co/3VKPbpUh76",
+     "url": "https://x.com/citrini/status/1811050775595897009"
+    }
+   },
+   {
+    "type": "post",
+    "id": "more-2118060308916793577",
+    "author": "Justin Murphy",
+    "handle": "jmrphy",
+    "text": "Is there any good reason to use all this React and JSX nonsense anymore? Why?\n\nSeems like totally unnecessary complexity now.\n\nI understand if your enterprise is already locked in, but for anyone building any web app or business today--\n\nis there any reason to choose this stuff?",
+    "url": "https://x.com/jmrphy/status/2118060308916793577",
+    "date": "2026-11-04T19:18:23Z"
+   }
+  ]
+ }
+}
