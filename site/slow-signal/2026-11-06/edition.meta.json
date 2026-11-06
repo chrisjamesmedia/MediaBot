@@ -1,0 +1,21 @@
+{
+ "date": "2026-11-06",
+ "date_long": "Friday, November 6, 2026",
+ "lead": "David Senra on X",
+ "pages": {
+  "print": 4,
+  "digital": 6
+ },
+ "pdfs": {
+  "print": "slow-signal-2026-11-06-print.pdf",
+  "digital": "slow-signal-2026-11-06-digital.pdf"
+ },
+ "sections": [
+  "Ideas & Life",
+  "Science & Health",
+  "Building & Making",
+  "Books & Faith"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-06T12:20:22+00:00"
+}
