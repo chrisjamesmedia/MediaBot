@@ -1,0 +1,29 @@
+{
+ "date": "2026-11-06",
+ "date_long": "Friday, November 6, 2026",
+ "lead": "AI trade meltdown: Nasdaq into correction as chip and neocloud names collapse",
+ "pages": {
+  "print": 8,
+  "digital": 8
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-06-print.pdf",
+  "digital": "signal-seeker-2026-11-06-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Headlines",
+  "Your Holdings",
+  "Tech & AI",
+  "Worth Reading",
+  "Evergreen",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-06T12:20:49+00:00"
+}
