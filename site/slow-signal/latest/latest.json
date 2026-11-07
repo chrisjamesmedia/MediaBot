@@ -1,19 +1,19 @@
 {
  "format": "mediabot-latest/1",
  "paper": "slow-signal",
- "date": "2026-11-06",
- "date_long": "Friday, November 6, 2026",
+ "date": "2026-11-07",
+ "date_long": "Saturday, November 7, 2026",
  "pages": {
   "print": 4,
-  "digital": 6
+  "digital": 4
  },
- "built_at": "2026-11-06T12:20:22+00:00",
- "edition": "../2026-11-06/",
+ "built_at": "2026-11-07T07:24:39-05:00",
+ "edition": "../2026-11-07/",
  "print_pdf": "print.pdf",
  "digital_pdf": "digital.pdf",
- "edition_print_pdf": "../2026-11-06/slow-signal-2026-11-06-print.pdf",
+ "edition_print_pdf": "../2026-11-07/slow-signal-2026-11-07-print.pdf",
  "absolute": {
-  "edition": "https://chrisjamesmedia.github.io/MediaBot/slow-signal/2026-11-06/",
+  "edition": "https://chrisjamesmedia.github.io/MediaBot/slow-signal/2026-11-07/",
   "print_pdf": "https://chrisjamesmedia.github.io/MediaBot/slow-signal/latest/print.pdf",
   "digital_pdf": "https://chrisjamesmedia.github.io/MediaBot/slow-signal/latest/digital.pdf"
  }
