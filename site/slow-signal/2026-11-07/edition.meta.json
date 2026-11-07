@@ -1,0 +1,20 @@
+{
+ "date": "2026-11-07",
+ "date_long": "Saturday, November 7, 2026",
+ "lead": "Joe Hudson on X",
+ "pages": {
+  "print": 4,
+  "digital": 4
+ },
+ "pdfs": {
+  "print": "slow-signal-2026-11-07-print.pdf",
+  "digital": "slow-signal-2026-11-07-digital.pdf"
+ },
+ "sections": [
+  "Ideas & Life",
+  "Science & Health",
+  "Building & Making"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-07T07:24:39-05:00"
+}
