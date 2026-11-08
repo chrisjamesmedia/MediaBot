@@ -1,0 +1,29 @@
+{
+ "date": "2026-11-08",
+ "date_long": "Sunday, November 8, 2026",
+ "lead": "Tech is priced for shrinking earnings while Q3 profits grew 53%",
+ "pages": {
+  "print": 10,
+  "digital": 10
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-08-print.pdf",
+  "digital": "signal-seeker-2026-11-08-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Headlines",
+  "Your Holdings",
+  "Tech & AI",
+  "Evergreen",
+  "Funnies",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-08T07:22:51-05:00"
+}

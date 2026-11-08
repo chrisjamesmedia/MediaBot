@@ -1,0 +1,20 @@
+{
+ "date": "2026-11-08",
+ "date_long": "Sunday, November 8, 2026",
+ "lead": "GREG ISENBERG on X",
+ "pages": {
+  "print": 4,
+  "digital": 3
+ },
+ "pdfs": {
+  "print": "slow-signal-2026-11-08-print.pdf",
+  "digital": "slow-signal-2026-11-08-digital.pdf"
+ },
+ "sections": [
+  "Ideas & Life",
+  "Nature & History",
+  "Lighter"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-08T07:22:38-05:00"
+}
