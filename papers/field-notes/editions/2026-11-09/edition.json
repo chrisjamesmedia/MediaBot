@@ -1,0 +1,113 @@
+{
+ "schema": 1,
+ "paper": "field-notes",
+ "date": "2026-11-09",
+ "sections": [
+  {
+   "id": "ideas",
+   "items": [
+    {
+     "type": "post",
+     "id": "slow-2119400811650506980",
+     "author": "Lee Harris",
+     "handle": "LeeHarris",
+     "text": "A remarkable and deeply moving photograph capturing the first two minutes of silence in London, 106 years ago on Tuesday 11th November 1919. \n\nThe first time a grieving nation held its collective breath.\n\nLest we forget.",
+     "url": "https://x.com/LeeHarris/status/2119400811650506980",
+     "date": "2026-11-08T12:05:04Z",
+     "group": "ideas"
+    },
+    {
+     "type": "post",
+     "id": "slow-2119613289001087110",
+     "author": "Mimi Morgan",
+     "handle": "mimikmorgan",
+     "text": "Hug the ones you love. Spend time with the ones you love. \nDon't walk away from the ones you love. Show up for the ones you love. \n\nToday was one of the best days of my life, an ordinary Sunday with the ones I love. I took in every moment, I didn't want to miss anyrhing. 🙏🏻♥️",
+     "url": "https://x.com/mimikmorgan/status/2119613289001087110",
+     "date": "2026-11-09T02:09:23Z",
+     "group": "ideas"
+    },
+    {
+     "type": "post",
+     "id": "slow-2119577827804651693",
+     "author": "Keri Smith 🌱Deprogrammed",
+     "handle": "RealKeriSmith",
+     "text": "If you are feeling nothing but doom, let me tell you about one of the blessings of a good church, with a strong Pastor and elders, rooted in the word. \n\nOur Pastor @BradleyJHelger1’s sermon today was about the 3 reasons for God’s judgment of a nation, and the various steps we should take following judgment. The first among them being repentance. \n\nBut the take away was that our response is never despair. Despair wasn’t the response of our forefathers. It wasn’t the response of our nation’s founders. And it’s not the Christian response. We build and we fight. The trowel and the sword. \n\nI’ll share the sermon when it’s up. If you don’t have a strong church family, find one. Build one. There’s nothing else like it. 🙏🔥",
+     "url": "https://x.com/RealKeriSmith/status/2119577827804651693",
+     "date": "2026-11-08T23:48:28Z",
+     "group": "ideas"
+    },
+    {
+     "type": "post",
+     "id": "slow-2119554209259327700",
+     "author": "Alan D Miller",
+     "handle": "alanvibe",
+     "text": "On Remembrance Day we remember those that gave so much so we could have our freedom - some the ultimate sacrifice \n\nWe have a duty to defend and uphold our freedom and privacy today \n\nIn about to go onto GB News have been at #remembrance #sunday \n\nWe’ll be talking about Digital ID & my new book “We Are Stronger Together” which is out now - get a copy here \nhttps://t.co/D3fUmG8Tyo #we #together stronger #together",
+     "url": "https://x.com/alanvibe/status/2119554209259327700",
+     "date": "2026-11-08T22:14:37Z",
+     "group": "ideas"
+    }
+   ]
+  },
+  {
+   "id": "science",
+   "items": [
+    {
+     "type": "post",
+     "id": "slow-2119465779565576415",
+     "author": "Benjamin Bikman",
+     "handle": "BenBikmanPhD",
+     "text": "The view that red meat causes cancer is hard to justify. I invite anyone to look at the trends in red meat consumption over the last century and compare this to cancer trends over the same time period.",
+     "url": "https://x.com/BenBikmanPhD/status/2119465779565576415",
+     "date": "2026-11-08T16:23:14Z",
+     "group": "science"
+    },
+    {
+     "type": "post",
+     "id": "slow-2119591241427857469",
+     "author": "PGA Tour",
+     "handle": "PGATour",
+     "text": "Over three years ago, Blades Brown’s dad was diagnosed with leukemia and only given a year to live.\n \nAfter defying doctors' expectations, he got to see his son earn his first PGA Tour victory in person @WWTChampionship ❤️",
+     "url": "https://x.com/PGATour/status/2119591241427857469",
+     "date": "2026-11-09T00:41:46Z",
+     "group": "science"
+    }
+   ]
+  },
+  {
+   "id": "making",
+   "items": [
+    {
+     "type": "post",
+     "id": "slow-2119553397603058164",
+     "author": "David Senra",
+     "handle": "davidsenra",
+     "text": "Palo Alto Networks’ @nikesharora believes cybersecurity is actually very simple:\n\n1. Stop bad guys at the perimeter.\n2. Keep the inside of the house in order.\n3. Assume something will get through: find it and eject it before it can do harm.\n\n“That's cybersecurity in a nutshell.”",
+     "url": "https://x.com/davidsenra/status/2119553397603058164",
+     "date": "2026-11-08T22:11:24Z",
+     "group": "making"
+    },
+    {
+     "type": "post",
+     "id": "slow-2119564230055936396",
+     "author": "anu",
+     "handle": "anuatluru",
+     "text": "“Make it exist first, then you can make it good” is one of those nice sayings that’s meant to help you overcome inertia and perfectionism, but following this advice too bluntly is risky. Because once you make something exist, it’s tempting to focus next on making it *grow*. And by then you’re already trapped in the iteration you’ve shipped first, at least for a while.",
+     "url": "https://x.com/anuatluru/status/2119564230055936396",
+     "date": "2026-11-08T22:54:26Z",
+     "group": "making"
+    },
+    {
+     "type": "post",
+     "id": "slow-2119510391344726206",
+     "author": "Matt Ahlborg",
+     "handle": "MattAhlborg",
+     "text": "We @PPQdotAI use a TEE router. It makes it so that we:\n\n1) Cannot see the content of our users’ queries\n2) Prove the model and provider that the query ended up executing (no model fraud possible)\n\nOther routers follow the “trust me bro” architecture.",
+     "url": "https://x.com/MattAhlborg/status/2119510391344726206",
+     "date": "2026-11-08T19:20:30Z",
+     "group": "making"
+    }
+   ]
+  }
+ ],
+ "coverage": "Seven posts, November 8–9, 2026. Compiled Monday, Nov. 9, ET."
+}

@@ -1,0 +1,27 @@
+{
+ "date": "2026-11-09",
+ "date_long": "Monday, November 9, 2026",
+ "lead": "Nvidia’s board opens an independent probe into Jensen Huang; the stock slides premarket",
+ "pages": {
+  "print": 8,
+  "digital": 7
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-09-print.pdf",
+  "digital": "signal-seeker-2026-11-09-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Headlines",
+  "Your Holdings",
+  "Evergreen",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-09T07:15:38-05:00"
+}
