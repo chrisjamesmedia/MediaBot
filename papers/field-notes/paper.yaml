@@ -1,19 +1,20 @@
-# Slow Signal: a calm, X-only paper with no AI and no investing. Made with MediaBot.
+# Field Notes: a calm, X-only paper with no AI and no investing. Made with MediaBot.
 # Why it exists: Signal Seeker's AI and markets posts pulled Chris back into X ("a little free sample").
 # This paper is the opposite: a few lasting posts from his own X, printed in full, with no way back into the feed.
+# Renamed from Slow Signal (2026-11-09). Old /slow-signal/ edition URLs stay as an archive.
 
-name: Slow Signal
-slug: slow-signal              # URL: /slow-signal/ and /slow-signal/YYYY-MM-DD/
+name: Field Notes
+slug: field-notes              # URL: /field-notes/ and /field-notes/YYYY-MM-DD/
 public: true
 reader: Chris James
-layout: slow                   # its own templates (slow.html.j2, slow-print.html.j2): one reading column, no newspaper
+layout: slow                   # templates/slow.html.j2 + slow-print.html.j2: open editorial newsletter
 description: >-
   A short, calm read of posts from Chris James's X that are not about AI or
   investing: science, health, ideas, craft, nature, history, faith, books and
   a little humor. Printed in full, a few a day, with a clear end.
 
 masthead:
-  style: slow                  # one small title line: name, date, weather high/low
+  style: slow                  # one quiet title line: name, date, weather high/low
   weather:
     label: Boston
     lat: 42.36
@@ -23,13 +24,13 @@ masthead:
 
 print:
   size: medium
-  sizes:                       # one letter-size column; 2–4 sides
+  sizes:                       # letter, two flowing columns; 2–4 sides
     small:  {target_sheets: [1, 1], max_sheets: 1}
     medium: {target_sheets: [1, 2], max_sheets: 2}
     large:  {target_sheets: [1, 2], max_sheets: 2}
   photos: false
   qr: false                    # nothing that leads back to a screen
-  pt: 11                       # body type size (pt) for the one-column letter cards
+  pt: 9.5                       # body type size (pt) for two-column letter pages
   even_pages: true             # pad to an even page count (one blank back) for duplex
 
 web:
@@ -37,7 +38,7 @@ web:
   x_links: false               # no live links to x.com on posts: handle and date are plain text
   end_line: "That’s all for today."
   source_note: "All posts are from X, quoted in full as posted."
-  topic_labels: true           # small topic word beside each byline
+  topic_labels: false          # section headers name the topic; no per-post tag
 
 # Sections are light topic groups, in reading order. Every item is an X post (tools/slow_signal.py writes them).
 # The build caps the whole paper at total_max posts.

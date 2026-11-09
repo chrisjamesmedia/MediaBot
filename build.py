@@ -710,7 +710,7 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
                noindex=bool(rc), home="../../../" if rc else "../", edition_key=f"{date}~{rc['slug']}" if rc else date,
                description=ed.get("description") or describe(paper, sections, date_long))
     E = env()
-    slow = paper.get("layout") == "slow"       # Slow Signal: one quiet column on the web, letter cards in print
+    slow = paper.get("layout") == "slow"       # Field Notes: open editorial newsletter on the web; two-column letter print
     print_tpl, web_tpl = ("slow-print.html.j2", "slow.html.j2") if slow else ("print.html.j2", "edition.html.j2")
     even = (paper.get("print") or {}).get("even_pages", True)
 
