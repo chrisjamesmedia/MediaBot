@@ -12,8 +12,8 @@ MediaBot is three parts:
 - **A simple static site** listing the papers and their archives.
 
 The first paper is **Signal Seeker** (`papers/signal-seeker/`), Chris James's paper.
-The second is **Slow Signal** (`papers/slow-signal/`): a calm, X-only read with no AI and no
-investing (see "Slow Signal" below).
+The second is **Field Notes** (`papers/field-notes/`): a calm, X-only read with no AI and no
+investing (see "Field Notes" below). Formerly Slow Signal; old `/slow-signal/` edition URLs still work.
 (A possible later brand for the system is "Personal Press".)
 
 ## Layout
@@ -29,7 +29,7 @@ docs/edition-schema.md      the edition.json format
 docs/feedback.md            the feedback format and the sign-in plan
 tools/migrate_legacy.py     one-off: the old Oct 31 file into schema 1
 tools/x_feed.py             "Top of your feed": rank saved home-timeline pages by engagement into section feed
-tools/slow_signal.py        Slow Signal: filter saved X pages (no AI, money, politics, ragebait) and pick 6-10 posts
+tools/slow_signal.py        Field Notes: filter saved X pages (no AI, money, politics, ragebait) and pick 6-10 posts
 .github/ISSUE_TEMPLATE/     edition-request.md: the issue form behind "Tune tomorrow's paper"
 tools/screenshots.sh        headless screenshots of the local site
 tools/publish.sh            the daily publish: build, index, secret scan, commit, push
@@ -140,31 +140,31 @@ anyone with the URL can still open it (see docs/feedback.md, "Sign-in later").
 - **Reader feedback:** stored per browser, with an exported JSON file (docs/feedback.md). There are
   no accounts yet.
 
-## Slow Signal
+## Field Notes
 A second paper for days when Signal Seeker's AI and investing posts pull Chris back into X. Only posts
 from his X (home timeline, Lists, bookmarks and likes, all read read-only), about 6-10 a day, one per
 author, printed in full with quoted posts inset. Kept: science, health (metabolic, psychedelic),
 culture and ideas, craft, building and making, nature, history, faith, books, design and humor. Cut:
 AI and AI companies; investing, markets, crypto and macro; politics and war; ragebait, drama, giveaways
 and promos; and every post from an account that usually posts AI or finance
-(`papers/slow-signal/sources/hook_accounts.json`).
+(`papers/field-notes/sources/hook_accounts.json`). Renamed from Slow Signal; archived editions stay at
+`/slow-signal/YYYY-MM-DD/`.
 
 It has its own look (`layout: slow` in paper.yaml switches build.py to `templates/slow.html.j2` and
-`templates/slow-print.html.j2`):
-- **Web**: one quiet centered column (~650px), warm `#f4ecdc` on `#1c1914`, a small title line with
-  the date and the Boston high/low, a Print button, then each post as a calm block (name and @handle
-  small above, 19.5px serif text, an optional small topic label). No links to x.com (handle and date
-  are plain text), no counts, no "load more", no trending, and a clear "That's all for today." end.
-- **Print**: letter, one column, roomy margins, each post in a ruled card, black on white, a small
-  page-number footer, about 2-4 pages (padded to even for duplex). The digital PDF is the same on warm paper.
+`templates/slow-print.html.j2`; the display name is `paper.name` in paper.yaml):
+- **Web**: open editorial newsletter (~760px reading column, two columns on wide screens), warm
+  `#f4ecdc` on `#1c1914`, typographic hierarchy and thin rules instead of boxed cards, a Print link,
+  posts printed in full with optional topic labels. No links to x.com, no "load more", clear end.
+- **Print**: letter, two flowing columns, no framed cards, black on white, thin rules between posts,
+  about 2-4 pages (padded to even for duplex). The digital PDF is the same on warm paper.
 
 ```
-.venv/bin/python tools/slow_signal.py slow-signal 2026-11-01 /tmp/feed/p*.json \
+.venv/bin/python tools/slow_signal.py field-notes 2026-11-01 /tmp/feed/p*.json \
     --evergreen /tmp/slow/bookmarks.json,/tmp/slow/likes.json,/tmp/slow/full_text.json   # dry run
     ... --skip ID,ID --pin ID,ID --topic ID=section --write                               # write edition.json
-.venv/bin/python build.py slow-signal 2026-11-01 --weather
+.venv/bin/python build.py field-notes 2026-11-01 --weather
 ```
-The daily steps are in `docs/routine.md` ("Slow Signal").
+The daily steps are in `docs/routine.md` ("Field Notes").
 
 ## Recipes: an on-demand paper
 A recipe is a small YAML file that picks sections, caps and a page limit from the content already

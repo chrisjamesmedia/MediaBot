@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Slow Signal: pick a few calm, lasting X posts that are NOT about AI and NOT about investing.
+"""Field Notes: pick a few calm, lasting X posts that are NOT about AI and NOT about investing.
 
-    .venv/bin/python tools/slow_signal.py slow-signal 2026-11-01 /tmp/feed/p*.json                 # dry run: show the pick
-    .venv/bin/python tools/slow_signal.py slow-signal 2026-11-01 /tmp/feed/p*.json --write         # write edition.json
+    .venv/bin/python tools/slow_signal.py field-notes 2026-11-01 /tmp/feed/p*.json                 # dry run: show the pick
+    .venv/bin/python tools/slow_signal.py field-notes 2026-11-01 /tmp/feed/p*.json --write         # write edition.json
     ... --evergreen /tmp/x/bookmarks.json,/tmp/x/likes.json   extra dumps whose posts may be older (bookmarks, likes)
     ... --skip ID,ID           veto posts after reading them (AI/finance in disguise, politics, not lasting, …)
     ... --pin ID,ID            make sure these candidates are in (still one per author, still filtered)
@@ -24,7 +24,7 @@ Ranking favors posts people save (bookmarks) and longer, substantive text over r
 
 Nothing is invented or shortened: the full post text (long-post note_tweet text) and the full quoted text go into
 edition.json exactly as posted; only trailing t.co attachment links and HTML entities (&amp;) are tidied. The item
-keeps its real x.com URL for the record, but Slow Signal's templates never link it. Read-only: this only reads files.
+keeps its real x.com URL for the record, but Field Notes' templates never link it. Read-only: this only reads files.
 """
 import datetime, html, json, math, re, sys
 from collections import Counter
@@ -108,7 +108,7 @@ def main(argv):
     sections = [s["id"] for s in paper["sections"] if s.get("enabled", True)]
     max_per = {s["id"]: int(s.get("max_items") or 99) for s in paper["sections"]}
 
-    # never repeat a post that ran in an earlier Slow Signal edition
+    # never repeat a post that ran in an earlier Field Notes edition
     ran = set()
     for p in (pdir / "editions").glob("*/edition.json"):
         if p.parent.name != date:
@@ -219,7 +219,7 @@ def main(argv):
             print(f"\n  {key} ({len(ex)}), e.g.:")
             for h, pid, r, txt in ex[:ncuts]:
                 print(f"    @{h:<16} {r:<28} {txt}")
-    print(f"\nSlow Signal pick ({len(pick)} of {count}; one per author):")
+    print(f"\nField Notes pick ({len(pick)} of {count}; one per author):")
     for score, pid, t, topic, q in pick:
         txt = " ".join(tidy(full_text(t)).split())
         print(f"  {score:5.2f} [{topic:<7}] @{handle(t):<16} {pid} {source_of[pid]}\n          {txt[:170]}"

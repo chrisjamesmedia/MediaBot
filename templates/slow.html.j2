@@ -1,5 +1,6 @@
-{#- Slow Signal web edition: one quiet centered column, warm paper, no live X links, a clear end.
-    Built by build.py when paper.yaml has `layout: slow`. -#}
+{#- Field Notes web edition: open editorial newsletter, warm paper, no live X links, a clear end.
+    Built by build.py when paper.yaml has `layout: slow`. Name comes from paper.name (one-line rename).
+    Wide screens use CSS columns (flowing, like print) so short posts do not leave holes beside long ones. -#}
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,39 +24,54 @@
 @font-face{font-family:"SG Serif";src:url({{ root }}assets/fonts/SourceSerifPro-It.ttf);font-weight:400;font-style:italic}
 @font-face{font-family:"SG Serif";src:url({{ root }}assets/fonts/SourceSerifPro-Semibold.ttf);font-weight:600}
 @font-face{font-family:"SG Sans";src:url({{ root }}assets/fonts/LibreFranklin.ttf);font-weight:100 900}
-:root{--bg:#f4ecdc;--ink:#1c1914;--soft:rgba(28,25,20,.62);--faint:rgba(28,25,20,.16)}
+:root{--bg:#f4ecdc;--ink:#1c1914;--soft:rgba(28,25,20,.58);--rule:rgba(28,25,20,.14);--rule-strong:rgba(28,25,20,.28)}
 *{box-sizing:border-box}
 html{background:var(--bg)}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 19.5px/1.62 "SG Serif",Georgia,serif;
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18.5px/1.58 "SG Serif",Georgia,serif;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{color:inherit}
-.col{max-width:650px;margin:0 auto;padding:56px 24px 96px}
-.top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  font:400 14px/1.4 "SG Sans",sans-serif;color:var(--soft);margin-bottom:72px}
-.top .t{font:400 17px/1.2 "SG Serif",serif;color:var(--ink);text-decoration:none;letter-spacing:.01em}
-.top .meta{display:flex;gap:14px;flex-wrap:wrap;align-items:baseline}
-.top .pb{font:inherit;color:var(--soft);text-decoration:none;border:1px solid var(--faint);border-radius:999px;padding:3px 12px}
-.top .pb:hover,.top .pb:focus{color:var(--ink);border-color:var(--soft)}
-.post{margin:0 0 76px}
-.who{font:400 13.5px/1.4 "SG Sans",sans-serif;color:var(--soft);margin:0 0 12px;letter-spacing:.01em}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 36px 88px}
+.mast{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  padding-bottom:18px;margin-bottom:36px;border-bottom:1px solid var(--rule-strong)}
+.mast .t{font:600 28px/1.1 "SG Serif",serif;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.mast .meta{display:flex;gap:16px;flex-wrap:wrap;align-items:baseline;
+  font:400 13.5px/1.4 "SG Sans",sans-serif;color:var(--soft)}
+.mast .pb{font:inherit;color:var(--soft);text-decoration:none;border-bottom:1px solid var(--rule-strong);padding:0 0 1px}
+.mast .pb:hover,.mast .pb:focus{color:var(--ink);border-color:var(--ink)}
+.stream{max-width:760px}
+@media (min-width:980px){
+  .stream{max-width:none;column-count:2;column-gap:48px;column-rule:1px solid var(--rule);column-fill:balance}
+}
+.sec-head{font:600 11.5px/1.3 "SG Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--soft);margin:28px 0 8px;padding-top:6px;break-after:avoid;break-inside:avoid}
+.sec-head:first-child{margin-top:0;padding-top:0}
+.post{padding:22px 0 24px;border-bottom:1px solid var(--rule);break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid}
+.who{font:400 12.5px/1.35 "SG Sans",sans-serif;color:var(--soft);margin:0 0 10px;letter-spacing:.01em}
 .who b{font-weight:600;color:var(--ink)}
-.who .tag{margin-left:8px;white-space:nowrap;display:inline-block;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;opacity:.75}
-.post p{margin:0 0 .9em}
+.post p{margin:0 0 .75em}
 .post p:last-child{margin-bottom:0}
-blockquote{margin:22px 0 0;padding:4px 0 4px 20px;border-left:2px solid var(--faint);font-size:17.5px;line-height:1.55;color:rgba(28,25,20,.82)}
-blockquote .who{font-size:12.5px;margin-bottom:8px}
-.end{margin:100px 0 0;text-align:center}
-.end .line{font:italic 400 21px/1.4 "SG Serif",serif;margin:0 0 18px}
-.end .mark{display:block;color:var(--soft);letter-spacing:.6em;margin-bottom:28px;font-size:14px}
-.note{font:400 12.5px/1.6 "SG Sans",sans-serif;color:var(--soft);margin:0}
-.note a{color:var(--soft)}
-@media (max-width:520px){body{font-size:19px}.col{padding:36px 20px 72px}.top{margin-bottom:52px}.post{margin-bottom:60px}}
-@media print{.top .pb{display:none}}
+blockquote{margin:16px 0 0;padding:2px 0 2px 16px;border-left:1.5px solid var(--rule-strong);
+  font-size:16.5px;line-height:1.5;color:rgba(28,25,20,.78)}
+blockquote .who{font-size:11.5px;margin-bottom:6px}
+.end{margin:48px 0 0;padding-top:28px;border-top:1px solid var(--rule-strong);text-align:center;max-width:760px}
+@media (min-width:980px){.end{max-width:none}}
+.end .line{font:italic 400 20px/1.4 "SG Serif",serif;margin:0 0 14px}
+.end .mark{display:block;color:var(--soft);letter-spacing:.55em;margin-bottom:18px;font-size:13px}
+.note{font:400 12px/1.55 "SG Sans",sans-serif;color:var(--soft);margin:0}
+.note a{color:var(--soft);text-decoration:underline;text-underline-offset:2px}
+@media (max-width:640px){
+  body{font-size:18px}
+  .wrap{padding:28px 20px 64px}
+  .mast{margin-bottom:28px;padding-bottom:14px}
+  .mast .t{font-size:24px}
+  .post{padding:18px 0 20px}
+}
+@media print{.mast .pb{display:none}}
 </style>
 </head>
 <body>
-<main class="col">
-  <header class="top">
+<main class="wrap">
+  <header class="mast">
     <a class="t" href="{{ home or '../' }}" title="All editions">{{ paper.name }}</a>
     <span class="meta">
       <time datetime="{{ date }}">{{ date_long }}</time>
@@ -63,20 +79,23 @@ blockquote .who{font-size:12.5px;margin-bottom:8px}
       <a class="pb" href="{{ pdfs.print }}" target="_blank" rel="noopener" title="Letter, black on white">Print</a>
     </span>
   </header>
+  <div class="stream">
 {% for sec in sections %}
+    <h2 class="sec-head">{{ sec.title }}</h2>
 {% for p in sec["items"] %}
-  <article class="post" id="{{ p.id }}">
-    <p class="who"><b>{{ p.author }}</b> @{{ p.handle }}{% if p.date_short %} · {{ p.date_short }}{% endif %}{% if paper.web.topic_labels | default(true) %}<span class="tag">{{ sec.title }}</span>{% endif %}</p>
-    {% for para in p.text | paras %}<p>{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
-    {% endfor %}
-    {% if p.quoted %}<blockquote>
-      <p class="who"><b>{{ p.quoted.author }}</b> @{{ p.quoted.handle }}</p>
-      {% for para in p.quoted.text | paras %}<p>{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+    <article class="post" id="{{ p.id }}">
+      <p class="who"><b>{{ p.author }}</b> @{{ p.handle }}{% if p.date_short %} · {{ p.date_short }}{% endif %}</p>
+      {% for para in p.text | paras %}<p>{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
       {% endfor %}
-    </blockquote>{% endif %}
-  </article>
+      {% if p.quoted %}<blockquote>
+        <p class="who"><b>{{ p.quoted.author }}</b> @{{ p.quoted.handle }}</p>
+        {% for para in p.quoted.text | paras %}<p>{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+        {% endfor %}
+      </blockquote>{% endif %}
+    </article>
 {% endfor %}
 {% endfor %}
+  </div>
   <footer class="end">
     <span class="mark" aria-hidden="true">· · ·</span>
     <p class="line">{{ paper.web.end_line }}</p>

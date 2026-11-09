@@ -1,8 +1,8 @@
-# The morning routine prompt (Signal Seeker and Slow Signal)
+# The morning routine prompt (Signal Seeker and Field Notes)
 
 This is the exact text the daily Grok Bot routine should use to compile `edition.json` before
 running `tools/publish.sh`. Keep it in sync with `papers/signal-seeker/paper.yaml`. The same routine also
-builds Slow Signal (see "Slow Signal" at the end) BEFORE publishing, so one commit carries both papers.
+builds Field Notes (see "Field Notes" at the end) BEFORE publishing, so one commit carries both papers.
 
 ```text
 Compile today's Signal Seeker (papers/signal-seeker/editions/<TODAY>/edition.json, schema in
@@ -158,15 +158,16 @@ the edition (never quote_bank.json: it is gitignored and must stay private). The
 any item carrying quote-bank doc refs (source_doc_title / source_doc_id).
 ```
 
-## Slow Signal
+## Field Notes
 
-The daily routine builds both papers. Do Slow Signal right after Signal Seeker's X pulls (it reuses the
+The daily routine builds both papers. Do Field Notes right after Signal Seeker's X pulls (it reuses the
 same saved pages) and before `tools/publish.sh`, so the one publish commit carries both.
 
 ```text
-Compile today's Slow Signal (papers/slow-signal/editions/<TODAY>/edition.json). It is a calm, X-only
+Compile today's Field Notes (papers/field-notes/editions/<TODAY>/edition.json). It is a calm, X-only
 paper for Chris with NO AI and NO investing: about 6-10 posts, one per author, full text, ending with
-"That's all for today." Signal Seeker carries AI and markets; this paper must not.
+"That's all for today." Signal Seeker carries AI and markets; this paper must not. (Formerly Slow
+Signal; keep old /slow-signal/ edition URLs working as an archive.)
 
 RULES: X is read-only: never post, like, follow, bookmark, reply or DM. Never invent facts, quotes or
 attributions; post text is quoted exactly (the build prints it as written, no summaries, no headlines).
@@ -182,10 +183,10 @@ bookmarks or likes.
    Send post.fields created_at,public_metrics,author_id,lang,conversation_id,referenced_tweets,
    note_tweet,in_reply_to_user_id and expansions author_id,referenced_tweets.id,
    referenced_tweets.id.author_id with user.fields username,name,verified,public_metrics.
-2. DRY RUN: .venv/bin/python tools/slow_signal.py slow-signal <TODAY> /tmp/feed/p*.json /tmp/slow/list*.json
+2. DRY RUN: .venv/bin/python tools/slow_signal.py field-notes <TODAY> /tmp/feed/p*.json /tmp/slow/list*.json
       --evergreen /tmp/slow/bookmarks.json,/tmp/slow/likes.json
    It drops replies, the reader's own posts, posts already run in an earlier edition, hook accounts
-   (papers/slow-signal/sources/hook_accounts.json: accounts that usually post AI or finance, plus anything
+   (papers/field-notes/sources/hook_accounts.json: accounts that usually post AI or finance, plus anything
    quoting them), the noise list, stale, non-English and short posts, and any post whose text (or quoted
    text) hits the exclude words: ai, money, politics_war, ragebait (paper.yaml sources.x.slow.exclude;
    "*" = prefix). It prints every cut reason with examples, the pick (topic + score), the next in line,
@@ -201,11 +202,11 @@ bookmarks or likes.
 5. WRITE: rerun with the same flags plus --write. Check the file: every post's text exactly as on X,
    quoted posts inset with their real author, no URLs printed. Set "coverage" to one plain line (e.g.
    "Nine posts, February-November 2026. Compiled Sunday, Nov. 1, ET.").
-6. BUILD: .venv/bin/python build.py slow-signal <TODAY> --weather   (Boston high/low only; no news,
-   holdings, Passage, games or funnies). It writes site/slow-signal/<TODAY>/, the PDFs and
-   site/slow-signal/latest/. Read the output: print is one column of ruled cards on letter, about 2-4
-   pages (padded to even for duplex when even_pages is true).
+6. BUILD: .venv/bin/python build.py field-notes <TODAY> --weather   (Boston high/low only; no news,
+   holdings, Passage, games or funnies). It writes site/field-notes/<TODAY>/, the PDFs and
+   site/field-notes/latest/. Read the output: print is two flowing columns on letter (no boxed cards),
+   about 2-4 pages (padded to even for duplex when even_pages is true).
 7. CHECK: no x.com links on the web posts:
-      grep -rnoE 'href="[^"]*(x\.com|twitter\.com|t\.co)' site/slow-signal/ || echo none
+      grep -rnoE 'href="[^"]*(x\.com|twitter\.com|t\.co)' site/field-notes/ || echo none
    then publish with Signal Seeker (tools/publish.sh signal-seeker <TODAY> --weather), which commits both.
 ```
