@@ -1,0 +1,57 @@
+{
+ "latitude": 42.365166,
+ "longitude": -71.0618,
+ "generationtime_ms": 0.8671283721923828,
+ "utc_offset_seconds": -18000,
+ "timezone": "America/New_York",
+ "timezone_abbreviation": "GMT-5",
+ "elevation": 10.0,
+ "current_units": {
+  "time": "iso8601",
+  "interval": "seconds",
+  "temperature_2m": "\u00b0F",
+  "weather_code": "wmo code",
+  "is_day": ""
+ },
+ "current": {
+  "time": "2026-11-10T07:15",
+  "interval": 900,
+  "temperature_2m": 43.3,
+  "weather_code": 1,
+  "is_day": 1
+ },
+ "daily_units": {
+  "time": "iso8601",
+  "weather_code": "wmo code",
+  "temperature_2m_max": "\u00b0F",
+  "temperature_2m_min": "\u00b0F"
+ },
+ "daily": {
+  "time": [
+   "2026-11-10",
+   "2026-11-11",
+   "2026-11-12",
+   "2026-11-13"
+  ],
+  "weather_code": [
+   3,
+   3,
+   80,
+   81
+  ],
+  "temperature_2m_max": [
+   55.1,
+   51.2,
+   52.8,
+   50.1
+  ],
+  "temperature_2m_min": [
+   41.8,
+   40.1,
+   47.2,
+   48.7
+  ]
+ },
+ "fetched_at": "2026-11-10T07:24:33-05:00",
+ "source_url": "https://api.open-meteo.com/v1/forecast?latitude=42.36&longitude=-71.06&current=temperature_2m,weather_code,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FNew_York&forecast_days=4"
+}
