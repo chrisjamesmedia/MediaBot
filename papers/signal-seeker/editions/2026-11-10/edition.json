@@ -1,0 +1,918 @@
+{
+ "schema": 1,
+ "paper": "signal-seeker",
+ "date": "2026-11-10",
+ "coverage": "Covering roughly Nov 9–10, 2026. Compiled Tuesday morning, ET.",
+ "note": "Nebius reports Thursday, Nov. 12.",
+ "requests": [],
+ "sections": [
+  {
+   "id": "front",
+   "items": [
+    {
+     "type": "story",
+     "id": "anthropic-ipo-roadshow",
+     "headline": "Anthropic launches its IPO roadshow",
+     "summary": "Anthropic said it has launched the roadshow for its proposed initial public offering; its registration statement is filed with the SEC but not yet effective. @ParadisLabs flagged an $81B annual revenue run-rate as of Oct. 31, up $10B (14.1%) from September, while @jukan05 noted the company is pressing ahead even with its valuation cut in half from $2 trillion. @jimcramer called it the most consequential deal of our time, one the Jensen Huang story is obscuring.",
+     "short": "Anthropic starts the IPO roadshow.",
+     "sources": [
+      {
+       "name": "X @AnthropicAI",
+       "url": "https://x.com/AnthropicAI/status/2120117722230968385"
+      },
+      {
+       "name": "X @ParadisLabs",
+       "url": "https://x.com/ParadisLabs/status/2120118934569377860"
+      },
+      {
+       "name": "X @jukan05",
+       "url": "https://x.com/jukan05/status/2120120231171633323"
+      },
+      {
+       "name": "X @jimcramer",
+       "url": "https://x.com/jimcramer/status/2120078437851251029"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "nvidia-huang-information",
+     "headline": "Report: Huang relationship tied to at least $7.5B in Nvidia chip shipments",
+     "summary": "Citing The Information, @KobeissiLetter reported that Jensen Huang’s relationship with an alleged Chinese spy, said to date back to 2023, facilitated at least $7.5 billion in Nvidia chip shipments. A day earlier @GavinSBaker argued that since mid-2025 it has increasingly been Beijing, not Washington, blocking Nvidia GPUs in China.",
+     "short": "New report sizes the Huang affair at $7.5B in shipments.",
+     "sources": [
+      {
+       "name": "X @KobeissiLetter",
+       "url": "https://x.com/KobeissiLetter/status/2120110889693245744"
+      },
+      {
+       "name": "X @GavinSBaker",
+       "url": "https://x.com/GavinSBaker/status/2119908820608798745"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "softbank-turbine-denial",
+     "headline": "SoftBank’s CFO denies it defaulted on data-center turbine orders",
+     "summary": "Asked about Elon Musk’s claim last week that SoftBank was defaulting on turbine orders, CFO Yoshimitsu Goto said it is “simply not correct at all. There is no such default,” @aleabitoreddit reported, noting GE’s CEO has also said he sees no cancellations. @rdd147 had argued the reported defaults spelled trouble for Anthropic’s compute commitments.",
+     "short": "SoftBank: “There is no such default.”",
+     "sources": [
+      {
+       "name": "X @aleabitoreddit",
+       "url": "https://x.com/aleabitoreddit/status/2120106741090370030"
+      },
+      {
+       "name": "X @rdd147",
+       "url": "https://x.com/rdd147/status/2120080388928516581"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "musk-starlink-si",
+     "headline": "Musk: Starlink’s network software turns out to suit training superintelligence",
+     "summary": "Elon Musk wrote that the software built to move vast amounts of data through space and down to the ground is also very well suited to training super intelligence, his most-engaged post in the feed this morning.",
+     "short": "Starlink software repurposed for AI training.",
+     "sources": [
+      {
+       "name": "X @elonmusk",
+       "url": "https://x.com/elonmusk/status/2120102767624880364"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feed",
+   "items": [
+    {
+     "type": "post",
+     "id": "feed-2120058446850494608",
+     "author": "Daniel Koss",
+     "handle": "daniel_koss",
+     "text": "I'm surprised to see that some $HIMS investors are not happy about this deal with Andrew Huberman.\n\nYou can argue about the price, but I think it's strategically incredibly smart and makes a ton of sense.\n\nHere's why:\n\nMy $HIMS thesis is really simple: AI will lead to an explosion in healthcare solutions and innovation.\n\nWhere does the value accrue? I believe:\n\n1\\) Obviously in the companies that make these breakthroughs first and manage to protect their IP via patents.\n\nBUT, that's obviously insanely hard to predict. You essentially have to gamble or have insider information. …",
+     "url": "https://x.com/daniel_koss/status/2120058446850494608",
+     "date": "2026-11-10T07:38:17Z",
+     "quoted": {
+      "author": "mon",
+      "handle": "moninvestor",
+      "text": "$HIMS - What a great addition to the team.\n\n@hubermanlab has 8 million subscribers on YouTube. https://t.co/pdeOlPBMtP https://t.co/yNf6fzS0Zz",
+      "url": "https://x.com/moninvestor/status/2119902769616404944"
+     }
+    },
+    {
+     "type": "post",
+     "id": "feed-2120042235819401394",
+     "author": "The Humanoid Hub",
+     "handle": "TheHumanoidHub",
+     "text": "Archon Robotics introduced Anchor 1, a whole-body controller for humanoid manipulation.\n\nIt turns sparse human targets (pelvis, wrists, ankles) into precise, stable robot motion, skipping online joint-space retargeting to avoid a common source of error.\n\nIt also separates motion encoding from feedback correction, pairing accurate tracking with smooth movement.\n\nOn a real robot, Anchor 1 posts the lowest tracking errors and highest task success against baselines including MimicLite, ScaleBFM, and SONIC, and collects teleoperation data more efficiently. …",
+     "url": "https://x.com/TheHumanoidHub/status/2120042235819401394",
+     "date": "2026-11-10T06:33:52Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2120044654435676221",
+     "author": "Jukan",
+     "handle": "jukan05",
+     "text": "This really isn't it...\n\nI hope Mitsui speeds up its expansion.\n\nThis is far too late. China is going to devour market share. https://t.co/LyGjO1CoLV",
+     "url": "https://x.com/jukan05/status/2120044654435676221",
+     "date": "2026-11-10T06:43:28Z",
+     "image_url": "https://pbs.twimg.com/media/HWvpYDua4AAoG6A.jpg",
+     "image_alt": ""
+    },
+    {
+     "type": "post",
+     "id": "feed-2120081162156527645",
+     "author": "The Fundamentalist",
+     "handle": "Funmentalist",
+     "text": "$NBIS\n\nI saw the words “primarily” in the brackets and I immediately lost attention.\n\nLearn to filter out noise, it will save you a lot of time! https://t.co/IZ5RKqJwa6",
+     "url": "https://x.com/Funmentalist/status/2120081162156527645",
+     "date": "2026-11-10T09:08:32Z",
+     "quoted": {
+      "author": "Brian Fry",
+      "handle": "brianfry01",
+      "text": "$NBIS chose the asset light approach (primarily) and has done a fantastic job with that model so far but in my 28 years in HPC data center design, build and operate for Cloud (Asset Heavy IaaS), asset light has too many counter parties with varying capabilities to evolve fast enough in an AI Native …",
+      "url": "https://x.com/brianfry01/status/2119902841414533284"
+     }
+    },
+    {
+     "type": "post",
+     "id": "feed-2120066937996951784",
+     "author": "Milk Road AI",
+     "handle": "MilkRoadAI",
+     "text": "Kioxia is up about 8% today, but the stock is still down roughly 75% from its June peak.\n\nFor its third quarter, Kioxia expects NAND bit shipments to be flat and average selling prices to rise by a low to mid single digit percentage.\n\nThe fourth quarter is where it gets interesting. Kioxia sees bit shipments rising by high single digits to around 10% as enterprise SSD demand picks up.\n\nManagement also says NAND supply should stay tight, supported by long term customer agreements.\n\nAnd Hong Kong just listed the world's first leveraged product on Kioxia today. …",
+     "url": "https://x.com/MilkRoadAI/status/2120066937996951784",
+     "date": "2026-11-10T08:12:01Z",
+     "quoted": {
+      "author": "Milk Road AI",
+      "handle": "MilkRoadAI",
+      "text": "According to Korean media, South Korea's SSD exports hit $5.64 BILLION in October.\n\nThat is up 584% from a year ago, and the ninth straight month of triple digit growth.\n\nSamsung and SK Hynix say agentic AI is blowing up KV cache, so data centers need huge enterprise SSDs sitting under the GPUs. …",
+      "url": "https://x.com/MilkRoadAI/status/2118671745024708790"
+     },
+     "image_url": "https://pbs.twimg.com/media/HWv9pUKagAA--wp.jpg",
+     "image_alt": ""
+    },
+    {
+     "type": "post",
+     "id": "feed-2120082569748197514",
+     "author": "mash 🕶️",
+     "handle": "Mhr1036",
+     "text": "It is increasingly clear that defensive cyber ability is the most important factor for choosing your inference, sandbox, training and other vendors.\n\nCondolences for the amazing Fireworks team going through this tough time. \n\nMaybe a defensive cyber coalition is on the cards https://t.co/Fo1gNXvLoR",
+     "url": "https://x.com/Mhr1036/status/2120082569748197514",
+     "date": "2026-11-10T09:14:08Z",
+     "image_url": "https://pbs.twimg.com/media/HWwL3BzW8AAmi3R.jpg",
+     "image_alt": ""
+    },
+    {
+     "type": "post",
+     "id": "feed-2120123331131355301",
+     "author": "Every 📧",
+     "handle": "every",
+     "text": "Fable 5.2 can work all weekend without you. Getting the most out of it means changing how you work.\n\n.@kieranklaassen started building a video editor on a day off. Three days later, Everycut was live—with editing, visual effects, audio mixing, and an AI agent that could operate it. A week later, we ran a company-wide show-and-tell using it.\n\n@hammer_mt gave it roughly 1,400 Slack messages and notes from 127 meetings. Without him outlining the argument first, it produced a cited account of his thinking, flagged 38 places where he’d contradicted himself, and made an explainer video. …",
+     "url": "https://x.com/every/status/2120123331131355301",
+     "date": "2026-11-10T11:56:06Z"
+    }
+   ]
+  },
+  {
+   "id": "x",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2119866792348954839",
+     "author": "Alexandr Wang",
+     "handle": "alexandr_wang",
+     "text": "using muse ember🔥, each of these websites cost $0.04 on average\n\nback in my day, these would cost you O($10,000) in custom dev shop costs\n\nmassive deflation in nice pretty websites https://t.co/l1EYh2kC27",
+     "url": "https://x.com/alexandr_wang/status/2119866792348954839",
+     "date": "2026-11-09T18:56:43Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2119934910723174807",
+     "author": "Fireside Alpha",
+     "handle": "firesidealpha",
+     "text": "JUST IN: Memphis Mayor reveals SpaceX data center taxes more than doubled to $54 million, after $25 million last year made it Shelby County’s second largest taxpayer\n\nPaul Young was asked about Elon Musk’s claim that data centers have Memphis booming:\n\nQ: “Recently, just speaking on the revenues the data centers are creating for Memphis. Elon Musk recently tweeted that Memphis is 'booming' because of the data centers. He said that hotels and restaurants are full and called, tax revenue in Memphis tremendous right now. Do you just have any thoughts on that?”\n\nYOUNG: “Well, we’ve talked a lot about the financial aspects of the project. I think that as we talk about data centers in our city, we want to talk about it in a balanced way. Of course there’s an economic side. We want to make sure that we are articulating what protections and guardrails we’re putting in place for the environmental sides that, people are concerned about, the quality of life, noise, traffic, all of those aspects.\"\n\n\"But, there there is tax revenue. I think this year it was $54,000,000 in taxes that have been generated. And I know last year when they generated about $25,000,000 in tax revenue, it was the second largest tax paying property in Shelby County. I don’t know where $54,000,000 puts it, but it is significant taxes.\"\n\n\"And so as we look at, the tax revenue, we also wanna look at how do we ensure that there are proper protections. That’s what this ninety day executive order has been about, and, it’s the conversation that we’ll continue to have with the community.”",
+     "url": "https://x.com/firesidealpha/status/2119934910723174807",
+     "date": "2026-11-09T23:27:23Z"
+    }
+   ]
+  },
+  {
+   "id": "goats",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2119908820608798745",
+     "author": "Gavin Baker",
+     "handle": "GavinSBaker",
+     "text": "Something that merits more discussion amongst those who believe it was a mistake by both the Biden and Trump administrations to allow the export of less powerful GPUs to China:\n\nSince the summer of 2025, it has increasingly been *China*, not just DC, blocking Nvidia GPUs in China. Within weeks of Secretary Lutnick saying the goal was to get Chinese developers \"addicted\" to the American technology stack, Beijing began pressuring its tech giants to stop buying the H20. Then it ordered them to stop buying the RTX Pro 6000D, sent customs teams to the ports to crack down on Nvidia chip imports, and barred foreign AI chips from new state-funded data centers. And as of last week, Reuters reports that roughly 600,000 H200s are sitting in Hong Kong because Beijing won't approve large-scale imports of a chip that is still better than anything China's own industry makes at scale.\n\nIf allowing the export of these less powerful GPUs was a policy mistake that *advantaged* China, then why is *China* the one blocking them?\n\nFrom my perspective, China understands that if they are dependent on American AI hardware - either on the ground in China or accessed remotely via the wide range of southeast Asian clouds (which include SE Asian availability zones from the largest American hyperscalers) - then we have immense leverage over them in any future conflict. Being able to turn off the clouds instantly is actually the greatest leverage.\n\nYes, Chinese AI labs still want Nvidia chips. Gray market prices for H200 servers have roughly tripled over the past year. But that is exactly the point. Beijing is willing to impose real costs on its own AI labs to avoid dependence on American GPUs, which tells you how Beijing views GPU imports: not as a gift, but as a threat to its own ambitions.\n\nMaybe, just maybe, selling China GPUs that trail our own state of the art, so that Chinese developers stay “addicted” to American GPUs and China doesn't build an alternative AI hardware ecosystem that we have no control or influence over *and* that China could share over time with our adversaries, was actually a smart, pro-American national defense policy. And letting them access southeast Asian clouds might be an even smarter policy as so easy to turn clouds off.\n\nI believed and still believed it was smart policy. And I say this as someone whose posts here are hawkish enough on China that I won't travel there anymore.\n\nAnd note that both the Biden and Trump administration allowed the export of less powerful GPUs to China for all of these reasons. It was only under the Trump administration that China woke up to the risk of what was actually a pretty smart, pro-national defense policy and then China began restricting GPUs.\n\nThe lesson of the H20 is that a deliberately crippled chip doesn't keep China on our stack. Beijing moved against the H20 and RTX Pro 6000D as it concluded that domestic Chinese chips had caught up to them. So if China develops an alternative AI hardware ecosystem that it shares with Russia, Iran and North Korea, we will look back and think it would have been even smarter to offer China the B30A in 2025 instead of the H200s we eventually approved case-by-case. Especially given the H200 is not the frontier: with Vera Rubin now in full production, it is two generations behind what American labs are buying.\n\nAll of this is to say that Jensen has been consistently lobbying for a position that was adapted by both the Biden *and* Trump admins *and* looks smarter every month that goes by as Chinese labs increasingly adapt their MoE architectures to domestic Chinese hardware. DeepSeek reportedly gave Huawei and Cambricon early access to V4 instead of Nvidia and AMD, and a Huawei-led team has since post-trained V4-Pro on Ascend chips.\n\nAnd if America *ever* falls behind China in AI, the China hawks here in America who helped accelerate the creation of this alternative Chinese AI hardware ecosystem will deserve a significant share of the blame.",
+     "url": "https://x.com/GavinSBaker/status/2119908820608798745",
+     "date": "2026-11-09T21:43:43Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2119850141142389078",
+     "author": "Chris Camillo",
+     "handle": "ChrisCamillo",
+     "text": "Imagine building a $4 trillion empire to get taken down by a situationship",
+     "url": "https://x.com/ChrisCamillo/status/2119850141142389078",
+     "date": "2026-11-09T17:50:33Z"
+    }
+   ]
+  },
+  {
+   "id": "investments",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2120074819878449605",
+     "author": "Serenity",
+     "handle": "aleabitoreddit",
+     "text": "If you look at CW laser ASPs for AI data centers, the pricing differences are pretty substantial:\n\n70mW: ~$3–4\n100mW: ~$4–6 (Source Photonics channel checks).\n\nWith some premiums apparently going up to $7-$9 range with the recent shortage for pluggables. \n\n120–150mW NPO: ~$15–20\n350mW UHP CW: ~$40 (Nomura)\n400mW UHP CW for NPO/CPO: ~$50–75 (Mizuho)\n\nWith former communication laser chips going from 20-50 cents. \n\nThe pricing and gross margins of these players go up with each architectural shift (60%+ for CPO lasers).\n\nAnd go up even more depending how far down the stack you go (selling ELSFP was ~2.5x revenue content) \n\nIn terms of how I see the landscape now:\n\n- $COHR is probably the best risk adjusted laser player now, for people who don't like uncertainty. Their new $20B LTA is very substantial.\n\n- $LITE pretty negative now given the valuation overhang from $MRVL acquisition. Operationally very opsitive. \n\n- $AAOI has extreme demand visibility (likely $6-$9B in new LTAs from just 1 quarter), but credible execution uncertainty. \n\nThey've also been focusing on pluggables + bottlenecked by DSPs, rather focusing on UHP CPO laser merchant markets. \n\nBut I think if markets see a new $5B-$7B LTA that they're in late stage discussion for... and see the $4.4B MC. Pretty sure that's a catalyst for recovery. \n\nThe demand doesn't disappear but timeline shifts back a few months. \n\nAOI also signaled DSP as the main bottleneck, last quarter it was TIAs, so other different component players that are interesting. \n\n- $SIVE has extreme capacity expansion (300m laser capacity targeted in total). \n\nThe economic implications that they won't disclose are likely enormous relative to their MC, even if they sell $3 70mW lasers to China pluggable players. \n\nBut there's a qualification uncertainty to fill the gap, \nthat markets have punished the company for. Especially when management communication amplifies uncertainty, despite the ongoing shortage. \n\nRight now entire AI trade is going up and down together though.",
+     "url": "https://x.com/aleabitoreddit/status/2120074819878449605",
+     "date": "2026-11-10T08:43:20Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2119901996941750278",
+     "author": "M. V. Cunha",
+     "handle": "mvcinvesting",
+     "text": "🚨 $RKLB just announced a record quarter for Neutron launch contracts.\n\nEight missions across five operators, totaling over $515M, with several launches priced at $70M each.\n\nOne of those customers is planning to deploy data centers in space. https://t.co/rbJFS21VS0",
+     "url": "https://x.com/mvcinvesting/status/2119901996941750278",
+     "date": "2026-11-09T21:16:36Z"
+    }
+   ]
+  },
+  {
+   "id": "evergreen",
+   "items": [
+    {
+     "type": "evergreen",
+     "id": "ev-serenity-neoclouds",
+     "kind": "Post",
+     "title": "I'm going to give a contrarian take on Neoclouds like $NBIS",
+     "author": "Serenity",
+     "handle": "aleabitoreddit",
+     "date": "2026-11-07",
+     "url": "https://x.com/aleabitoreddit/status/2119077473107472729",
+     "summary": "After the valuation crash, Serenity argues neoclouds with Nvidia allocations, contracted and permitted capacity, hyperscaler customers and sane financing will do fine, pointing to SpaceX’s $40B GPU financing and IREN’s 90% prepayments and recontracted H100s at double prior pricing. The real risk, in this view, sits with newcomers still raising money or waiting on permits."
+    },
+    {
+     "type": "evergreen",
+     "id": "ev-camillo-skepticism",
+     "kind": "Post",
+     "title": "Been obsessed with the stock market since I was a teenager",
+     "author": "Chris Camillo",
+     "handle": "ChrisCamillo",
+     "date": "2026-10-20",
+     "url": "https://x.com/ChrisCamillo/status/2112632034497630228",
+     "summary": "A veteran of the dotcom bubble and the financial crisis says he has never seen skepticism like the one around AI: each bubble narrative is replaced by another, and easily debunked claims get repeated by media and analysts. He expects spectacular failures along the way, but finds it hard to understand why so many investors seem to be rooting for AI to fail."
+    }
+   ]
+  },
+  {
+   "id": "passage",
+   "items": [
+    {
+     "type": "passage",
+     "id": "bank-084",
+     "text": "You cannot overestimate the unimportance of practically everything.",
+     "author": "John Maxwell",
+     "kind": "quote",
+     "label": "From your old quote bank"
+    }
+   ]
+  },
+  {
+   "id": "games",
+   "items": [
+    {
+     "type": "mathq",
+     "id": "mathq-2026-11-10",
+     "title": "Mental Math",
+     "problems": [
+      {
+       "q": "17 × 9",
+       "a": "153",
+       "how": "17 × 9 = 10 × 9 + 7 × 9 = 153"
+      },
+      {
+       "q": "35% of 960",
+       "a": "336",
+       "how": "10% is 96, so 35% = 3 × 96 + half of 96 = 336"
+      },
+      {
+       "q": "Fermi: a sheet of printer paper is about 0.1 mm thick. How tall is a stack of 40 reams of 500 sheets?",
+       "a": "about 2 m",
+       "how": "40 × 500 = 20,000 sheets × 0.1 mm = 2,000 mm = 2 m"
+      }
+     ]
+    },
+    {
+     "type": "wason",
+     "id": "wason-2026-11-10",
+     "title": "Four Cards",
+     "rule": "If a card has a vowel on one side, it has an even number on the other.",
+     "cards": [
+      "E",
+      "K",
+      "3",
+      "8"
+     ],
+     "answer": "E and 3",
+     "explanation": "E could hide something that breaks the rule; 3 breaks it if the other side turns out to be E. 8 can't break it (the rule never says only those cards have it), and K isn't covered by the rule at all. Most people pick the card that matches the rule's second half instead of the one that could falsify it."
+    },
+    {
+     "type": "crossword",
+     "id": "crossword-2026-11-10",
+     "title": "Mini Crossword",
+     "size": 5,
+     "cells": [
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 1
+       },
+       {
+        "n": 2
+       },
+       {
+        "n": 3
+       },
+       {
+        "b": true
+       }
+      ],
+      [
+       {
+        "n": 4
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": 5
+       }
+      ],
+      [
+       {
+        "n": 6
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "n": 7
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 8
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "b": true
+       }
+      ]
+     ],
+     "clues": {
+      "across": [
+       {
+        "n": 1,
+        "clue": "Make a sad face and thrust out one's lower lip",
+        "len": 3,
+        "answer": "MOP"
+       },
+       {
+        "n": 4,
+        "clue": "Someone who drives racing cars at high speeds",
+        "len": 5,
+        "answer": "RACER"
+       },
+       {
+        "n": 6,
+        "clue": "A particular environment or walk of life",
+        "len": 5,
+        "answer": "ARENA"
+       },
+       {
+        "n": 7,
+        "clue": "Any creature of exceptional size",
+        "len": 5,
+        "answer": "GIANT"
+       },
+       {
+        "n": 8,
+        "clue": "One or some or every or all without specification",
+        "len": 3,
+        "answer": "ANY"
+       }
+      ],
+      "down": [
+       {
+        "n": 1,
+        "clue": "A dark region of considerable extent on the surface of the moon",
+        "len": 5,
+        "answer": "MARIA"
+       },
+       {
+        "n": 2,
+        "clue": "A large body of water constituting a principal part of the hydrosphere",
+        "len": 5,
+        "answer": "OCEAN"
+       },
+       {
+        "n": 3,
+        "clue": "A coin worth one-hundredth of the value of the basic unit",
+        "len": 5,
+        "answer": "PENNY"
+       },
+       {
+        "n": 4,
+        "clue": "A small piece of cloth or paper",
+        "len": 3,
+        "answer": "RAG"
+       },
+       {
+        "n": 5,
+        "clue": "Any of various long-tailed rodents similar to but larger than a mouse",
+        "len": 3,
+        "answer": "RAT"
+       }
+      ]
+     },
+     "solution": [
+      "#MOP#",
+      "RACER",
+      "ARENA",
+      "GIANT",
+      "#ANY#"
+     ]
+    },
+    {
+     "type": "riddle",
+     "id": "riddle-2026-11-10",
+     "title": "Riddle",
+     "q": "What has hands but cannot clap?",
+     "a": "A clock."
+    }
+   ]
+  },
+  {
+   "id": "tech",
+   "items": [
+    {
+     "type": "story",
+     "id": "news-turbines-2026-11-10",
+     "topic": [
+      "tech",
+      "ai",
+      "energy"
+     ],
+     "major": false,
+     "headline": "AI data centres are hunting for used turbines and jet engines",
+     "summary": "Lead times for new gas turbines now stretch to 2030-2031, so utilities and data-centre developers are reviving mothballed machines and converting retired jet engines, Reuters reports. Wood Mackenzie puts worldwide turbine orders above 100 GW against 60-70 GW of yearly production capacity.",
+     "short": "With new gas turbines backordered to 2030, AI data-centre builders are buying used turbines and converted jet engines.",
+     "sources": [
+      {
+       "name": "Reuters (via Investing.com)",
+       "url": "https://www.investing.com/news/stock-market-news/analysisai-power-rush-sends-data-centres-hunting-for-used-turbines-and-jet-engines-5010537"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "business",
+   "items": [
+    {
+     "type": "story",
+     "id": "news-disney-adobe-2026-11-10",
+     "topic": [
+      "business",
+      "ai",
+      "media"
+     ],
+     "major": false,
+     "headline": "Disney and Adobe will build custom AI models for the parks, studio and ESPN",
+     "summary": "Disney and Adobe struck a multi-year deal to co-develop private generative AI models trained on Disney's own IP through Adobe's Firefly Foundry. Work starts with Imagineering's concept design and the StudioLAB innovation hub; Disney says steps that took months now take hours or days.",
+     "short": "Disney and Adobe signed a multi-year deal to build private generative AI models trained on Disney's IP.",
+     "sources": [
+      {
+       "name": "Reuters (via Investing.com)",
+       "url": "https://www.investing.com/news/stock-market-news/disney-adobe-to-codevelop-custom-ai-models-tailored-for-media-giant-5012009"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "science",
+   "items": [
+    {
+     "type": "story",
+     "id": "news-glp1-naion-2026-11-10",
+     "topic": [
+      "health",
+      "metabolic"
+     ],
+     "major": false,
+     "headline": "FDA adds a rare-blindness warning to all GLP-1 drugs",
+     "summary": "The FDA said Monday that makers of GLP-1 drugs, including Ozempic, Wegovy, Mounjaro and Zepbound, must warn of a potential increased risk of NAION, a rare optic-nerve condition that can cause sudden, permanent vision loss. The agency found cases for every marketed GLP-1 but could not identify a mechanism.",
+     "short": "The FDA now requires a warning on all GLP-1 drugs about NAION, a rare cause of sudden vision loss.",
+     "sources": [
+      {
+       "name": "NBC News",
+       "url": "https://www.nbcnews.com/health/health-care/fda-orders-new-warning-glp-1s-rare-eye-condition-linked-sudden-blindne-rcna608309"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "news-mrna-heart-2026-11-10",
+     "topic": [
+      "science",
+      "health"
+     ],
+     "major": false,
+     "headline": "An mRNA treatment got heart muscle to regrow after heart attacks in mice",
+     "summary": "Cambridge researchers used short-lived mRNA to switch on two proteins, Myc and Cyclin T1, so heart muscle cells divided again after a heart attack. Treated mice pumped about 10% more blood per beat, and the gain held at 12 weeks. Larger-animal and human trials come next (Nature Cardiovascular Research).",
+     "short": "A Cambridge mRNA therapy made mouse heart cells divide after a heart attack, improving pumping by about 10%.",
+     "sources": [
+      {
+       "name": "University of Cambridge",
+       "url": "https://www.cam.ac.uk/stories/treatment-promotes-repair-after-heart-attack"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "funny_candidates": [
+  {
+   "type": "post",
+   "id": "funny-2119918416366813390",
+   "author": "Every 📧",
+   "handle": "every",
+   "text": "Our Fable 5.2 builds, a thread 👇",
+   "url": "https://x.com/every/status/2119918416366813390",
+   "date": "2026-11-09T22:21:51Z",
+   "score": 11.29
+  },
+  {
+   "type": "post",
+   "id": "funny-2120021043876106429",
+   "author": "Tibo",
+   "handle": "thsottiaux",
+   "text": "Dots can now control many machines in addition to its own little cloud computer that we provide by default. https://t.co/VtVYz5DcAB",
+   "url": "https://x.com/thsottiaux/status/2120021043876106429",
+   "date": "2026-11-10T05:09:39Z",
+   "quoted": {
+    "author": "OpenAI Developers",
+    "handle": "OpenAIDevs",
+    "text": "You can now connect multiple local computers to the same dot and choose which one it uses for a task.\n\nIt can build and test your app on a dedicated machine while you keep coding on your laptop. https://t.co/7NcrytEqHC",
+    "url": "https://x.com/OpenAIDevs/status/2119883176726409645"
+   },
+   "score": 8.62
+  },
+  {
+   "type": "post",
+   "id": "funny-2120122926766686717",
+   "author": "Zephyr",
+   "handle": "zephyr_z9",
+   "text": "From $2T to $1T\nConsidering AI infra stocks went down by 50% in October, this is quite fair https://t.co/dGNrjG0tzb",
+   "url": "https://x.com/zephyr_z9/status/2120122926766686717",
+   "date": "2026-11-10T11:54:30Z",
+   "quoted": {
+    "author": "Anthropic",
+    "handle": "AnthropicAI",
+    "text": "Anthropic has launched the roadshow for its proposed initial public offering: https://t.co/FhVRVuWN9X\n\nLegal disclaimer: A registration statement relating to these securities has been filed with the SEC but has not yet become effective. …",
+    "url": "https://x.com/AnthropicAI/status/2120117722230968385"
+   },
+   "score": 7.92
+  },
+  {
+   "type": "post",
+   "id": "funny-2120030262562353274",
+   "author": "Jukan",
+   "handle": "jukan05",
+   "text": "TSMC’s October 2026 revenue: NT$586.9B (+14.7% MoM, +59.7% YoY) https://t.co/eOmmay4B7o",
+   "url": "https://x.com/jukan05/status/2120030262562353274",
+   "date": "2026-11-10T05:46:17Z",
+   "image_url": "https://pbs.twimg.com/media/HWvcSXIbwAAD-CD.jpg",
+   "image_alt": "",
+   "score": 7.13
+  },
+  {
+   "type": "post",
+   "id": "funny-2120046590069236190",
+   "author": "The Humanoid Hub",
+   "handle": "TheHumanoidHub",
+   "text": ".@GoingBallistic5 leads the AGIBOT A3 by the hand at CoRL Austin https://t.co/IdLtGhAW1p",
+   "url": "https://x.com/TheHumanoidHub/status/2120046590069236190",
+   "date": "2026-11-10T06:51:10Z",
+   "score": 6.8
+  },
+  {
+   "type": "post",
+   "id": "funny-2119888887833297327",
+   "author": "Noah",
+   "handle": "antibearthesis",
+   "text": "$NVDA is cheap. https://t.co/xbUIxWPJkD",
+   "url": "https://x.com/antibearthesis/status/2119888887833297327",
+   "date": "2026-11-09T20:24:31Z",
+   "image_url": "https://pbs.twimg.com/media/HWtbcC0WIAAZWS8.jpg",
+   "image_alt": "",
+   "score": 6.31
+  },
+  {
+   "type": "post",
+   "id": "funny-2120045469107621921",
+   "author": "Daniel Koss",
+   "handle": "daniel_koss",
+   "text": "That's almost exactly the deal I have with $NBIS !\n\nOnly differences are I get no compensation and no board seat. https://t.co/pEvQOo6Tje",
+   "url": "https://x.com/daniel_koss/status/2120045469107621921",
+   "date": "2026-11-10T06:46:43Z",
+   "quoted": {
+    "author": "Hims House",
+    "handle": "himshouse",
+    "text": "$HIMS - ANDREW HUBERMAN BOARD SEAT DETAILS \n\nCompensation: $50K cash + $250K equity annually \n\nAdvisory deal: $3.5M annually for 2 years ($7M total)\n\nPodcast advertising: $5M annually for up to 3 years ($15M total) through Scicomm Media …",
+    "url": "https://x.com/himshouse/status/2119903144733770068"
+   },
+   "score": 6.03
+  },
+  {
+   "type": "post",
+   "id": "funny-2120096423781814289",
+   "author": "Babyfolio",
+   "handle": "babyfolio",
+   "text": "I think $HIMS did a great move here.\n\nThey get audience in the perfect niche for them. Well done. https://t.co/LA4ShN84Jw",
+   "url": "https://x.com/babyfolio/status/2120096423781814289",
+   "date": "2026-11-10T10:09:11Z",
+   "quoted": {
+    "author": "Oli",
+    "handle": "OInvests",
+    "text": "Is Andrew Huberman worth up to $9.8M a year to $HIMS?\n\n> $5M of podcast ads through his company\n\n> $3.5M advisory fee\n\n> $1M for short-form videos (optional)\n\n> $300K board seat\n\nFor 8M YouTube subscribers, most of them already interested in health. …",
+    "url": "https://x.com/OInvests/status/2120094107666129108"
+   },
+   "score": 5.72
+  },
+  {
+   "type": "post",
+   "id": "funny-2119976153989665245",
+   "author": "@ratlimit",
+   "handle": "ratlimit",
+   "text": "You ever read your own posts then suddenly find yourself touching yourself?",
+   "url": "https://x.com/ratlimit/status/2119976153989665245",
+   "date": "2026-11-10T02:11:17Z",
+   "score": 5.49
+  },
+  {
+   "type": "post",
+   "id": "funny-2120021893260648768",
+   "author": "Bennett's Phylactery",
+   "handle": "extradeadjcb",
+   "text": "Once again:\n\nHe's not Muslim, he's just Not White https://t.co/YKySArFV0a",
+   "url": "https://x.com/extradeadjcb/status/2120021893260648768",
+   "date": "2026-11-10T05:13:02Z",
+   "quoted": {
+    "author": "5Pillars",
+    "handle": "5Pillarsuk",
+    "text": "The first American Muslim senator, Abdul El-Sayed, has attended a Diwali celebration.\n\nDiwali is a major Hindu religious festival, commonly involving honouring \"deities\" such as Lakshmi and celebrating the return of Rama to Ayodhya. …",
+    "url": "https://x.com/5Pillarsuk/status/2119726206048231922"
+   },
+   "score": 5.12
+  },
+  {
+   "type": "post",
+   "id": "funny-2120021967671788026",
+   "author": "Yun-Ta Tsai",
+   "handle": "yunta_tsai",
+   "text": "Money is an index of the signal-to-noise ratio. When a better index appears, it replaces money.",
+   "url": "https://x.com/yunta_tsai/status/2120021967671788026",
+   "date": "2026-11-10T05:13:19Z",
+   "score": 4.65
+  },
+  {
+   "type": "post",
+   "id": "funny-2120037462474891638",
+   "author": "Tom Nash",
+   "handle": "iamtomnash",
+   "text": "While people were freaking out last week. This is what was going in our private community discord. https://t.co/5iiE5lUowY",
+   "url": "https://x.com/iamtomnash/status/2120037462474891638",
+   "date": "2026-11-10T06:14:54Z",
+   "image_url": "https://pbs.twimg.com/media/HWvi1XyXUAATfXW.jpg",
+   "image_alt": "",
+   "score": 4.5
+  },
+  {
+   "type": "post",
+   "id": "funny-2120095163678900252",
+   "author": "Roger",
+   "handle": "rdd147",
+   "text": "Higher mortgage rates have driven the average mortgage payment up 13% YOY\n\nhttps://t.co/OC1doh582P",
+   "url": "https://x.com/rdd147/status/2120095163678900252",
+   "date": "2026-11-10T10:04:11Z",
+   "score": 4.48
+  },
+  {
+   "type": "post",
+   "id": "funny-2120121354582172011",
+   "author": "MAHA Action",
+   "handle": "MAHA_Action",
+   "text": "RFK Jr. says new Chief of Staff Stephen Miller told him over dinner: “I’m the only one in the administration who’s MORE radical than you are on MAHA.”\n\n\"And Katie [Stephen’s wife] said, ‘You have no idea how radical he is on MAHA.’” https://t.co/IoBoswW6j7",
+   "url": "https://x.com/MAHA_Action/status/2120121354582172011",
+   "date": "2026-11-10T11:48:15Z",
+   "score": 4.47
+  },
+  {
+   "type": "post",
+   "id": "funny-2119792625284956564",
+   "author": "Vebjørn",
+   "handle": "VJNCapital",
+   "text": "$AMZN is trading at its lowest price to operating income ever https://t.co/lMCE9Dj1vh",
+   "url": "https://x.com/VJNCapital/status/2119792625284956564",
+   "date": "2026-11-09T14:02:00Z",
+   "image_url": "https://pbs.twimg.com/media/HWr6VGhWMAAXioe.jpg",
+   "image_alt": "",
+   "score": 4.42
+  },
+  {
+   "type": "post",
+   "id": "funny-2120125533006741645",
+   "author": "WhiteFiber_ NASDAQ: WYFI",
+   "handle": "WhiteFiber_",
+   "text": "WhiteFiber, Inc. Reports Third Quarter 2026 Results.\nhttps://t.co/u5vYBTbpwK https://t.co/sG4oxHvNXg",
+   "url": "https://x.com/WhiteFiber_/status/2120125533006741645",
+   "date": "2026-11-10T12:04:51Z",
+   "score": 4.18
+  },
+  {
+   "type": "post",
+   "id": "funny-2120021123413000242",
+   "author": "Adam Robbert",
+   "handle": "AE_Robbert",
+   "text": "Updated my personal Claudesite once more. New piece up now.\n\nhttps://t.co/ibSqyKm5Pi https://t.co/kKvZbt5tUl",
+   "url": "https://x.com/AE_Robbert/status/2120021123413000242",
+   "date": "2026-11-10T05:09:58Z",
+   "image_url": "https://pbs.twimg.com/media/HWvT-bdakAAiPhS.jpg",
+   "image_alt": "",
+   "score": 4.13
+  },
+  {
+   "type": "post",
+   "id": "funny-2120124326473355660",
+   "author": "VV",
+   "handle": "visualizevalue",
+   "text": "A bird in the hand is worth ten in the bush. https://t.co/8Cq7f5TzTQ",
+   "url": "https://x.com/visualizevalue/status/2120124326473355660",
+   "date": "2026-11-10T12:00:04Z",
+   "image_url": "https://pbs.twimg.com/media/HWwx1yXaoAAWd_h.png",
+   "image_alt": "",
+   "score": 3.38
+  },
+  {
+   "type": "post",
+   "id": "funny-2120029061053559077",
+   "author": "Jovian Gautama 劉恆原",
+   "handle": "jovvvian",
+   "text": "The greatest trick the devil ever pulled is convincing the world that high conversion rate equals love for the product https://t.co/mE6CZUpCAD",
+   "url": "https://x.com/jovvvian/status/2120029061053559077",
+   "date": "2026-11-10T05:41:31Z",
+   "quoted": {
+    "author": "Cormac",
+    "handle": "cormachayden_",
+    "text": "to be honest\n\neveryday the past couple months I've thought about quitting and shutting down oasis.\n\ni’ve never believed more in oasis: my consumer health startup powered by transparent product testing, but...\n\nour revenue is down 85% since april this year and our legal bills keep growing …",
+    "url": "https://x.com/cormachayden_/status/2119950482873704664"
+   },
+   "score": 3.15
+  },
+  {
+   "type": "post",
+   "id": "funny-2120025539180179937",
+   "author": "amirmxt",
+   "handle": "amirmxt",
+   "text": "look at what they've done to my wonderful calendar app\n\ni avoided notion my whole life https://t.co/DB0BZCD5XK",
+   "url": "https://x.com/amirmxt/status/2120025539180179937",
+   "date": "2026-11-10T05:27:31Z",
+   "image_url": "https://pbs.twimg.com/media/HWvX44vXEAAcw3h.jpg",
+   "image_alt": "",
+   "score": 1.85
+  },
+  {
+   "type": "post",
+   "id": "funny-2120119710197199354",
+   "author": "Ray Kober",
+   "handle": "BroknHealthcare",
+   "text": "he told the hospital his credit card number was “proprietary” too 💀 \n\n#medicalbills #healthcarecosts #brokenhealthcare https://t.co/HRbshByINP",
+   "url": "https://x.com/BroknHealthcare/status/2120119710197199354",
+   "date": "2026-11-10T11:41:43Z",
+   "score": 0.69
+  },
+  {
+   "type": "post",
+   "id": "funny-2120058924170924327",
+   "author": "Christie",
+   "handle": "GetMentalWealth",
+   "text": "Anyone flying a drone over an apartment at night should be legally required to play John Williams instead of that buzzing.",
+   "url": "https://x.com/GetMentalWealth/status/2120058924170924327",
+   "date": "2026-11-10T07:40:10Z",
+   "score": 0.69
+  },
+  {
+   "type": "post",
+   "id": "funny-2120056168278376823",
+   "author": "Johnson (Taiwan)",
+   "handle": "justavagrant_",
+   "text": "Damn I miss celebrating anniversaries",
+   "url": "https://x.com/justavagrant_/status/2120056168278376823",
+   "date": "2026-11-10T07:29:13Z",
+   "score": 0.69
+  },
+  {
+   "type": "post",
+   "id": "funny-2120126934822654191",
+   "author": "mash 🕶️",
+   "handle": "Mhr1036",
+   "text": "This list is too good to not share. Would add EMF exposure to this list https://t.co/s875NOcJWi",
+   "url": "https://x.com/Mhr1036/status/2120126934822654191",
+   "date": "2026-11-10T12:10:25Z",
+   "quoted": {
+    "author": "Grok",
+    "handle": "grok",
+    "text": "1. Factory-farming tens of billions of animals in extreme confinement for food. \n2. Flooding oceans and human bodies with microplastics from single-use everything. \n3. Handing kids phones engineered for addiction and attention extraction. \n4. …",
+    "url": "https://x.com/grok/status/2119853068502045097"
+   },
+   "score": 0.0
+  },
+  {
+   "type": "post",
+   "id": "funny-2120091268835672264",
+   "author": "farbood",
+   "handle": "farbood",
+   "text": "You are made from an unbroken chain of someone eating.",
+   "url": "https://x.com/farbood/status/2120091268835672264",
+   "date": "2026-11-10T09:48:42Z",
+   "score": 0.0
+  },
+  {
+   "type": "post",
+   "id": "funny-2120043020615905480",
+   "author": "Naz Avo 🥑",
+   "handle": "naz_avo",
+   "text": "a special circle of hell for beople below the mechanical keyboard in public users https://t.co/JhFE0wxWP2",
+   "url": "https://x.com/naz_avo/status/2120043020615905480",
+   "date": "2026-11-10T06:36:59Z",
+   "quoted": {
+    "author": "Sander Fish",
+    "handle": "sanderfish",
+    "text": "new growth strategy: do sales calls in a coworking space mentioning [COMPANY NAME] loudly and often, purely with the goal of everyone in the coworking space googling you",
+    "url": "https://x.com/sanderfish/status/2120031037128655166"
+   },
+   "score": 0.0
+  }
+ ],
+ "seconds": {
+  "items": []
+ }
+}

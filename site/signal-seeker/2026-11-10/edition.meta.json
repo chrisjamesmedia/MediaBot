@@ -1,0 +1,26 @@
+{
+ "date": "2026-11-10",
+ "date_long": "Tuesday, November 10, 2026",
+ "lead": "Anthropic launches its IPO roadshow",
+ "pages": {
+  "print": 6,
+  "digital": 7
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-10-print.pdf",
+  "digital": "signal-seeker-2026-11-10-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Evergreen",
+  "The Passage",
+  "Games",
+  "Headlines"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-10T07:25:18-05:00"
+}
