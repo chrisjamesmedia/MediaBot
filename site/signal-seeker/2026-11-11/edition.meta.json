@@ -1,0 +1,26 @@
+{
+ "date": "2026-11-11",
+ "date_long": "Wednesday, November 11, 2026",
+ "lead": "CoreWeave: customers now prepay up to 100%, and demand runs 10x capacity",
+ "pages": {
+  "print": 6,
+  "digital": 7
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-11-print.pdf",
+  "digital": "signal-seeker-2026-11-11-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Evergreen",
+  "The Passage",
+  "Games",
+  "Headlines"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-11T07:22:19-05:00"
+}
