@@ -1,19 +1,19 @@
 {
  "format": "mediabot-latest/1",
  "paper": "field-notes",
- "date": "2026-11-11",
- "date_long": "Wednesday, November 11, 2026",
+ "date": "2026-11-12",
+ "date_long": "Thursday, November 12, 2026",
  "pages": {
   "print": 2,
   "digital": 1
  },
- "built_at": "2026-11-11T07:22:06-05:00",
- "edition": "../2026-11-11/",
+ "built_at": "2026-11-12T07:23:26-05:00",
+ "edition": "../2026-11-12/",
  "print_pdf": "print.pdf",
  "digital_pdf": "digital.pdf",
- "edition_print_pdf": "../2026-11-11/field-notes-2026-11-11-print.pdf",
+ "edition_print_pdf": "../2026-11-12/field-notes-2026-11-12-print.pdf",
  "absolute": {
-  "edition": "https://chrisjamesmedia.github.io/MediaBot/field-notes/2026-11-11/",
+  "edition": "https://chrisjamesmedia.github.io/MediaBot/field-notes/2026-11-12/",
   "print_pdf": "https://chrisjamesmedia.github.io/MediaBot/field-notes/latest/print.pdf",
   "digital_pdf": "https://chrisjamesmedia.github.io/MediaBot/field-notes/latest/digital.pdf"
  }
