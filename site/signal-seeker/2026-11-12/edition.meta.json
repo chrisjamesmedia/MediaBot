@@ -1,0 +1,26 @@
+{
+ "date": "2026-11-12",
+ "date_long": "Thursday, November 12, 2026",
+ "lead": "Report: Nvidia's board is preparing to oust Jensen Huang",
+ "pages": {
+  "print": 6,
+  "digital": 6
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-12-print.pdf",
+  "digital": "signal-seeker-2026-11-12-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Evergreen",
+  "The Passage",
+  "Games",
+  "Headlines"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-12T07:23:33-05:00"
+}
