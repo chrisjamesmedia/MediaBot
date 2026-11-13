@@ -1,0 +1,1047 @@
+{
+ "schema": 1,
+ "paper": "signal-seeker",
+ "date": "2026-11-13",
+ "coverage": "Covering roughly Nov 12–13, 2026. Compiled Friday morning, ET.",
+ "note": "Anthropic is expected to price its IPO Nov. 18.",
+ "requests": [],
+ "sections": [
+  {
+   "id": "front",
+   "items": [
+    {
+     "type": "story",
+     "id": "huang-resigns",
+     "headline": "Jensen Huang resigns as Nvidia CEO, and the spy case behind it is wobbling",
+     "summary": "Huang has resigned as Nvidia's chief executive, @aleabitoreddit reported Thursday, and @DeepValueBagger notes he keeps no advisory, board or honorary role. Within hours the case against him softened: citing CNN, @KobeissiLetter reports that US intelligence officials say the evidence on Alice Huang does not prove she was spying for China, with ODNI officials calling that characterization \"over-torqued\" and the CIA \"not yet convinced.\" Per WIRED, an internal Nvidia post urging the board to reinstate him has drawn more than 1,600 comments, most in support. @GavinSBaker: the board should have waited for its own investigation to finish.",
+     "short": "Huang is out at Nvidia; officials now doubt the spy claims and employees want him back.",
+     "sources": [
+      {
+       "name": "X @aleabitoreddit",
+       "url": "https://x.com/aleabitoreddit/status/2120878368975618315"
+      },
+      {
+       "name": "X @KobeissiLetter",
+       "url": "https://x.com/KobeissiLetter/status/2121124218133725538"
+      },
+      {
+       "name": "X @KobeissiLetter",
+       "url": "https://x.com/KobeissiLetter/status/2121141764568314058"
+      },
+      {
+       "name": "X @GavinSBaker",
+       "url": "https://x.com/GavinSBaker/status/2121094612119126304"
+      },
+      {
+       "name": "X @DeepValueBagger",
+       "url": "https://x.com/DeepValueBagger/status/2121015649086718001"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "blackwell-fingerprints",
+     "headline": "Researcher: Chinese labs' newest models were trained on export-barred Blackwell chips",
+     "summary": "@willdepue says model weights carry a fingerprint of the GPU that initialized them, and that after searching more than six trillion chip-layout and seed combinations he matched six Chinese models, including DeepSeek-V4-Pro, Kimi K3 and MiniMax-M3, to Nvidia Blackwell systems, four to Grace Blackwell racks. He says a B300 reproduced DeepSeek-V4-Flash's starting weights bit for bit while an H100 matched none, and estimates the largest runs used 2,000-3,000 Blackwell GPUs each. He says researchers at OpenAI and Anthropic independently verified the result.",
+     "short": "A weight-forensics study ties six Chinese models to Blackwell hardware.",
+     "sources": [
+      {
+       "name": "X @willdepue",
+       "url": "https://x.com/willdepue/status/2120992457630326841"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "claude-meetings",
+     "headline": "Anthropic launches Claude Meetings",
+     "summary": "@claudeai: Claude can now join a team's video call and build docs, whiteboards and other artifacts while people are still talking. It is rolling out in beta on Team and Enterprise plans.",
+     "short": "Claude joins video calls and builds docs live, in beta.",
+     "sources": [
+      {
+       "name": "X @claudeai",
+       "url": "https://x.com/claudeai/status/2120973994191094179"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feed",
+   "items": [
+    {
+     "type": "post",
+     "id": "feed-2120978066734502301",
+     "author": "Fireside Alpha",
+     "handle": "firesidealpha",
+     "text": "Dylan Patel says Nvidia without Jensen Huang becomes a committee that decides slowly, with no clear technical lead and a weaker hand to lock up supply below market rate\n\n“I think that’s the biggest worry for Nvidia, is that now it’s like a committee of people doing stuff. And that’s just gonna make decisions slow. Technically, they could fall behind because of this.” …",
+     "url": "https://x.com/firesidealpha/status/2120978066734502301",
+     "date": "2026-11-12T20:32:31Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2121068943704236435",
+     "author": "Jukan",
+     "handle": "jukan05",
+     "text": "Nvidia chips are still scarce, even now.\n\nBut to maximize that premium, Nvidia has to support the neoclouds.\n\nIf the new Nvidia CEO turns even slightly skeptical about supporting the neoclouds, spot prices will take a hit. That will hurt neocloud margins. To avoid this, the neoclouds will have no choice but to reach out elsewhere. AMD, or the TPU camp. …",
+     "url": "https://x.com/jukan05/status/2121068943704236435",
+     "date": "2026-11-13T02:33:38Z",
+     "image_url": "https://pbs.twimg.com/media/HW-M9a3acAAmSm6.jpg",
+     "image_alt": ""
+    },
+    {
+     "type": "post",
+     "id": "feed-2121155283367907507",
+     "author": "Daniel Koss",
+     "handle": "daniel_koss",
+     "text": "I'm going over the $NBIS earnings in great detail right now.\n\nThe full recap and outlook will be shared for free on X, as I hate paywalling articles when X is freaking out. I want to publicly address the good and the bad stuff.\n\nIt's very clear to me that 99.9% of the people on X who are dooming didn't spend any time looking at the actual results or updates we got.\n\nThere are great news and developments and also real things to be worried about and there are some bad news. …",
+     "url": "https://x.com/daniel_koss/status/2121155283367907507",
+     "date": "2026-11-13T08:16:43Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2121061935475302787",
+     "author": "Jim Liu",
+     "handle": "jiahanjimliu",
+     "text": "$NBIS: Asset-Light Revenue\n\nMost of X is missing the mark on why the asset-lite revenue NBIS reported today is labeled no-recurring.\n\nI'll breakdown the explanation given in earnings call:\n\"asset-light model. By that, we are bringing capacity online with the Nebius architecture. In this case, some revenues are recognized when we lock this capacity, the supply chain, and the architecture, and some of the revenues are recognized when the capacity actually comes online and being sold to customers. …",
+     "url": "https://x.com/jiahanjimliu/status/2121061935475302787",
+     "date": "2026-11-13T02:05:47Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2121089985931592022",
+     "author": "SemiAnalysis",
+     "handle": "SemiAnalysis_",
+     "text": "NVIDIA doesn’t own a fab. Its edge is a supply chain that took one product from $1 billion to $250 billion. Even so, it will probably lose share.\n\n“What really keeps them in the game is supply chain. It’s feeling a lot like Apple in 2020. People are perceiving them as having a lot of competition.”\n\n“A lab is not really capable of ramping a product from a billion to 250 billion dollars. NVIDIA is a one-of-one company that’s done that, and there’s a lot of chops that go into that.”\n\n“I do think that share gain against NVIDIA is extremely possible, and probably probable now.” …",
+     "url": "https://x.com/SemiAnalysis_/status/2121089985931592022",
+     "date": "2026-11-13T03:57:15Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2121148384555995136",
+     "author": "Serenity",
+     "handle": "aleabitoreddit",
+     "text": "The people have spoken.\n\nIn the largest large-scale poll of 22,965 respondents:\n\n19,750 supported @JensenHuang remaining CEO of $NVDA, compared with just 1,840 opposing him.\n\nAmong respondents expressing a position Jensen received a:\n\n- 91.5% support vs. 8.5% opposition ratio\n(10.8 to 1)\n\nThe results stands in contrast to prominent media commentary calling for and celebrating his departure.\n\nNvidia’s board should reconsider whether removing Jensen Huang was in the best interests of its shareholders and American leadership in AI",
+     "url": "https://x.com/aleabitoreddit/status/2121148384555995136",
+     "date": "2026-11-13T07:49:18Z",
+     "quoted": {
+      "author": "Serenity",
+      "handle": "aleabitoreddit",
+      "text": "Okay, let’s gauge individual investor and public sentiment independently.\n\nShould Jensen Huang remain CEO of $NVDA?",
+      "url": "https://x.com/aleabitoreddit/status/2120822653997261079"
+     },
+     "image_url": "https://pbs.twimg.com/media/HW_VNntbkAArlJr.jpg",
+     "image_alt": ""
+    },
+    {
+     "type": "post",
+     "id": "feed-2121129749737292230",
+     "author": "Ashok Elluswamy",
+     "handle": "aelluswamy",
+     "text": "Tesla self-driving simultaneously monitors all 360 degrees around the car and takes you out of danger from any direction. https://t.co/BaQsxReq0v",
+     "url": "https://x.com/aelluswamy/status/2121129749737292230",
+     "date": "2026-11-13T06:35:15Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2121065721568596045",
+     "author": "Roger",
+     "handle": "rdd147",
+     "text": "Reuters reported today on collapse of Neo-Cloud stocks in wake of Jensen leaving.\n\nSerious concerns arose at investment firms about Kress background and focus on investments vs bets on risk like Jensen did. Specific concerns of investors are how she’ll approach…\n\nNvidia’s equity investments in neoclouds.\n\nGPU-backed financing and credit guarantees.\n\nCommitments to purchase unused computing capacity.\n\nCounterparty creditworthiness and customer concentration.",
+     "url": "https://x.com/rdd147/status/2121065721568596045",
+     "date": "2026-11-13T02:20:50Z"
+    }
+   ]
+  },
+  {
+   "id": "x",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2121143697161236839",
+     "author": "Naval",
+     "handle": "naval",
+     "text": "Jensen Huang is the Steve Jobs of Nvidia. He is irreplaceable .",
+     "url": "https://x.com/naval/status/2121143697161236839",
+     "date": "2026-11-13T07:30:41Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2121157977852010535",
+     "author": "Paul Millerd",
+     "handle": "p_millerd",
+     "text": "There's a weird thing I've noticed on social media wher entrepreneurs and creators always recommend building up a side income before leaving your job \n\nExcept almost none of them actually did this!\n\nI think what's going on is that this piece of wisdom just does much better in an algorithmic feed \n\nIt appeals not only to the people that want to quit their job, but also the people that think a lot of people who are doing their own thing are naive and should stay in their jobs\n\nIf you say something like, “hey, you should just take a leap and bet on yourself and see where it goes, and not having a plan is okay”\n\nNot only do the people that want to dunk on the self-employed ignore it, but a good majority of people that want to quit their job ignore it too because they want to buy into the fantasy that you can plan such a life transition \n\nI suspect woo advice on taking an unconventional path is the right advice \n\nBut algorithmic feeds don't optimize for usefulness. They optimize for fantasies and projections   \n\nQuit your job, people, and embrace the beautiful adventure of doing work that calls to you! \n\nEmbrace potential failure. Be okay with doing whatever work can fund the journey. Return to your job if you have to",
+     "url": "https://x.com/p_millerd/status/2121157977852010535",
+     "date": "2026-11-13T08:27:25Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2120910517250486583",
+     "author": "Joe Hudson",
+     "handle": "FU_joehudson",
+     "text": "If you're tired all the time, notice how your inner talk sounds...\n\nCriticizing ourselves all the time is one of the most exhausting things we do all day, without realizing it.",
+     "url": "https://x.com/FU_joehudson/status/2120910517250486583",
+     "date": "2026-11-12T16:04:06Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2121174800576246058",
+     "author": "Pavel Durov",
+     "handle": "durov",
+     "text": "🤦‍♀️ Jensen made a rookie mistake. He had a board.\n\nIn 2014, my board kicked me out for saying no to spies.\n\nIn 2026, Jensen’s board kicked him out for saying yes to one.\n\nSo the board gets you either way.\n\nFounders: Don’t have a board. \n\nBe the board 😏",
+     "url": "https://x.com/durov/status/2121174800576246058",
+     "date": "2026-11-13T09:34:16Z"
+    }
+   ]
+  },
+  {
+   "id": "goats",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2120966316601585854",
+     "author": "Gavin Baker",
+     "handle": "GavinSBaker",
+     "text": "Well-meaning, patriotic China “Hawks” who are not AI/HW experts are putting American national security at risk.\n\nChina had *zero* chance of ever catching America in AI with the export strategy that Jensen supported. Their labs would have continued training using less powerful American GPUs which meant American labs would have always been ahead given scaling laws. And in the event of a conflict, we could have simply turned off all the Southeast Asian clouds.\n\nSimply stated, in AI terms, America had machine guns and we were giving China muskets to prevent them from developing their own machine gun variants. \n\nGiven that it looks like the China “Hawks” will get their preferred policy, China will likely soon have a chance of catching America in AI by going down an alternate, less power-efficient AI hardware path. They almost certainly would not have gone down this path if less powerful GPUs were still available in China and via Southeast Asian clouds.\n\nAnd it will be a much less stable world if China pulls even or ahead of America in AI after developing their own alternative AI HW and gives this technology to Russia, Iran and North Korea. And all of this will be possible if the China “Hawks” get their preferred policy.",
+     "url": "https://x.com/GavinSBaker/status/2120966316601585854",
+     "date": "2026-11-12T19:45:50Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2120943109505008055",
+     "author": "Serenity",
+     "handle": "aleabitoreddit",
+     "text": "I have no confidence in the future of $NVDA after Jensen’s resignation.\n\nBeyond the next couple years of existing revenue + roadmaps.\n\nWithout Jensen’s visionary leadership that previously set them ahead of $AMD to Broadcom\n\nIt’s don’t find Nvidia compelling in the long horizon",
+     "url": "https://x.com/aleabitoreddit/status/2120943109505008055",
+     "date": "2026-11-12T18:13:37Z"
+    }
+   ]
+  },
+  {
+   "id": "investments",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2121119250601697764",
+     "author": "The Kobeissi Letter",
+     "handle": "KobeissiLetter",
+     "text": "BREAKING: Bitcoin falls below $69,000 and ETH nears $1,900 as selling pressure accelerates in crypto.\n\nCrypto markets have now lost -$150 billion in 48 hours.",
+     "url": "https://x.com/KobeissiLetter/status/2121119250601697764",
+     "date": "2026-11-13T05:53:32Z",
+     "group": "Crypto"
+    }
+   ]
+  },
+  {
+   "id": "evergreen",
+   "items": [
+    {
+     "type": "evergreen",
+     "id": "ev-vividvoid-psychedelic-grief",
+     "kind": "Post",
+     "title": "Psychedelic use, for most users, is part of a cycle of persistent grief",
+     "author": "Vivid Void",
+     "handle": "vividvoid",
+     "date": "2026-10-06",
+     "url": "https://x.com/vividvoid/status/2107616373253824830",
+     "summary": "Vivid Void argues that for most users the psychedelic trip is a consolation prize for having lost the ability to find meaning in ordinary life, a revelation that is promised but never quite brought back. Meanwhile the chores, calls and dinner invitations that hold a life together go undone. The case is for showing up for the mundane world, frustrating family included."
+    },
+    {
+     "type": "evergreen",
+     "id": "ev-senra-wang",
+     "kind": "Post",
+     "title": "David Senra's conversation with Alexandr Wang",
+     "author": "David Senra",
+     "handle": "davidsenra",
+     "date": "2026-10-11",
+     "url": "https://x.com/davidsenra/status/2109283692439105997",
+     "summary": "Senra talks with Meta's chief AI officer about building Muse in seven months, why Meta bet on personal AI agents, and why great products need a single point of view. Wang also covers rebuilding Meta's AI lab from scratch, leaving Scale AI, and why he has more than 200 direct reports."
+    }
+   ]
+  },
+  {
+   "id": "science",
+   "items": [
+    {
+     "type": "story",
+     "id": "news-granzyme-k-2026-11-12",
+     "topic": [
+      "science",
+      "health"
+     ],
+     "major": false,
+     "headline": "An enzyme that drives tissue ageing without inflammation",
+     "summary": "Aged mice engineered to lack the enzyme granzyme K had better heart and liver function, less kidney damage and less age-related liver scarring, Nature reports on a study in Immunity. Drugs that lower the protein might one day slow ageing in tissues without weakening immune defences.",
+     "short": "Mice without granzyme K aged with healthier hearts, livers and kidneys.",
+     "sources": [
+      {
+       "name": "Nature",
+       "url": "https://www.nature.com/articles/d41586-026-03638-3"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "news-exercise-vs-diet-2026-11-12",
+     "topic": [
+      "health",
+      "science"
+     ],
+     "major": false,
+     "headline": "Review: fitness predicts a longer life more strongly than diet does",
+     "summary": "A review in Mayo Clinic Proceedings by ASU's Glenn Gaesser and Kaiser Permanente's Robert Sallis found physical activity and cardiorespiratory fitness more strongly tied to lower mortality than diet quality. Meta-analyses linked 11,000-16,000 steps a day to 45-67% lower all-cause mortality than 2,000-5,000, and high fitness largely offset the excess risk of a poorer diet.",
+     "short": "Steps and fitness beat diet quality as predictors of longevity.",
+     "sources": [
+      {
+       "name": "ASU News",
+       "url": "https://news.asu.edu/20261112-health-and-medicine-you-arent-just-what-you-eat"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "passage",
+   "items": [
+    {
+     "type": "passage",
+     "id": "5bf-poincare-doubt",
+     "text": "To doubt everything or to believe everything are two equally convenient solutions; both dispense with the necessity of reflection.",
+     "author": "Henri Poincaré",
+     "kind": "quote",
+     "work": "Featured in Tim Ferriss’s 5-Bullet Friday (“30 Quotes I’m Pondering and Revisiting”)",
+     "source_url": "https://tim.blog/2022/02/21/tim-ferriss-favorite-quotes/",
+     "sources": [
+      {
+       "name": "tim.blog",
+       "url": "https://tim.blog/2022/02/21/tim-ferriss-favorite-quotes/"
+      }
+     ],
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "games",
+   "items": [
+    {
+     "type": "mathq",
+     "id": "mathq-2026-11-13",
+     "title": "Mental Math",
+     "problems": [
+      {
+       "q": "25 × 4",
+       "a": "100",
+       "how": "25 × 4 = 20 × 4 + 5 × 4 = 100"
+      },
+      {
+       "q": "85% of 160",
+       "a": "136",
+       "how": "10% is 16, so 85% = 8 × 16 + half of 16 = 136"
+      },
+      {
+       "q": "Fermi: you read 300 words a minute for 15 minutes a day. How many days for a 60,000-word book?",
+       "a": "14 days",
+       "how": "300 × 15 = 4,500 words a day; 60,000 ÷ 4,500 = 13.3, so 14 days"
+      }
+     ]
+    },
+    {
+     "type": "wason",
+     "id": "wason-2026-11-13",
+     "title": "Four Cards",
+     "rule": "If a parcel is marked Express, it has a red sticker.",
+     "cards": [
+      "Red sticker",
+      "Express",
+      "Standard",
+      "No sticker"
+     ],
+     "answer": "Express and No sticker",
+     "explanation": "Express could hide something that breaks the rule; No sticker breaks it if the other side turns out to be Express. Red sticker can't break it (the rule never says only those cards have it), and Standard isn't covered by the rule at all. Most people pick the card that matches the rule's second half instead of the one that could falsify it."
+    },
+    {
+     "type": "crossword",
+     "id": "crossword-2026-11-13",
+     "title": "Mini Crossword",
+     "size": 5,
+     "cells": [
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 1
+       },
+       {
+        "n": 2
+       },
+       {
+        "n": 3
+       },
+       {
+        "b": true
+       }
+      ],
+      [
+       {
+        "n": 4
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": 5
+       }
+      ],
+      [
+       {
+        "n": 6
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "n": 7
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 8
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "b": true
+       }
+      ]
+     ],
+     "clues": {
+      "across": [
+       {
+        "n": 1,
+        "clue": "The side of something that is sheltered from the wind",
+        "len": 3,
+        "answer": "LEE"
+       },
+       {
+        "n": 4,
+        "clue": "A person eating a meal",
+        "len": 5,
+        "answer": "DINER"
+       },
+       {
+        "n": 6,
+        "clue": "Formally making a person known to another or to the public",
+        "len": 5,
+        "answer": "INTRO"
+       },
+       {
+        "n": 7,
+        "clue": "Any admirable quality or attribute",
+        "len": 5,
+        "answer": "MERIT"
+       },
+       {
+        "n": 8,
+        "clue": "The seed of the cereal grass",
+        "len": 3,
+        "answer": "RYE"
+       }
+      ],
+      "down": [
+       {
+        "n": 1,
+        "clue": "A hit that flies straight out from the batter",
+        "len": 5,
+        "answer": "LINER"
+       },
+       {
+        "n": 2,
+        "clue": "An item inserted in a written record",
+        "len": 5,
+        "answer": "ENTRY"
+       },
+       {
+        "n": 3,
+        "clue": "Suggestive of the supernatural; mysterious",
+        "len": 5,
+        "answer": "EERIE"
+       },
+       {
+        "n": 4,
+        "clue": "Switch from a higher to a lower beam",
+        "len": 3,
+        "answer": "DIM"
+       },
+       {
+        "n": 5,
+        "clue": "A state of decay usually accompanied by an offensive odor",
+        "len": 3,
+        "answer": "ROT"
+       }
+      ]
+     },
+     "solution": [
+      "#LEE#",
+      "DINER",
+      "INTRO",
+      "MERIT",
+      "#RYE#"
+     ]
+    },
+    {
+     "type": "riddle",
+     "id": "riddle-2026-11-13",
+     "title": "Riddle",
+     "q": "What word becomes shorter when you add two letters to it?",
+     "a": "Short."
+    }
+   ]
+  }
+ ],
+ "funny_candidates": [
+  {
+   "type": "post",
+   "id": "funny-2121084042951143625",
+   "author": "Ren",
+   "handle": "ren_stocks",
+   "text": "$NBIS Is Nebius at $130 cheap?\n\nThis is a great visualization comparing \nstock price vs price to sale.\n\nBullish ⚡️ https://t.co/blSzHX6Zmi https://t.co/JwvpyTyFdk",
+   "url": "https://x.com/ren_stocks/status/2121084042951143625",
+   "date": "2026-11-13T03:33:38Z",
+   "score": 10.79
+  },
+  {
+   "type": "post",
+   "id": "funny-2121062974161092792",
+   "author": "Tibo",
+   "handle": "thsottiaux",
+   "text": "How can codex be improved? Try not to say model.",
+   "url": "https://x.com/thsottiaux/status/2121062974161092792",
+   "date": "2026-11-13T02:09:55Z",
+   "score": 9.3
+  },
+  {
+   "type": "post",
+   "id": "funny-2121095056803385813",
+   "author": "Gavin Baker",
+   "handle": "GavinSBaker",
+   "text": "Shareholders and employees alike support Jensen. https://t.co/AoHfB4AZse",
+   "url": "https://x.com/GavinSBaker/status/2121095056803385813",
+   "date": "2026-11-13T04:17:24Z",
+   "score": 8.12
+  },
+  {
+   "type": "post",
+   "id": "funny-2121133595473633728",
+   "author": "Zephyr",
+   "handle": "zephyr_z9",
+   "text": "Damn\nSo the TSMC hack was real https://t.co/FA4m92FJgS",
+   "url": "https://x.com/zephyr_z9/status/2121133595473633728",
+   "date": "2026-11-13T06:50:32Z",
+   "score": 8.08
+  },
+  {
+   "type": "post",
+   "id": "funny-2121119042761351200",
+   "author": "Yun-Ta Tsai",
+   "handle": "yunta_tsai",
+   "text": "It's rare to work in a company that still has soul. Most no longer have it. Cherish it.",
+   "url": "https://x.com/yunta_tsai/status/2121119042761351200",
+   "date": "2026-11-13T05:52:42Z",
+   "score": 7.16
+  },
+  {
+   "type": "post",
+   "id": "funny-2121115028447531353",
+   "author": "Logan Kilpatrick",
+   "handle": "OfficialLoganK",
+   "text": "What should we ship next?",
+   "url": "https://x.com/OfficialLoganK/status/2121115028447531353",
+   "date": "2026-11-13T05:36:45Z",
+   "score": 6.87
+  },
+  {
+   "type": "post",
+   "id": "funny-2121077838032130516",
+   "author": "Pico Iyer",
+   "handle": "PicoIyer",
+   "text": "“The data centers we need,” observes the reliably brilliant Robert Macfarlane, “are public libraries.”",
+   "url": "https://x.com/PicoIyer/status/2121077838032130516",
+   "date": "2026-11-13T03:08:58Z",
+   "score": 6.79
+  },
+  {
+   "type": "post",
+   "id": "funny-2121098531205501401",
+   "author": "OpenClaw🦞",
+   "handle": "openclaw",
+   "text": "Gemini 4 Hydrogen is out and you can already use it in OpenClaw! 🦞\n\nhttps://t.co/xeECs0kRr8 https://t.co/fkm7mCwR4g",
+   "url": "https://x.com/openclaw/status/2121098531205501401",
+   "date": "2026-11-13T04:31:12Z",
+   "quoted": {
+    "author": "Logan Kilpatrick",
+    "handle": "OfficialLoganK",
+    "text": "Introducing Gemini 4 Hydrogen, an extremely capable and fast model built to bring Gemini 4 to everyone!\n\nAvailable to all tiers of Google AI Studio, Gemini API, Gemini for business, the Gemini app, Google Search, and paid Google AI Pro + Ultra subscribers in Google Antigravity. …",
+    "url": "https://x.com/OfficialLoganK/status/2120940951292268640"
+   },
+   "image_url": "https://pbs.twimg.com/media/HW-nxjnaQAAJksR.jpg",
+   "image_alt": "",
+   "score": 6.58
+  },
+  {
+   "type": "post",
+   "id": "funny-2121061301338141151",
+   "author": "Simon Sarris",
+   "handle": "simonsarris",
+   "text": "X and Instagram should let you see a feed of all the people who follow you",
+   "url": "https://x.com/simonsarris/status/2121061301338141151",
+   "date": "2026-11-13T02:03:16Z",
+   "score": 6.42
+  },
+  {
+   "type": "post",
+   "id": "funny-2121085235345633475",
+   "author": "Austen Allred",
+   "handle": "Austen",
+   "text": "If Jensen is going to run a coup and rejoin NVDA can someone let me know when so I can buy options",
+   "url": "https://x.com/Austen/status/2121085235345633475",
+   "date": "2026-11-13T03:38:22Z",
+   "score": 5.76
+  },
+  {
+   "type": "post",
+   "id": "funny-2121121962911273062",
+   "author": "Sundar Pichai",
+   "handle": "sundarpichai",
+   "text": "Nice summary @grok ! https://t.co/ZcwQJMLj6Q",
+   "url": "https://x.com/sundarpichai/status/2121121962911273062",
+   "date": "2026-11-13T06:04:19Z",
+   "score": 5.76
+  },
+  {
+   "type": "post",
+   "id": "funny-2121197156769866202",
+   "author": "Jim Cramer",
+   "handle": "jimcramer",
+   "text": "You get up to check your email figuring Microsoft must have fixed it by 3:20 a.m. and NO!! What the heck?",
+   "url": "https://x.com/jimcramer/status/2121197156769866202",
+   "date": "2026-11-13T11:03:06Z",
+   "score": 5.41
+  },
+  {
+   "type": "post",
+   "id": "funny-2121194379046216144",
+   "author": "Paul Millerd",
+   "handle": "p_millerd",
+   "text": "How I'm doing agentic content in 2026 while still having fun and spending time on the editing\n\nhttps://t.co/SGE91p7WYi",
+   "url": "https://x.com/p_millerd/status/2121194379046216144",
+   "date": "2026-11-13T10:52:04Z",
+   "score": 5.31
+  },
+  {
+   "type": "post",
+   "id": "funny-2121120295884837183",
+   "author": "Elon Musk",
+   "handle": "elonmusk",
+   "text": "Give Grok @Bot your most laborious tasks! https://t.co/4TCwwBCe5j",
+   "url": "https://x.com/elonmusk/status/2121120295884837183",
+   "date": "2026-11-13T05:57:41Z",
+   "score": 5.26
+  },
+  {
+   "type": "post",
+   "id": "funny-2121106135235326392",
+   "author": "Chamath Palihapitiya",
+   "handle": "chamath",
+   "text": "When reality meets IPOmaxxing https://t.co/hNhcreRxDY",
+   "url": "https://x.com/chamath/status/2121106135235326392",
+   "date": "2026-11-13T05:01:25Z",
+   "score": 5.21
+  },
+  {
+   "type": "post",
+   "id": "funny-2121080890218729840",
+   "author": "Augustus Doricko",
+   "handle": "ADoricko",
+   "text": "Gem, perfectly curated algorithm https://t.co/Cu6zR9TxyY",
+   "url": "https://x.com/ADoricko/status/2121080890218729840",
+   "date": "2026-11-13T03:21:06Z",
+   "score": 4.95
+  },
+  {
+   "type": "post",
+   "id": "funny-2121085883147510069",
+   "author": "BTC Sessions 😎",
+   "handle": "BTCsessions",
+   "text": "I got early access so I'm 90% done filming the tutorial. Should be out Wednesday! https://t.co/d1wUeH94X3",
+   "url": "https://x.com/BTCsessions/status/2121085883147510069",
+   "date": "2026-11-13T03:40:57Z",
+   "score": 4.78
+  },
+  {
+   "type": "post",
+   "id": "funny-2121072610624537047",
+   "author": "Wilbur",
+   "handle": "iluvpandas6969",
+   "text": "Monogamy is oppressive to women\n\nForces them to settle for a mediocre man (who they really desired won’t commit). Also means they have to take care of the home and children all alone. Overworked, stressed, isolated\n\nPolygyny is real women’s rights. Gives them mate choice and help",
+   "url": "https://x.com/iluvpandas6969/status/2121072610624537047",
+   "date": "2026-11-13T02:48:12Z",
+   "score": 4.45
+  },
+  {
+   "type": "post",
+   "id": "funny-2121200149212918216",
+   "author": "Gene Munster",
+   "handle": "munster_gene",
+   "text": "$NVDA’s biggest long-term challenge is maintaining urgency. That’s easier said than done.\n\nhttps://t.co/e0drEjoVpu",
+   "url": "https://x.com/munster_gene/status/2121200149212918216",
+   "date": "2026-11-13T11:15:00Z",
+   "score": 4.1
+  },
+  {
+   "type": "post",
+   "id": "funny-2121214899623780382",
+   "author": "Paradis",
+   "handle": "ParadisLabs",
+   "text": "GOAT 🥹 https://t.co/m29lLv2QKQ",
+   "url": "https://x.com/ParadisLabs/status/2121214899623780382",
+   "date": "2026-11-13T12:13:36Z",
+   "image_url": "https://pbs.twimg.com/media/HXARtStWEAAxfq7.jpg",
+   "image_alt": "",
+   "score": 4.06
+  },
+  {
+   "type": "post",
+   "id": "funny-2121025289010688180",
+   "author": "J.K. Lundblad | Teaching Progress",
+   "handle": "JK_Lundblad",
+   "text": "How long before Jensen is back at Nvidia?\n\nTake your bets.",
+   "url": "https://x.com/JK_Lundblad/status/2121025289010688180",
+   "date": "2026-11-12T23:40:10Z",
+   "score": 3.96
+  },
+  {
+   "type": "post",
+   "id": "funny-2121187334410711345",
+   "author": "Mark Hogan",
+   "handle": "MB_Hogan",
+   "text": "$NBIS : Another good Nebius Q3 overview here worth reading https://t.co/ABbQSsN8z5",
+   "url": "https://x.com/MB_Hogan/status/2121187334410711345",
+   "date": "2026-11-13T10:24:04Z",
+   "score": 3.88
+  },
+  {
+   "type": "post",
+   "id": "funny-2121211491919761890",
+   "author": "VV",
+   "handle": "visualizevalue",
+   "text": "\"Ignore people playing status games. They gain status by attacking people playing wealth creation games.\" https://t.co/BUiPTP6BGC",
+   "url": "https://x.com/visualizevalue/status/2121211491919761890",
+   "date": "2026-11-13T12:00:04Z",
+   "image_url": "https://pbs.twimg.com/media/HXAOnEEbkAAUUZT.jpg",
+   "image_alt": "",
+   "score": 3.71
+  },
+  {
+   "type": "post",
+   "id": "funny-2121213891703349455",
+   "author": "Jukan",
+   "handle": "jukan05",
+   "text": "Could Jensen make a comeback like Sam Altman did?",
+   "url": "https://x.com/jukan05/status/2121213891703349455",
+   "date": "2026-11-13T12:09:36Z",
+   "score": 3.65
+  },
+  {
+   "type": "post",
+   "id": "funny-2121060805357809774",
+   "author": "Ben Justman🍷",
+   "handle": "BenJustman",
+   "text": "Samson Mow viewing the Godzilla Candle https://t.co/zSvKjYLUm2",
+   "url": "https://x.com/BenJustman/status/2121060805357809774",
+   "date": "2026-11-13T02:01:18Z",
+   "image_url": "https://pbs.twimg.com/media/HW-Fj9kaUAAAkhm.jpg",
+   "image_alt": "",
+   "score": 3.6
+  },
+  {
+   "type": "post",
+   "id": "funny-2121090631023960170",
+   "author": "Jason Luongo",
+   "handle": "JasonL_Capital",
+   "text": "Would you rather buy:\n\n$SPCX or $TSLA\n\nWhich one and why? https://t.co/Kovb8Z2s8L",
+   "url": "https://x.com/JasonL_Capital/status/2121090631023960170",
+   "date": "2026-11-13T03:59:49Z",
+   "score": 3.5
+  },
+  {
+   "type": "post",
+   "id": "funny-2121081783274152208",
+   "author": "Jim Liu",
+   "handle": "jiahanjimliu",
+   "text": "\"hen have LGBT engineers fine-tune the production lines.\" Isn't that just Intel? https://t.co/km5h7wnZsa https://t.co/bevfEDqS3w",
+   "url": "https://x.com/jiahanjimliu/status/2121081783274152208",
+   "date": "2026-11-13T03:24:39Z",
+   "score": 3.32
+  },
+  {
+   "type": "post",
+   "id": "funny-2121133803720659447",
+   "author": "Tom Nash",
+   "handle": "iamtomnash",
+   "text": "One of my best friend’s father is battling cancer. Sharing this to amplify the message. https://t.co/X0nfNn8dvD",
+   "url": "https://x.com/iamtomnash/status/2121133803720659447",
+   "date": "2026-11-13T06:51:22Z",
+   "score": 3.27
+  },
+  {
+   "type": "post",
+   "id": "funny-2121205153491751385",
+   "author": "Steven Wang",
+   "handle": "swangentr",
+   "text": "I hope nvidia employees rise up like openai did with Sama",
+   "url": "https://x.com/swangentr/status/2121205153491751385",
+   "date": "2026-11-13T11:34:53Z",
+   "score": 2.91
+  },
+  {
+   "type": "post",
+   "id": "funny-2121090972385722411",
+   "author": "Holly Kesler",
+   "handle": "HollyKesler",
+   "text": "In other words….\nWe still don’t have a clue. https://t.co/OYODbPwQgg",
+   "url": "https://x.com/HollyKesler/status/2121090972385722411",
+   "date": "2026-11-13T04:01:10Z",
+   "score": 2.81
+  },
+  {
+   "type": "post",
+   "id": "funny-2121204222829989923",
+   "author": "Wes Myers (itl)",
+   "handle": "realwesmyers",
+   "text": "I find myself preferring Claude for almost all tasks but sometimes Chat pleasantly fills the gaps where it fails. https://t.co/vYwvOZLYfw https://t.co/SSEuJfxNsQ",
+   "url": "https://x.com/realwesmyers/status/2121204222829989923",
+   "date": "2026-11-13T11:31:11Z",
+   "image_url": "https://pbs.twimg.com/media/HXAH_45X0AAmwcV.jpg",
+   "image_alt": "",
+   "score": 2.52
+  },
+  {
+   "type": "post",
+   "id": "funny-2121141794922787078",
+   "author": "Stephen Pimentel",
+   "handle": "StephenPiment",
+   "text": "In The Birth of Tragedy, Nietzsche writes that existence and the world are justified aesthetically.\n\nHis aim is thus parallel to Milton’s in Paradise Lost, only the justification does not reference God.",
+   "url": "https://x.com/StephenPiment/status/2121141794922787078",
+   "date": "2026-11-13T07:23:07Z",
+   "score": 2.37
+  },
+  {
+   "type": "post",
+   "id": "funny-2121207003737428326",
+   "author": "John Asghar",
+   "handle": "JahangirAsgha10",
+   "text": "It’s simple, with Medicare for All, I want to know what we’re paying for, what it costs, who pays and how much, and what care patients can actually get.\n\nI’d expect those answers before passing any major bill.\n\nNone of that is in the bill\n\nNot sure why that truth makes people so angry?",
+   "url": "https://x.com/JahangirAsgha10/status/2121207003737428326",
+   "date": "2026-11-13T11:42:14Z",
+   "score": 2.29
+  },
+  {
+   "type": "post",
+   "id": "funny-2121086400196166124",
+   "author": "Jovian Gautama 劉恆原",
+   "handle": "jovvvian",
+   "text": "to be fair there’s nothing more American than Taco Bell and the NFL https://t.co/wwx9ScpGok",
+   "url": "https://x.com/jovvvian/status/2121086400196166124",
+   "date": "2026-11-13T03:43:00Z",
+   "quoted": {
+    "author": "Serenity",
+    "handle": "aleabitoreddit",
+    "text": "I’m sorry but why are we letting the future of $NVDA and American semiconductors \n\nBe decided by board members with experience from Taco Bell and the NFL",
+    "url": "https://x.com/aleabitoreddit/status/2120993521289326858"
+   },
+   "score": 1.86
+  },
+  {
+   "type": "post",
+   "id": "funny-2121131882071155174",
+   "author": "jacquie capur",
+   "handle": "devopsjacquie",
+   "text": "TFW you get home from a conference 😍🐶\n\nSafe travels friends 🫶 https://t.co/0KzHacj2Kg",
+   "url": "https://x.com/devopsjacquie/status/2121131882071155174",
+   "date": "2026-11-13T06:43:44Z",
+   "image_url": "https://pbs.twimg.com/media/HW_GNFuawAArka9.jpg",
+   "image_alt": "",
+   "score": 1.6
+  },
+  {
+   "type": "post",
+   "id": "funny-2121078123458658526",
+   "author": "Johnson (Taiwan)",
+   "handle": "justavagrant_",
+   "text": "I’m constantly losing myself when I do things, when I’m buying stuff, when I’m trying to park, using the computer, etc.",
+   "url": "https://x.com/justavagrant_/status/2121078123458658526",
+   "date": "2026-11-13T03:10:07Z",
+   "score": 1.25
+  },
+  {
+   "type": "post",
+   "id": "funny-2121156392308351360",
+   "author": "Cumfleur | 🌎☮️",
+   "handle": "clrbud",
+   "text": "ofc... there is goldman sachs on the board, joined july 2026 lmao https://t.co/qpzMii5M74",
+   "url": "https://x.com/clrbud/status/2121156392308351360",
+   "date": "2026-11-13T08:21:07Z",
+   "image_url": "https://pbs.twimg.com/media/HW_aS-AWsAAySE1.jpg",
+   "image_alt": "",
+   "score": 1.1
+  },
+  {
+   "type": "post",
+   "id": "funny-2121089751809708086",
+   "author": "Gassers Ghost ™",
+   "handle": "3BluesFan",
+   "text": "Unplug it.\nWait.\nWait.\nPlug that sucker back in.\nBooom! https://t.co/4Z0li2SzCe",
+   "url": "https://x.com/3BluesFan/status/2121089751809708086",
+   "date": "2026-11-13T03:56:19Z",
+   "score": 0.69
+  },
+  {
+   "type": "post",
+   "id": "funny-2121166994611355657",
+   "author": "who owns the context",
+   "handle": "classical_logic",
+   "text": "The scarcity paradigm versus the abundance paradigm. I can't think of a single political discussion where re-framing the arguments into these disparate set of beliefs does not shed light.\n\nEither concept requires the other for definition and weight-bearing assumptions.",
+   "url": "https://x.com/classical_logic/status/2121166994611355657",
+   "date": "2026-11-13T09:03:15Z",
+   "score": 0.0
+  },
+  {
+   "type": "post",
+   "id": "funny-2121141764484436446",
+   "author": "Rafe Fletcher",
+   "handle": "fletcher_rt",
+   "text": "SE Asian diplomat compares European diplomacy to Asian. The latter can deal with ambiguity. \ne.g. Japan's record defence budget aimed at China. Yet remains its largest trading partner. \nOr Mitsui &amp; Mitsibushi keeping stakes in Sakhalin-2 despite Moscow sanctions.",
+   "url": "https://x.com/fletcher_rt/status/2121141764484436446",
+   "date": "2026-11-13T07:23:00Z",
+   "score": 0.0
+  }
+ ],
+ "seconds": {
+  "items": [
+   {
+    "type": "post",
+    "id": "more-2121091346425422222",
+    "author": "Nic Cruz Patane",
+    "handle": "niccruzpatane",
+    "text": "After nearly 2,000 miles, I’ve reached Brownsville, TX from Toronto for @SpaceX Starship Flight 15!!\n\nI completed it in 29 hours. Non-stop, consecutive ~15 hour days.\n\nThis was one of the most epic experiences I’ve ever had. It wouldn’t have been possible without FSD. It handled the entire trip.\n\nTomorrow, I’m seeing Starship launch in person for the first time! This has been on my bucket list since forever. It’s going to be an historic flight.",
+    "url": "https://x.com/niccruzpatane/status/2121091346425422222",
+    "date": "2026-11-13T04:02:39Z",
+    "image_url": "https://pbs.twimg.com/media/HW-hVJqWEAAf59K.jpg",
+    "image_alt": ""
+   },
+   {
+    "type": "post",
+    "id": "more-2121095278375674043",
+    "author": "Nebulizer",
+    "handle": "SMASIMHO",
+    "text": "Dude... how are you comparing market caps for $NBIS and $CRWV without accounting for leverage?\n\nAt the bare minimum use EV and try to adjust for vastly different capital structures before drawing valuation conclusions.\n\n80K followers BTW. This is terrible education for investors on FinX.\n\nEdit: Just deleted btw",
+    "url": "https://x.com/SMASIMHO/status/2121095278375674043",
+    "date": "2026-11-13T04:18:17Z",
+    "image_url": "https://pbs.twimg.com/media/HW-k39EWEAAZ5a9.jpg",
+    "image_alt": ""
+   },
+   {
+    "type": "post",
+    "id": "more-2121080963341898140",
+    "author": "Matthew Baszucki",
+    "handle": "matthewbaszucki",
+    "text": "8 most critical metabolic therapies for mental illness. Ordered by overall impact (personal list, based on my experience). These put my bipolar disorder into remission.\n\n1. Ketogenic diet, preferably carnivore\n2. Cut out drugs & alcohol\n3. Physical exercise (hard cardio + weights)\n4. Sunlight exposure first thing in the morning, throughout the day, in evening\n5. Keep stress low\n6. Sleep\n7. Prayer, meditation, spiritual life\n8. Time with others",
+    "url": "https://x.com/matthewbaszucki/status/2121080963341898140",
+    "date": "2026-11-13T03:21:24Z"
+   },
+   {
+    "type": "post",
+    "id": "more-2121103806855262344",
+    "author": "The Humanoid Hub",
+    "handle": "TheHumanoidHub",
+    "text": "Capturing how humans actually move is a critical aspect of humanoid training.\n\nThat's what @GenrobotAI showed at CoRL 2026 with its new data acquisition system: a first-person capture rig and a dexterous data glove that record how we see, move, and handle objects, all at once.\n\nVision, motion, and touch in one stream. Human data is the foundation for Physical AI.",
+    "url": "https://x.com/TheHumanoidHub/status/2121103806855262344",
+    "date": "2026-11-13T04:52:10Z"
+   },
+   {
+    "type": "post",
+    "id": "more-2121065824501075992",
+    "author": "Ali Ghodsi",
+    "handle": "alighodsi",
+    "text": "I saw @jack's BuilderLab talk on Buzz earlier this week in person. Awesome to see the future architecture of companies emerging with AI. We're excited to be a small part of Buzz at @databricks \nhttps://t.co/jxBpdOHLcv",
+    "url": "https://x.com/alighodsi/status/2121065824501075992",
+    "date": "2026-11-13T02:21:14Z"
+   },
+   {
+    "type": "post",
+    "id": "more-2120883563134681595",
+    "author": "Vebjørn",
+    "handle": "VJNCapital",
+    "text": "I am having a hard time seeing $NVDA actually trade at 10x P/E around a year from now\n\nThis selloff looks ridiculous imo https://t.co/3G1gLqEz0N",
+    "url": "https://x.com/VJNCapital/status/2120883563134681595",
+    "date": "2026-11-12T14:17:00Z"
+   },
+   {
+    "type": "post",
+    "id": "more-2121163441297560048",
+    "author": "Jim Cramer",
+    "handle": "jimcramer",
+    "text": "So now we are hearing that the cfo was belittled by the ceo for trying to stop him from being too aggressive with who he backed--Nvidia. There is more to the story... Watch us this morning @SquawkStreet",
+    "url": "https://x.com/jimcramer/status/2121163441297560048",
+    "date": "2026-11-13T08:49:08Z"
+   },
+   {
+    "type": "post",
+    "id": "more-2121071143524426071",
+    "author": "Adrian Dittmann",
+    "handle": "AdrianDittmann",
+    "text": "This clip perfectly captures the vibe outside NVIDIA’s headquarters in Santa Clara, California, after Jensen Huang’s resignation. https://t.co/cOrIxgtoKO",
+    "url": "https://x.com/AdrianDittmann/status/2121071143524426071",
+    "date": "2026-11-13T02:42:22Z"
+   }
+  ]
+ }
+}
