@@ -1,0 +1,25 @@
+{
+ "date": "2026-11-14",
+ "date_long": "Saturday, November 14, 2026",
+ "lead": "Petition to reinstate Jensen Huang tops 65,000 signatures as investors press Nvidia's board",
+ "pages": {
+  "print": 6,
+  "digital": 6
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-14-print.pdf",
+  "digital": "signal-seeker-2026-11-14-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Evergreen",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-14T07:16:19-05:00"
+}
