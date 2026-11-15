@@ -1,0 +1,957 @@
+{
+ "schema": 1,
+ "paper": "signal-seeker",
+ "date": "2026-11-15",
+ "coverage": "Covering roughly Nov 14–15, 2026. Compiled Sunday morning, ET.",
+ "note": "Nvidia is expected to report Tuesday night.",
+ "requests": [],
+ "sections": [
+  {
+   "id": "front",
+   "items": [
+    {
+     "type": "story",
+     "id": "starship-flight15-catch",
+     "headline": "SpaceX catches a returning Starship in the tower arms for the first time",
+     "summary": "On Flight 15, Ship 42 came back from orbit to Starbase, Texas and was caught by the launch tower's \"chopsticks,\" the first-ever Starship tower catch. Elon Musk shared a video he said \"gives a clear sense of the catch maneuver\" and later phone videos he took from the tower. @wintonARK calls it the largest object ever safely returned from orbit and argues it drops the cost per kilogram to orbit to roughly $100, from $1,000. @sriramk: \"a testament to what mankind can accomplish.\"",
+     "short": "Ship 42 returns from orbit and is caught by the tower on Flight 15.",
+     "sources": [
+      {
+       "name": "X @elonmusk",
+       "url": "https://x.com/elonmusk/status/2121875600906592260"
+      },
+      {
+       "name": "X @elonmusk",
+       "url": "https://x.com/elonmusk/status/2121763396190179414"
+      },
+      {
+       "name": "X @wintonARK",
+       "url": "https://x.com/wintonARK/status/2121722112729915539"
+      },
+      {
+       "name": "X @sriramk",
+       "url": "https://x.com/sriramk/status/2121926800917844148"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "dram-antitrust-hbm4",
+     "headline": "Judge lets DRAM antitrust suit against Samsung, SK hynix and Micron go ahead",
+     "summary": "A federal court in California found the plaintiffs plausibly allege that Samsung, SK hynix and Micron agreed to restrict DRAM supply, and denied the companies' motion to dismiss, @jukan05 reports. He calls it a stretch: asking customers to verify end demand, he argues, was meant to stop resellers double-booking orders, not collusion. Separately, Korean media report SK hynix plans to add at least 20,000 wafers a month of HBM4 capacity, citing strong demand from AMD and Broadcom.",
+     "short": "DRAM supply-restriction suit survives a motion to dismiss; SK hynix adds HBM4 capacity.",
+     "sources": [
+      {
+       "name": "X @jukan05",
+       "url": "https://x.com/jukan05/status/2121877445154586880"
+      },
+      {
+       "name": "X @jukan05",
+       "url": "https://x.com/jukan05/status/2121880382572552325"
+      },
+      {
+       "name": "X @jukan05",
+       "url": "https://x.com/jukan05/status/2121901035149312089"
+      }
+     ]
+    },
+    {
+     "type": "story",
+     "id": "nvda-guidance-tuesday",
+     "headline": "Gene Munster: Nvidia may not give guidance when it reports Tuesday night",
+     "summary": "@munster_gene gives two reasons Nvidia may skip guidance: management changes make it hard for the new CFO to own the forecast, and tighter US Commerce restrictions could put Asia sales at risk, by his estimate about 10% of revenue (China and Hong Kong 8%, other 2%), with some estimates as high as 20%. He says that could pressure the shares next week.",
+     "short": "Munster flags a possible no-guidance print from Nvidia on Tuesday.",
+     "sources": [
+      {
+       "name": "X @munster_gene",
+       "url": "https://x.com/munster_gene/status/2121926008911577244"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feed",
+   "items": [
+    {
+     "type": "post",
+     "id": "feed-2121777788797718785",
+     "author": "Gavin Baker",
+     "handle": "GavinSBaker",
+     "text": "If you have kids, I highly recommend taking them to a launch. You can watch from the Margaritaville, the town beach or many other viewing locations open to the public. \n\nSad to miss this one, great day for 🇺🇸 https://t.co/NhSfdiWC7k",
+     "url": "https://x.com/GavinSBaker/status/2121777788797718785",
+     "date": "2026-11-15T01:30:20Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2121822047235870821",
+     "author": "DVB",
+     "handle": "DeepValueBagger",
+     "text": "One of the best use case for agentic AI is to evaluate your portfolio, your notes, and give you a emotional check when you're too euphoric or too fearful. \n\nI recently built one as a guardrail. It keeps emailing me to explain what I'm doing, and yell at me if I'm doing something stupid.",
+     "url": "https://x.com/DeepValueBagger/status/2121822047235870821",
+     "date": "2026-11-15T04:26:12Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2121815670442574171",
+     "author": "SemiAnalysis",
+     "handle": "SemiAnalysis_",
+     "text": "Great investigation, controlling AL/AR is very important to us too. Synthetic AL/AR was imposed to prevent finetuning draft models specifically on the benchmark prompts, but it remains a good optimization for narrow model use cases.\nhttps://t.co/AXN6XvTXh8",
+     "url": "https://x.com/SemiAnalysis_/status/2121815670442574171",
+     "date": "2026-11-15T04:00:51Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2121809578128277963",
+     "author": "J.K. Lundblad | Teaching Progress",
+     "handle": "JK_Lundblad",
+     "text": "Often, it feels like Elon Musk is actually from the future, sent to save humanity from some dystopian timeline.\n\nHe knows approximately how things are done (cars go electric, rockets land on legs) but has to reinvent them in our timeline. https://t.co/Lp6S1CfF9C",
+     "url": "https://x.com/JK_Lundblad/status/2121809578128277963",
+     "date": "2026-11-15T03:36:39Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2121934662788370719",
+     "author": "As Found",
+     "handle": "AsFoundX",
+     "text": "🚨 ELON MUSK ON STARBASE BEING A REAL CITY\n\nElon Musk says this is the first time a rocket development program sits right on a public highway.\n\nAnyone can drive down the road and see the massive hardware up close.\n\nStarbase in Texas is now a legal city. The SpaceX team built it from nothing and turned it into a giant rocket factory. https://t.co/q7q7p4o41d",
+     "url": "https://x.com/AsFoundX/status/2121934662788370719",
+     "date": "2026-11-15T11:53:41Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2121814902839087448",
+     "author": "Paul Millerd",
+     "handle": "p_millerd",
+     "text": "I always wonder about this sentiment\n\nDo people just say this kind of thing or do they really mean this?\n\nLike the feeling of actual failure surely feels far worse than this sort of \"failure\"\n\nI think the feeling I have when I've achieved some metric or outcome is that it sort of feels light and not dramatic.  It's like oh cool, this thing happened.  I wonder if its just our expectation that theres this huge party and shift once you reach a milestone.  I'm not a goal type person so never really fixate on future arrival anyway",
+     "url": "https://x.com/p_millerd/status/2121814902839087448",
+     "date": "2026-11-15T03:57:48Z",
+     "image_url": "https://pbs.twimg.com/media/HXIyz-GaYAAyozB.jpg",
+     "image_alt": ""
+    },
+    {
+     "type": "post",
+     "id": "feed-2121935581123092746",
+     "author": "Every 📧",
+     "handle": "every",
+     "text": "Gemini 4 Carbon completed more tickets in @hammer_mt’s coding test. It also took much longer.\n\nMike gave each agent the same frozen backlog and codebase, then asked it to pick tickets it could complete without further instructions and open a separate pull request for each.\n\nThe other agents finished roughly 8–9 tickets within an hour. Carbon did about 15–16 before Mike stopped it at 4.5 hours.\n\nThough persistence can be useful, it’s worth questioning whether the extra work is worth the extra time.\n\nRead the full @Google Carbon 4 vibe check: https://t.co/1DZgvLiYL7",
+     "url": "https://x.com/every/status/2121935581123092746",
+     "date": "2026-11-15T11:57:20Z"
+    }
+   ]
+  },
+  {
+   "id": "x",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2121845231733846454",
+     "author": "The Humanoid Hub",
+     "handle": "TheHumanoidHub",
+     "text": "OpenAI has disbanded its stand-alone robotics team and reassigned the researchers to its general AI teams, even as it keeps building its own humanoid robot, with a first public demo targeted for 2027.\n\nThe move, first reported in a Fortune exclusive, is framed by OpenAI as acceleration, not retreat. A spokesperson said \"robotics remains a core part of OpenAI's long-term vision,\" and that the company \"remains committed to bringing general-purpose robots into the world.\"\n\nThe real shift is the bet underneath it: that general-purpose models can run robots directly, with no specialized \"robot brain\" needed. In an Nvidia study, an agent powered by OpenAI's GPT-6 Astra hit 74.8% on a simulated manipulation benchmark, vs 51.0% for the best specialized robotics models.\n\nIf that holds, it challenges the premise many robotics startups raised billions on: that robots need brains of their own.",
+     "url": "https://x.com/TheHumanoidHub/status/2121845231733846454",
+     "date": "2026-11-15T05:58:19Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2121917469669695540",
+     "author": "Jukan",
+     "handle": "jukan05",
+     "text": "Samsung plans to work with STMicroelectronics to mass-produce satellite chips for SpaceX in Austin, Texas, according to Korean media reports.\n\nSamsung reportedly plans to invest $1.9 billion to expand its Austin fab and aims to bring the new capacity online in 2030.",
+     "url": "https://x.com/jukan05/status/2121917469669695540",
+     "date": "2026-11-15T10:45:22Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2121667457140379938",
+     "author": "David Senra",
+     "handle": "davidsenra",
+     "text": "You would have made billions if you gave seed checks to everyone who was at @alexandr_wang’s 19th birthday party:  \n\n- Jeff Yan (@chameleon_jeff) went on to start Hyperliquid  (~$20B)\n- @ScottWu46 went on to start Cognition ($48B)\n- @thejessezhang went on to start Decagon ($4.5B)\n\nAnd Wang himself who started Scale AI, and got $14.3B from Meta for 49% of it. \n\nWang explains: \n\n“I was doing an internship at a trading firm called HRT.\n\nThere were 12 of us, almost all of whom were students at either Harvard or MIT.\n\nI recently met up with the founder of HRT and they were talking about, ‘We're starting to do some private investments.’\n\nI was like, ‘Just invest into the interns! All the interns get seed checks!’”",
+     "url": "https://x.com/davidsenra/status/2121667457140379938",
+     "date": "2026-11-14T18:11:55Z"
+    }
+   ]
+  },
+  {
+   "id": "goats",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2121918080293196209",
+     "author": "Serenity",
+     "handle": "aleabitoreddit",
+     "text": "The most interesting lesson Jensen Huang taught me\n\nAnd gave PTSD to Google executives over from his leadership at $NVDA:\n\nWas that if a critical material can be bought out for spare change eg. ~$400m (FY2028 Photonics-SOI revenue forecast for $SOI)\n\nAnd trigger tens of billions in economic impact to competitors for not securing supply:\n\nWe're going to see game theory bottleneck supply procurement actually accelerate upstream through 2027, with or without him. \n\nI see Morgan Stanley's list highlighting CCL, ABF, PCBs, optical module components as interesting. \n\nHowever; I'd put it through my own narrower lens, especially focusing on smaller component cost chokepoints + bottlenecks that doesn't cost much to secure capacity over. \n\nDeleveraging/negative sentiment is indiscriminately moving the theme up and down together, so hard to argue individual fundamentals at this point. \n\nReflecting on 2026, I also prob need to be more selective of companies entering 2027:\n\nBut there's going to be a lot of outsized opportunities in bottlenecks... as new architectures like NPO/CPO emerge across the ecosystem.",
+     "url": "https://x.com/aleabitoreddit/status/2121918080293196209",
+     "date": "2026-11-15T10:47:48Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2121804692770701734",
+     "author": "Gavin Baker",
+     "handle": "GavinSBaker",
+     "text": "A more accurate title for the @wsj article would be:\n\n“The completely legal backdoor that guarantees America will stay ahead of China in the AI race while giving America immense leverage in any future conflict.”\n\nLegal under both the Biden and Trump admins. And these articles never mention the *American* hyperscalers that have GPU clouds in Southeast Asia.",
+     "url": "https://x.com/GavinSBaker/status/2121804692770701734",
+     "date": "2026-11-15T03:17:14Z"
+    }
+   ]
+  },
+  {
+   "id": "investments",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2121848077523067084",
+     "author": "Jim Liu",
+     "handle": "jiahanjimliu",
+     "text": "I write a lot of post to address daily headlines. Going forward I plan to focus on deeper research because that’s a better longterm use of my time. I’ll continue to provide thoughts on $IREN and the market when important developments arise. \n\nLeaving you guys this longer one addressing the market fears right now.",
+     "url": "https://x.com/jiahanjimliu/status/2121848077523067084",
+     "date": "2026-11-15T06:09:38Z",
+     "group": "Neoclouds"
+    },
+    {
+     "type": "post",
+     "id": "x-2121829498786296206",
+     "author": "Roger",
+     "handle": "rdd147",
+     "text": "$NVDA got so concerned about its concentration of NeoCloud revenue reaching >50% of total revenue, that they reclassified $CRWV to a Hyperscaler.\n\nThats how bad things are getting at Nvidia on NeoCloud reliance as Hyperscalers shift to their own architecture.  They reclassify NeoClouds as Hyperscalers.\n\nReally they did this in Q2.\n\n$4.8 billion into Hyperscale for FY26 Q3.\n$8.4 billion for FY26 Q4.\n$5.2 billion for FY27 Q1.\n\nMatches CRWV spend",
+     "url": "https://x.com/rdd147/status/2121829498786296206",
+     "date": "2026-11-15T04:55:48Z",
+     "group": "Nvidia"
+    }
+   ]
+  },
+  {
+   "id": "evergreen",
+   "items": [
+    {
+     "type": "evergreen",
+     "id": "ev-avian-dotcom-2008",
+     "kind": "X Article",
+     "title": "It's not Dotcom. It's not 2008. It's Both",
+     "author": "Avian Capital",
+     "handle": "aviancapital",
+     "date": "2026-09-30",
+     "url": "https://x.com/aviancapital/status/2105424234038128855",
+     "summary": "A self-described former bull lays out a bear case for the AI cycle, arguing it combines the dotcom bubble's euphoria over a real technology with 2008-style financing risk. The core claim: the labs sold a winner-take-all race to AGI, but models are turning into a commodity, with buyers barely able to tell suppliers apart, cheap switching and new supply arriving weekly. Worth reading as the strongest version of the other side, whatever your view."
+    },
+    {
+     "type": "evergreen",
+     "id": "ev-senra-zuckerberg-latin",
+     "kind": "Post",
+     "title": "Mark Zuckerberg used to end meetings by shouting: Domination!",
+     "author": "David Senra",
+     "handle": "davidsenra",
+     "date": "2026-11-13",
+     "url": "https://x.com/davidsenra/status/2121276996303159767",
+     "summary": "Senra collects stories of Zuckerberg's lifelong \"emperor mindset\": Sean Parker told him to stop ending meetings with \"Domination!\" because it could surface in an antitrust suit, and he still recites Virgil's Aeneid from high-school Latin. In Facebook's early days he would shout \"Carthage must be destroyed!\" A short portrait of how a founder's teenage obsessions shape the company."
+    }
+   ]
+  },
+  {
+   "id": "funnies",
+   "items": [
+    {
+     "type": "comic",
+     "id": "comic-xkcd",
+     "title": "xkcd: Ultimate Movie Series",
+     "byline": "Randall Munroe",
+     "url": "https://xkcd.com/3324/",
+     "alt": "Sadly, none of the 14 Land Before Time films manage to make the list, although a small but devoted fan contingent argues that The Great Longneck Migration should beat out Guardians of the Galaxy.",
+     "image": {
+      "file": "images/comic-xkcd-ultimate_movie_series.png",
+      "credit": "xkcd",
+      "src": "https://imgs.xkcd.com/comics/ultimate_movie_series.png"
+     },
+     "sources": [
+      {
+       "name": "xkcd",
+       "url": "https://xkcd.com/3324/"
+      }
+     ]
+    },
+    {
+     "type": "joke",
+     "id": "joke-cheng-1",
+     "text": "I'm not a fan of the new pound coin, but then again, I hate all change.",
+     "author": "Ken Cheng",
+     "where": "Dave's Funniest Joke of the Fringe 2017, winner",
+     "url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2017/",
+     "source_name": "British Comedy Guide"
+    },
+    {
+     "type": "joke",
+     "id": "joke-lambert-1",
+     "text": "A cowboy asked me if I could help him round up 18 cows. I said, 'Yes, of course. That's 20 cows'.",
+     "author": "Jake Lambert",
+     "where": "Dave's Funniest Joke of the Fringe 2019, 4th",
+     "url": "https://www.comedy.co.uk/awards/directory/dave-funniest-joke-of-the-fringe-award/2019/",
+     "source_name": "British Comedy Guide"
+    },
+    {
+     "type": "funnypost",
+     "id": "funny-2121845739588579350",
+     "author": "Ben Justman🍷",
+     "handle": "BenJustman",
+     "text": "This is my 5th once in a lifetime Bitcoin buying opportunity.",
+     "url": "https://x.com/BenJustman/status/2121845739588579350",
+     "date": "2026-11-15T06:00:20Z",
+     "sources": [
+      {
+       "name": "X @BenJustman",
+       "url": "https://x.com/BenJustman/status/2121845739588579350"
+      }
+     ]
+    },
+    {
+     "type": "sudoku",
+     "id": "sudoku-2026-11-15",
+     "title": "Sudoku",
+     "grid": [
+      ".8.47....",
+      "......6..",
+      "9.1..8..3",
+      "..4.17.89",
+      ".....4.6.",
+      ".1..3..45",
+      "1.2.8.59.",
+      ".5..41...",
+      "4...95..."
+     ],
+     "solution": [
+      "685473912",
+      "743129658",
+      "921568473",
+      "534617289",
+      "297854361",
+      "816932745",
+      "172386594",
+      "359741826",
+      "468295137"
+     ]
+    },
+    {
+     "type": "wordsearch",
+     "id": "wordsearch-2026-11-15",
+     "title": "Word Search",
+     "grid": [
+      "BWPOSSPACEXR",
+      "IJAPALFEEKLT",
+      "OASHUBGEKCAH",
+      "JEHDEDAOYCFV",
+      "LTOFUAERDUHY",
+      "CVUJIBDGSPPC",
+      "EPTDIENGCCAW",
+      "AVILYUSIEARF",
+      "TVNJSFMTWROU",
+      "NPGMTUESDAYT",
+      "SDAVNCATCHES",
+      "OSGOSHEVNIYO"
+     ],
+     "words": [
+      "SHOUTING",
+      "CATCHES",
+      "SAMSUNG",
+      "TUESDAY",
+      "NVIDIA",
+      "SPACEX",
+      "AHEAD",
+      "JUDGE"
+     ],
+     "solution": [
+      ".....SPACEX.",
+      "..A....E....",
+      "..SH..G.....",
+      "..H.ED......",
+      "..O.UA......",
+      "..UJI.DG....",
+      "..TD..N.....",
+      "..I..U......",
+      ".VN.S.......",
+      "N.GMTUESDAY.",
+      "..A..CATCHES",
+      ".S.........."
+     ]
+    },
+    {
+     "type": "comic",
+     "id": "comic-poorly-drawn-lines",
+     "title": "Poorly Drawn Lines: In a Hole",
+     "byline": "Reza Farazmand",
+     "url": "https://poorlydrawnlines.com/comic/in-a-hole/",
+     "alt": "",
+     "image": {
+      "file": "images/comic-poorly-drawn-lines-in-a-hole.png",
+      "credit": "Poorly Drawn Lines",
+      "src": "https://poorlydrawnlines.com/wp-content/uploads/2026/11/in-a-hole.png"
+     },
+     "sources": [
+      {
+       "name": "Poorly Drawn Lines",
+       "url": "https://poorlydrawnlines.com/comic/in-a-hole/"
+      }
+     ]
+    },
+    {
+     "type": "comic",
+     "id": "comic-dinosaur-comics",
+     "title": "Dinosaur Comics: t-rex and the costumed party",
+     "byline": "Ryan North",
+     "url": "http://www.qwantz.com/index.php?comic=4541",
+     "alt": "why didn't you just SAY so",
+     "image": {
+      "file": "images/comic-dinosaur-comics-comic2-5239.png",
+      "credit": "Dinosaur Comics",
+      "src": "http://www.qwantz.com/comics/comic2-5239.png"
+     },
+     "sources": [
+      {
+       "name": "Dinosaur Comics",
+       "url": "http://www.qwantz.com/index.php?comic=4541"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "passage",
+   "items": [
+    {
+     "type": "passage",
+     "id": "bible-phil-4-6",
+     "text": "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus. Finally, brethren, whatsoever things are true, whatsoever things are honest, whatsoever things are just, whatsoever things are pure, whatsoever things are lovely, whatsoever things are of good report; if there be any virtue, and if there be any praise, think on these things.",
+     "author": "The Bible",
+     "kind": "scripture",
+     "work": "Philippians 4:6–8",
+     "source_url": "https://www.biblegateway.com/passage/?search=Philippians+4%3A6-8&version=KJV",
+     "sources": [
+      {
+       "name": "biblegateway.com",
+       "url": "https://www.biblegateway.com/passage/?search=Philippians+4%3A6-8&version=KJV"
+      }
+     ],
+     "translation": "KJV",
+     "label": "Scripture"
+    }
+   ]
+  },
+  {
+   "id": "games",
+   "items": [
+    {
+     "type": "mathq",
+     "id": "mathq-2026-11-15",
+     "title": "Mental Math",
+     "problems": [
+      {
+       "q": "15 × 6",
+       "a": "90",
+       "how": "15 × 6 = 10 × 6 + 5 × 6 = 90"
+      },
+      {
+       "q": "65% of 600",
+       "a": "390",
+       "how": "10% is 60, so 65% = 6 × 60 + half of 60 = 390"
+      },
+      {
+       "q": "Fermi: a resting heart beats about 75 times a minute. Roughly how many beats in a year?",
+       "a": "about 39 million",
+       "how": "75 × 60 × 24 × 365 = 39,420,000"
+      }
+     ]
+    },
+    {
+     "type": "wason",
+     "id": "wason-2026-11-15",
+     "title": "Four Cards",
+     "rule": "If a card has a vowel on one side, it has an even number on the other.",
+     "cards": [
+      "4",
+      "E",
+      "3",
+      "K"
+     ],
+     "answer": "E and 3",
+     "explanation": "E could hide something that breaks the rule; 3 breaks it if the other side turns out to be E. 4 can't break it (the rule never says only those cards have it), and K isn't covered by the rule at all. Most people pick the card that matches the rule's second half instead of the one that could falsify it."
+    },
+    {
+     "type": "crossword",
+     "id": "crossword-2026-11-15",
+     "title": "Mini Crossword",
+     "size": 5,
+     "cells": [
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 1
+       },
+       {
+        "n": 2
+       },
+       {
+        "n": 3
+       },
+       {
+        "b": true
+       }
+      ],
+      [
+       {
+        "n": 4
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": 5
+       }
+      ],
+      [
+       {
+        "n": 6
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "n": 7
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 8
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "b": true
+       }
+      ]
+     ],
+     "clues": {
+      "across": [
+       {
+        "n": 1,
+        "clue": "A metric unit of length equal to ten meters",
+        "len": 3,
+        "answer": "DAM"
+       },
+       {
+        "n": 4,
+        "clue": "A closed litter for one passenger",
+        "len": 5,
+        "answer": "SEDAN"
+       },
+       {
+        "n": 6,
+        "clue": "Ordinary writing as distinguished from verse",
+        "len": 5,
+        "answer": "PROSE"
+       },
+       {
+        "n": 7,
+        "clue": "The superior of an abbey of monks",
+        "len": 5,
+        "answer": "ABBOT"
+       },
+       {
+        "n": 8,
+        "clue": "A yearning for something or to do something",
+        "len": 3,
+        "answer": "YEN"
+       }
+      ],
+      "down": [
+       {
+        "n": 1,
+        "clue": "A felt hat that is round and hard with a narrow brim",
+        "len": 5,
+        "answer": "DERBY"
+       },
+       {
+        "n": 2,
+        "clue": "Sun-dried brick; used in hot dry climates",
+        "len": 5,
+        "answer": "ADOBE"
+       },
+       {
+        "n": 3,
+        "clue": "A craftsman who works with stone or brick",
+        "len": 5,
+        "answer": "MASON"
+       },
+       {
+        "n": 4,
+        "clue": "A health resort near a spring or at the seaside",
+        "len": 3,
+        "answer": "SPA"
+       },
+       {
+        "n": 5,
+        "clue": "Construct or form a web, as if by weaving",
+        "len": 3,
+        "answer": "NET"
+       }
+      ]
+     },
+     "solution": [
+      "#DAM#",
+      "SEDAN",
+      "PROSE",
+      "ABBOT",
+      "#YEN#"
+     ]
+    },
+    {
+     "type": "riddle",
+     "id": "riddle-2026-11-15",
+     "title": "Riddle",
+     "q": "I'm tall when I'm young and short when I'm old. What am I?",
+     "a": "A candle."
+    }
+   ]
+  }
+ ],
+ "funny_candidates": [
+  {
+   "type": "post",
+   "id": "funny-2121836637374308661",
+   "author": "Jim Liu",
+   "handle": "jiahanjimliu",
+   "text": "Clear minded thoughts in times of max fear. https://t.co/nzLayToOlb",
+   "url": "https://x.com/jiahanjimliu/status/2121836637374308661",
+   "date": "2026-11-15T05:24:10Z",
+   "score": 8.98
+  },
+  {
+   "type": "post",
+   "id": "funny-2121829003258462415",
+   "author": "Jukan",
+   "handle": "jukan05",
+   "text": "WaPo: Jensen Huang has kept a low profile since the scandal, but he’s involved in the search for his successor and has personally called at least one potential candidate.\n\nIt looks like Huang is trying to find his successor rather than make a comeback himself.\n\nhttps://t.co/Wl9Q2OxRgF",
+   "url": "https://x.com/jukan05/status/2121829003258462415",
+   "date": "2026-11-15T04:53:50Z",
+   "score": 7.23
+  },
+  {
+   "type": "post",
+   "id": "funny-2121821226008264882",
+   "author": "DVB",
+   "handle": "DeepValueBagger",
+   "text": "This flight delay is longer than I expected. This can't be good for Monday stock market. https://t.co/cHjf3NnaMB",
+   "url": "https://x.com/DeepValueBagger/status/2121821226008264882",
+   "date": "2026-11-15T04:22:56Z",
+   "quoted": {
+    "author": "First Squawk",
+    "handle": "FirstSquawk",
+    "text": "NYT: US Aviation Disruptions Continue After 9,000 Friday Cancellations and 5,000 Saturday Delays",
+    "url": "https://x.com/FirstSquawk/status/2121766480778043873"
+   },
+   "score": 6.76
+  },
+  {
+   "type": "post",
+   "id": "funny-2121823028992786925",
+   "author": "Brett Winton",
+   "handle": "wintonARK",
+   "text": "risk capital is having a hard time processing the superintelligence acceleration... https://t.co/VXgiS3MCxB",
+   "url": "https://x.com/wintonARK/status/2121823028992786925",
+   "date": "2026-11-15T04:30:06Z",
+   "image_url": "https://pbs.twimg.com/media/HXI6tcXasAAcSGp.jpg",
+   "image_alt": "",
+   "score": 5.7
+  },
+  {
+   "type": "post",
+   "id": "funny-2121719199521493285",
+   "author": "Noah",
+   "handle": "antibearthesis",
+   "text": "Hey @grok, remove the CEO with the highest IQ. https://t.co/nJoDvGHxdJ",
+   "url": "https://x.com/antibearthesis/status/2121719199521493285",
+   "date": "2026-11-14T21:37:31Z",
+   "image_url": "https://pbs.twimg.com/media/HXHcXMcX0AAGdon.jpg",
+   "image_alt": "",
+   "score": 5.55
+  },
+  {
+   "type": "post",
+   "id": "funny-2121882337789313477",
+   "author": "J.K. Lundblad | Teaching Progress",
+   "handle": "JK_Lundblad",
+   "text": "@peterrhague Most people have no idea. This is a pivotal event in human history.\n\nAlmost as if we discovered fire.",
+   "url": "https://x.com/JK_Lundblad/status/2121882337789313477",
+   "date": "2026-11-15T08:25:46Z",
+   "score": 5.23
+  },
+  {
+   "type": "post",
+   "id": "funny-2121813710549463508",
+   "author": "Austen Allred",
+   "handle": "Austen",
+   "text": "Arch Manning has 12 completions and 3 interceptions tonight.\n\nI love Texas but a 6 CFP ranking is just bonkers.",
+   "url": "https://x.com/Austen/status/2121813710549463508",
+   "date": "2026-11-15T03:53:04Z",
+   "score": 4.92
+  },
+  {
+   "type": "post",
+   "id": "funny-2121845739588579350",
+   "author": "Ben Justman🍷",
+   "handle": "BenJustman",
+   "text": "This is my 5th once in a lifetime Bitcoin buying opportunity.",
+   "url": "https://x.com/BenJustman/status/2121845739588579350",
+   "date": "2026-11-15T06:00:20Z",
+   "score": 4.53
+  },
+  {
+   "type": "post",
+   "id": "funny-2121847507038990539",
+   "author": "farbood",
+   "handle": "farbood",
+   "text": "You should be able to see the ingredients of a social media algorithm like you can on a bag of chips.",
+   "url": "https://x.com/farbood/status/2121847507038990539",
+   "date": "2026-11-15T06:07:22Z",
+   "score": 4.43
+  },
+  {
+   "type": "post",
+   "id": "funny-2121807538173702472",
+   "author": "Beanie",
+   "handle": "beaniemaxi",
+   "text": "The fact that you can still sell a cartoon monkey jpeg for $10,000 liquid cash is pretty damn impressive. https://t.co/W9SMY8hNoJ",
+   "url": "https://x.com/beaniemaxi/status/2121807538173702472",
+   "date": "2026-11-15T03:28:33Z",
+   "score": 4.22
+  },
+  {
+   "type": "post",
+   "id": "funny-2121807682164445550",
+   "author": "Pico Iyer",
+   "handle": "PicoIyer",
+   "text": "Tennyson’s beloved friend Arthur Hallam was in love with “a beautiful English society girl called Anna Wintour,” reports biographer Richard Holmes. History is rich in unsuspected treasures and delicious surprises--even though Lord Tennyson never was invited to the Met Gala.",
+   "url": "https://x.com/PicoIyer/status/2121807682164445550",
+   "date": "2026-11-15T03:29:07Z",
+   "score": 3.7
+  },
+  {
+   "type": "post",
+   "id": "funny-2121816767550849189",
+   "author": "Collin McLelland 🏴‍☠️",
+   "handle": "FracSlap",
+   "text": "I didn't know slack had screen recording until last week and it's so much better than loom https://t.co/6Ywhdervs6",
+   "url": "https://x.com/FracSlap/status/2121816767550849189",
+   "date": "2026-11-15T04:05:13Z",
+   "score": 3.4
+  },
+  {
+   "type": "post",
+   "id": "funny-2121808095370240235",
+   "author": "Knut Svanholm ∞/21M",
+   "handle": "knutsvanholm",
+   "text": "One hell of a conference!\n\nThank you, @maxkeiser, @stacyherbert and @bitcoinofficesv team for everything! https://t.co/Ozn1NIexzv",
+   "url": "https://x.com/knutsvanholm/status/2121808095370240235",
+   "date": "2026-11-15T03:30:45Z",
+   "score": 3.35
+  },
+  {
+   "type": "post",
+   "id": "funny-2121936262961799278",
+   "author": "VV",
+   "handle": "visualizevalue",
+   "text": "“The truth always carries the ambiguity of the words used to express it.” https://t.co/BTLFQa8jij",
+   "url": "https://x.com/visualizevalue/status/2121936262961799278",
+   "date": "2026-11-15T12:00:03Z",
+   "image_url": "https://pbs.twimg.com/media/HXKhyXRaEAEZXZu.png",
+   "image_alt": "",
+   "score": 3.31
+  },
+  {
+   "type": "post",
+   "id": "funny-2121906062013919299",
+   "author": "As Found",
+   "handle": "AsFoundX",
+   "text": "Elon took these phone videos from the tower after Mechazilla caught Ship 42.\n\nOne looks straight down at the ship in the chopsticks. The other walks the platforms along the hull, hours after it came back from orbit. https://t.co/DBZfu3Pb5X",
+   "url": "https://x.com/AsFoundX/status/2121906062013919299",
+   "date": "2026-11-15T10:00:02Z",
+   "quoted": {
+    "author": "Elon Musk",
+    "handle": "elonmusk",
+    "text": "Some phone videos I took from the tower https://t.co/kxiSkIvoHQ",
+    "url": "https://x.com/elonmusk/status/2121763396190179414"
+   },
+   "score": 3.13
+  },
+  {
+   "type": "post",
+   "id": "funny-2121851938891305185",
+   "author": "Malcolm Ocean 🏴‍☠️",
+   "handle": "Malcolm_Ocean",
+   "text": "one of the most annoying things about being a newborn parent is walking around your house and looking at all the messes that you'd love to clean up, but you can't because you have no hands",
+   "url": "https://x.com/Malcolm_Ocean/status/2121851938891305185",
+   "date": "2026-11-15T06:24:58Z",
+   "score": 3.06
+  },
+  {
+   "type": "post",
+   "id": "funny-2121844328834240553",
+   "author": "John Asghar",
+   "handle": "JahangirAsgha10",
+   "text": "This is  a common misconception. \n\nOriginal Medicare already requires prior authorization for certain procedures, and CMS is expanding those requirements.  One of the  programs is called WISeR\n\nA doctor’s recommendation does not guarantee coverage. https://t.co/jPJQSNY47v",
+   "url": "https://x.com/JahangirAsgha10/status/2121844328834240553",
+   "date": "2026-11-15T05:54:44Z",
+   "score": 2.58
+  },
+  {
+   "type": "post",
+   "id": "funny-2121829668349223339",
+   "author": "Cumfleur | 🌎☮️",
+   "handle": "clrbud",
+   "text": "Lmao lol anyway… \n\nManifest! \n\n🌎☮️ https://t.co/9ovMglxy7R",
+   "url": "https://x.com/clrbud/status/2121829668349223339",
+   "date": "2026-11-15T04:56:29Z",
+   "score": 2.39
+  },
+  {
+   "type": "post",
+   "id": "funny-2121851279819550949",
+   "author": "LP Capital Chi",
+   "handle": "LPCapitalChi",
+   "text": "Turn off this guy’s account https://t.co/VpKm9vPQbg",
+   "url": "https://x.com/LPCapitalChi/status/2121851279819550949",
+   "date": "2026-11-15T06:22:21Z",
+   "score": 2.02
+  },
+  {
+   "type": "post",
+   "id": "funny-2121832826521935947",
+   "author": "Tess",
+   "handle": "tessbx33",
+   "text": "Remember when Peter Thiel sold all his Nvidia stock almost exactly one year ago… well now we all know why 😂",
+   "url": "https://x.com/tessbx33/status/2121832826521935947",
+   "date": "2026-11-15T05:09:02Z",
+   "score": 1.43
+  },
+  {
+   "type": "post",
+   "id": "funny-2121932145895801032",
+   "author": "Johnson (Taiwan)",
+   "handle": "justavagrant_",
+   "text": "I no longer social maxx, wild, who would’ve thought this day would come",
+   "url": "https://x.com/justavagrant_/status/2121932145895801032",
+   "date": "2026-11-15T11:43:41Z",
+   "score": 1.38
+  },
+  {
+   "type": "post",
+   "id": "funny-2121902675239567409",
+   "author": "jacquie capur",
+   "handle": "devopsjacquie",
+   "text": "Saw the northern lights over Hudson’s Bay on my way to Amsterdam 😍💚 https://t.co/glJWuIyuV7",
+   "url": "https://x.com/devopsjacquie/status/2121902675239567409",
+   "date": "2026-11-15T09:46:35Z",
+   "image_url": "https://pbs.twimg.com/media/HXKDOivXYAAUWk0.jpg",
+   "image_alt": "",
+   "score": 1.38
+  },
+  {
+   "type": "post",
+   "id": "funny-2121846670682132518",
+   "author": "Stephen Pimentel",
+   "handle": "StephenPiment",
+   "text": "Jensen’s NeXT step",
+   "url": "https://x.com/StephenPiment/status/2121846670682132518",
+   "date": "2026-11-15T06:04:02Z",
+   "score": 1.36
+  },
+  {
+   "type": "post",
+   "id": "funny-2121837766258397238",
+   "author": "Gassers Ghost ™",
+   "handle": "3BluesFan",
+   "text": "Willie Nelson - Rainbow Connection (Official Music Video) https://t.co/pAHxemaPli",
+   "url": "https://x.com/3BluesFan/status/2121837766258397238",
+   "date": "2026-11-15T05:28:39Z",
+   "score": 0.69
+  },
+  {
+   "type": "post",
+   "id": "funny-2121837157820023238",
+   "author": "minagelina 🌳🪓",
+   "handle": "minagelina1",
+   "text": "These guys are toxic.  Stay far away https://t.co/NOfh5ikq9h",
+   "url": "https://x.com/minagelina1/status/2121837157820023238",
+   "date": "2026-11-15T05:26:14Z",
+   "score": 0.69
+  },
+  {
+   "type": "post",
+   "id": "funny-2121890764234047564",
+   "author": "Jovian Gautama 劉恆原",
+   "handle": "jovvvian",
+   "text": "this is my resume https://t.co/OIsFSeEBvI",
+   "url": "https://x.com/jovvvian/status/2121890764234047564",
+   "date": "2026-11-15T08:59:15Z",
+   "score": 0.69
+  },
+  {
+   "type": "post",
+   "id": "funny-2121871680574554320",
+   "author": "who owns the context",
+   "handle": "classical_logic",
+   "text": "My most obvious response from Jim Jarmusch’s fairly recent zombie affair.\nhttps://t.co/RqkDQEKoSb https://t.co/f5Kfau2iG6",
+   "url": "https://x.com/classical_logic/status/2121871680574554320",
+   "date": "2026-11-15T07:43:25Z",
+   "score": 0.0
+  },
+  {
+   "type": "post",
+   "id": "funny-2121831751697977760",
+   "author": "Lenny Drybeard",
+   "handle": "LennyDrybeard",
+   "text": "Yes!  F'k the evil Iranian regime and all those supporters living on our soil (they are not Americans).\nWith all love to the good Iranian people.  We stand with you, and hope and pray your time is at hand.,, https://t.co/MSbx45Lxym",
+   "url": "https://x.com/LennyDrybeard/status/2121831751697977760",
+   "date": "2026-11-15T05:04:45Z",
+   "score": 0.0
+  }
+ ],
+ "seconds": {
+  "items": []
+ }
+}

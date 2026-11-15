@@ -1,0 +1,26 @@
+{
+ "date": "2026-11-15",
+ "date_long": "Sunday, November 15, 2026",
+ "lead": "SpaceX catches a returning Starship in the tower arms for the first time",
+ "pages": {
+  "print": 8,
+  "digital": 8
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-15-print.pdf",
+  "digital": "signal-seeker-2026-11-15-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Evergreen",
+  "Funnies",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-15T07:16:37-05:00"
+}
