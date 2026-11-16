@@ -1,0 +1,25 @@
+{
+ "date": "2026-11-16",
+ "date_long": "Monday, November 16, 2026",
+ "lead": "Jensen Huang weighs a return to Nvidia; futures jump, then chips slide",
+ "pages": {
+  "print": 6,
+  "digital": 6
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-16-print.pdf",
+  "digital": "signal-seeker-2026-11-16-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Evergreen",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-16T07:25:38-05:00"
+}
