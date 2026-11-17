@@ -1,0 +1,26 @@
+{
+ "date": "2026-11-17",
+ "date_long": "Tuesday, November 17, 2026",
+ "lead": "Nvidia staff press the board to bring Huang back, hours before earnings",
+ "pages": {
+  "print": 8,
+  "digital": 7
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-17-print.pdf",
+  "digital": "signal-seeker-2026-11-17-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Tech & AI",
+  "Evergreen",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-17T07:23:09-05:00"
+}
