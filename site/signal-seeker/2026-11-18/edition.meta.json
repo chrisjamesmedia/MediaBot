@@ -1,0 +1,27 @@
+{
+ "date": "2026-11-18",
+ "date_long": "Wednesday, November 18, 2026",
+ "lead": "Nvidia's board says it will not bring Jensen Huang back, on a blowout earnings night",
+ "pages": {
+  "print": 6,
+  "digital": 6
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-18-print.pdf",
+  "digital": "signal-seeker-2026-11-18-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Your Holdings",
+  "Tech & AI",
+  "Evergreen",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-18T07:18:49-05:00"
+}
