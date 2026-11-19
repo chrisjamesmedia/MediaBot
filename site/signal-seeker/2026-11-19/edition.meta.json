@@ -1,0 +1,28 @@
+{
+ "date": "2026-11-19",
+ "date_long": "Thursday, November 19, 2026",
+ "lead": "Musk on Nvidia's board: \"You kick Michael Jordan off your team\"",
+ "pages": {
+  "print": 10,
+  "digital": 10
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-19-print.pdf",
+  "digital": "signal-seeker-2026-11-19-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Headlines",
+  "Your Holdings",
+  "Tech & AI",
+  "Evergreen",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-19T07:28:43-05:00"
+}
