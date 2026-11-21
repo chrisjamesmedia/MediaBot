@@ -1,0 +1,20 @@
+{
+ "date": "2026-11-21",
+ "date_long": "Saturday, November 21, 2026",
+ "lead": "Joe Hudson on X",
+ "pages": {
+  "print": 2,
+  "digital": 1
+ },
+ "pdfs": {
+  "print": "field-notes-2026-11-21-print.pdf",
+  "digital": "field-notes-2026-11-21-digital.pdf"
+ },
+ "sections": [
+  "Ideas & Life",
+  "Books & Faith",
+  "Lighter"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-21T07:18:09-05:00"
+}
