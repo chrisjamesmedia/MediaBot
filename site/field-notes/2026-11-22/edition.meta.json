@@ -1,0 +1,21 @@
+{
+ "date": "2026-11-22",
+ "date_long": "Sunday, November 22, 2026",
+ "lead": "Justin Murphy on X",
+ "pages": {
+  "print": 2,
+  "digital": 1
+ },
+ "pdfs": {
+  "print": "field-notes-2026-11-22-print.pdf",
+  "digital": "field-notes-2026-11-22-digital.pdf"
+ },
+ "sections": [
+  "Ideas & Life",
+  "Building & Making",
+  "Nature & History",
+  "Books & Faith"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-22T07:24:22-05:00"
+}
