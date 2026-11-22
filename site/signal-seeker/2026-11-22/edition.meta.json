@@ -1,0 +1,28 @@
+{
+ "date": "2026-11-22",
+ "date_long": "Sunday, November 22, 2026",
+ "lead": "Tesla ships FSD V15, and the feed spends the night watching its new Reality View",
+ "pages": {
+  "print": 10,
+  "digital": 9
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-22-print.pdf",
+  "digital": "signal-seeker-2026-11-22-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Your Holdings",
+  "Tech & AI",
+  "Evergreen",
+  "Funnies",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-22T07:24:49-05:00"
+}
