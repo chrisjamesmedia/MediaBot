@@ -1,0 +1,27 @@
+{
+ "date": "2026-11-23",
+ "date_long": "Monday, November 23, 2026",
+ "lead": "Alexandr Wang: \"Superintelligence is arriving,\" and the path is not inevitable",
+ "pages": {
+  "print": 8,
+  "digital": 8
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-23-print.pdf",
+  "digital": "signal-seeker-2026-11-23-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Your Holdings",
+  "Tech & AI",
+  "Evergreen",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-23T07:28:35-05:00"
+}
