@@ -1,0 +1,1074 @@
+{
+ "schema": 1,
+ "paper": "signal-seeker",
+ "date": "2026-11-24",
+ "coverage": "Covering roughly Nov 23–24, 2026. Compiled Tuesday, ET.",
+ "note": "",
+ "requests": [],
+ "sections": [
+  {
+   "id": "front",
+   "items": [
+    {
+     "type": "story",
+     "id": "jensen-back",
+     "headline": "Jensen Huang is back at Nvidia, and the feed argues over who should run founder companies",
+     "summary": "Jensen Huang returned to Nvidia headquarters on Monday after the board reinstated him; @GavinSBaker's post of employees greeting him was the most-shared thing in the feed. Overnight, @balajis argued the episode shows why founders need control and dual-class stock, since Huang took Nvidia public in the 1990s and never had it. Not everyone cheered: per @firesidealpha, Bernstein's Stacy Rasgon called the board \"clown like\" and said the return raises questions about judgment, with internal and outside investigations still running. @aleabitoreddit said he would revise AI capex estimates back up now that Huang is back.",
+     "short": "The feed's big story; investigations are still open.",
+     "sources": [
+      {
+       "name": "X @GavinSBaker",
+       "url": "https://x.com/GavinSBaker/status/2124940234932596890"
+      },
+      {
+       "name": "X @balajis",
+       "url": "https://x.com/balajis/status/2125081083004014801"
+      },
+      {
+       "name": "X @firesidealpha",
+       "url": "https://x.com/firesidealpha/status/2125005645313413585"
+      },
+      {
+       "name": "X @aleabitoreddit",
+       "url": "https://x.com/aleabitoreddit/status/2125058643154632845"
+      }
+     ],
+     "topic": [
+      "ai",
+      "business"
+     ]
+    },
+    {
+     "type": "story",
+     "id": "ant-below-ipo",
+     "headline": "Anthropic slips below its $83 IPO price",
+     "summary": "@KobeissiLetter reported Anthropic stock fell below its $83 IPO price, down 28% from its post-IPO high, just days after listing. Bulls pointed the other way on demand: @ren_stocks quoted a New York Times report that SpaceXAI had to finish new data centers by October to fill Anthropic's compute orders, reading it as good news for neoclouds.",
+     "sources": [
+      {
+       "name": "X @KobeissiLetter",
+       "url": "https://x.com/KobeissiLetter/status/2125195749465977220"
+      },
+      {
+       "name": "X @ren_stocks",
+       "url": "https://x.com/ren_stocks/status/2125061532807471194"
+      }
+     ],
+     "topic": [
+      "ai",
+      "markets"
+     ]
+    },
+    {
+     "type": "story",
+     "id": "openai-cisco",
+     "headline": "OpenAI and Cisco build security tools for AI agents",
+     "summary": "@thsottiaux said OpenAI is working with Cisco on infrastructure for a new era of cybersecurity, quoting the launch of Shirudo, an open-source Linux runtime that lets agents defend systems without downtime by writing dynamic eBPF controls. His line: everything needs to be built to be operated safely by aligned agents at machine speed.",
+     "sources": [
+      {
+       "name": "X @thsottiaux",
+       "url": "https://x.com/thsottiaux/status/2125141302501417232"
+      }
+     ],
+     "topic": [
+      "ai",
+      "tech"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feed",
+   "items": [
+    {
+     "type": "post",
+     "id": "feed-2125085427443105881",
+     "author": "Pranab",
+     "handle": "nopranablem",
+     "text": "it's the process for memory reconsolidation, aka probably the mechanism behind how good therapy, meditation, and inner work help people change https://t.co/i5nHKwE1Br https://t.co/Fxr3XkSuzx",
+     "url": "https://x.com/nopranablem/status/2125085427443105881",
+     "date": "2026-11-24T04:33:42Z",
+     "image_url": "https://pbs.twimg.com/media/HX3RnK4b0AERg86.jpg",
+     "image_alt": ""
+    },
+    {
+     "type": "post",
+     "id": "feed-2125084781570630025",
+     "author": "Gaetano",
+     "handle": "Gaetano2026",
+     "text": "There are a handful of trading accounts that I think have navigated this market really well\n\nNot an uber bear\nNot an uber bull\n\nJust playing the market in front of them and willing to adjust as they see\n\nAnd layer on top actually putting out educational material, and not degrading or insulting people every chance they get\n\nIt's quite rare to see\n\nI've never spoken to @nicaqs outside of a comment here and there\n\nBut his account has been one of my favorite recent follows that fits all of these criteria \n\n(At least from what I can see publicly)",
+     "url": "https://x.com/Gaetano2026/status/2125084781570630025",
+     "date": "2026-11-24T04:31:08Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2125061975764095052",
+     "author": "Nate Endicott",
+     "handle": "EndicottInvests",
+     "text": "$NBIS: I've been thinking about the ClickHouse news a little more today\n\nClickHouse just signed a 5-year expanded deal with AWS:\n\n- ClickHouse commits $1.5B+ to building on AWS (~$300M/yr)\n- AWS go-to-market funding goes up to 4x the 2024 deal\n- Deeper integrations with Bedrock, AgentCore and Quick so AI agents can query live ClickHouse data\n\nClickhouse wouldn't make this deal unless they see revenue going far beyond this IMO.\n\nThe last round was $15B in January, when ARR was ~$160M.\n\n- They just did 350M of ARR as of August, 250M of ARR in May.\n- They have 5000+ customers now …",
+     "url": "https://x.com/EndicottInvests/status/2125061975764095052",
+     "date": "2026-11-24T03:00:31Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2125056333045219562",
+     "author": "Serenity",
+     "handle": "aleabitoreddit",
+     "text": "Ooo found $SMTC laser disclosures in earnings interesting after their HieFo acquisition: \n\n- UHP 400mW lasers under development (further behind $AAOI in this aspect since AOI has been doing quals).\n\nIn terms of laser revenue: \n-  3-4x capacity expansion EOY, another 3-4x end of next year. \n-> $25M/quarter EOY after 3x\n-> ~$$100M quarter after 4x\n\n- NPO engagement with 4 US hyperscalers and 3 Chinese hyperscalers (Aug 2027–Jan 2028 initial revenue for NPO for timelines)\n\n- \"developing CPO scale-up lasers, but that's a contribution of potential revenue beyond 2027\" in terms of timeline …",
+     "url": "https://x.com/aleabitoreddit/status/2125056333045219562",
+     "date": "2026-11-24T02:38:06Z",
+     "image_url": "https://pbs.twimg.com/media/HX20PltbsAA_hAH.jpg",
+     "image_alt": ""
+    },
+    {
+     "type": "post",
+     "id": "feed-2125057338105119001",
+     "author": "Ren",
+     "handle": "ren_stocks",
+     "text": "$NBIS Token Factory keeps going vertical \n\nOn OpenRouter, Nebius was processing roughly 15B tokens a day in late August. Last week its best day topped 800B.\n\nThat's more than 50x in under three months, and most of the jump came in the last week alone.\n\nSince August 27, the stock is down 55%. The tokens are up more than 50x.\n\nAnd look at what's driving it: open-source models. DeepSeek, Kimi, Qwen, GLM, MiniMax.\n\nNow do you understand just how important $NVDA is to $NBIS?\n\nIt's more than funding and priority on GPUs. …",
+     "url": "https://x.com/ren_stocks/status/2125057338105119001",
+     "date": "2026-11-24T02:42:05Z",
+     "image_url": "https://pbs.twimg.com/media/HX24Ym3WEAAdGjY.jpg",
+     "image_alt": ""
+    },
+    {
+     "type": "post",
+     "id": "feed-2125067584227946707",
+     "author": "Roger",
+     "handle": "rdd147",
+     "text": "A fourth congressional oversight committee looks very concerning for $NVDA, the CFO is involved in the initial phase of the investigation. Did she already rat on Jensen and Teter?\n\nHouse Energy and Commerce Committee Chairman Brett Guthrie\n\nColette Kress, Nvidia CFO\n\nHoward Lutnick, Commerce Secretary\n\nJeffrey Kessler, Under Secretary for Industry and Security",
+     "url": "https://x.com/rdd147/status/2125067584227946707",
+     "date": "2026-11-24T03:22:48Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2125108365735202976",
+     "author": "Austen Allred",
+     "handle": "Austen",
+     "text": "I accidentally left Claude on Fable 5.2 Max when I asked it how much broth to put in my turkey stuffing and it did research on 97 websites including Encyclopedia Brittanica",
+     "url": "https://x.com/Austen/status/2125108365735202976",
+     "date": "2026-11-24T06:04:51Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2125067594243981647",
+     "author": "Jim Liu",
+     "handle": "jiahanjimliu",
+     "text": "@dolphinR123 is a small and very underrated account in tracking HBM capacity.\n\nThere was a 13% shortage in 2026 but will balance out in 2027 but prices remain high because there’s no spare capacity. https://t.co/eCrIJfp5jp",
+     "url": "https://x.com/jiahanjimliu/status/2125067594243981647",
+     "date": "2026-11-24T03:22:50Z"
+    }
+   ]
+  },
+  {
+   "id": "x",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2125052900749529555",
+     "author": "Will Manidis",
+     "handle": "WillManidis",
+     "text": "its easy to write off the “data trade” as the frothiest peaks of a wave that even in its earliest innings still had the promise to sweep the bay away in a wash of villainy, cash, and get rich quick schemes\n\nbut it’s so utterly real. it’s staggering how wrong many are getting it https://t.co/7o5Cb1Z5ge",
+     "url": "https://x.com/WillManidis/status/2125052900749529555",
+     "date": "2026-11-24T02:24:27Z"
+    },
+    {
+     "type": "post",
+     "id": "x-2125071283352432953",
+     "author": "Balaji",
+     "handle": "balajis",
+     "text": "Founders produce higher returns than non-founders. This is an empirical fact.\n\nSo: business school curricula should be changed, and good governance should be redefined as founder control and dual-class stock. Shareholders are still protected by easy liquidation and their ability to fund new entrants. After all, you don’t invest in a company based on who’s on the board. That’s largely ceremonial.\n\nThe key difference from the 20th century is that it was prohibitively difficult in 1950 to found a manufacturing company, because assembly lines cost so much, the communists controlled much of the world, and even America had 90% marginal tax rates. It was the century of centralization, the individual powerless before the institution.\n\nToday it is no longer prohibitively difficult to found a tech company, because software costs so little, much of the world has turned to free markets, and capital flows at the speed of the Internet. This is the century of decentralization, at least in the West, with the institution falling to the individual.\n\nFor example: Anthropic was started just a few years ago and is beating even Google at its own game. If we get many open weights models, their moat will also in turn erode.\n\nSo: all 20th century corporate governance was based on the idea that “the company is hard to replace, but its CEO isn’t.” The Harvard MBA is premised on the professional manager. It was expensive to start a new company with all the assembly lines, so make sure it doesn’t fail by making every employee replaceable. Managers were abundant so capital became the scarce asset.\n\nBy contrast, the entire 21st century model is based on the idea that “A tech founder is hard to replace, but the company isn’t.” The YCombinator model is premised on the startup founder. It is inexpensive to start a new company with a few lines of code, so make sure it doesn’t fail by having an irreplaceable team. Capital is abundant so founders become the scarce asset.",
+     "url": "https://x.com/balajis/status/2125071283352432953",
+     "date": "2026-11-24T03:37:30Z",
+     "quoted": {
+      "author": "Balaji",
+      "handle": "balajis",
+      "text": "All the business school curricula need to be rewritten for the 21st century.\n\nGood corporate governance should be defined as founder control, with dual class stock, not board control. The board is just an advisory board. The shareholder vote is a backup in the event of issues, and shareholder sales are the extreme backup.\n\nThis should be obvious from the financial performance of founder-led global tech companies vs manager-led incumbents. And also obvious in terms of just how much value these boards typically consume rather than produce.\n\nAfter all, typical board members aren’t like execs that a CEO can actually assign tasks. Instead, they have power, and often time to scheme amongst themselves, but lack true operating knowledge of the underlying company. The exception is when there are real founders on the board themselves — but those are exceptions.\n\nTo be clear, the 20th century MBA-style corporate governance playbook was actually fine for the era of General Mills, General Motors, and General Electric. In that time period, the individual didn’t matter that much. They didn’t have the leverage that computers give them.\n\nBut now the Internet has obsolesced all that. So YC, Founders Fund, and a16z are much better business schools than Harvard Business School, which is culturally obsolete because it is technologically obsolete. The world it was implicitly premised on no longer exists.\n\nHowever, all these intuitions and best practices, the conventions that built billion and trillion dollar companies, have only been informally advocated in blog posts and contracts. To change the defaults, we’ll need to actually write a new curriculum.",
+      "url": "https://x.com/balajis/status/2123002639168491711"
+     }
+    }
+   ]
+  },
+  {
+   "id": "goats",
+   "items": [
+    {
+     "type": "post",
+     "id": "g-2125115492935549060",
+     "author": "Serenity",
+     "handle": "aleabitoreddit",
+     "text": "Who said Neoclouds don't have a technical moat? High confidence this statement is about $NBIS. \n\nDatabricks co-founder: \n\n\"We are VERY CAREFUL about where compute runs and so far we've only found a *single* neocloud we think has robust enough isolation to ever have a chance at running our customer workloads.\" \n\n- Databricks selected Nebius AI Cloud (shareholder letter) following a rigorous evaluation (November 12)",
+     "url": "https://x.com/aleabitoreddit/status/2125115492935549060",
+     "date": "2026-11-24T06:33:10Z"
+    }
+   ]
+  },
+  {
+   "id": "investments",
+   "items": [
+    {
+     "type": "post",
+     "id": "i-2125051605544526314",
+     "author": "Nate Endicott",
+     "handle": "EndicottInvests",
+     "text": "$NBIS Preemptible B300s in the US now sit at $12.49\n\nThis is the first time ever that Preemptible VMs in the US are ABOVE the ceiling of $9.49 that was removed at the the start of the month\n\nJust as Jensen comes back... https://t.co/pnMVQ9SCDl",
+     "url": "https://x.com/EndicottInvests/status/2125051605544526314",
+     "date": "2026-11-24T02:19:18Z"
+    },
+    {
+     "type": "post",
+     "id": "i-2125184371129028798",
+     "author": "Jim Cramer",
+     "handle": "jimcramer",
+     "text": "48 hours ago there was a sector, some 35% of the market, that seemed doomed. Now it is not. That's what happened with the reinstatement",
+     "url": "https://x.com/jimcramer/status/2125184371129028798",
+     "date": "2026-11-24T11:06:52Z"
+    },
+    {
+     "type": "post",
+     "id": "i-2125103252354310256",
+     "author": "Tom Nash",
+     "handle": "iamtomnash",
+     "text": "Do not fomo into massive buys.\nMarket can go in either direction.\nBuild a long term investing schedule.\nStick to it and trust the process.",
+     "url": "https://x.com/iamtomnash/status/2125103252354310256",
+     "date": "2026-11-24T05:44:32Z"
+    }
+   ]
+  },
+  {
+   "id": "holdings",
+   "items": [
+    {
+     "type": "story",
+     "id": "hold-nbis",
+     "ticker": "NBIS",
+     "headline": "Databricks co-founder: only one neocloud passed its isolation bar",
+     "summary": "A Databricks co-founder wrote that the company is very careful about where compute runs and has so far found only a single neocloud with robust enough isolation to run customer workloads. @aleabitoreddit and @SMASIMHO both read it as Nebius, which Databricks selected after an evaluation, per Nebius's November 12 shareholder letter. Separately, @EndicottInvests noted preemptible B300 prices on Nebius's US cloud at $12.49, above the old $9.49 ceiling for the first time.",
+     "sources": [
+      {
+       "name": "X @aleabitoreddit",
+       "url": "https://x.com/aleabitoreddit/status/2125115492935549060"
+      },
+      {
+       "name": "X @SMASIMHO",
+       "url": "https://x.com/SMASIMHO/status/2125107153274855448"
+      },
+      {
+       "name": "X @EndicottInvests",
+       "url": "https://x.com/EndicottInvests/status/2125051605544526314"
+      }
+     ],
+     "topic": [
+      "investing"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tech",
+   "items": [
+    {
+     "type": "post",
+     "id": "t-2125048827090817351",
+     "author": "Nic Cruz Patane",
+     "handle": "niccruzpatane",
+     "text": "Tesla FSD V15 exiting a three-story parking garage with Reality View. \n\nAbsolutely wild. https://t.co/oTY6sm1F0o",
+     "url": "https://x.com/niccruzpatane/status/2125048827090817351",
+     "date": "2026-11-24T02:08:16Z"
+    },
+    {
+     "type": "post",
+     "id": "t-2125075951142961640",
+     "author": "OpenClaw🦞",
+     "handle": "openclaw",
+     "text": "Microsoft’s @OmarShahine wrote about how he uses Autopilot day to day, including having it draft 40 Teams replies while he was out of the office so he could review them before anything went out.\n\nCool look at what his team built on OpenClaw:\nhttps://t.co/j5RygGIcqQ",
+     "url": "https://x.com/openclaw/status/2125075951142961640",
+     "date": "2026-11-24T03:56:03Z"
+    }
+   ]
+  },
+  {
+   "id": "evergreen",
+   "items": [
+    {
+     "type": "evergreen",
+     "id": "ev-luckey-mech",
+     "kind": "Post",
+     "title": "Palmer Luckey will build a giant bipedal mech",
+     "author": "Fireside Alpha",
+     "handle": "firesidealpha",
+     "date": "2026-10-26",
+     "url": "https://x.com/firesidealpha/status/2114574650617508281",
+     "summary": "Anduril's founder says that before he dies he will build a big bipedal mech, not because it will matter tactically but because it simply needs to exist, a staple of sci-fi from Evangelion and Gundam to Pacific Rim. A fun reminder that some builders work from wonder, not market maps."
+    },
+    {
+     "type": "evergreen",
+     "id": "ev-mvc-pltr-nbis",
+     "kind": "Post",
+     "title": "Palantir's sovereign AI pitch, and why it matters for Nebius",
+     "author": "MVC Investing",
+     "handle": "mvcinvesting",
+     "date": "2026-11-03",
+     "url": "https://x.com/mvcinvesting/status/2117409686471279082",
+     "summary": "Quotes Palantir's CRO and CFO from their earnings call calling sovereign AI the largest tech revolution of the generation, with multiple eight-figure deals signed, and recalls that Palantir named Nebius its preferred sovereign AI infrastructure partner. Worth rereading three weeks on as one bull's distribution thesis, not a forecast."
+    }
+   ]
+  },
+  {
+   "id": "passage",
+   "items": [
+    {
+     "type": "passage",
+     "id": "bank-094",
+     "text": "There are two types of people: those who try to win and those who try to win arguments. They are never the same.",
+     "author": "Nassim Nicholas Taleb",
+     "kind": "quote",
+     "label": "From your old quote bank"
+    }
+   ]
+  },
+  {
+   "id": "games",
+   "items": [
+    {
+     "type": "mathq",
+     "id": "mathq-2026-11-24",
+     "title": "Mental Math",
+     "problems": [
+      {
+       "q": "16 × 8",
+       "a": "128",
+       "how": "16 × 8 = 10 × 8 + 6 × 8 = 128"
+      },
+      {
+       "q": "85% of 420",
+       "a": "357",
+       "how": "10% is 42, so 85% = 8 × 42 + half of 42 = 357"
+      },
+      {
+       "q": "Fermi: you read 200 words a minute for 20 minutes a day. How many days for a 60,000-word book?",
+       "a": "15 days",
+       "how": "200 × 20 = 4,000 words a day; 60,000 ÷ 4,000 = 15.0, so 15 days"
+      }
+     ]
+    },
+    {
+     "type": "wason",
+     "id": "wason-2026-11-24",
+     "title": "Four Cards",
+     "rule": "If a day's forecast says rain, the card shows an umbrella on the back.",
+     "cards": [
+      "Umbrella",
+      "Sunglasses",
+      "Sunny",
+      "Rain"
+     ],
+     "answer": "Rain and Sunglasses",
+     "explanation": "Rain could hide something that breaks the rule; Sunglasses breaks it if the other side turns out to be Rain. Umbrella can't break it (the rule never says only those cards have it), and Sunny isn't covered by the rule at all. Most people pick the card that matches the rule's second half instead of the one that could falsify it."
+    },
+    {
+     "type": "crossword",
+     "id": "crossword-2026-11-24",
+     "title": "Mini Crossword",
+     "size": 5,
+     "cells": [
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 1
+       },
+       {
+        "n": 2
+       },
+       {
+        "n": 3
+       },
+       {
+        "b": true
+       }
+      ],
+      [
+       {
+        "n": 4
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": 5
+       }
+      ],
+      [
+       {
+        "n": 6
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "n": 7
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 8
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "b": true
+       }
+      ]
+     ],
+     "clues": {
+      "across": [
+       {
+        "n": 1,
+        "clue": "A person who lacks good judgment",
+        "len": 3,
+        "answer": "SAP"
+       },
+       {
+        "n": 4,
+        "clue": "Dense vegetation consisting of stunted trees or bushes",
+        "len": 5,
+        "answer": "SCRUB"
+       },
+       {
+        "n": 6,
+        "clue": "Belonging to the distant past",
+        "len": 5,
+        "answer": "EARLY"
+       },
+       {
+        "n": 7,
+        "clue": "Remove from memory or existence",
+        "len": 5,
+        "answer": "ERASE"
+       },
+       {
+        "n": 8,
+        "clue": "The organ of sight",
+        "len": 3,
+        "answer": "EYE"
+       }
+      ],
+      "down": [
+       {
+        "n": 1,
+        "clue": "Sudden mass fear and anxiety over anticipated events",
+        "len": 5,
+        "answer": "SCARE"
+       },
+       {
+        "n": 2,
+        "clue": "An impressive display",
+        "len": 5,
+        "answer": "ARRAY"
+       },
+       {
+        "n": 3,
+        "clue": "Expand and contract rhythmically; beat rhythmically",
+        "len": 5,
+        "answer": "PULSE"
+       },
+       {
+        "n": 4,
+        "clue": "The seat within a bishop's diocese where his cathedral is located",
+        "len": 3,
+        "answer": "SEE"
+       },
+       {
+        "n": 5,
+        "clue": "A farewell remark",
+        "len": 3,
+        "answer": "BYE"
+       }
+      ]
+     },
+     "solution": [
+      "#SAP#",
+      "SCRUB",
+      "EARLY",
+      "ERASE",
+      "#EYE#"
+     ]
+    },
+    {
+     "type": "riddle",
+     "id": "riddle-2026-11-24",
+     "title": "Riddle",
+     "q": "What has a thumb and four fingers but is not alive?",
+     "a": "A glove."
+    }
+   ]
+  }
+ ],
+ "funny_candidates": [
+  {
+   "type": "post",
+   "id": "funny-2125111851654815995",
+   "author": "Muse",
+   "handle": "Muse",
+   "text": "all your bits and bobs, sorted. Muse is now in the UK: https://t.co/T2OeSwX3GG 📷 https://t.co/9UEFO08yUU",
+   "url": "https://x.com/Muse/status/2125111851654815995",
+   "date": "2026-11-24T06:18:42Z",
+   "score": 9.41
+  },
+  {
+   "type": "post",
+   "id": "funny-2125070792694133014",
+   "author": "christine",
+   "handle": "christineist",
+   "text": "on designing for serendipity, trust, and novel ways of socializing with AI https://t.co/lh0tqDhkFZ",
+   "url": "https://x.com/christineist/status/2125070792694133014",
+   "date": "2026-11-24T03:35:33Z",
+   "score": 8.61
+  },
+  {
+   "type": "post",
+   "id": "funny-2125132722373099522",
+   "author": "Daniel Koss",
+   "handle": "daniel_koss",
+   "text": "This will age very well $NBIS \n\nJust wait, will become even more obvious soon. https://t.co/8NpO8qtRiw",
+   "url": "https://x.com/daniel_koss/status/2125132722373099522",
+   "date": "2026-11-24T07:41:38Z",
+   "quoted": {
+    "author": "Daniel Koss",
+    "handle": "daniel_koss",
+    "text": "Probably ~1-2 years too early, but know this: $NBIS will also be the hottest play in cybersecurity.",
+    "url": "https://x.com/daniel_koss/status/1956385639311540624"
+   },
+   "score": 8.6
+  },
+  {
+   "type": "post",
+   "id": "funny-2125058865201136011",
+   "author": "Ren",
+   "handle": "ren_stocks",
+   "text": "The fact that Anthropic sold off when Jensen came back is all I need to know about this company. https://t.co/tdd3vriB0B",
+   "url": "https://x.com/ren_stocks/status/2125058865201136011",
+   "date": "2026-11-24T02:48:09Z",
+   "score": 7.75
+  },
+  {
+   "type": "post",
+   "id": "funny-2125077062964912152",
+   "author": "Nic Cruz Patane",
+   "handle": "niccruzpatane",
+   "text": "Tesla FSD V15 Reality View is one of the craziest things I’ve ever seen. \n\nThis is only the first release…. https://t.co/VjU1gZK4ZS",
+   "url": "https://x.com/niccruzpatane/status/2125077062964912152",
+   "date": "2026-11-24T04:00:28Z",
+   "score": 7.47
+  },
+  {
+   "type": "post",
+   "id": "funny-2125076982379450592",
+   "author": "SemiAnalysis",
+   "handle": "SemiAnalysis_",
+   "text": "Our teardowns have no barriers. We teardown every chip, from every fab, in every country.\n\nWe’re hiring: https://t.co/NVaBFeGVWv https://t.co/mSZYBSg3aM",
+   "url": "https://x.com/SemiAnalysis_/status/2125076982379450592",
+   "date": "2026-11-24T04:00:09Z",
+   "image_url": "https://pbs.twimg.com/media/HX3KQQ-WMAAhjS1.jpg",
+   "image_alt": "",
+   "score": 7.35
+  },
+  {
+   "type": "post",
+   "id": "funny-2125061861620269433",
+   "author": "Dumb Money",
+   "handle": "DumbMoneyTV",
+   "text": "The Market Is BLIND 🕶️\n@DecodedGenius https://t.co/PFKDsk4qLo",
+   "url": "https://x.com/DumbMoneyTV/status/2125061861620269433",
+   "date": "2026-11-24T03:00:04Z",
+   "score": 6.86
+  },
+  {
+   "type": "post",
+   "id": "funny-2125186357299699872",
+   "author": "Jukan",
+   "handle": "jukan05",
+   "text": "Damn, here they go again. They only went public a few days ago, and already…\n\nIf this is how they’re going to act, they shouldn’t have gone public in the first place. https://t.co/wVwgLMTjfF",
+   "url": "https://x.com/jukan05/status/2125186357299699872",
+   "date": "2026-11-24T11:14:46Z",
+   "image_url": "https://pbs.twimg.com/media/HX4s0qjbEAA2qYE.jpg",
+   "image_alt": "",
+   "score": 6.8
+  },
+  {
+   "type": "post",
+   "id": "funny-2125053794107142487",
+   "author": "Siddha Performance",
+   "handle": "KapilGuptaMD",
+   "text": "Does one have the right to criticize another\n\nIf he himself is intensely flawed.\n\nWhat is there in Integrity\n\nThat one can truly say against another.\n\nA life spent shining a probing light upon Oneself\n\nIs a life of Wisdom and Truth.",
+   "url": "https://x.com/KapilGuptaMD/status/2125053794107142487",
+   "date": "2026-11-24T02:28:00Z",
+   "score": 6.36
+  },
+  {
+   "type": "post",
+   "id": "funny-2125057330748252355",
+   "author": "Austen Allred",
+   "handle": "Austen",
+   "text": "This should instantly turn you into a capitalist https://t.co/9E79ZGQWAJ",
+   "url": "https://x.com/Austen/status/2125057330748252355",
+   "date": "2026-11-24T02:42:03Z",
+   "image_url": "https://pbs.twimg.com/media/HX24YT4XEAARQ9b.jpg",
+   "image_alt": "",
+   "score": 6.22
+  },
+  {
+   "type": "post",
+   "id": "funny-2125131710539169885",
+   "author": "Ashok Elluswamy",
+   "handle": "aelluswamy",
+   "text": "Unreal rendering without Unreal engine https://t.co/rw9WFg1St0",
+   "url": "https://x.com/aelluswamy/status/2125131710539169885",
+   "date": "2026-11-24T07:37:37Z",
+   "score": 6.11
+  },
+  {
+   "type": "post",
+   "id": "funny-2125064007551701324",
+   "author": "Simon Sarris",
+   "handle": "simonsarris",
+   "text": "it's terrible but now I'm staring at pictures thinking\n\"is it...? ... damn, it's chromagraph\" https://t.co/LmCEsYTwH4",
+   "url": "https://x.com/simonsarris/status/2125064007551701324",
+   "date": "2026-11-24T03:08:35Z",
+   "score": 6.02
+  },
+  {
+   "type": "post",
+   "id": "funny-2125067788159271096",
+   "author": "Roger",
+   "handle": "rdd147",
+   "text": "Jensen admits a long list of affairs are about to come public $NVDA https://t.co/z2N2xFsp4h",
+   "url": "https://x.com/rdd147/status/2125067788159271096",
+   "date": "2026-11-24T03:23:37Z",
+   "score": 6.0
+  },
+  {
+   "type": "post",
+   "id": "funny-2125088765962281010",
+   "author": "Balaji",
+   "handle": "balajis",
+   "text": "Candle culture &gt; cancel culture. https://t.co/vCd7wOHSq0 https://t.co/f5cxI2acbX",
+   "url": "https://x.com/balajis/status/2125088765962281010",
+   "date": "2026-11-24T04:46:58Z",
+   "quoted": {
+    "author": "The Kobeissi Letter",
+    "handle": "KobeissiLetter",
+    "text": "BREAKING: Nvidia stock, $NVDA, surges over +28% after the company reinstates Jensen Huang as CEO, effectively immediately.\n\nThe stock has now added +$820 billion in market cap today on the news.\n\nJensen Huang is officially back. https://t.co/3UabhFKxzu",
+    "url": "https://x.com/KobeissiLetter/status/2124866337000325454"
+   },
+   "image_url": "https://pbs.twimg.com/media/HX3U9rmaoAEM9Is.jpg",
+   "image_alt": "",
+   "score": 5.9
+  },
+  {
+   "type": "post",
+   "id": "funny-2125107155338711179",
+   "author": "Mark Zuckerberg",
+   "handle": "finkd",
+   "text": "Releasing Muse in the UK starting today -- now spells colour with a \"u\". https://t.co/yB8d3m76ja",
+   "url": "https://x.com/finkd/status/2125107155338711179",
+   "date": "2026-11-24T06:00:03Z",
+   "score": 5.72
+  },
+  {
+   "type": "post",
+   "id": "funny-2125049551262228916",
+   "author": "Dan Osborn",
+   "handle": "osbornforne",
+   "text": "My sincere condolences to Senator Fischer and her family for their loss. Life has a way of reminding us that some things are bigger than our differences. I wish you strength, comfort, and peace during this difficult time. https://t.co/WQHvDsGdEn",
+   "url": "https://x.com/osbornforne/status/2125049551262228916",
+   "date": "2026-11-24T02:11:09Z",
+   "score": 5.58
+  },
+  {
+   "type": "post",
+   "id": "funny-2125048107524379026",
+   "author": "Adrian Dittmann",
+   "handle": "AdrianDittmann",
+   "text": "The PC mods for GTA 6 will be better than the game itself",
+   "url": "https://x.com/AdrianDittmann/status/2125048107524379026",
+   "date": "2026-11-24T02:05:24Z",
+   "score": 5.44
+  },
+  {
+   "type": "post",
+   "id": "funny-2125124350605201503",
+   "author": "Paul Millerd",
+   "handle": "p_millerd",
+   "text": "Nothing is stopping you from spinning your custom dash to make work fun https://t.co/ONVa9bH2sS",
+   "url": "https://x.com/p_millerd/status/2125124350605201503",
+   "date": "2026-11-24T07:08:22Z",
+   "score": 5.36
+  },
+  {
+   "type": "post",
+   "id": "funny-2125157190801768451",
+   "author": "David Senra",
+   "handle": "davidsenra",
+   "text": "Great headline about the new episode with Tobi. “KNUCKLEHEADS” https://t.co/JUQzuDD8aV",
+   "url": "https://x.com/davidsenra/status/2125157190801768451",
+   "date": "2026-11-24T09:18:52Z",
+   "image_url": "https://pbs.twimg.com/media/HX4TMyJWEAAye4N.jpg",
+   "image_alt": "",
+   "score": 5.22
+  },
+  {
+   "type": "post",
+   "id": "funny-2125064305372520946",
+   "author": "The Kobeissi Letter",
+   "handle": "KobeissiLetter",
+   "text": "BREAKING: Bitcoin falls below $60,000 as levered liquidations surge to $850 million in 24 hours. https://t.co/V9uDhebuuI",
+   "url": "https://x.com/KobeissiLetter/status/2125064305372520946",
+   "date": "2026-11-24T03:09:46Z",
+   "image_url": "https://pbs.twimg.com/media/HX2-uTJWgAA6sxH.jpg",
+   "image_alt": "",
+   "score": 5.2
+  },
+  {
+   "type": "post",
+   "id": "funny-2125050238931177476",
+   "author": "Jim Cramer",
+   "handle": "jimcramer",
+   "text": "Thrilled to be a part of CNBC! https://t.co/O1zSdsu1Pv",
+   "url": "https://x.com/jimcramer/status/2125050238931177476",
+   "date": "2026-11-24T02:13:53Z",
+   "score": 5.19
+  },
+  {
+   "type": "post",
+   "id": "funny-2125053511004287344",
+   "author": "Tao Lin",
+   "handle": "tao_lin",
+   "text": "Manicly liked a post I had no interest in.",
+   "url": "https://x.com/tao_lin/status/2125053511004287344",
+   "date": "2026-11-24T02:26:53Z",
+   "score": 5.14
+  },
+  {
+   "type": "post",
+   "id": "funny-2125197758256857091",
+   "author": "VV",
+   "handle": "visualizevalue",
+   "text": "\"If you can't describe what you are doing as a process, you don't know what you're doing.\" https://t.co/xUEY5EroI5",
+   "url": "https://x.com/visualizevalue/status/2125197758256857091",
+   "date": "2026-11-24T12:00:04Z",
+   "image_url": "https://pbs.twimg.com/media/HX44GTfakAAAo-H.png",
+   "image_alt": "",
+   "score": 4.92
+  },
+  {
+   "type": "post",
+   "id": "funny-2125150448751616186",
+   "author": "Tom Nash",
+   "handle": "iamtomnash",
+   "text": "And just like that, everything felt normal again. https://t.co/69X5m9svqS",
+   "url": "https://x.com/iamtomnash/status/2125150448751616186",
+   "date": "2026-11-24T08:52:05Z",
+   "image_url": "https://pbs.twimg.com/media/HX4NEL9WEAAIhZ2.jpg",
+   "image_alt": "",
+   "score": 4.87
+  },
+  {
+   "type": "post",
+   "id": "funny-2125087181522010366",
+   "author": "Augustus Doricko",
+   "handle": "ADoricko",
+   "text": "PSA @RainmakerCorp is a very happy and satisfied customer of @noxmetals",
+   "url": "https://x.com/ADoricko/status/2125087181522010366",
+   "date": "2026-11-24T04:40:40Z",
+   "score": 4.87
+  },
+  {
+   "type": "post",
+   "id": "funny-2125195261530022130",
+   "author": "Amazon Leo",
+   "handle": "AmazonLeo",
+   "text": "🚀 Liftoff of Leo Europe 4 🚀 https://t.co/lPUyuDq2m5",
+   "url": "https://x.com/AmazonLeo/status/2125195261530022130",
+   "date": "2026-11-24T11:50:09Z",
+   "score": 4.79
+  },
+  {
+   "type": "post",
+   "id": "funny-2125046932490121236",
+   "author": "Daniel Vassallo",
+   "handle": "dvassallo",
+   "text": "America is reindustrializing https://t.co/DlDOIRlQAY",
+   "url": "https://x.com/dvassallo/status/2125046932490121236",
+   "date": "2026-11-24T02:00:44Z",
+   "quoted": {
+    "author": "The Kobeissi Letter",
+    "handle": "KobeissiLetter",
+    "text": "BREAKING: The United States now has 5,159 data centers, more than the next 9 countries with the most data centers combined.\n\nThis includes operational facilities as well as projects that are planned, under construction, or land-banked. …",
+    "url": "https://x.com/KobeissiLetter/status/2125007831292104805"
+   },
+   "score": 4.78
+  },
+  {
+   "type": "post",
+   "id": "funny-2125058391697490018",
+   "author": "Real Doc Speaks",
+   "handle": "realdocspeaks",
+   "text": "Physicians have always treated every patient with an emergency regardless of their ability to pay.  \n\nWe perform more charity care than any nonprofit hospital on a percentage basis and we aren't allowed to write this off.\n\nThat is what makes physicians different than everyone else.",
+   "url": "https://x.com/realdocspeaks/status/2125058391697490018",
+   "date": "2026-11-24T02:46:16Z",
+   "score": 4.7
+  },
+  {
+   "type": "post",
+   "id": "funny-2125052882617827805",
+   "author": "Adam Robbert",
+   "handle": "AE_Robbert",
+   "text": "New arrival. https://t.co/gQ7gCVecE5",
+   "url": "https://x.com/AE_Robbert/status/2125052882617827805",
+   "date": "2026-11-24T02:24:23Z",
+   "image_url": "https://pbs.twimg.com/media/HX20TipbgAAN9rJ.jpg",
+   "image_alt": "",
+   "score": 4.5
+  },
+  {
+   "type": "post",
+   "id": "funny-2125074469257449892",
+   "author": "Nick Gray",
+   "handle": "nickgraynews",
+   "text": "This is a legitimate offer and not a scam! Check it out, he is my friend and he does good things for Thanksgiving for people https://t.co/RnCthiOwge",
+   "url": "https://x.com/nickgraynews/status/2125074469257449892",
+   "date": "2026-11-24T03:50:10Z",
+   "score": 4.45
+  },
+  {
+   "type": "post",
+   "id": "funny-2125105721465594110",
+   "author": "Jim Liu",
+   "handle": "jiahanjimliu",
+   "text": "OpenAI is starting to work on Hardness and AI Agents for Cybersecurity! It's coming folks! https://t.co/963asneFXH",
+   "url": "https://x.com/jiahanjimliu/status/2125105721465594110",
+   "date": "2026-11-24T05:54:21Z",
+   "score": 4.43
+  },
+  {
+   "type": "post",
+   "id": "funny-2125130405720572163",
+   "author": "Irrational Analysis",
+   "handle": "insane_analyst",
+   "text": "You can see a brief moment of self awareness before cultist beliefs shut out logic in favor of belief. https://t.co/HRbacA61Qv https://t.co/srQkhDs7iM",
+   "url": "https://x.com/insane_analyst/status/2125130405720572163",
+   "date": "2026-11-24T07:32:26Z",
+   "image_url": "https://pbs.twimg.com/media/HX3611qawAAp6SB.jpg",
+   "image_alt": "",
+   "score": 4.39
+  },
+  {
+   "type": "post",
+   "id": "funny-2125064800854306928",
+   "author": "Pico Iyer",
+   "handle": "PicoIyer",
+   "text": "Our lives are measured by the other selves inside us that we walk away from.",
+   "url": "https://x.com/PicoIyer/status/2125064800854306928",
+   "date": "2026-11-24T03:11:44Z",
+   "score": 4.1
+  },
+  {
+   "type": "post",
+   "id": "funny-2125177803402621298",
+   "author": "Noah",
+   "handle": "antibearthesis",
+   "text": "OH DEAR MOTHER OF GOD https://t.co/uby1GObB6S https://t.co/mwmqKjOJZ6",
+   "url": "https://x.com/antibearthesis/status/2125177803402621298",
+   "date": "2026-11-24T10:40:46Z",
+   "image_url": "https://pbs.twimg.com/media/HX4l8gAX0AABoDk.jpg",
+   "image_alt": "",
+   "score": 3.86
+  },
+  {
+   "type": "post",
+   "id": "funny-2125176140218212822",
+   "author": "Richard D. Bartlett",
+   "handle": "RichDecibels",
+   "text": "guys I think I'm a mountain person because holy moly https://t.co/xA0FarXuAb",
+   "url": "https://x.com/RichDecibels/status/2125176140218212822",
+   "date": "2026-11-24T10:34:10Z",
+   "image_url": "https://pbs.twimg.com/media/HX4kVX_XwAAoMqH.jpg",
+   "image_alt": "",
+   "score": 3.56
+  },
+  {
+   "type": "post",
+   "id": "funny-2125113688785059921",
+   "author": "J.K. Lundblad | Teaching Progress",
+   "handle": "JK_Lundblad",
+   "text": "@Napoleon__Bon What is the benefit of a merger?",
+   "url": "https://x.com/JK_Lundblad/status/2125113688785059921",
+   "date": "2026-11-24T06:26:00Z",
+   "score": 3.51
+  },
+  {
+   "type": "post",
+   "id": "funny-2125076649242714396",
+   "author": "Ben Justman🍷",
+   "handle": "BenJustman",
+   "text": "Never trust Big Socialist Tiddies https://t.co/AZGQdkUKpG",
+   "url": "https://x.com/BenJustman/status/2125076649242714396",
+   "date": "2026-11-24T03:58:49Z",
+   "score": 3.47
+  },
+  {
+   "type": "post",
+   "id": "funny-2125131860355457281",
+   "author": "Bennett's Phylactery",
+   "handle": "extradeadjcb",
+   "text": "You haven't read Fausto-Sterling, have you, let alone Deboleena Roy, nobody reads anymore https://t.co/YWwxTivMJd",
+   "url": "https://x.com/extradeadjcb/status/2125131860355457281",
+   "date": "2026-11-24T07:38:13Z",
+   "score": 3.42
+  },
+  {
+   "type": "post",
+   "id": "funny-2125136733289542082",
+   "author": "farbood",
+   "handle": "farbood",
+   "text": "People who believe in open source saved the global economy this past week.\n\nThis will become the norm.",
+   "url": "https://x.com/farbood/status/2125136733289542082",
+   "date": "2026-11-24T07:57:35Z",
+   "score": 3.26
+  },
+  {
+   "type": "post",
+   "id": "funny-2125190191245869207",
+   "author": "Simone & Malcolm Collins",
+   "handle": "SimoneHCollins",
+   "text": "This is so cool!!! https://t.co/RNx5o1rfER",
+   "url": "https://x.com/SimoneHCollins/status/2125190191245869207",
+   "date": "2026-11-24T11:30:00Z",
+   "score": 3.23
+  }
+ ],
+ "seconds": {
+  "items": [
+   {
+    "type": "post",
+    "id": "more-2125183186456211468",
+    "author": "Jim Cramer",
+    "handle": "jimcramer",
+    "text": "The shorts have covered their Nvidia and now it is coming back down with the group. But did any long only fund really think you could pay up that much and have it be sustainable? Rallies like this need some churning and settling.",
+    "url": "https://x.com/jimcramer/status/2125183186456211468",
+    "date": "2026-11-24T11:02:10Z"
+   },
+   {
+    "type": "post",
+    "id": "more-2125183016641159500",
+    "author": "David Senra",
+    "handle": "davidsenra",
+    "text": ".@tobi describing his passion and excitement for this moment in time: \n\n\"There hasn't been a weekend this year that I didn't work throughout the entire weekend. I have zero ability at this point to stay away from progress, computers and stuff like this. I’m made for this moment. I think every decision I've made in my life pointed at this moment to be maximally prepared and useful.\"",
+    "url": "https://x.com/davidsenra/status/2125183016641159500",
+    "date": "2026-11-24T11:01:29Z",
+    "image_url": "https://pbs.twimg.com/media/HX4qrvVXUAAeI6l.jpg",
+    "image_alt": ""
+   },
+   {
+    "type": "post",
+    "id": "more-2125126734353666318",
+    "author": "Babyfolio",
+    "handle": "babyfolio",
+    "text": "$NBIS Token Factory just delivered another 800B token day on Monday.\n\n806.9B tokens on OpenRouter on Monday, up 23.4% from Sunday. That's six straight days above 600B.\n\nThe six day average is 714.6B tokens per day vs 77.4B the prior week. More than 9x. https://t.co/qtLGpvfw1b",
+    "url": "https://x.com/babyfolio/status/2125126734353666318",
+    "date": "2026-11-24T07:17:51Z",
+    "image_url": "https://pbs.twimg.com/media/HX33f1vXwAAogo0.jpg",
+    "image_alt": ""
+   },
+   {
+    "type": "post",
+    "id": "more-2125092303366725920",
+    "author": "James Cat",
+    "handle": "TSLAFanMtl",
+    "text": "Give me a senior using FSD vs normal Sunday driving any day of the week.\n\nJokes aside, FSD has the potential to change the consumer demographics for Tesla. Currently,the brand appeals to higher-educated, young/middle aged adults.\n\nBoomers are a huge segment of our population (20%) and increasingly aging. Will the next wave of Tesla demand come from FSD-seeking Bany Boomers?",
+    "url": "https://x.com/TSLAFanMtl/status/2125092303366725920",
+    "date": "2026-11-24T05:01:02Z",
+    "image_url": "https://pbs.twimg.com/media/HX3YMBZXgAAYsKy.jpg",
+    "image_alt": ""
+   },
+   {
+    "type": "post",
+    "id": "more-2125074972523598288",
+    "author": "Charlie Light",
+    "handle": "charliewrich",
+    "text": "Been writing on Threads to practice my writing skills with a different audience \n\nGained 2k followers in the last day \n\nLessons from that platform:\n\n- everyone there hates rich people. Anything making fun of billionaires does well. \n\n- there’s less humor content over there. Easier to stand out - a joke that would do just okay on X crushes over there \n\n- fewer business owners/founders in my audience over there. TBD if writing over there brings me writing/consulting opportunities like X does",
+    "url": "https://x.com/charliewrich/status/2125074972523598288",
+    "date": "2026-11-24T03:52:10Z",
+    "image_url": "https://pbs.twimg.com/media/HX3IbJeWMAATQiE.jpg",
+    "image_alt": ""
+   },
+   {
+    "type": "post",
+    "id": "more-2125138754818003063",
+    "author": "Richard D. Bartlett",
+    "handle": "RichDecibels",
+    "text": "so we now have AI that's in some respects smarter than any of the smartest mathematician in the past 150 years, and it is still almost perfectly contained within the \"helpful assistant/obedient multitool\" paradigm. don't want to alarm anyone but... the AI safety may be working?",
+    "url": "https://x.com/RichDecibels/status/2125138754818003063",
+    "date": "2026-11-24T08:05:36Z"
+   },
+   {
+    "type": "post",
+    "id": "more-2125170567456464979",
+    "author": "Milk Road AI",
+    "handle": "MilkRoadAI",
+    "text": "Microsoft and Google are turning to Intel's EMIB packaging because they cannot get enough TSMC CoWoS capacity.\n\nOn November 18, Intel and Microsoft said Microsoft will use Intel Foundry's EMIB technology for its own Azure chips, becoming the first company to publicly confirm that.\n\nGoogle is reportedly using EMIB for future TPU versions designed with MediaTek.\n\nReports put EMIB-T substrate yields at around 35% last quarter, short of a 50% target by year end but the move still tells you how tight advanced packaging is. …",
+    "url": "https://x.com/MilkRoadAI/status/2125170567456464979",
+    "date": "2026-11-24T10:12:01Z",
+    "image_url": "https://pbs.twimg.com/media/HX4fXnXbsAAjRWK.jpg",
+    "image_alt": "Official Intel photo of an EMIB packaging unit on a worker's finger at Intel's factory in Chandler, Arizona"
+   },
+   {
+    "type": "post",
+    "id": "more-2125154871527547329",
+    "author": "As Found",
+    "handle": "AsFoundX",
+    "text": "🚨 NVIDIA CEO JENSEN HUANG PRAISES ELON MUSK\n\nJensen Huang says Elon Musk is in a phenomenal position to lead the future of AI, autonomous vehicles, and humanoid robotics.\n\nHe points out that Tesla collects huge amounts of real world data with its large fleet of cars and has a strong AI factory full of NVIDIA hardware.\n\nJensen highlights that xAI is working on foundation AI, Tesla on self driving cars, and Optimus on humanoid robots — the three most important areas of AI.\n https://t.co/Q8IjJSE0sx",
+    "url": "https://x.com/AsFoundX/status/2125154871527547329",
+    "date": "2026-11-24T09:09:39Z"
+   }
+  ]
+ }
+}
