@@ -1,0 +1,27 @@
+{
+ "date": "2026-11-25",
+ "date_long": "Wednesday, November 25, 2026",
+ "lead": "The AI selloff spreads to Asia, and Nvidia slips before the open",
+ "pages": {
+  "print": 6,
+  "digital": 6
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-25-print.pdf",
+  "digital": "signal-seeker-2026-11-25-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Your Holdings",
+  "Tech & AI",
+  "Evergreen",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-25T07:19:19-05:00"
+}
