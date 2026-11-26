@@ -1,0 +1,28 @@
+{
+ "date": "2026-11-26",
+ "date_long": "Thursday, November 26, 2026",
+ "lead": "SpaceX will give every American child two shares",
+ "pages": {
+  "print": 6,
+  "digital": 6
+ },
+ "pdfs": {
+  "print": "signal-seeker-2026-11-26-print.pdf",
+  "digital": "signal-seeker-2026-11-26-digital.pdf"
+ },
+ "sections": [
+  "Front Page",
+  "Top of your feed",
+  "From Your X",
+  "The GOATs",
+  "Investments",
+  "Headlines",
+  "Your Holdings",
+  "Tech & AI",
+  "Evergreen",
+  "The Passage",
+  "Games"
+ ],
+ "recipe": null,
+ "built_at": "2026-11-26T07:24:46-05:00"
+}
