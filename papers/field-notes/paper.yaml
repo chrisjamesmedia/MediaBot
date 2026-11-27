@@ -30,13 +30,19 @@ print:
     small:  {target_sheets: [2, 3], max_sheets: 3}
     medium: {target_sheets: [2, 3], max_sheets: 3}
     large:  {target_sheets: [2, 3], max_sheets: 3}
-  photos: false
+  photos: true                 # a few small grayscale pictures (images.print_max), nothing in color
   qr: false                    # nothing that leads back to a screen
   pt: 9.5                       # body type size (pt) for two-column letter pages
   even_pages: true             # pad to an even page count (one blank back) for duplex
 
+images:                        # tools/media.py: X post media only (no article pages here), never generated
+  max_total: 8
+  per_section: 2
+  print_max: 3
+  web: false                   # Field Notes posts have no links, so no article og:image lookups
+
 web:
-  images: false
+  images: true                 # real, credited X photos (and video stills) from the posts themselves; tools/media.py
   x_links: false               # no live links to x.com on posts: handle and date are plain text
   end_line: "That’s all for today."
   source_note: "Posts are from X, quoted in full as posted; Scripture is the King James Version. The closing joke is a real, credited line."

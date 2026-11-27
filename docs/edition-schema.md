@@ -43,7 +43,7 @@ Every item has a unique `id` (used for reader feedback and anchors) and a `type`
   "summary": "Two to five tight sentences.",
   "short": "One sentence, used by the small print size.",      // optional
   "sources": [ { "name": "CNBC", "url": "https://…" } ],      // at least one
-  "image": { "file": "images/alphabet.jpg", "credit": "CNBC" }, // optional; web and digital only, never print
+  "image": { "file": "images/alphabet.jpg", "credit": "Image: CNBC", "alt": "…" }, // optional; see "Pictures" below
   "brief": true,                                               // optional; a bundle of short items (headline styled as a kicker)
   "group": "Hyperscalers & capex" }                            // only in sections with group_by
 ```
@@ -55,7 +55,7 @@ Every item has a unique `id` (used for reader feedback and anchors) and a `type`
   "text": "Full post text, never paraphrased.",
   "url": "https://x.com/paulg/status/1985977741808157030",
   "date": "2026-10-30T01:23:11Z",                               // ISO 8601 UTC; shown in ET
-  "image": { "file": "images/x-….jpg" },                       // optional, web only
+  "image": { "file": "images/x-….jpg", "credit": "Photo: @paulg", "alt": "…" }, // optional; see "Pictures" below
   "group": "…" }                                               // optional
 ```
 Optional `"quoted": {"author", "handle", "text", "url"}` for a quote post, drawn as a small inset
@@ -66,6 +66,21 @@ Optional `"quoted": {"author", "handle", "text", "url"}` for a quote post, drawn
 
 Posts can appear in any section (From Your X, The GOATs, Tech & AI…). Post dates can be read from
 the status id: `ms = (id >> 22) + 1288834974657`.
+
+### Pictures (`image` on story, post, evergreen items)
+Written by `tools/media.py` (after the sections are final, before `build.py`), never by hand and never generated:
+```json
+"image": { "file": "images/<id>.jpg", "credit": "Photo: @handle" | "Video still: @handle" | "Image: Site",
+           "alt": "X's own alt text when the poster wrote one, else a plain 'Photo from @handle's post'",
+           "w": 960, "h": 540, "kind": "photo|video|og", "auto": true,
+           "print_file": "images/<id>-print.jpg",   // optional: small grayscale copy, the only version print uses
+           "lead": true }                           // optional: the edition's lead item (wider file)
+```
+Sources are only the post's own media (`url`, or `preview_image_url` for a video/GIF still) and a linked
+article's `og:image`. An item with no such image has no `image` key. Web, the digital PDF, the Field Notes
+email (absolute Pages URLs) use the color file; print uses `print_file` only. `auto: true` marks a pick that
+media.py owns and replaces on rerun; an `image` without it (comics, funny posts, hand-set) is never touched.
+Limits live in `papers/<slug>/paper.yaml` under `images:`.
 
 ### line (one-sentence item: Big Stuff box, holdings, briefs)
 ```json

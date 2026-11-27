@@ -5,6 +5,7 @@
 {% set lead = sections[0]['items'][0] %}
 {% set og_image = lead.image.web if lead.image else None %}
 {% set body_class = "edition" %}
+{% set extra_css = ["paper-images.css"] %}
 {% macro sources(list) -%}
 <span class="src">{% for s in list %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>{% if not loop.last %}<span class="dot"> · </span>{% endif %}{% endfor %}</span>
 {%- endmacro %}
@@ -13,9 +14,12 @@
 <button type="button" data-r="knew">Knew this</button><button type="button" data-r="more">More like this</button><button type="button" data-r="skip">Skip</button><button type="button" class="readmark" data-read aria-label="Mark read" title="Mark read"></button>
 </span>
 {%- endmacro %}
+{% macro fig(im, cls) -%}
+<figure class="{{ cls }}"><img src="{{ im.web }}" alt="{{ im.alt or '' }}" loading="lazy"{% if im.w and im.h %} width="{{ im.w }}" height="{{ im.h }}"{% endif %}>{% if im.credit %}<figcaption>{{ im.credit }}</figcaption>{% endif %}</figure>
+{%- endmacro %}
 {% macro story(s, cls='') -%}
 <article class="story {{ cls }}{% if s.brief %} brief{% endif %}" id="{{ s.id }}" data-id="{{ s.id }}">
-{% if s.image %}<figure class="ph"><img src="{{ s.image.web }}" alt="" loading="lazy"><figcaption>{{ s.image.credit }}</figcaption></figure>{% endif %}
+{% if s.image %}{{ fig(s.image, "ph") }}{% endif %}
 <div class="txt">
 <h3>{{ s.headline }}</h3>
 <p>{{ s.summary }}</p>
@@ -33,7 +37,7 @@
 <header><span class="av" aria-hidden="true">{{ p.author | initials }}</span><span class="who"><b>{{ p.author }}</b><span class="mute">@{{ p.handle }}{% if p.date_short %} · <a href="{{ p.url }}" target="_blank" rel="noopener"><time datetime="{{ p.date }}">{{ p.date_short }}</time></a>{% endif %}</span></span></header>
 <p class="ptext">{{ p.text }}</p>
 {% if p.quoted %}{{ quote(p.quoted) }}{% endif %}
-{% if p.image %}<figure class="pimg"><img src="{{ p.image.web }}" alt="" loading="lazy"></figure>{% endif %}
+{% if p.image %}{{ fig(p.image, "pimg") }}{% endif %}
 <footer><a class="src open" href="{{ p.url }}" target="_blank" rel="noopener">Open on X</a>{{ controls() }}</footer>
 </article>
 {%- endmacro %}
@@ -53,6 +57,7 @@
 {% macro ever(e) -%}
 <article class="ever" id="{{ e.id }}" data-id="{{ e.id }}">
 <p class="kick">{{ e.kind or 'Long read' }}{% if e.date_short %} · {{ e.date_short }}{% endif %}</p>
+{% if e.image %}{{ fig(e.image, "ph") }}{% endif %}
 <h3><a href="{{ e.url }}" target="_blank" rel="noopener">{{ e.title }}</a></h3>
 <p class="by">{{ e.author }}{% if e.handle %} <span class="mute">@{{ e.handle }}</span>{% endif %}</p>
 <p>{{ e.summary }}</p>
@@ -138,7 +143,7 @@
   {% if s.type == 'post' %}<div class="leadpost">{{ post(s) }}</div>{% else %}
   <article class="story lead{% if not s.image %} noimg{% endif %}" id="{{ s.id }}" data-id="{{ s.id }}">
   <h3>{{ s.headline }}</h3>
-  {% if s.image %}<figure class="ph"><img src="{{ s.image.web }}" alt=""><figcaption>{{ s.image.credit }}</figcaption></figure>{% endif %}
+  {% if s.image %}{{ fig(s.image, "ph") }}{% endif %}
   <div class="txt"><p>{{ s.summary }}</p><footer>{{ sources(s.sources) }}{{ controls() }}</footer></div>
   </article>{% endif %}
   {% if fs|length > 1 %}<div class="grid2 rest{% if fs|length is odd %} even{% endif %}">{% for s in fs[1:] %}{{ front_item(s) }}{% endfor %}</div>{% endif %}

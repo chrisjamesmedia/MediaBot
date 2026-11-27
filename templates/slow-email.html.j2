@@ -1,5 +1,6 @@
 {#- Field Notes email body: inline CSS, one column, max-width 600px. The daily email can use this as its
-    HTML body, with the print and digital PDFs still attached. No live X links. -#}
+    HTML body, with the print and digital PDFs still attached. No live X links. Pictures are <img> tags with ABSOLUTE
+    URLs to the published edition (base + url_path + images/…), so send the email only after the Pages deploy is live. -#}
 <!doctype html>
 <html lang="en">
 <head>
@@ -47,6 +48,9 @@
             <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.35;color:#6b6558;padding-bottom:8px;"><strong style="color:#1c1914;">{{ p.author }}</strong> @{{ p.handle }}{% if p.date_short %} · {{ p.date_short }}{% endif %}</div>
             {% for para in p.text | paras %}<p style="margin:0 0 12px;font-family:Georgia,serif;font-size:16px;line-height:1.55;color:#1c1914;">{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
             {% endfor %}
+            {% if p.image %}{% set iu = (base ~ url_path ~ p.image.web) if base else p.image.web %}
+            <img src="{{ iu }}" width="552"{% if p.image.w and p.image.h %} height="{{ (552 * p.image.h / p.image.w) | round | int }}"{% endif %} alt="{{ p.image.alt or '' }}" style="display:block;width:100%;max-width:552px;height:auto;border:0;margin:6px 0 0;">
+            <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.4;color:#6b6558;padding:5px 0 10px;">{{ p.image.credit }}</div>{% endif %}
             {% if p.quoted %}<div style="margin:8px 0 0;padding:2px 0 2px 14px;border-left:2px solid #bdb5a4;">
               <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#6b6558;padding-bottom:6px;"><strong style="color:#1c1914;">{{ p.quoted.author }}</strong> @{{ p.quoted.handle }}</div>
               {% for para in p.quoted.text | paras %}<p style="margin:0 0 10px;font-family:Georgia,serif;font-size:15px;line-height:1.5;color:#3d3933;">{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>

@@ -59,6 +59,9 @@ img{max-width:100%;height:auto}
 .who b{font-weight:600;color:var(--ink)}
 .post p{margin:0 0 .75em}
 .post p:last-child{margin-bottom:0}
+.pic{margin:14px 0 4px}
+.pic img{display:block;width:100%;height:auto;max-height:80vh;object-fit:cover;background:rgba(28,25,20,.06)}
+.pic figcaption{font:400 11.5px/1.35 "SG Sans",sans-serif;color:var(--soft);margin:6px 0 0;letter-spacing:.01em}
 blockquote{margin:16px 0 0;padding:2px 0 2px 16px;border-left:1.5px solid var(--rule-strong);
   font-size:16.5px;line-height:1.5;color:rgba(28,25,20,.78)}
 blockquote .who{font-size:11.5px;margin-bottom:6px}
@@ -87,6 +90,8 @@ blockquote .who{font-size:11.5px;margin-bottom:6px}
   .passage .verse{font-size:20px;line-height:1.5}
   .post{padding:16px 0 18px}
   .who{font-size:12px}
+  .pic{margin:14px -18px 4px}                 /* the picture runs edge to edge on a phone */
+  .pic figcaption{padding:0 18px}
 }
 @media print{.mast .pb{display:none}}
 </style>
@@ -118,6 +123,7 @@ blockquote .who{font-size:11.5px;margin-bottom:6px}
         <p class="who"><b>{{ p.author }}</b> @{{ p.handle }}{% if p.date_short %} · {{ p.date_short }}{% endif %}</p>
         {% for para in p.text | paras %}<p>{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
         {% endfor %}
+        {% if p.image %}<figure class="pic"><img src="{{ p.image.web }}" alt="{{ p.image.alt or '' }}" loading="lazy"{% if p.image.w and p.image.h %} width="{{ p.image.w }}" height="{{ p.image.h }}"{% endif %}>{% if p.image.credit %}<figcaption>{{ p.image.credit }}</figcaption>{% endif %}</figure>{% endif %}
         {% if p.quoted %}<blockquote>
           <p class="who"><b>{{ p.quoted.author }}</b> @{{ p.quoted.handle }}</p>
           {% for para in p.quoted.text | paras %}<p>{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>

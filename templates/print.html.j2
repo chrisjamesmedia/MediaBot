@@ -1,6 +1,7 @@
 {#- Print (mode=print) and digital (mode=digital) PDF editions. Letter, two compact columns, B&W.
-    Print carries no photos; its only image is one masthead QR, and only once the site has a public URL.
-    Digital adds the lead photo and keeps every link clickable. -#}
+    Pictures are real and credited (tools/media.py: X post media, article og:image; never generated). Digital shows the
+    color file; print only shows the small grayscale file of the few picks that have one. Print's other image is one
+    masthead QR, once the site has a public URL. Digital keeps every link clickable. -#}
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <title>{{ paper.name }} · {{ date_long }}{{ ' (print)' if mode == 'print' else '' }}</title>
 <style>
@@ -39,8 +40,12 @@ a{color:inherit;text-decoration:none}
 .lead .wrapl{display:flex;gap:12pt}
 .lead .wrapl p{flex:1;font-size:{{ pt + 0.6 }}pt;column-count:{{ 1 if mode == 'digital' else 2 }};column-gap:.24in}
 .lead figure{flex:0 0 3.3in;margin:0}
-.lead img{width:100%;height:1.9in;object-fit:cover;display:block}
-.lead figcaption{font:400 6pt "SG Sans",sans-serif;color:#444;text-align:right;margin-top:1pt}
+.lead img{width:100%;height:{{ '1.9in' if mode == 'digital' else '1.35in' }};object-fit:cover;display:block}
+.lead figcaption{font:400 6pt "SG Sans",sans-serif;color:#444;text-align:left;margin-top:1pt}
+/* pictures inside items: scaled down to fit, never cropped or stretched */
+.pic{margin:3pt 0 4pt;break-inside:avoid}
+.pic img{display:block;width:100%;height:auto;max-height:{{ '2.6in' if mode == 'digital' else '1.25in' }};object-fit:contain;object-position:left top}
+.pic figcaption{font:400 5.8pt/1.25 "SG Sans",sans-serif;color:#444;margin-top:1.5pt}
 h2{font:700 7.6pt/1 "SG Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;margin:12pt 0 5pt;padding-top:3.5pt;
   border-top:1.4pt solid #000;break-after:avoid}
 .cols > section:first-child h2,.lead + section h2{margin-top:0}
@@ -173,22 +178,27 @@ p .src{margin-left:3pt}
 {%- macro srcs(list) -%}
 <span class="src">{% for s in list %}{% if mode == 'digital' %}<a href="{{ s.url }}">{{ s.name }}</a>{% else %}{{ s.name }}{% endif %}{% if not loop.last %} · {% endif %}{% endfor %}</span>
 {%- endmacro -%}
+{%- macro pic(im) -%}
+{% if im %}{% set f = im.abs if mode == 'digital' else im.print_abs %}{% if f %}<figure class="pic"><img src="{{ f }}" alt="{{ im.alt or '' }}"><figcaption>{{ im.credit }}</figcaption></figure>{% endif %}{% endif %}
+{%- endmacro -%}
 {%- macro item(it) -%}
 {% if it.type == 'post' %}
 <div class="post{% if (it.text or "")|length > 520 %} long{% endif %}"><div class="hd"><span class="av">{{ it.author | initials }}</span><b>{{ it.author }}</b><span>@{{ it.handle }}{% if it.date_short %} · {{ it.date_short }}{% endif %}</span></div>
 <div class="tx">{{ it.text }}</div>
+{{ pic(it.image) }}
 {% if it.quoted %}{% set ex = it.quoted.text | excerpt %}<div class="qt"><b>{{ it.quoted.author }}</b> <span class="h">@{{ it.quoted.handle }}</span>{% if ex %}<br>{{ ex }}{% endif %}</div>{% endif %}
 <div class="u">{% if mode == 'digital' %}<a href="{{ it.url }}">{{ it.url | replace('https://', '') }}</a>{% else %}{{ it.url | replace('https://', '') }}{% endif %}</div></div>
 {% elif it.type == 'line' %}
 <p class="ln">{{ it.text | safe }} {{ srcs(it.sources) }}</p>
 {% elif it.type == 'evergreen' %}
 <div class="ev"><div class="k">{{ it.kind or 'Long read' }}{% if it.date_short %} · {{ it.date_short }}{% endif %}</div><h3>{% if mode == 'digital' %}<a href="{{ it.url }}">{{ it.title }}</a>{% else %}{{ it.title }}{% endif %}</h3>
+{{ pic(it.image) }}
 <div class="by">{{ it.author }}{% if it.handle %} @{{ it.handle }}{% endif %}</div><p>{{ it.print_text }}</p>
 <div class="u">{% if mode == 'digital' %}<a href="{{ it.url }}">{{ it.url | replace('https://', '') }}</a>{% else %}{{ it.url | replace('https://', '') }}{% endif %}</div></div>
 {% elif it.type == 'link' %}
 <p class="wl"><b>{% if mode == 'digital' %}<a href="{{ it.url }}">{{ it.title }}</a>{% else %}{{ it.title }}{% endif %}</b>{% if it.why %} {{ it.why }}{% endif %} <span class="src">{{ it.url | host }}</span></p>
 {% else %}
-<div class="it{% if it.brief %} brief{% endif %}"><h3>{{ it.headline }}</h3><p>{{ it.print_text }} {{ srcs(it.sources) }}</p></div>
+<div class="it{% if it.brief %} brief{% endif %}"><h3>{{ it.headline }}</h3>{{ pic(it.image) }}<p>{{ it.print_text }} {{ srcs(it.sources) }}</p></div>
 {% endif %}
 {%- endmacro -%}
 {% set parts = sections | by_source %}
@@ -218,7 +228,8 @@ p .src{margin-left:3pt}
   <h2 class="parth fronth">{{ front.title }}</h2>
   {% if l.type == 'post' %}<div class="lead">{{ item(l) }}</div>{% else %}
   <div class="lead"><h3>{{ l.headline }}</h3>
-    <div class="wrapl">{% if mode == 'digital' and l.image %}<figure><img src="{{ l.image.abs }}" alt=""><figcaption>{{ l.image.credit }}</figcaption></figure>{% endif %}
+    {% set lf = (l.image.abs if mode == 'digital' else l.image.print_abs) if l.image else None %}
+    <div class="wrapl">{% if lf %}<figure><img src="{{ lf }}" alt="{{ l.image.alt or '' }}"><figcaption>{{ l.image.credit }}</figcaption></figure>{% endif %}
     <p>{{ l.print_text }} {{ srcs(l.sources) }}</p></div></div>{% endif %}
   <section>{% for it in front['items'][1:] %}{{ item(it) }}{% endfor %}</section>
 </div>
