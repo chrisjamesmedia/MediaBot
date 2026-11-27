@@ -1,13 +1,15 @@
 // /start/ (four short steps) and /profile/ (the same controls on one page). Reads and writes MediaBotProfile.
 // Bluesky follows come from Bluesky's public API (no sign-in). X follows arrive only from the optional x-connect
 // backend (docs/x-connect.md) as a #x=… fragment on return; nothing is sent anywhere else.
+// X follows can also come in privately and for free: a #xf=… link (the fragment never reaches a server) or a pasted/chosen
+// JSON file. They are read in the browser and stored in mediabot.follows.v1 only (docs/x-import.md).
 (function () {
   "use strict";
   var P = window.MediaBotProfile, $ = function (id) { return document.getElementById(id); };
   var main = $("ob"), EDIT = main.getAttribute("data-mode") === "edit";
   var PRESETS = ["Faith", "Family", "Health", "Nature", "Science", "Space", "History", "Books", "Music", "Movies & TV",
                  "Sports", "Food", "Travel", "Art & design", "Woodworking", "Local news", "Tech", "Good news"];
-  var prof = P.load() || P.blank(), follows = P.loadFollows(), step = 1, LAST = 4, justConnected = false;
+  var prof = P.load() || P.blank(), follows = P.loadFollows(), step = 1, LAST = 4, justConnected = false, fragImport = "", pdetInit = true, bfilter = -1, shown = 12;
 
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function persist() { try { prof.updated = P.save(prof).updated; return true; } catch (e) { banner("This browser wouldn't save. Private browsing can block it.", true); return false; } }
@@ -41,8 +43,10 @@
     $("ob-bhandle").value = prof.accounts.bluesky.handle;
     if (prof.accounts.bluesky.handle) $("ob-bsky").open = true;
     var st = $("ob-xstatus"), n = (follows.x || []).length;
-    st.hidden = !prof.accounts.x.connected;
+    st.hidden = !(prof.accounts.x.connected || n);
     if (prof.accounts.x.connected) st.textContent = "Connected as @" + prof.accounts.x.handle + (n ? ". " + n + " people you follow are ready in step 2." : ".");
+    else if (n) st.textContent = n + " people you follow on X are ready to pick from in step 2.";
+    if (n) $("ob-ximp").open = true;
   }
   $("ob-xhandle").addEventListener("input", function () {
     var v = this.value.trim().replace(/^@+/, ""), ok = !v || !!P.xHandle(v);
@@ -94,8 +98,59 @@
         }
       } catch (e) { banner("Couldn't read what X sent back. Your handle still works.", true); }
     }
+    else if (/^#xf=[zj][A-Za-z0-9_-]+$/.test(h)) {
+      fragImport = h;   // decoded after the page is drawn (decompression is async); the fragment never leaves this browser
+    }
     if (h.indexOf("#x") === 0) history.replaceState(null, "", location.pathname + location.search);
   }
+
+  // ---------- private X follows import ----------
+  function xStatus(msg, bad) { var e = $("ob-xistatus"); e.textContent = msg; e.style.color = bad ? "var(--accent)" : ""; }
+  function importX(d, how) {
+    var r = P.readXFollows(d);
+    if (!r) { xStatus("That doesn't look like an X follows file or link. Try the link or file again.", true); $("ob-ximp").open = true; return false; }
+    var now = new Date().toISOString();
+    follows.x = r.list; follows.x_at = now;
+    if (!P.saveFollows(follows)) { banner("This browser wouldn't save your follows. Private browsing can block it.", true); return false; }
+    if (r.me && !prof.accounts.x.handle) prof.accounts.x.handle = r.me;
+    prof.accounts.x.imported = now;
+    var added = 0;
+    // addPerson puts new people on top, so go smallest to biggest and the biggest ends up first
+    P.topPicks(r.list, 40).reverse().forEach(function (x) { if (addPerson({ platform: "x", handle: x[0], name: x[1], from: "x" }, true)) added++; });
+    // CrowdHealth group: preselected with its own weights (official account A lot, the rest Normal), on top of the list.
+    follows.x_crowd = r.crowd; P.saveFollows(follows);
+    r.crowd.slice().reverse().forEach(function (c) {
+      var k = P.personKey({ platform: "x", handle: c[0], name: c[1] }), have = prof.people.filter(function (p) { return P.personKey(p) === k; })[0];
+      if (!have && addPerson({ platform: "x", handle: c[0], name: c[1], from: "x" }, true)) have = prof.people[0];
+      if (have) have.weight = c[3];
+    });
+    persist(); pdetInit = true;
+    var msg = "Brought in " + r.list.length + " people you follow on X. " + (added ? "I picked " + added + " to start with (the biggest accounts, leaving out investing). " : "") +
+      (r.crowd.length ? r.crowd.length + " CrowdHealth voices are at the top. " : "") + "Remove any below, or add more from the list.";
+    if (EDIT) msg += " Press Save to keep your changes.";
+    banner(msg); xStatus("Imported " + r.list.length + " people. They are kept in this browser only.");
+    renderAll(); return true;
+  }
+  function importXText(text) {
+    text = String(text || "").trim();
+    if (!text) { xStatus("Paste your link or the file contents first.", true); return; }
+    var go = function (d) { if (importX(d)) { $("ob-xpaste").value = ""; if (!EDIT) show(2); } };
+    if (/xf=[zj]/.test(text) && text.length < 200000 && !/^\s*[\[{]/.test(text)) {
+      P.decodeXFragment(text).then(go).catch(function (e) { xStatus(e.message === "nozip" ? "This browser can't open compressed links. Use the file instead." : "Couldn't read that link. Check it copied in full.", true); });
+      return;
+    }
+    try { go(JSON.parse(text)); } catch (e) { xStatus("Couldn't read that as a link or JSON file.", true); }
+  }
+  $("ob-xpastebtn").onclick = function () { importXText($("ob-xpaste").value); };
+  $("ob-xfilebtn").onclick = function () { $("ob-xfile").click(); };
+  $("ob-xfile").addEventListener("change", function () {
+    var f = this.files && this.files[0], inp = this; if (!f) return;
+    if (f.size > 5e6) { xStatus("That file is too big to be a follows list.", true); return; }
+    var rd = new FileReader();
+    rd.onload = function () { importXText(String(rd.result)); inp.value = ""; };
+    rd.onerror = function () { xStatus("Couldn't read that file.", true); };
+    rd.readAsText(f);
+  });
 
   // ---------- Step 2: people ----------
   function renderPeople() {
@@ -103,6 +158,8 @@
     prof.people.forEach(function (p, i) {
       var title = p.handle ? (p.platform === "bluesky" ? p.handle : "@" + p.handle) : p.name;
       var sub = p.handle ? (p.name ? p.name + " · " : "") + (p.platform === "bluesky" ? "Bluesky" : "X") : "Anywhere they publish";
+      var cg = p.platform === "x" && (follows.x_crowd || []).filter(function (c) { return c[0].toLowerCase() === p.handle.toLowerCase(); })[0];
+      if (cg) sub += " · CrowdHealth" + (cg[4] ? "" : " · not followed yet");
       ul.appendChild(row(title, sub, p, function () { prof.people.splice(i, 1); changed(); renderPeople(); renderPicks(); }));
     });
     $("ob-pempty").hidden = prof.people.length > 0;
@@ -123,31 +180,48 @@
   }
   $("ob-paddbtn").onclick = addTyped;
   $("ob-padd").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); addTyped(); } });
-  var SHOW = 12;
+  var STEP = 25;
+  function fmt(n) { return n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 1).replace(/\.0$/, "") + "M" : n >= 1e3 ? Math.round(n / 1e3) + "K" : String(n); }
   function renderPicks() {
-    var pool = [];
-    (follows.x || []).forEach(function (f) { pool.push({ platform: "x", handle: f[0], name: f[1] || "", from: "x" }); });
-    (follows.bluesky || []).forEach(function (f) { pool.push({ platform: "bluesky", handle: f[0], name: f[1] || "", from: "bluesky" }); });
+    var pool = [], hasX = (follows.x || []).length > 0;
+    (follows.x || []).forEach(function (f) { pool.push({ platform: "x", handle: f[0], name: f[1] || "", from: "x", count: f[2] || 0, bucket: f[3] == null ? 4 : f[3] }); });
+    (follows.bluesky || []).forEach(function (f) { pool.push({ platform: "bluesky", handle: f[0], name: f[1] || "", from: "bluesky", bucket: -2 }); });
     $("ob-pimport").hidden = !pool.length;
     if (!pool.length) return;
+    if (pdetInit) { $("ob-pdet").open = !hasX; pdetInit = false; }
     var have = {}; prof.people.forEach(function (p) { have[P.personKey(p)] = 1; });
     var q = $("ob-pfilter").value.trim().toLowerCase().replace(/^@/, "");
     var left = pool.filter(function (x) { return !have[P.personKey(x)]; });
-    var hits = q ? left.filter(function (x) { return x.handle.toLowerCase().indexOf(q) >= 0 || x.name.toLowerCase().indexOf(q) >= 0; }) : left;
-    $("ob-pimport-h").textContent = "From who you follow (" + left.length + ")";
+    // group chips (X lists only): counts of who is left in each group
+    var bx = $("ob-pbuckets"); bx.hidden = !hasX; bx.textContent = "";
+    if (hasX) {
+      var cnt = [0, 0, 0, 0, 0]; left.forEach(function (x) { if (x.platform === "x") cnt[x.bucket]++; });
+      [["All", -1, left.length]].concat(P.XBUCKETS.map(function (b, i) { return [b[1], i, cnt[i]]; })).forEach(function (c) {
+        if (c[1] >= 0 && !c[2]) return;
+        var b = el("button", "ob-chip", c[0] + " " + c[2]); b.type = "button"; b.setAttribute("aria-pressed", bfilter === c[1] ? "true" : "false");
+        b.onclick = function () { bfilter = c[1]; shown = 12; renderPicks(); }; bx.appendChild(b);
+      });
+      bx.className = "ob-chips small";
+    }
+    var hits = left.filter(function (x) { return bfilter < 0 || (x.platform === "x" && x.bucket === bfilter); });
+    if (q) hits = hits.filter(function (x) { return x.handle.toLowerCase().indexOf(q) >= 0 || x.name.toLowerCase().indexOf(q) >= 0; });
+    $("ob-pimport-h").textContent = (hasX && prof.people.length ? "More from who you follow (" : "From who you follow (") + left.length + ")";
     var ul = $("ob-picks"); ul.textContent = "";
-    hits.slice(0, SHOW).forEach(function (x) {
+    hits.slice(0, shown).forEach(function (x) {
       var li = el("li"), b = el("button", "ob-pick"); b.type = "button";
       b.appendChild(el("span", "ob-plus", "+"));
       var t = el("span", "ob-who"); t.appendChild(el("b", null, x.name || (x.platform === "x" ? "@" : "") + x.handle));
-      t.appendChild(el("span", "ob-sub", (x.platform === "x" ? "@" + x.handle : x.handle + " · Bluesky")));
+      t.appendChild(el("span", "ob-sub", x.platform === "x" ? "@" + x.handle + (x.count ? " \u00b7 " + fmt(x.count) + " followers" : "") : x.handle + " \u00b7 Bluesky"));
       b.appendChild(t); b.setAttribute("aria-label", "Add " + (x.name || x.handle));
       b.onclick = function () { addPerson(x, true); };
       li.appendChild(b); ul.appendChild(li);
     });
-    $("ob-pickmore").textContent = hits.length > SHOW ? "Showing " + SHOW + " of " + hits.length + ". Search to find someone." : (q && !hits.length ? "No one matches." : "");
+    var more = $("ob-pmore"); more.hidden = hits.length <= shown;
+    more.textContent = "Show " + Math.min(STEP, hits.length - shown) + " more";
+    $("ob-pickmore").textContent = hits.length > shown ? "Showing " + shown + " of " + hits.length + ". Search to find someone." : (!hits.length ? (q || bfilter >= 0 ? "No one matches." : "Everyone you follow is already in your list.") : "");
   }
-  $("ob-pfilter").addEventListener("input", renderPicks);
+  $("ob-pmore").onclick = function () { shown += STEP; renderPicks(); };
+  $("ob-pfilter").addEventListener("input", function () { shown = 12; renderPicks(); });
 
   // ---------- Step 3: topics ----------
   function hasTopic(label) { return prof.topics.some(function (t) { return t.label.toLowerCase() === label.toLowerCase(); }); }
@@ -249,6 +323,16 @@
 
   readXReturn();
   renderAll();
+  function runFragment(frag) {
+    P.decodeXFragment(frag).then(function (d) { if (importX(d) && !EDIT) show(2); })
+      .catch(function (e) { banner(e.message === "nozip" ? "This browser can't open compressed links. Use the file option instead." : "Couldn't read that X link. Check it copied in full, or use the file option.", true); $("ob-ximp").open = true; });
+  }
+  if (fragImport) runFragment(fragImport);
+  // Pasting the link into this same page's address bar only changes the fragment, so listen for that too.
+  window.addEventListener("hashchange", function () {
+    var h = location.hash || "";
+    if (/^#xf=[zj][A-Za-z0-9_-]+$/.test(h)) { history.replaceState(null, "", location.pathname + location.search); runFragment(h); }
+  });
   if (!EDIT) {
     var s = 1; try { s = +sessionStorage.getItem("mediabot.start.step") || 1; } catch (e) {}
     if (justConnected) s = (follows.x || []).length ? 2 : 1;

@@ -2,6 +2,7 @@
 // Shared by /start/, /profile/ and (optionally) /create/. Schema: docs/profile.md, docs/profile.schema.json.
 //   localStorage "mediabot.profile.v1"  the profile (no keys, no tokens, nothing secret)
 //   localStorage "mediabot.follows.v1"  optional list brought in from X or Bluesky, used to pre-fill People
+//                                       (X rows: [handle, name, followers, bucket]; see docs/x-import.md)
 // Usage: var p = MediaBotProfile.load();  MediaBotProfile.save(p);  MediaBotProfile.brief(p)  -> plain-text brief
 (function (root) {
   "use strict";
@@ -116,7 +117,56 @@
     return { people: Math.round(100 * raw.people / t), topics: Math.round(100 * raw.topics / t), fun: Math.round(100 * raw.fun / t) };
   }
 
+  // ---------- private X follows import (no server, no X API) ----------
+  // Rough, honest groups for the X list. Index = position in a link's rows; "other" is the default.
+  var XBUCKETS = [["tech", "AI & tech"], ["invest", "Investing"], ["science", "Science & health"], ["culture", "Culture & ideas"], ["other", "Other"]]   // the CrowdHealth group is separate (follows.x_crowd);
+  var BNAME = { ai_tech: 0, investing: 1, science_health: 2, culture: 3, other: 4 };
+  function bucketIdx(b) { if (typeof b === "number") return b >= 0 && b < 5 ? b | 0 : 4; return BNAME.hasOwnProperty(b) ? BNAME[b] : 4; }
+  // Accepts: our compact link payload {v,me,f:[[handle,name,followers,bucket]]}, the private file {follows:[{handle,name,followers,bucket}]},
+  // or a raw X API reply {data:[{username,name,public_metrics}]}. Returns {me, list} (list sorted by followers) or null.
+  function readXFollows(o) {
+    if (!o || typeof o !== "object") return null;
+    var rows = [];
+    if (Array.isArray(o.f)) rows = o.f.map(function (r) { return Array.isArray(r) ? { h: r[0], n: r[1], c: r[2], b: r[3] } : null; });
+    else if (Array.isArray(o.follows)) rows = o.follows.map(function (r) { return r && { h: r.handle, n: r.name, c: r.followers, b: r.bucket }; });
+    else if (Array.isArray(o.following)) rows = o.following.map(function (r) { return Array.isArray(r) ? { h: r[0], n: r[1], c: r[2], b: r[3] } : null; });
+    else if (Array.isArray(o.data)) rows = o.data.map(function (r) { return r && { h: r.username, n: r.name, c: r.public_metrics && r.public_metrics.followers_count, b: 4 }; });
+    var seen = {}, list = [];
+    rows.forEach(function (r) {
+      if (!r) return; var h = xHandle(r.h); if (!h || seen[h.toLowerCase()]) return; seen[h.toLowerCase()] = 1;
+      var c = Math.max(0, Math.round(Number(r.c)) || 0);
+      list.push([h, str(r.n, 80), c, bucketIdx(r.b)]);
+    });
+    if (!list.length) return null;
+    list.sort(function (a, b) { return b[2] - a[2]; });
+    // Optional preselected group (e.g. CrowdHealth): link rows [handle,name,followers,weight,follows], file rows {handle,name,followers,weight,follows}.
+    var grp = Array.isArray(o.ch) ? o.ch : Array.isArray(o.crowdhealth) ? o.crowdhealth : [], gs = {}, crowd = [];
+    grp.forEach(function (r) {
+      var a = Array.isArray(r) ? r : r && [r.handle, r.name, r.followers, r.weight, r.follows];
+      if (!a) return; var h = xHandle(a[0]); if (!h || gs[h.toLowerCase()] || crowd.length >= 30) return; gs[h.toLowerCase()] = 1;
+      crowd.push([h, str(a[1], 80), Math.max(0, Math.round(Number(a[2])) || 0), w(a[3]), a[4] ? 1 : 0]);
+    });
+    return { me: xHandle(o.me), list: list.slice(0, 5000), crowd: crowd };
+  }
+  // "#xf=z<base64url deflate-raw JSON>" (compressed) or "#xf=j<base64url JSON>" (plain). A full link or just the fragment works.
+  function decodeXFragment(s) {
+    var m = String(s || "").match(/#?xf=([zj])([A-Za-z0-9_-]+)/);
+    if (!m) return Promise.reject(new Error("nolink"));
+    var b = atob(m[2].replace(/-/g, "+").replace(/_/g, "/")), bytes = new Uint8Array(b.length);
+    for (var i = 0; i < b.length; i++) bytes[i] = b.charCodeAt(i);
+    var toJson = function (u8) { return JSON.parse(new TextDecoder().decode(u8)); };
+    if (m[1] === "j") return Promise.resolve(toJson(bytes));
+    if (typeof DecompressionStream === "undefined") return Promise.reject(new Error("nozip"));
+    var ds = new DecompressionStream("deflate-raw");
+    var w = ds.writable.getWriter(); w.write(bytes).catch(function () {}); w.close().catch(function () {});
+    return new Response(ds.readable).arrayBuffer().then(function (buf) { return toJson(new Uint8Array(buf)); });
+  }
+  // The first n people worth showing by default: biggest accounts, skipping the Investing group.
+  function topPicks(list, n) {
+    return list.filter(function (r) { return r[3] !== 1; }).slice(0, n || 40);
+  }
+
   root.MediaBotProfile = { KEY: KEY, FOLLOWS_KEY: FOLLOWS, WEIGHTS: WEIGHTS, FUN: FUN, LIMITS: LIMITS, blank: blank, normalize: normalize,
     load: load, save: save, forget: forget, loadFollows: loadFollows, saveFollows: saveFollows, parsePerson: parsePerson,
-    personKey: personKey, xHandle: xHandle, bskyHandle: bskyHandle, brief: brief, mix: mix, who: who };
+    personKey: personKey, XBUCKETS: XBUCKETS, readXFollows: readXFollows, decodeXFragment: decodeXFragment, topPicks: topPicks, xHandle: xHandle, bskyHandle: bskyHandle, brief: brief, mix: mix, who: who };
 })(window);
