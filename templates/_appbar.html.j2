@@ -1,0 +1,8 @@
+{#- Slim sticky app bar (static/magazine.js shows it after the first scroll): paper name, the section you are in, and a thin reading-progress bar.
+    At the very end it says the paper is done. Without JS it stays hidden and the page works as a plain document. -#}
+<a id="top" tabindex="-1" aria-hidden="true"></a>
+<header class="appbar" aria-label="{{ paper.name }}">
+  <a class="ab-name" href="{{ home or '../' }}" title="All editions">{{ paper.name }}</a>
+  <a class="ab-sec" href="#{{ 'contents' if has_contents else 'top' }}"><span class="ab-cur" aria-live="polite"></span></a>
+  <div class="ab-bar" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+</header>

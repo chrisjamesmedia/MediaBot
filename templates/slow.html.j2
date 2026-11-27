@@ -1,6 +1,6 @@
 {#- Field Notes web edition: open editorial newsletter, warm paper, no live X links, a clear end.
     Built by build.py when paper.yaml has `layout: slow`. Name comes from paper.name (one-line rename).
-    Phone-first: a single column at 390px. Wide screens use CSS columns so short posts do not leave holes beside long ones. -#}
+    Phone-first: one calm column at every width. The design is static/magazine.css (shared with Signal Seeker's web edition). -#}
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,135 +18,81 @@
 <meta property="og:description" content="{{ description }}">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#f4ecdc">
-<style>
-@font-face{font-family:"SG Serif";src:url({{ root }}assets/fonts/SourceSerifPro-Regular.ttf);font-weight:400}
-@font-face{font-family:"SG Serif";src:url({{ root }}assets/fonts/SourceSerifPro-It.ttf);font-weight:400;font-style:italic}
-@font-face{font-family:"SG Serif";src:url({{ root }}assets/fonts/SourceSerifPro-Semibold.ttf);font-weight:600}
-@font-face{font-family:"SG Sans";src:url({{ root }}assets/fonts/LibreFranklin.ttf);font-weight:100 900}
-:root{--bg:#f4ecdc;--ink:#1c1914;--soft:rgba(28,25,20,.58);--rule:rgba(28,25,20,.14);--rule-strong:rgba(28,25,20,.28)}
-*{box-sizing:border-box}
-html{background:var(--bg)}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "SG Serif",Georgia,serif;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-webkit-text-size-adjust:100%}
-a{color:inherit}
-img{max-width:100%;height:auto}
-.wrap{max-width:1120px;margin:0 auto;padding:28px 20px 72px}
-.mast{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;
-  padding-bottom:18px;margin-bottom:36px;border-bottom:1px solid var(--rule-strong)}
-.mast .t{font:600 28px/1.1 "SG Serif",serif;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
-.mast .meta{display:flex;gap:16px;flex-wrap:wrap;align-items:baseline;
-  font:400 13.5px/1.4 "SG Sans",sans-serif;color:var(--soft)}
-.mast .pb{font:inherit;color:var(--soft);text-decoration:none;border-bottom:1px solid var(--rule-strong);padding:0 0 1px}
-.mast .pb:hover,.mast .pb:focus{color:var(--ink);border-color:var(--ink)}
-.toc{display:flex;flex-wrap:wrap;gap:6px 22px;margin:-14px 0 40px;font:400 13px/1.4 "SG Sans",sans-serif;color:var(--soft)}
-.toc a{color:var(--soft);text-decoration:none;border-bottom:1px solid transparent}
-.toc a:hover,.toc a:focus{color:var(--ink);border-color:var(--rule-strong)}
-.sec{margin:0 0 52px;max-width:760px}
-.sec-head{font:600 25px/1.2 "SG Serif",Georgia,serif;letter-spacing:-.005em;margin:0 0 6px;padding:0 0 10px;
-  border-bottom:1px solid var(--rule-strong);break-after:avoid}
-.stream{max-width:none}
-@media (min-width:980px){
-  .sec{max-width:none}
-  .stream{column-count:2;column-gap:48px;column-rule:1px solid var(--rule);column-fill:balance}
-}
-.passage{column-span:all;padding:26px 0 30px;border-bottom:1px solid var(--rule);max-width:680px}
-.passage .verse{font:italic 400 23px/1.5 "SG Serif",Georgia,serif;margin:0 0 12px}
-.passage .who{margin:0}
-.post{padding:20px 0 22px;border-bottom:1px solid var(--rule);break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid}
-.post:first-child{padding-top:18px}
-.who{font:400 12.5px/1.35 "SG Sans",sans-serif;color:var(--soft);margin:0 0 10px;letter-spacing:.01em}
-.who b{font-weight:600;color:var(--ink)}
-.post p{margin:0 0 .75em}
-.post p:last-child{margin-bottom:0}
-.pic{margin:14px 0 4px}
-.pic img{display:block;width:100%;height:auto;max-height:80vh;object-fit:cover;background:rgba(28,25,20,.06)}
-.pic figcaption{font:400 11.5px/1.35 "SG Sans",sans-serif;color:var(--soft);margin:6px 0 0;letter-spacing:.01em}
-blockquote{margin:16px 0 0;padding:2px 0 2px 16px;border-left:1.5px solid var(--rule-strong);
-  font-size:16.5px;line-height:1.5;color:rgba(28,25,20,.78)}
-blockquote .who{font-size:11.5px;margin-bottom:6px}
-.end{margin:8px 0 0;padding-top:28px;border-top:1px solid var(--rule-strong);text-align:center;max-width:none}
-.end .joke{max-width:34em;margin:0 auto 22px;text-align:center}
-.end .joke .text{font:italic 400 20px/1.45 "SG Serif",serif;margin:0 0 10px}
-.end .joke .who{font:400 13px/1.4 "SG Sans",sans-serif;color:var(--soft);margin:0}
-.end .line{font:italic 400 20px/1.4 "SG Serif",serif;margin:0 0 14px}
-.end .mark{display:block;color:var(--soft);letter-spacing:.55em;margin-bottom:18px;font-size:13px}
-.note{font:400 12px/1.55 "SG Sans",sans-serif;color:var(--soft);margin:0}
-.note a{color:var(--soft);text-decoration:underline;text-underline-offset:2px}
-@media (min-width:700px){
-  body{font-size:18.5px;line-height:1.58}
-  .wrap{padding:40px 36px 88px}
-}
-@media (max-width:699px){
-  body{font-size:17px;line-height:1.55}
-  .wrap{padding:24px 18px 64px}
-  .mast{margin-bottom:24px;padding-bottom:14px;flex-direction:column;align-items:flex-start;gap:8px}
-  .mast .t{font-size:26px}
-  .mast .meta{gap:10px 14px;font-size:13px}
-  .toc{gap:10px 16px;margin:-4px 0 28px;font-size:14px}
-  .sec{margin:0 0 40px}
-  .sec-head{font-size:22px}
-  .passage{max-width:none;padding:18px 0 22px}
-  .passage .verse{font-size:20px;line-height:1.5}
-  .post{padding:16px 0 18px}
-  .who{font-size:12px}
-  .pic{margin:14px -18px 4px}                 /* the picture runs edge to edge on a phone */
-  .pic figcaption{padding:0 18px}
-}
-@media print{.mast .pb{display:none}}
-</style>
+<meta name="color-scheme" content="light dark">
+{% if pdf_mode %}{% include "_pdfmode.html.j2" %}{% else %}{% include "_appmeta.html.j2" %}{% endif %}
+<link rel="stylesheet" href="{{ root }}assets/magazine.css">
 </head>
-<body>
+<body class="mag fn{{ ' pdfmode' if pdf_mode }}" style="--day:{{ day_accent }};--day-dk:{{ day_accent_dk }}">
+{#- Field Notes web edition (layout: slow): the MediaBot magazine design, phone-first and one calm column.
+    Numbered dividers, a section's own photo as a full-bleed opener, big serif pull quotes, a paper band for Scripture, a joke card,
+    an end card. No live links to x.com anywhere: handle and date are plain text. Styles: static/magazine.css; fades: static/magazine.js. -#}
+{% macro text_of(t) -%}{% for para in t | paras %}<p>{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>{% endfor %}{%- endmacro %}
+{% set has_contents = sections | length > 1 %}
+{% if not pdf_mode %}{% include "_appbar.html.j2" %}{% endif %}
 <main class="wrap">
   <header class="mast">
-    <a class="t" href="{{ home or '../' }}" title="All editions">{{ paper.name }}</a>
-    <span class="meta">
+    <div class="topline">
       <time datetime="{{ date }}">{{ date_long }}</time>
+    </div>
+    <h1><a href="{{ home or '../' }}" title="All editions">{{ paper.name }}</a></h1>
+    <div class="under"><div class="meta">
       {% if paper.web.read_time %}<span title="{{ words }} words">{{ read_min }} min read</span>{% endif %}
       {% if weather.ok and weather.hi is defined %}<span title="Open-Meteo, as of {{ weather.asof_full }}">{{ weather.label }} {{ weather.hi }}° / {{ weather.lo }}°</span>{% endif %}
-      <a class="pb" href="{{ pdfs.print }}" target="_blank" rel="noopener" title="Letter, black on white">Print</a>
-    </span>
+    </div></div>
   </header>
-  {% if sections | length > 1 %}<nav class="toc" aria-label="Sections">{% for sec in sections %}<a href="#{{ sec.id }}">{{ sec.title }}</a>{% endfor %}</nav>{% endif %}
+  {% if sections | length > 1 %}<nav class="toc" id="contents" aria-labelledby="toc-h"><h2 id="toc-h">In this edition</h2><ol>{% for sec in sections %}<li><a href="#{{ sec.id }}">{{ sec.title }}</a></li>{% endfor %}</ol></nav>{% endif %}
 {% for sec in sections %}
-  <section class="sec" id="{{ sec.id }}">
-    <h2 class="sec-head">{{ sec.title }}</h2>
-    <div class="stream">
+{% set first = sec["items"][0] %}
+{% set open_img = first.image if (first.type == "post" and first.image) else None %}
+  <section class="sec" id="{{ sec.id }}" aria-labelledby="{{ sec.id }}-h">
+{% if open_img %}
+    <figure class="hero{{ ' wide' if open_img.w and open_img.h and (open_img.w / open_img.h) > 2.4 }}"><div class="frame"><img src="{{ open_img.web }}" alt="{{ open_img.alt or '' }}" loading="lazy"{% if open_img.w and open_img.h %} width="{{ open_img.w }}" height="{{ open_img.h }}"{% endif %}><span class="shade"></span><div class="over"><span class="kick num" aria-hidden="true"></span><h2 class="sec-head" id="{{ sec.id }}-h">{{ sec.title }}</h2></div></div>{% if open_img.credit %}<figcaption>{{ open_img.credit }}</figcaption>{% endif %}</figure>
+{% else %}
+    <h2 class="sec-head" id="{{ sec.id }}-h">{{ sec.title }}</h2>
+{% endif %}
 {% for p in sec["items"] %}
 {% if p.type == "passage" %}
-      <article class="post passage" id="{{ p.id }}">
-        <p class="verse">{{ p.text }}</p>
-        <p class="who"><b>{{ p.work }}</b> · {{ p.translation or "King James Version" }}</p>
-      </article>
+    <figure class="passage" id="{{ p.id }}">
+      <p class="pk">{{ p.label or "Scripture" }}</p>
+      <blockquote class="pt verse">{{ p.text }}</blockquote>
+      <figcaption>{{ p.work }} · {{ p.translation or "King James Version" }}</figcaption>
+    </figure>
 {% else %}
-      <article class="post" id="{{ p.id }}">
-        <p class="who"><b>{{ p.author }}</b> @{{ p.handle }}{% if p.date_short %} · {{ p.date_short }}{% endif %}</p>
-        {% for para in p.text | paras %}<p>{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
-        {% endfor %}
-        {% if p.image %}<figure class="pic"><img src="{{ p.image.web }}" alt="{{ p.image.alt or '' }}" loading="lazy"{% if p.image.w and p.image.h %} width="{{ p.image.w }}" height="{{ p.image.h }}"{% endif %}>{% if p.image.credit %}<figcaption>{{ p.image.credit }}</figcaption>{% endif %}</figure>{% endif %}
-        {% if p.quoted %}<blockquote>
-          <p class="who"><b>{{ p.quoted.author }}</b> @{{ p.quoted.handle }}</p>
-          {% for para in p.quoted.text | paras %}<p>{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
-          {% endfor %}
-        </blockquote>{% endif %}
-      </article>
+{% set n = p.text | length %}
+    <article class="post {{ 'q-l' if n < 140 else ('q-m' if n < 330 else ('q-s' if n < 700 else 'q-s q-r')) }}" id="{{ p.id }}">
+      <header><p class="who"><b>{{ p.author }}</b><span class="mute">@{{ p.handle }}{% if p.date_short %} · {{ p.date_short }}{% endif %}</span></p></header>
+      <div class="ptext">{{ text_of(p.text) }}</div>
+      {% if p.quoted %}<blockquote class="qt">
+        <p class="who"><b>{{ p.quoted.author }}</b><span class="mute">@{{ p.quoted.handle }}</span></p>
+        {{ text_of(p.quoted.text) }}
+      </blockquote>{% endif %}
+      {% if p.image and not (loop.first and open_img) %}<figure class="pimg"><img src="{{ p.image.web }}" alt="{{ p.image.alt or '' }}" loading="lazy"{% if p.image.w and p.image.h %} width="{{ p.image.w }}" height="{{ p.image.h }}"{% endif %}>{% if p.image.credit %}<figcaption>{{ p.image.credit }}</figcaption>{% endif %}</figure>{% endif %}
+    </article>
 {% endif %}
 {% endfor %}
-    </div>
+    <nav class="sectionnav" aria-label="Section navigation">{% if sections | length > 1 %}<a class="up" href="#contents">↑ Contents</a>{% else %}<span></span>{% endif %}<a class="next" href="#{{ loop.nextitem.id if loop.nextitem else ('joke' if joke else 'end') }}"><span class="nl">Next</span> {{ loop.nextitem.title if loop.nextitem else ('One more thing' if joke else 'The end') }} ↓</a></nav>
   </section>
 {% endfor %}
-  <footer class="end">
-    <span class="mark" aria-hidden="true">· · ·</span>
-    {% if joke %}
-    <div class="joke">
-      <p class="text">{{ joke.text }}</p>
-      <p class="who">— {{ joke.author }}{% if joke.where %} · {{ joke.where }}{% endif %}</p>
+{% if joke %}
+  <section class="jokewrap" id="joke" aria-label="One more thing">
+    <span class="lbl">One more thing</span>
+    <div class="jokecard"><p class="text">{{ joke.text }}</p>
+      <p class="who">— {{ joke.author }}{% if joke.where %} · {{ joke.where }}{% endif %}</p></div>
+  </section>
+{% endif %}
+  <footer class="end" id="end" aria-label="End of edition">
+    <div class="endcard">
+      <span class="check" aria-hidden="true"></span>
+      <p class="fin">That’s it for today.</p>
+      <p class="finnote">{{ paper.web.end_line }} Nothing else is waiting for you.</p>
+      <a class="totop" href="#top">↑ Back to the top</a>
     </div>
-    {% endif %}
-    <p class="line">{{ paper.web.end_line }}</p>
-    <p class="note">{{ paper.web.source_note }}{% if coverage %} {{ coverage }}{% endif %}</p>
-    <p class="note"><a href="{{ home or '../' }}">Past editions</a> · <a href="{{ pdfs.digital }}" target="_blank" rel="noopener">Digital PDF</a></p>
+    <div class="afterword">
+      <p class="note">{{ paper.web.source_note }}{% if coverage %} {{ coverage }}{% endif %}</p>
+      <p class="endlinks"><a href="{{ pdfs.digital }}" target="_blank" rel="noopener" download>Download PDF</a><span class="dot"> · </span><a href="{{ pdfs.print }}" target="_blank" rel="noopener">Print version</a><span class="dot"> · </span><a href="{{ home or '../' }}">Past editions</a></p>
+    </div>
   </footer>
 </main>
+{% if not pdf_mode %}<script src="{{ root }}assets/magazine.js"></script>{% endif %}
 </body>
 </html>

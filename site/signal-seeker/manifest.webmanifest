@@ -1,0 +1,31 @@
+{
+ "name": "Signal Seeker",
+ "short_name": "Signal Seeker",
+ "description": "Signal Seeker: a calm, finite daily paper.",
+ "start_url": "latest/",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#fbf7f0",
+ "theme_color": "#fbf7f0",
+ "icons": [
+  {
+   "src": "../assets/icons/signal-seeker-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "../assets/icons/signal-seeker-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "../assets/icons/signal-seeker-maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}

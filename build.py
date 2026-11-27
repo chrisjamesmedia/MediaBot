@@ -762,6 +762,12 @@ def trim_lowest(sections):
     return f"{s['id']}: {' '.join((it.get('headline') or it.get('title') or it.get('text', '')[:40]).split())}"
 
 
+# One accent colour per day for the web editions (static/magazine.css): (light mode, dark mode), by weekday Mon..Sun.
+# Light ones keep >= 4.5:1 on the paper (#fbf7f0), dark ones on #121110.
+DAY_ACCENTS = [("#0b6a68", "#5fd0c8"), ("#3a4bb5", "#9db0ff"), ("#2d6a37", "#8fd39a"), ("#c4431c", "#ff8a5c"),
+               ("#94306b", "#f08cc4"), ("#1f62a8", "#7cb8f2"), ("#a3242f", "#ff8d93")]
+
+
 def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, private=False, recipe=None):
     """private=False: the public build into site/. private=True: full copy into site-private/ (local only).
     recipe: an on-demand edition (dict) built from the same edition.json into site/<slug>/custom/<recipe>/<date>/."""
@@ -822,7 +828,9 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
     words = sum(count_words(it.get("text")) + count_words((it.get("quoted") or {}).get("text")) for s_ in sections for it in s_["items"])
     if joke: words += count_words(joke.get("text"))
     read_min = max(1, round(words / 230))        # Field Notes: "N min read" from the words actually printed
-    ctx = dict(words=words, read_min=read_min, joke=joke, paper=paper, site=site_cfg, private_copy=private, date=date, date_long=date_long, date_short=d.strftime("%b %-d, %Y"),
+    day_acc = DAY_ACCENTS[d.weekday()]
+    icon_slug = slug if (STATIC / "icons" / f"{slug}-180.png").exists() else "default"
+    ctx = dict(icon_slug=icon_slug, day_accent=day_acc[0], day_accent_dk=day_acc[1], words=words, read_min=read_min, joke=joke, paper=paper, site=site_cfg, private_copy=private, date=date, date_long=date_long, date_short=d.strftime("%b %-d, %Y"),
                note=rc["name"] if rc else ed.get("note", ""), coverage=ed.get("coverage", ""), weather=weather(paper, ed_dir, refresh_weather),
                base=base, url_path=url_path, pdfs=pdfs,
                answered=[] if rc else ed.get("requests") or [],
@@ -857,6 +865,17 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
         pdf = out / pdfs[kind]
 
         def render(sheets=0, pad=False, toc_pages=None):
+            if kind == "digital":
+                # The digital PDF is the web edition itself printed on phone-sized pages (see templates/_pdfmode.html.j2), so it
+                # always matches the web design. Written beside index.html so relative image/asset paths resolve, then removed.
+                hp = out / "_digital-src.html"
+                hp.write_text(E.get_template(web_tpl).render(ctx, sections=sections, root="../../../../" if rc else "../../",
+                                                             pages={}, pdf_mode=True))
+                try:
+                    render_pdf(hp, pdf)
+                finally:
+                    hp.unlink(missing_ok=True)
+                return page_count(pdf)
             h = E.get_template(print_tpl).render(ctx, sections=psecs if kind == "print" else sections, mode=kind,
                                                        pt=((paper.get("print") or {}).get("pt") or PRINT_TYPE[size]) + (0.6 if kind == "digital" else 0),
                                                        static=STATIC.resolve().as_uri(), qr=qr, sheets=sheets, pad=pad,
@@ -876,8 +895,8 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
         # real sheet count in the duplex footer, plus one blank back when odd.
         pad = kind == "print" and n % 2 == 1 and even
         nsheets = (n + 1) // 2 if kind == "print" else 0
-        tp = pdf_anchor_pages(pdf)
-        for _ in range(2):
+        tp = pdf_anchor_pages(pdf) if kind == "print" else {}
+        for _ in range(2 if kind == "print" else 0):
             n = render(nsheets, pad, tp)
             again = pdf_anchor_pages(pdf)
             if again == tp: break
@@ -912,6 +931,19 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
     print(f"  web: {rel(out / 'index.html')}  sections: {', '.join(meta['sections'])}  · {words} words ≈ {read_min} min read")
     if rc: print(f"  pdf: {(out / pdfs[first]).resolve()}")
     return meta
+
+
+def write_manifest(pdir, paper, slug):
+    """Web-app manifest so "Add to Home Screen" opens the paper full-screen. Relative URLs only, so it works under any base path;
+    start_url is the paper's latest edition (latest/ is the redirect page write_latest makes)."""
+    ic = slug if (STATIC / "icons" / f"{slug}-192.png").exists() else "default"
+    m = {"name": paper["name"], "short_name": paper["name"], "description": f"{paper['name']}: a calm, finite daily paper.",
+         "start_url": "latest/", "scope": "./", "display": "standalone", "orientation": "portrait",
+         "background_color": "#fbf7f0", "theme_color": "#fbf7f0",
+         "icons": [{"src": f"../assets/icons/{ic}-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+                   {"src": f"../assets/icons/{ic}-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+                   {"src": f"../assets/icons/{ic}-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]}
+    (pdir / "manifest.webmanifest").write_text(json.dumps(m, indent=1, ensure_ascii=False) + "\n")
 
 
 def write_latest(pdir, ed, base, slug):
@@ -967,6 +999,7 @@ def build_indexes(site_cfg, private=False):
             paper=paper, site=site_cfg, editions=eds, base=base, root="../", url_path=f"/{slug}/", private_copy=private))
         if not private:
             write_latest(SITE / slug, eds[0], base, slug)
+            write_manifest(SITE / slug, paper, slug)
         if paper.get("public") or private:
             listed.append({"paper": paper, "latest": eds[0]})
             urls += [f"/{slug}/"] + [f"/{slug}/{e['date']}/" for e in eds]

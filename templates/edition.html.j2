@@ -4,10 +4,15 @@
 {% set og_title = paper.name ~ " · " ~ date_long %}
 {% set lead = sections[0]['items'][0] %}
 {% set og_image = lead.image.web if lead.image else None %}
-{% set body_class = "edition" %}
-{% set extra_css = ["paper-images.css"] %}
+{% set body_class = "edition mag" ~ (" pdfmode" if pdf_mode else "") %}
+{% set body_style = "--day:" ~ day_accent ~ ";--day-dk:" ~ day_accent_dk %}
+{% set extra_css = ["paper-images.css", "magazine.css"] %}
+{% block head %}{% if pdf_mode %}{% include "_pdfmode.html.j2" %}{% else %}{% include "_appmeta.html.j2" %}{% endif %}{% endblock %}
 {% macro sources(list) -%}
 <span class="src">{% for s in list %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>{% if not loop.last %}<span class="dot"> · </span>{% endif %}{% endfor %}</span>
+{%- endmacro %}
+{% macro sectionnav(nxt, toc) -%}
+<nav class="sectionnav" aria-label="Section navigation">{% if toc %}<a class="up" href="#contents">↑ Contents</a>{% else %}<span></span>{% endif %}<a class="next" href="#{{ nxt.anchor if nxt else 'end' }}"><span class="nl">Next</span> {{ nxt.title if nxt else 'The end' }} ↓</a></nav>
 {%- endmacro %}
 {% macro controls() -%}
 <span class="ctl" role="group" aria-label="Reactions">
@@ -17,11 +22,16 @@
 {% macro fig(im, cls) -%}
 <figure class="{{ cls }}"><img src="{{ im.web }}" alt="{{ im.alt or '' }}" loading="lazy"{% if im.w and im.h %} width="{{ im.w }}" height="{{ im.h }}"{% endif %}>{% if im.credit %}<figcaption>{{ im.credit }}</figcaption>{% endif %}</figure>
 {%- endmacro %}
+{#- A story's own picture runs full-bleed with the headline over it (a wide banner or chart stays whole, headline under it). No picture: a typographic story. -#}
+{% macro hero(im, headline) -%}
+{% set wide = im.w and im.h and (im.w / im.h) > 2.4 %}
+<figure class="hero{{ ' wide' if wide }}"><div class="frame"><img src="{{ im.web }}" alt="{{ im.alt or '' }}" loading="lazy"{% if im.w and im.h %} width="{{ im.w }}" height="{{ im.h }}"{% endif %}><span class="shade"></span><div class="over"><h3>{{ headline }}</h3></div></div>{% if im.credit %}<figcaption>{{ im.credit }}</figcaption>{% endif %}</figure>
+{%- endmacro %}
 {% macro story(s, cls='') -%}
-<article class="story {{ cls }}{% if s.brief %} brief{% endif %}" id="{{ s.id }}" data-id="{{ s.id }}">
-{% if s.image %}{{ fig(s.image, "ph") }}{% endif %}
+<article class="story {{ cls }}{% if s.brief %} brief{% endif %}{% if s.image %} has-hero{% endif %}" id="{{ s.id }}" data-id="{{ s.id }}">
+{% if s.image %}{{ hero(s.image, s.headline) }}{% endif %}
 <div class="txt">
-<h3>{{ s.headline }}</h3>
+{% if not s.image %}<h3>{{ s.headline }}</h3>{% endif %}
 <p>{{ s.summary }}</p>
 <footer>{{ sources(s.sources) }}{{ controls() }}</footer>
 </div>
@@ -33,7 +43,8 @@
 <a class="quote" href="{{ q.url }}" target="_blank" rel="noopener"><span class="qwho"><b>{{ q.author }}</b> <span class="mute">@{{ q.handle }}</span></span>{% if ex %}<span class="qtext">{{ ex }}</span>{% endif %}</a>
 {%- endmacro %}
 {% macro post(p) -%}
-<article class="post" id="{{ p.id }}" data-id="{{ p.id }}">
+{% set n = p.text | length %}
+<article class="post {{ 'q-l' if n < 140 else ('q-m' if n < 330 else ('q-s' if n < 700 else 'q-s q-r')) }}" id="{{ p.id }}" data-id="{{ p.id }}">
 <header><span class="av" aria-hidden="true">{{ p.author | initials }}</span><span class="who"><b>{{ p.author }}</b><span class="mute">@{{ p.handle }}{% if p.date_short %} · <a href="{{ p.url }}" target="_blank" rel="noopener"><time datetime="{{ p.date }}">{{ p.date_short }}</time></a>{% endif %}</span></span></header>
 <p class="ptext">{{ p.text }}</p>
 {% if p.quoted %}{{ quote(p.quoted) }}{% endif %}
@@ -98,13 +109,11 @@
 {% set parts = sections | by_source %}
 {% set front = sections | selectattr('id', 'equalto', 'front') | first %}
 {% set show_toc = (parts|length + (1 if front else 0) > 1) or (parts and parts[0].subs|length > 1) %}
+{% set has_contents = show_toc %}
+{% if not pdf_mode %}{% include "_appbar.html.j2" %}{% endif %}
 <header class="mast wrap">
   <div class="topline">
     <time datetime="{{ date }}">{{ date_long }}</time>
-    <span class="getpdf">
-      <a class="printbtn" href="{{ pdfs.print }}" target="_blank" rel="noopener" title="Letter, double-sided, black on white"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3.5h10V9M7 17.5H4.5v-7a1.5 1.5 0 0 1 1.5-1.5h12a1.5 1.5 0 0 1 1.5 1.5v7H17M7 14h10v6.5H7z"/></svg>Print</a>
-      <a class="digi" href="{{ pdfs.digital }}" target="_blank" rel="noopener">Digital PDF</a>
-    </span>
   </div>
   <h1><a href="{{ home or '../' }}" title="{{ paper.name }}: all editions">{{ paper.name }}</a></h1>
   <div class="under">
@@ -141,12 +150,12 @@
   <h2 class="part-h" id="front-h">{{ front.title }}</h2>
   {% set s = fs[0] %}
   {% if s.type == 'post' %}<div class="leadpost">{{ post(s) }}</div>{% else %}
-  <article class="story lead{% if not s.image %} noimg{% endif %}" id="{{ s.id }}" data-id="{{ s.id }}">
-  <h3>{{ s.headline }}</h3>
-  {% if s.image %}{{ fig(s.image, "ph") }}{% endif %}
+  <article class="story lead{% if s.image %} has-hero{% else %} noimg{% endif %}" id="{{ s.id }}" data-id="{{ s.id }}">
+  {% if s.image %}{{ hero(s.image, s.headline) }}{% else %}<h3>{{ s.headline }}</h3>{% endif %}
   <div class="txt"><p>{{ s.summary }}</p><footer>{{ sources(s.sources) }}{{ controls() }}</footer></div>
   </article>{% endif %}
   {% if fs|length > 1 %}<div class="grid2 rest{% if fs|length is odd %} even{% endif %}">{% for s in fs[1:] %}{{ front_item(s) }}{% endfor %}</div>{% endif %}
+  {{ sectionnav(parts[0] if parts else None, show_toc) }}
 </section>
 {% endif %}
 {% for p in parts %}
@@ -170,12 +179,18 @@
     </section>
   </div>
   {% endif %}
-  {% if show_toc %}<p class="back"><a href="#contents">↑ Contents</a></p>{% endif %}
+  {{ sectionnav(loop.nextitem, show_toc) }}
 </section>
 {% endfor %}
 
-<section class="end" aria-label="End of edition">
-  <p class="fin">That’s today’s paper.</p>
+<section class="end" id="end" aria-label="End of edition">
+  <div class="endcard">
+    <span class="check" aria-hidden="true"></span>
+    <p class="fin">That’s it for today.</p>
+    <p class="finnote">You’ve read the whole paper. Nothing else is waiting for you.</p>
+    <a class="totop" href="#top">↑ Back to the top</a>
+  </div>
+  <div class="afterword">
   {% if answered %}<div class="answered"><h3>Tuned from your notes</h3><ul>{% for r in answered %}<li><a href="{{ r.url }}" target="_blank" rel="noopener">#{{ r.issue }}</a> {{ r.title }}{% if r.answer %} <span class="mute">→ {% if r.anchor %}<a href="#{{ r.anchor }}">{{ r.answer }}</a>{% else %}{{ r.answer }}{% endif %}</span>{% endif %}</li>{% endfor %}</ul></div>{% endif %}
   {% if request_box %}
   <form class="tune" id="tune" method="get" target="_blank" action="https://github.com/{{ request_box.repo }}/issues/new"
@@ -193,10 +208,12 @@
     <p class="tune-note">For now this opens a prefilled note on GitHub ({{ request_box.repo }}), so it needs a GitHub account and is public. Don’t include anything private.</p></div>
   </form>
   {% endif %}
-  <p class="endlinks"><a href="{{ pdfs.print }}" target="_blank" rel="noopener">Print edition</a><span class="dot"> · </span><a href="{{ pdfs.digital }}" target="_blank" rel="noopener">Digital PDF</a><span class="dot"> · </span><button type="button" id="export">Export feedback</button><span class="saved" aria-live="polite"></span></p>
+  <p class="endlinks"><a href="{{ pdfs.digital }}" target="_blank" rel="noopener" download>Download PDF</a><span class="dot"> · </span><a href="{{ pdfs.print }}" target="_blank" rel="noopener">Print version</a><span class="dot"> · </span><button type="button" id="export">Export feedback</button><span class="saved" aria-live="polite"></span></p>
+  </div>
 </section>
 </main>
 </div>
-<script>window.SG = {paper: "{{ paper.slug }}", edition: "{{ edition_key or date }}"};</script>
+{% if not pdf_mode %}<script>window.SG = {paper: "{{ paper.slug }}", edition: "{{ edition_key or date }}"};</script>
 <script src="{{ root }}assets/site.js"></script>
+<script src="{{ root }}assets/magazine.js"></script>{% endif %}
 {% endblock %}
