@@ -33,6 +33,19 @@
       {% endif %}
       <p class="ob-ok" id="ob-xstatus" hidden></p>
     </div>
+    <details class="ob-more" id="ob-ximp">
+      <summary>Import my X follows (private, free)</summary>
+      <p class="ob-help small">No X login and no cost. Open your personal MediaBot link, or paste or choose your follows file. It is read in this browser only and never uploaded.</p>
+      <label class="ob-field">Paste your link or file contents
+        <textarea id="ob-xpaste" rows="3" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://&hellip;/start/#xf=&hellip; or {&quot;follows&quot;:[&hellip;]}"></textarea>
+      </label>
+      <div class="ob-actions">
+        <button type="button" class="ob-btn primary" id="ob-xpastebtn">Import pasted text</button>
+        <button type="button" class="ob-btn" id="ob-xfilebtn">Choose a file</button>
+        <input type="file" id="ob-xfile" accept=".json,.txt,application/json,text/plain" hidden>
+      </div>
+      <p class="ob-help small" id="ob-xistatus" aria-live="polite"></p>
+    </details>
     <details class="ob-more" id="ob-bsky">
       <summary>Also on Bluesky? (optional)</summary>
       <label class="ob-field">Your Bluesky handle
@@ -53,10 +66,14 @@
     <ul class="ob-rows" id="ob-people" aria-label="Your people"></ul>
     <p class="ob-empty" id="ob-pempty">No one yet. Add writers, friends or creators you trust.</p>
     <div class="ob-import" id="ob-pimport" hidden>
-      <h3 id="ob-pimport-h">From who you follow</h3>
-      <input id="ob-pfilter" type="search" maxlength="40" autocomplete="off" spellcheck="false" placeholder="Search who you follow" aria-label="Search who you follow">
-      <ul class="ob-picks" id="ob-picks"></ul>
-      <p class="ob-help small" id="ob-pickmore"></p>
+      <details id="ob-pdet" open>
+        <summary id="ob-pimport-h">From who you follow</summary>
+        <div class="ob-chips" id="ob-pbuckets" role="group" aria-label="Show a group" hidden></div>
+        <input id="ob-pfilter" type="search" maxlength="40" autocomplete="off" spellcheck="false" placeholder="Search who you follow" aria-label="Search who you follow">
+        <ul class="ob-picks" id="ob-picks"></ul>
+        <button type="button" class="ob-btn wide" id="ob-pmore" hidden>Show more</button>
+        <p class="ob-help small" id="ob-pickmore"></p>
+      </details>
     </div>
   </section>
 

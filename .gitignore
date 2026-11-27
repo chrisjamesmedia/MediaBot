@@ -20,3 +20,8 @@ screenshots/
 
 # Private: quote bank holds Google Doc titles/ids (never publish)
 papers/signal-seeker/quote_bank.json
+
+# Private: a reader's follow list and one-tap import links (docs/x-import.md)
+x-follows*
+*x-follows-import*
+crowdhealth-group*

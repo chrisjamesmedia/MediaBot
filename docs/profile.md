@@ -11,7 +11,7 @@ The guiding order, from Chris: **people first, then topics, then fun** (jokes, m
 | Key | What | Written by |
 | --- | --- | --- |
 | `mediabot.profile.v1` | The profile below (JSON) | `/start/`, `/profile/` |
-| `mediabot.follows.v1` | Optional pick-list brought in from X or Bluesky: `{ "x": [[handle, name], …], "x_topics": [label, …], "x_at": ISO, "bluesky": [[handle, name], …], "bluesky_at": ISO }`. Only used to pre-fill People; not part of the profile. | `/start/`, `/profile/` |
+| `mediabot.follows.v1` | Optional pick-list brought in from X or Bluesky: `{ "x": [[handle, name, followers?, bucket?], …], "x_crowd": [[handle, name, followers, weight, follows], …], "x_topics": [label, …], "x_at": ISO, "bluesky": [[handle, name], …], "bluesky_at": ISO }`. Only used to pre-fill People; not part of the profile. | `/start/`, `/profile/` |
 | `mediabot.start.step` (sessionStorage) | Which onboarding step was open | `/start/` |
 
 Quick Create's own keys (xAI key, saved papers) are separate; this profile never stores the xAI key.
