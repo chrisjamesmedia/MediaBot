@@ -22,7 +22,7 @@ Writes  site/<slug>/<date>/index.html, <slug>-<date>-print.pdf, <slug>-<date>-di
         (passages_seen.json is written by tools/passage.py; games by tools/games.py)
 Recipe builds (docs/recipes.md) write site/<slug>/custom/<recipe>/<date>/ and are not indexed.
 """
-import datetime, hashlib, html, json, re, shutil, subprocess, sys, urllib.request
+import datetime, hashlib, html, json, os, re, shutil, subprocess, sys, urllib.request
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -32,6 +32,14 @@ from markupsafe import Markup
 
 ROOT = Path(__file__).resolve().parent
 PAPERS, SITE, TPL, STATIC, CACHE = ROOT / "papers", ROOT / "site", ROOT / "templates", ROOT / "static", ROOT / ".build"
+if os.environ.get("MEDIABOT_SITE"):       # build into another folder (previews); never touches site/
+    SITE = Path(os.environ["MEDIABOT_SITE"]).resolve()
+def rel(p):
+    p = Path(p)
+    try: return p.relative_to(ROOT)
+    except ValueError: return p
+
+
 PRIVATE_SITE = ROOT / "site-private"    # full copy incl. private sections; gitignored, never published
 # Money details that must never appear in public output (holdings show material news only).
 FORBIDDEN_KEYS = {"shares", "share_count", "quantity", "qty", "value", "market_value", "position", "position_size",
@@ -778,6 +786,10 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
                     shutil.copy(src, out / "images" / src.name)
                     img["web"] = f"images/{src.name}"
                     img["abs"] = src.resolve().as_uri()
+                    pf = ed_dir / img["print_file"] if img.get("print_file") else None
+                    if pf and pf.exists():          # small grayscale copy for the print PDF (tools/media.py)
+                        shutil.copy(pf, out / "images" / pf.name)
+                        img["print_abs"] = pf.resolve().as_uri()
                 else:
                     print(f"  ! missing image {src}"); it.pop("image")
 
@@ -855,7 +867,7 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
         if kind == "print" and n % 2 and even: print(f"  ! print came out at {n} pages after padding")
         pages[kind] = n
         sheets = (n + 1) // 2
-        msg = f"  {kind}: {pdf.relative_to(ROOT)}  {n} pages" + (" (last back blank)" if kind == "print" and pad else "")
+        msg = f"  {kind}: {rel(pdf)}  {n} pages" + (" (last back blank)" if kind == "print" and pad else "")
         if kind == "print" and not rc:
             lo, hi = spec["target_sheets"]
             msg += f" = {sheets} sheet(s) duplex; {size} target {lo}-{hi} sheets, max {spec['max_sheets']}"
@@ -873,13 +885,13 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
         email_name = f"{stem}-email.html"
         (out / email_name).write_text(E.get_template("slow-email.html.j2").render(ctx, sections=sections, pages=pages))
         pdfs["email"] = email_name
-        print(f"  email: {(out / email_name).relative_to(ROOT)}  (inline-CSS body for the daily email; PDFs still attach)")
+        print(f"  email: {rel(out / email_name)}  (inline-CSS body for the daily email; PDFs still attach)")
     meta = {"date": date, "date_long": date_long, "lead": lead_title, "pages": pages,
             "pdfs": pdfs, "sections": [s["title"] for s in sections], "recipe": rc["name"] if rc else None,
             "words": words, "read_min": read_min,
             "built_at": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}
     (out / "edition.meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False))
-    print(f"  web: {(out / 'index.html').relative_to(ROOT)}  sections: {', '.join(meta['sections'])}  · {words} words ≈ {read_min} min read")
+    print(f"  web: {rel(out / 'index.html')}  sections: {', '.join(meta['sections'])}  · {words} words ≈ {read_min} min read")
     if rc: print(f"  pdf: {(out / pdfs[first]).resolve()}")
     return meta
 

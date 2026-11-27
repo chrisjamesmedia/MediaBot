@@ -54,7 +54,8 @@ ORDER (paper.yaml sets it; fill these sections):
       tweet_fields created_at,public_metrics,author_id,lang,conversation_id,referenced_tweets,note_tweet,
       in_reply_to_user_id, expansions author_id,referenced_tweets.id,referenced_tweets.id.author_id,
       attachments.media_keys, user_fields username,name,verified,public_metrics, media_fields
-      type,url,alt_text (media lets a funny post's photo run in the Funnies). Follow meta.next_token until the oldest post is
+      type,url,preview_image_url,alt_text,width,height (media runs as the post's picture, see PICTURES, and lets a
+      funny post's photo run in the Funnies). Follow meta.next_token until the oldest post is
       older than window_hours (about 14 pages at ~100 posts/hour). end_time, if set, must be >=10 s ago.
       Save each raw page as JSON OUTSIDE the repo (e.g. /tmp/feed/p01.json ...). Read-only: never like,
       repost, bookmark, follow or reply.
@@ -147,6 +148,29 @@ into edition.json; if the fetch fails the masthead leaves weather out.
 
 NOTE: one useful line (an earnings date, a clock change), or nothing.
 
+PICTURES (after every section is written, including Funnies; before the build). Real, credited images only: the
+X posts' own photos (video stills for clips) and a linked article's og:image. Never generated, never searched
+for elsewhere; an item without one gets none. tools/media.py picks a tasteful few (paper.yaml `images:`:
+max_total 8, per_section 2, a lead first; photos before article images before one video still), downloads
+them into editions/<TODAY>/images/ (max 1200px, JPEG ~q80, EXIF stripped, plus a small grayscale copy for the
+2 best in print), and writes item "image" with alt text and a credit ("Photo: @handle", "Image: Site").
+   a. Which X posts still lack media info?  (read-only, no X call yet)
+        .venv/bin/python tools/media.py signal-seeker <TODAY> /tmp/feed/p*.json /tmp/media/*.json --list-missing
+      It prints a comma list of status ids (hand-written items from search results usually need this).
+   b. user-X (or x) get_posts_by_ids with those ids, up to 100 per call, expansions attachments.media_keys,
+      media.fields type,url,preview_image_url,alt_text,width,height, post.fields attachments. Save each reply
+      OUTSIDE the repo as /tmp/media/m01.json, m02.json ... Read-only. Skip this when step (a) printed (none).
+   c. Dry run, then write:
+        .venv/bin/python tools/media.py signal-seeker <TODAY> /tmp/feed/p*.json /tmp/media/*.json
+        .venv/bin/python tools/media.py signal-seeker <TODAY> /tmp/feed/p*.json /tmp/media/*.json --write
+      Read the "picked" list. If a picture looks wrong for its item (a generic video title card, an unrelated
+      logo), drop that item's "image" key from edition.json by hand, or lower max_total in paper.yaml; do not
+      substitute another image. Rerun media.py any time: it replaces its own earlier pick. A site that blocks
+      the fetch (403) or has no og:image just yields no picture, which is fine. Run it AFTER x_feed.py,
+      slow_signal.py and funnies.py, since those rewrite their sections.
+   The build copies the pictures into site/<slug>/<date>/images/ for the web edition, the digital PDF and the
+   print PDF (grayscale copy, only for the picks that have one).
+
 PRIVATE: emails, calendar, reminders and notes go only in the private "personal" section, never public.
 
 BUILD AND PUBLISH: tools/publish.sh signal-seeker <TODAY> --weather. The public build also refreshes
@@ -194,8 +218,9 @@ quote-bank docs.
       (about 6 per section). Run each with start_time = TODAY minus 14 days, max_results 25
       (the API's cap), -is:reply -is:retweet lang:en, post.fields created_at,public_metrics,
       author_id,lang,referenced_tweets,note_post,in_reply_to_user_id, conversation_id and
-      expansions author_id,referenced_tweets.id,referenced_tweets.id.author_id (user.fields
-      username,name,verified,public_metrics). Save as /tmp/slow/curated_*.json.
+      expansions author_id,referenced_tweets.id,referenced_tweets.id.author_id,attachments.media_keys
+      (user.fields username,name,verified,public_metrics; media.fields type,url,preview_image_url,
+      alt_text,width,height, so the posts' photos can run as pictures). Save as /tmp/slow/curated_*.json.
       Limits: 30 reads a minute, 1000 a day.
 2. DRY RUN: .venv/bin/python tools/slow_signal.py field-notes <TODAY> /tmp/feed/p*.json
       /tmp/slow/list_*.json --curated /tmp/slow/curated_*.json
@@ -224,6 +249,14 @@ quote-bank docs.
    papers/field-notes/scripture_seen.json, and a bank joke in papers/field-notes/jokes_seen.json;
    COMMIT those files with the edition so passages and jokes rotate). Set "coverage" to one plain
    line. Check the read time printed (target 3-10 minutes).
+6b. PICTURES: real photos from the chosen posts only (X post media; no article lookups, no AI images,
+   nothing for a post without a photo; paper.yaml `images:` max_total 8, per_section 2). Same three
+   steps as Signal Seeker's PICTURES: --list-missing, get_posts_by_ids for those ids (expansions
+   attachments.media_keys, media.fields type,url,preview_image_url,alt_text,width,height) saved as
+   /tmp/media/m*.json, then
+      .venv/bin/python tools/media.py field-notes <TODAY> /tmp/feed/p*.json /tmp/slow/*.json /tmp/media/*.json --write
+   Read what it picked; if a picture looks like a generic title card or does not suit the post, delete
+   that item's "image" in edition.json. Run it after --write of slow_signal.py (which rewrites the file).
 7. BUILD: .venv/bin/python build.py field-notes <TODAY> --weather. Read the output: sections, word
    count, read time, print pages (max_sheets in paper.yaml), digital PDF, and the email HTML.
    The print PDF stays letter, two columns, for paper. The digital PDF is phone-sized (about 410pt
@@ -231,6 +264,11 @@ quote-bank docs.
    edition is mobile-first and should look right at 390px wide. The build also writes
    site/field-notes/<TODAY>/field-notes-<TODAY>-email.html: a single-column, inline-CSS, max-width
    600px body for the daily email. Use that file as the email's HTML body; still attach both PDFs.
+   Pictures: the web edition and PDFs carry them (digital in color, print small and grayscale). The email's
+   <img> tags use ABSOLUTE URLs to the published edition (https://chrisjamesmedia.github.io/MediaBot/
+   field-notes/<TODAY>/images/…jpg), not attachments, so SEND THE EMAIL ONLY AFTER the Pages deploy is live:
+   curl -sI the first image URL and wait for 200 (rerun the Pages workflow if it 404s), else the email shows
+   broken pictures.
 8. CHECK: no x.com links on the web posts or the email body:
       grep -rnoE 'href="[^"]*(x\.com|twitter\.com|t\.co)' site/field-notes/ || echo none
    then publish with Signal Seeker (tools/publish.sh signal-seeker <TODAY> --weather), which commits both.

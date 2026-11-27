@@ -24,15 +24,20 @@ print:
     small:  {target_sheets: [1, 2], max_sheets: 2}
     medium: {target_sheets: [4, 5], max_sheets: 5}
     large:  {target_sheets: [6, 10], max_sheets: 10}
-  photos: false                # print edition never carries photos
+  photos: true                 # print carries only a few small grayscale pictures (images.print_max); see tools/media.py
   qr: true                     # one masthead QR to the web edition, only once web_base is public
+
+images:                        # tools/media.py: X post media + article og:image only, never generated. Taste limits:
+  max_total: 8                 # pictures per edition (lead first, then photos, article images, video stills)
+  per_section: 2               # no two back to back in a section
+  print_max: 2                 # of those, how many also get a small grayscale copy in the print PDF
 
 sunday:                        # Sundays: the bigger paper, with Funnies (comics + puzzles) on
   size: large
   enable: [funnies]
 
 web:
-  images: true                 # big lead image and opted-in photos on the web edition
+  images: true                 # real, credited pictures on web, digital PDF and (a few, grayscale) print; picked by tools/media.py
   # "Tune tomorrow's paper": a more-of / less-of block at the end of the web edition. Chips are picked per edition
   # from what is in it (an option shows only when its section is in the edition, or its words appear in 2+ items),
   # in this order, then the fixed ones; at most max_options. Send opens a prefilled GitHub issue (site.yaml `requests`).

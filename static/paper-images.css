@@ -1,0 +1,19 @@
+/* Real pictures in Signal Seeker (tools/media.py): open, full-width, phone-first.
+   A separate file so site.css stays untouched; loaded after it by templates that set extra_css. */
+.ph img{aspect-ratio:auto;height:auto;max-height:min(70vh,540px);object-fit:cover}
+.ph figcaption,.pimg figcaption{margin-top:6px;font:400 11.5px/1.3 var(--sans);color:var(--mute);text-align:left}
+.lead .ph img{max-height:min(74vh,620px)}
+/* post cards: the picture runs edge to edge inside the card, no frame of its own */
+.pimg{margin:2px -16px 12px}
+.pimg img{border:0;border-radius:0;max-height:min(68vh,520px);object-fit:cover;background:var(--box)}
+.pimg figcaption{padding:0 16px}
+.leadpost .pimg{margin:2px -24px 12px}
+.leadpost .pimg figcaption{padding:0 24px}
+.ever .ph{margin:2px 0 12px}
+/* phones: story pictures bleed to the screen edge */
+@media (max-width:640px){
+  .story .ph,.lead .ph,.ever .ph{margin-left:-18px;margin-right:-18px}
+  .story .ph figcaption,.lead .ph figcaption,.ever .ph figcaption{padding:0 18px}
+  .lead .ph{margin-bottom:14px}
+}
+@media print{.ph img,.pimg img{max-height:3in}}
