@@ -12,280 +12,195 @@
 <meta property="og:description" content="A calm 6-minute read: From Your Feed, Faith &amp; Scripture, Nature &amp; Science, Books &amp; Ideas, People &amp; Stories, Craft &amp; Work, Something Light. Ends with a real, credited joke.">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#f4ecdc">
-<style>
-@font-face{font-family:"SG Serif";src:url(../../assets/fonts/SourceSerifPro-Regular.ttf);font-weight:400}
-@font-face{font-family:"SG Serif";src:url(../../assets/fonts/SourceSerifPro-It.ttf);font-weight:400;font-style:italic}
-@font-face{font-family:"SG Serif";src:url(../../assets/fonts/SourceSerifPro-Semibold.ttf);font-weight:600}
-@font-face{font-family:"SG Sans";src:url(../../assets/fonts/LibreFranklin.ttf);font-weight:100 900}
-:root{--bg:#f4ecdc;--ink:#1c1914;--soft:rgba(28,25,20,.58);--rule:rgba(28,25,20,.14);--rule-strong:rgba(28,25,20,.28)}
-*{box-sizing:border-box}
-html{background:var(--bg)}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "SG Serif",Georgia,serif;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-webkit-text-size-adjust:100%}
-a{color:inherit}
-img{max-width:100%;height:auto}
-.wrap{max-width:1120px;margin:0 auto;padding:28px 20px 72px}
-.mast{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;
-  padding-bottom:18px;margin-bottom:36px;border-bottom:1px solid var(--rule-strong)}
-.mast .t{font:600 28px/1.1 "SG Serif",serif;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
-.mast .meta{display:flex;gap:16px;flex-wrap:wrap;align-items:baseline;
-  font:400 13.5px/1.4 "SG Sans",sans-serif;color:var(--soft)}
-.mast .pb{font:inherit;color:var(--soft);text-decoration:none;border-bottom:1px solid var(--rule-strong);padding:0 0 1px}
-.mast .pb:hover,.mast .pb:focus{color:var(--ink);border-color:var(--ink)}
-.toc{display:flex;flex-wrap:wrap;gap:6px 22px;margin:-14px 0 40px;font:400 13px/1.4 "SG Sans",sans-serif;color:var(--soft)}
-.toc a{color:var(--soft);text-decoration:none;border-bottom:1px solid transparent}
-.toc a:hover,.toc a:focus{color:var(--ink);border-color:var(--rule-strong)}
-.sec{margin:0 0 52px;max-width:760px}
-.sec-head{font:600 25px/1.2 "SG Serif",Georgia,serif;letter-spacing:-.005em;margin:0 0 6px;padding:0 0 10px;
-  border-bottom:1px solid var(--rule-strong);break-after:avoid}
-.stream{max-width:none}
-@media (min-width:980px){
-  .sec{max-width:none}
-  .stream{column-count:2;column-gap:48px;column-rule:1px solid var(--rule);column-fill:balance}
-}
-.passage{column-span:all;padding:26px 0 30px;border-bottom:1px solid var(--rule);max-width:680px}
-.passage .verse{font:italic 400 23px/1.5 "SG Serif",Georgia,serif;margin:0 0 12px}
-.passage .who{margin:0}
-.post{padding:20px 0 22px;border-bottom:1px solid var(--rule);break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid}
-.post:first-child{padding-top:18px}
-.who{font:400 12.5px/1.35 "SG Sans",sans-serif;color:var(--soft);margin:0 0 10px;letter-spacing:.01em}
-.who b{font-weight:600;color:var(--ink)}
-.post p{margin:0 0 .75em}
-.post p:last-child{margin-bottom:0}
-.pic{margin:14px 0 4px}
-.pic img{display:block;width:100%;height:auto;max-height:80vh;object-fit:cover;background:rgba(28,25,20,.06)}
-.pic figcaption{font:400 11.5px/1.35 "SG Sans",sans-serif;color:var(--soft);margin:6px 0 0;letter-spacing:.01em}
-blockquote{margin:16px 0 0;padding:2px 0 2px 16px;border-left:1.5px solid var(--rule-strong);
-  font-size:16.5px;line-height:1.5;color:rgba(28,25,20,.78)}
-blockquote .who{font-size:11.5px;margin-bottom:6px}
-.end{margin:8px 0 0;padding-top:28px;border-top:1px solid var(--rule-strong);text-align:center;max-width:none}
-.end .joke{max-width:34em;margin:0 auto 22px;text-align:center}
-.end .joke .text{font:italic 400 20px/1.45 "SG Serif",serif;margin:0 0 10px}
-.end .joke .who{font:400 13px/1.4 "SG Sans",sans-serif;color:var(--soft);margin:0}
-.end .line{font:italic 400 20px/1.4 "SG Serif",serif;margin:0 0 14px}
-.end .mark{display:block;color:var(--soft);letter-spacing:.55em;margin-bottom:18px;font-size:13px}
-.note{font:400 12px/1.55 "SG Sans",sans-serif;color:var(--soft);margin:0}
-.note a{color:var(--soft);text-decoration:underline;text-underline-offset:2px}
-@media (min-width:700px){
-  body{font-size:18.5px;line-height:1.58}
-  .wrap{padding:40px 36px 88px}
-}
-@media (max-width:699px){
-  body{font-size:17px;line-height:1.55}
-  .wrap{padding:24px 18px 64px}
-  .mast{margin-bottom:24px;padding-bottom:14px;flex-direction:column;align-items:flex-start;gap:8px}
-  .mast .t{font-size:26px}
-  .mast .meta{gap:10px 14px;font-size:13px}
-  .toc{gap:10px 16px;margin:-4px 0 28px;font-size:14px}
-  .sec{margin:0 0 40px}
-  .sec-head{font-size:22px}
-  .passage{max-width:none;padding:18px 0 22px}
-  .passage .verse{font-size:20px;line-height:1.5}
-  .post{padding:16px 0 18px}
-  .who{font-size:12px}
-  .pic{margin:14px -18px 4px}                 /* the picture runs edge to edge on a phone */
-  .pic figcaption{padding:0 18px}
-}
-@media print{.mast .pb{display:none}}
-</style>
+<meta name="color-scheme" content="light dark">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Field Notes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#fbf7f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="../../assets/icons/field-notes-180.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="stylesheet" href="../../assets/magazine.css">
 </head>
-<body>
-<main class="wrap">
+<body class="mag fn" style="--day:#94306b;--day-dk:#f08cc4"><a id="top" tabindex="-1" aria-hidden="true"></a>
+<header class="appbar" aria-label="Field Notes">
+  <a class="ab-name" href="../" title="All editions">Field Notes</a>
+  <a class="ab-sec" href="#contents"><span class="ab-cur" aria-live="polite"></span></a>
+  <div class="ab-bar" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+</header><main class="wrap">
   <header class="mast">
-    <a class="t" href="../" title="All editions">Field Notes</a>
-    <span class="meta">
+    <div class="topline">
       <time datetime="2026-11-27">Friday, November 27, 2026</time>
-<span title="1295 words">6 min read</span><span title="Open-Meteo, as of Nov 27, 7:21 AM EST">Boston 57° / 44°</span>      <a class="pb" href="field-notes-2026-11-27-print.pdf" target="_blank" rel="noopener" title="Letter, black on white">Print</a>
-    </span>
+    </div>
+    <h1><a href="../" title="All editions">Field Notes</a></h1>
+    <div class="under"><div class="meta">
+<span title="1295 words">6 min read</span><span title="Open-Meteo, as of Nov 27, 7:21 AM EST">Boston 57° / 44°</span>    </div></div>
   </header>
-<nav class="toc" aria-label="Sections"><a href="#feed">From Your Feed</a><a href="#faith">Faith &amp; Scripture</a><a href="#science">Nature &amp; Science</a><a href="#ideas">Books &amp; Ideas</a><a href="#people">People &amp; Stories</a><a href="#craft">Craft &amp; Work</a><a href="#humor">Something Light</a></nav>  <section class="sec" id="feed">
-    <h2 class="sec-head">From Your Feed</h2>
-    <div class="stream">
-      <article class="post" id="slow-2125615165903450135">
-        <p class="who"><b>Simon Sarris</b> @simonsarris · Nov 25</p>
-<p>the bird that has never seen a nest still builds the nest</p>
-      </article>
-      <article class="post" id="slow-2126141847001317764">
-        <p class="who"><b>Pico Iyer</b> @PicoIyer · Nov 26</p>
-<p>Gratitude is the form of prayer that needs no answer and that can never be exhausted. Who knows but it may be the best way of honoring a life that is the one partner we always have to live with?</p>
-      </article>
-      <article class="post" id="slow-2126251737132732772">
-        <p class="who"><b>Paul Millerd</b> @p_millerd · Nov 27</p>
-<p>The greatest joy is giving. And then giving. And then giving and then never knowing if you’ve received anything back. And the remembering you used to live in a transactional world and no longer need to have that be the core of living</p>
-      </article>
-      <article class="post" id="slow-2126136310092222968">
-        <p class="who"><b>Eric Jorgenson 📚 ☀️</b> @EricJorgenson · Nov 26</p>
-<p>To be tied for the newest book on this list with @morganhousel is pretty incredible.</p>
-<p>Hope this book is still serving readers in 100 years!</p>
-      </article>
-      <article class="post" id="slow-2126077182501908803">
-        <p class="who"><b>Simon Sarris</b> @simonsarris · Nov 26</p>
-<p>Part of what makes this hard to convey and why I prefer writing to speaking, is that it&#39;s a medium distance thought. (Alexander conveys it beautifully here, because he is articulate and because he tells it not only as facts but in the format of a story). Most interviewers today don&#39;t have the patience to let the speaker continue beyond a short distance, so a comfortable story is out of the question.</p>
-<p>A host today could be patient, but the culture of impatience has lead to the speakers themselves no longer expecting that they will be able to convey anything at length, so even people who are well practiced at speaking mostly practice in the short distance.</p>
-<p>This leads to hopeless &#34;wait wait let me finish&#34; puncturing a lot of stories and therefore moods, but also the rapid pace of people who are used to being interrupted so often, which is not nearly as pleasant.</p>
-      </article>
-      <article class="post" id="slow-2126097005277565278">
-        <p class="who"><b>Malcolm Ocean 🏴‍☠️</b> @Malcolm_Ocean · Nov 26</p>
-<p>Montessori has a great quote &#34;never try to help a child do something they believe they can do themselves&#34;</p>
-<p>Corollary: unless you *specifically don&#39;t want them to learn how to do it*</p>
-      </article>
-    </div>
+<nav class="toc" id="contents" aria-labelledby="toc-h"><h2 id="toc-h">In this edition</h2><ol><li><a href="#feed">From Your Feed</a></li><li><a href="#faith">Faith &amp; Scripture</a></li><li><a href="#science">Nature &amp; Science</a></li><li><a href="#ideas">Books &amp; Ideas</a></li><li><a href="#people">People &amp; Stories</a></li><li><a href="#craft">Craft &amp; Work</a></li><li><a href="#humor">Something Light</a></li></ol></nav>  <section class="sec" id="feed" aria-labelledby="feed-h">
+    <h2 class="sec-head" id="feed-h">From Your Feed</h2>
+    <article class="post q-l" id="slow-2125615165903450135">
+      <header><p class="who"><b>Simon Sarris</b><span class="mute">@simonsarris · Nov 25</span></p></header>
+      <div class="ptext"><p>the bird that has never seen a nest still builds the nest</p></div>
+    </article>
+    <article class="post q-m" id="slow-2126141847001317764">
+      <header><p class="who"><b>Pico Iyer</b><span class="mute">@PicoIyer · Nov 26</span></p></header>
+      <div class="ptext"><p>Gratitude is the form of prayer that needs no answer and that can never be exhausted. Who knows but it may be the best way of honoring a life that is the one partner we always have to live with?</p></div>
+    </article>
+    <article class="post q-m" id="slow-2126251737132732772">
+      <header><p class="who"><b>Paul Millerd</b><span class="mute">@p_millerd · Nov 27</span></p></header>
+      <div class="ptext"><p>The greatest joy is giving. And then giving. And then giving and then never knowing if you’ve received anything back. And the remembering you used to live in a transactional world and no longer need to have that be the core of living</p></div>
+    </article>
+    <article class="post q-l" id="slow-2126136310092222968">
+      <header><p class="who"><b>Eric Jorgenson 📚 ☀️</b><span class="mute">@EricJorgenson · Nov 26</span></p></header>
+      <div class="ptext"><p>To be tied for the newest book on this list with @morganhousel is pretty incredible.</p><p>Hope this book is still serving readers in 100 years!</p></div>
+    </article>
+    <article class="post q-s q-r" id="slow-2126077182501908803">
+      <header><p class="who"><b>Simon Sarris</b><span class="mute">@simonsarris · Nov 26</span></p></header>
+      <div class="ptext"><p>Part of what makes this hard to convey and why I prefer writing to speaking, is that it&#39;s a medium distance thought. (Alexander conveys it beautifully here, because he is articulate and because he tells it not only as facts but in the format of a story). Most interviewers today don&#39;t have the patience to let the speaker continue beyond a short distance, so a comfortable story is out of the question.</p><p>A host today could be patient, but the culture of impatience has lead to the speakers themselves no longer expecting that they will be able to convey anything at length, so even people who are well practiced at speaking mostly practice in the short distance.</p><p>This leads to hopeless &#34;wait wait let me finish&#34; puncturing a lot of stories and therefore moods, but also the rapid pace of people who are used to being interrupted so often, which is not nearly as pleasant.</p></div>
+    </article>
+    <article class="post q-m" id="slow-2126097005277565278">
+      <header><p class="who"><b>Malcolm Ocean 🏴‍☠️</b><span class="mute">@Malcolm_Ocean · Nov 26</span></p></header>
+      <div class="ptext"><p>Montessori has a great quote &#34;never try to help a child do something they believe they can do themselves&#34;</p><p>Corollary: unless you *specifically don&#39;t want them to learn how to do it*</p></div>
+    </article>
+    <nav class="sectionnav" aria-label="Section navigation"><a class="up" href="#contents">↑ Contents</a><a class="next" href="#faith"><span class="nl">Next</span> Faith &amp; Scripture ↓</a></nav>
   </section>
-  <section class="sec" id="faith">
-    <h2 class="sec-head">Faith &amp; Scripture</h2>
-    <div class="stream">
-      <article class="post passage" id="fn-bible-psalm-139-13-16">
-        <p class="verse">For thou hast possessed my reins: thou hast covered me in my mother’s womb. I will praise thee; for I am fearfully and wonderfully made: marvellous are thy works; and that my soul knoweth right well. My substance was not hid from thee, when I was made in secret, and curiously wrought in the lowest parts of the earth. Thine eyes did see my substance, yet being unperfect; and in thy book all my members were written, which in continuance were fashioned, when as yet there was none of them.</p>
-        <p class="who"><b>Psalms 139:13–16</b> · KJV</p>
-      </article>
-      <article class="post" id="slow-2125998090750472347">
-        <p class="who"><b>Desiring God</b> @desiringGod · Nov 26</p>
-<p>“Fathers, do not provoke your children to anger, but bring them up in the discipline and instruction of the Lord.” —Ephesians 6:4</p>
-      </article>
-      <article class="post" id="slow-2124660416710160717">
-        <p class="who"><b>The Gospel Coalition</b> @TGC · Nov 22</p>
-<p>Evening worship isn’t a magic formula for church growth or maturity.</p>
-<p>But this pastor is convinced that gathering a second time each Lord’s Day has become one of the most significant means by which Christ has shaped the culture of their congregation.</p>
-      </article>
-      <article class="post" id="slow-2125922606297604416">
-        <p class="who"><b>Desiring God</b> @desiringGod · Nov 26</p>
-<p>Thanksgiving isn’t about pretending life is perfect.</p>
-<p>It’s about remembering that, in Christ, you’ve been given far more than you deserve.</p>
-<p>Chosen. Called. Loved. And one day, glorified.</p>
-<p>Praise God. Thank God.</p>
-<p>Read or listen to “The Glorious Duty of Thanksgiving” by John Piper.</p>
-<figure class="pic"><img src="images/slow-2125922606297604416.jpg" alt="Photo from @desiringGod’s post (first of 2)" loading="lazy" width="960" height="1200"><figcaption>Photo: @desiringGod</figcaption></figure>      </article>
-    </div>
+  <section class="sec" id="faith" aria-labelledby="faith-h">
+    <h2 class="sec-head" id="faith-h">Faith &amp; Scripture</h2>
+    <figure class="passage" id="fn-bible-psalm-139-13-16">
+      <p class="pk">Scripture</p>
+      <blockquote class="pt verse">For thou hast possessed my reins: thou hast covered me in my mother’s womb. I will praise thee; for I am fearfully and wonderfully made: marvellous are thy works; and that my soul knoweth right well. My substance was not hid from thee, when I was made in secret, and curiously wrought in the lowest parts of the earth. Thine eyes did see my substance, yet being unperfect; and in thy book all my members were written, which in continuance were fashioned, when as yet there was none of them.</blockquote>
+      <figcaption>Psalms 139:13–16 · KJV</figcaption>
+    </figure>
+    <article class="post q-l" id="slow-2125998090750472347">
+      <header><p class="who"><b>Desiring God</b><span class="mute">@desiringGod · Nov 26</span></p></header>
+      <div class="ptext"><p>“Fathers, do not provoke your children to anger, but bring them up in the discipline and instruction of the Lord.” —Ephesians 6:4</p></div>
+    </article>
+    <article class="post q-m" id="slow-2124660416710160717">
+      <header><p class="who"><b>The Gospel Coalition</b><span class="mute">@TGC · Nov 22</span></p></header>
+      <div class="ptext"><p>Evening worship isn’t a magic formula for church growth or maturity.</p><p>But this pastor is convinced that gathering a second time each Lord’s Day has become one of the most significant means by which Christ has shaped the culture of their congregation.</p></div>
+    </article>
+    <article class="post q-m" id="slow-2125922606297604416">
+      <header><p class="who"><b>Desiring God</b><span class="mute">@desiringGod · Nov 26</span></p></header>
+      <div class="ptext"><p>Thanksgiving isn’t about pretending life is perfect.</p><p>It’s about remembering that, in Christ, you’ve been given far more than you deserve.</p><p>Chosen. Called. Loved. And one day, glorified.</p><p>Praise God. Thank God.</p><p>Read or listen to “The Glorious Duty of Thanksgiving” by John Piper.</p></div>
+<figure class="pimg"><img src="images/slow-2125922606297604416.jpg" alt="Photo from @desiringGod’s post (first of 2)" loading="lazy" width="960" height="1200"><figcaption>Photo: @desiringGod</figcaption></figure>    </article>
+    <nav class="sectionnav" aria-label="Section navigation"><a class="up" href="#contents">↑ Contents</a><a class="next" href="#science"><span class="nl">Next</span> Nature &amp; Science ↓</a></nav>
   </section>
-  <section class="sec" id="science">
-    <h2 class="sec-head">Nature &amp; Science</h2>
-    <div class="stream">
-      <article class="post" id="slow-2122802056834482366">
-        <p class="who"><b>Dr. Rhonda Patrick</b> @foundmyfitness · Nov 17</p>
-<p>People consuming the most artificial sweeteners showed 63% faster cognitive decline than those consuming the least, roughly equivalent to 1.6 additional years of cognitive aging.</p>
-<p>The middle-intake group also showed a 36% faster decline, equivalent to about 1.3 additional years of cognitive aging.</p>
-<p>That’s from a Neurology study following 12,772 adults for about eight years. And when researchers looked separately by age, the association showed up in people under 60, but not those 60 and older.</p>
-<p>Personally, I stay away from aspartame and sucralose, partly because of concerns about their potential effects on the gut microbiome. The platelet research has also made me more cautious about erythritol and xylitol. I do use stevia and monk fruit, but I look for versions without erythritol.</p>
-<p>One practical detail that’s easy to miss - “monk fruit” on the front of a package doesn’t tell you everything inside. Check the ingredient list, because erythritol can be part of the blend.</p>
-      </article>
-      <article class="post" id="slow-2121628095979598238">
-        <p class="who"><b>Neil deGrasse Tyson</b> @neiltyson · Nov 14</p>
-<p>In 1977 @NASA launched Voyager 1, currently traveling at 38,000 mph. Hailing from beyond all the Sun’s planets, on Nov. 18, 2026, Voyager reaches a distance of exactly 1 Light-Day from Earth.</p>
-<p>Before you get too excited by this, the Sun&#39;s nearest stars are Light Years away.</p>
-<figure class="pic"><img src="images/slow-2121628095979598238.jpg" alt="Photo from @neiltyson’s post" loading="lazy" width="960" height="691"><figcaption>Photo: @neiltyson</figcaption></figure>      </article>
-      <article class="post" id="slow-2125982967621366074">
-        <p class="who"><b>Joe Hudson</b> @FU_joehudson · Nov 26</p>
-<p>Haiku from Thanksgiving Mountains:</p>
-<p>Snow falls from a tree<br>From here a sound was not heard<br>My thoughts are the same</p>
-      </article>
-      <article class="post" id="slow-2124946621553397951">
-        <p class="who"><b>Dr. Rhonda Patrick</b> @foundmyfitness · Nov 23</p>
-<p>Blueberries and yogurt are one of my regular meals to support my brain and cardiovascular health.</p>
-<p>The research on blueberries is fascinating and keeps giving me reasons to come back to them.</p>
-<p>Their blue-purple color comes from anthocyanins, a family of plant compounds that have been studied for their effects on blood vessels, cellular signaling, and cognition.</p>
-<p>One trial I find interesting gave adults ages 65–80 a daily wild-blueberry powder equivalent to 178 grams of fresh berries (about one cup). After 12 weeks, the blueberry group had better blood vessel function and performed better on tests memory and executive function than the placebo group. This adds to the evidence that these foods can influence specific aspects of how we function.</p>
-<p>For me, the appeal is how easily blueberries fit into something I already enjoy eating. Yogurt contributes protein and calcium, and the berries add fiber and plant compounds that make the meal more interesting nutritionally.</p>
-<p>I want to stay curious, learn, and keep doing mentally demanding work. The meals I repeat are one part of how I approach that.</p>
-<figure class="pic"><img src="images/slow-2124946621553397951.jpg" alt="Photo from @foundmyfitness’s post (first of 2)" loading="lazy" width="960" height="1280"><figcaption>Photo: @foundmyfitness</figcaption></figure>      </article>
-    </div>
+  <section class="sec" id="science" aria-labelledby="science-h">
+    <h2 class="sec-head" id="science-h">Nature &amp; Science</h2>
+    <article class="post q-s q-r" id="slow-2122802056834482366">
+      <header><p class="who"><b>Dr. Rhonda Patrick</b><span class="mute">@foundmyfitness · Nov 17</span></p></header>
+      <div class="ptext"><p>People consuming the most artificial sweeteners showed 63% faster cognitive decline than those consuming the least, roughly equivalent to 1.6 additional years of cognitive aging.</p><p>The middle-intake group also showed a 36% faster decline, equivalent to about 1.3 additional years of cognitive aging.</p><p>That’s from a Neurology study following 12,772 adults for about eight years. And when researchers looked separately by age, the association showed up in people under 60, but not those 60 and older.</p><p>Personally, I stay away from aspartame and sucralose, partly because of concerns about their potential effects on the gut microbiome. The platelet research has also made me more cautious about erythritol and xylitol. I do use stevia and monk fruit, but I look for versions without erythritol.</p><p>One practical detail that’s easy to miss - “monk fruit” on the front of a package doesn’t tell you everything inside. Check the ingredient list, because erythritol can be part of the blend.</p></div>
+    </article>
+    <article class="post q-m" id="slow-2121628095979598238">
+      <header><p class="who"><b>Neil deGrasse Tyson</b><span class="mute">@neiltyson · Nov 14</span></p></header>
+      <div class="ptext"><p>In 1977 @NASA launched Voyager 1, currently traveling at 38,000 mph. Hailing from beyond all the Sun’s planets, on Nov. 18, 2026, Voyager reaches a distance of exactly 1 Light-Day from Earth.</p><p>Before you get too excited by this, the Sun&#39;s nearest stars are Light Years away.</p></div>
+<figure class="pimg"><img src="images/slow-2121628095979598238.jpg" alt="Photo from @neiltyson’s post" loading="lazy" width="960" height="691"><figcaption>Photo: @neiltyson</figcaption></figure>    </article>
+    <article class="post q-l" id="slow-2125982967621366074">
+      <header><p class="who"><b>Joe Hudson</b><span class="mute">@FU_joehudson · Nov 26</span></p></header>
+      <div class="ptext"><p>Haiku from Thanksgiving Mountains:</p><p>Snow falls from a tree<br>From here a sound was not heard<br>My thoughts are the same</p></div>
+    </article>
+    <article class="post q-s q-r" id="slow-2124946621553397951">
+      <header><p class="who"><b>Dr. Rhonda Patrick</b><span class="mute">@foundmyfitness · Nov 23</span></p></header>
+      <div class="ptext"><p>Blueberries and yogurt are one of my regular meals to support my brain and cardiovascular health.</p><p>The research on blueberries is fascinating and keeps giving me reasons to come back to them.</p><p>Their blue-purple color comes from anthocyanins, a family of plant compounds that have been studied for their effects on blood vessels, cellular signaling, and cognition.</p><p>One trial I find interesting gave adults ages 65–80 a daily wild-blueberry powder equivalent to 178 grams of fresh berries (about one cup). After 12 weeks, the blueberry group had better blood vessel function and performed better on tests memory and executive function than the placebo group. This adds to the evidence that these foods can influence specific aspects of how we function.</p><p>For me, the appeal is how easily blueberries fit into something I already enjoy eating. Yogurt contributes protein and calcium, and the berries add fiber and plant compounds that make the meal more interesting nutritionally.</p><p>I want to stay curious, learn, and keep doing mentally demanding work. The meals I repeat are one part of how I approach that.</p></div>
+<figure class="pimg"><img src="images/slow-2124946621553397951.jpg" alt="Photo from @foundmyfitness’s post (first of 2)" loading="lazy" width="960" height="1280"><figcaption>Photo: @foundmyfitness</figcaption></figure>    </article>
+    <nav class="sectionnav" aria-label="Section navigation"><a class="up" href="#contents">↑ Contents</a><a class="next" href="#ideas"><span class="nl">Next</span> Books &amp; Ideas ↓</a></nav>
   </section>
-  <section class="sec" id="ideas">
-    <h2 class="sec-head">Books &amp; Ideas</h2>
-    <div class="stream">
-      <article class="post" id="slow-2125952212732162128">
-        <p class="who"><b>Ryan Holiday</b> @RyanHoliday · Nov 26</p>
-<p>Anger is not impressive or tough‚ it&#39;s a mistake. It&#39;s weakness.</p>
-      </article>
-      <article class="post" id="slow-2125300446978101642">
-        <p class="who"><b>Paul Graham</b> @paulg · Nov 24</p>
-<p>If you care only about quality, rare things will always be overpriced, because they have an extra feature that other people will pay a lot for.</p>
-      </article>
-      <article class="post" id="slow-2125919244546375683">
-        <p class="who"><b>Shane Parrish</b> @shaneparrish · Nov 26</p>
-<p>I love the idea of &#34;disagree and commit,&#34; but almost nobody enforces the commit part.</p>
-<p>Bill Campbell did. Saying &#34;I had misgivings&#34; outside the room was grounds for firing.</p>
-<figure class="pic"><img src="images/slow-2125919244546375683.jpg" alt="Video still from @shaneparrish’s post" loading="lazy" width="960" height="540"><figcaption>Video still: @shaneparrish</figcaption></figure>      </article>
-      <article class="post" id="slow-2105231982309564765">
-        <p class="who"><b>Naval</b> @naval · Sep 30</p>
-<p>When you look back, you’ll wish you’d just done the long-term version of everything.</p>
-      </article>
-      <article class="post" id="slow-2125637206328881585">
-        <p class="who"><b>Steven Pinker</b> @sapinker · Nov 25</p>
-<p>What We Can Know — Ian McEwan&#39;s latest novel endorsed by my Harvard colleague Elizabeth Bonawitz. I agree with her very positive assessment (and not just because I have a cameo).</p>
-      </article>
-    </div>
+  <section class="sec" id="ideas" aria-labelledby="ideas-h">
+    <h2 class="sec-head" id="ideas-h">Books &amp; Ideas</h2>
+    <article class="post q-l" id="slow-2125952212732162128">
+      <header><p class="who"><b>Ryan Holiday</b><span class="mute">@RyanHoliday · Nov 26</span></p></header>
+      <div class="ptext"><p>Anger is not impressive or tough‚ it&#39;s a mistake. It&#39;s weakness.</p></div>
+    </article>
+    <article class="post q-m" id="slow-2125300446978101642">
+      <header><p class="who"><b>Paul Graham</b><span class="mute">@paulg · Nov 24</span></p></header>
+      <div class="ptext"><p>If you care only about quality, rare things will always be overpriced, because they have an extra feature that other people will pay a lot for.</p></div>
+    </article>
+    <article class="post q-m" id="slow-2125919244546375683">
+      <header><p class="who"><b>Shane Parrish</b><span class="mute">@shaneparrish · Nov 26</span></p></header>
+      <div class="ptext"><p>I love the idea of &#34;disagree and commit,&#34; but almost nobody enforces the commit part.</p><p>Bill Campbell did. Saying &#34;I had misgivings&#34; outside the room was grounds for firing.</p></div>
+<figure class="pimg"><img src="images/slow-2125919244546375683.jpg" alt="Video still from @shaneparrish’s post" loading="lazy" width="960" height="540"><figcaption>Video still: @shaneparrish</figcaption></figure>    </article>
+    <article class="post q-l" id="slow-2105231982309564765">
+      <header><p class="who"><b>Naval</b><span class="mute">@naval · Sep 30</span></p></header>
+      <div class="ptext"><p>When you look back, you’ll wish you’d just done the long-term version of everything.</p></div>
+    </article>
+    <article class="post q-m" id="slow-2125637206328881585">
+      <header><p class="who"><b>Steven Pinker</b><span class="mute">@sapinker · Nov 25</span></p></header>
+      <div class="ptext"><p>What We Can Know — Ian McEwan&#39;s latest novel endorsed by my Harvard colleague Elizabeth Bonawitz. I agree with her very positive assessment (and not just because I have a cameo).</p></div>
+    </article>
+    <nav class="sectionnav" aria-label="Section navigation"><a class="up" href="#contents">↑ Contents</a><a class="next" href="#people"><span class="nl">Next</span> People &amp; Stories ↓</a></nav>
   </section>
-  <section class="sec" id="people">
-    <h2 class="sec-head">People &amp; Stories</h2>
-    <div class="stream">
-      <article class="post" id="slow-2126262260574163245">
-        <p class="who"><b>Massimo</b> @Rainmaker1973 · Nov 27</p>
-<p>Kids today will never understand the satisfaction of owning a floppy disk box.</p>
-      </article>
-      <article class="post" id="slow-2126274334347886926">
-        <p class="who"><b>Massimo</b> @Rainmaker1973 · Nov 27</p>
-<p>A cat was spotted atop Bolivia&#39;s iconic Cristo de la Concordia statue, leaving many wondering how it got there.</p>
-      </article>
-      <article class="post" id="slow-2126263764689580503">
-        <p class="who"><b>Massimo</b> @Rainmaker1973 · Nov 27</p>
-<p>The Bay of Fundy, Nova Scotia is home to the highest tides in the world.</p>
-<p>This time lapse shows what resemble an authentic &#39;breath of the sea&#39;.</p>
-      </article>
-      <article class="post" id="slow-2126254718099783713">
-        <p class="who"><b>Massimo</b> @Rainmaker1973 · Nov 27</p>
-<p>Handfasting ceremony, a Celtic practice where a couple’s hands are tied together to symbolize their union and commitment.</p>
-      </article>
-    </div>
+  <section class="sec" id="people" aria-labelledby="people-h">
+    <h2 class="sec-head" id="people-h">People &amp; Stories</h2>
+    <article class="post q-l" id="slow-2126262260574163245">
+      <header><p class="who"><b>Massimo</b><span class="mute">@Rainmaker1973 · Nov 27</span></p></header>
+      <div class="ptext"><p>Kids today will never understand the satisfaction of owning a floppy disk box.</p></div>
+    </article>
+    <article class="post q-l" id="slow-2126274334347886926">
+      <header><p class="who"><b>Massimo</b><span class="mute">@Rainmaker1973 · Nov 27</span></p></header>
+      <div class="ptext"><p>A cat was spotted atop Bolivia&#39;s iconic Cristo de la Concordia statue, leaving many wondering how it got there.</p></div>
+    </article>
+    <article class="post q-m" id="slow-2126263764689580503">
+      <header><p class="who"><b>Massimo</b><span class="mute">@Rainmaker1973 · Nov 27</span></p></header>
+      <div class="ptext"><p>The Bay of Fundy, Nova Scotia is home to the highest tides in the world.</p><p>This time lapse shows what resemble an authentic &#39;breath of the sea&#39;.</p></div>
+    </article>
+    <article class="post q-l" id="slow-2126254718099783713">
+      <header><p class="who"><b>Massimo</b><span class="mute">@Rainmaker1973 · Nov 27</span></p></header>
+      <div class="ptext"><p>Handfasting ceremony, a Celtic practice where a couple’s hands are tied together to symbolize their union and commitment.</p></div>
+    </article>
+    <nav class="sectionnav" aria-label="Section navigation"><a class="up" href="#contents">↑ Contents</a><a class="next" href="#craft"><span class="nl">Next</span> Craft &amp; Work ↓</a></nav>
   </section>
-  <section class="sec" id="craft">
-    <h2 class="sec-head">Craft &amp; Work</h2>
-    <div class="stream">
-      <article class="post" id="slow-2125269044400111837">
-        <p class="who"><b>smitten kitchen</b> @smittenkitchen · Nov 24</p>
-<p>My favorite Thanksgiving sweet potatoes. When slow-roasted, sweet potatoes get sweeter, louder, and more nuanced than seems possible. The salty, lightly blackened skin provides a heavenly, crispy contrast; you&#39;ll never want them another way.</p>
-<figure class="pic"><img src="images/slow-2125269044400111837.jpg" alt="Photo from @smittenkitchen’s post" loading="lazy" width="960" height="640"><figcaption>Photo: @smittenkitchen</figcaption></figure>      </article>
-      <article class="post" id="slow-2125665907913392399">
-        <p class="who"><b>Design Milk</b> @designmilk · Nov 25</p>
-<p>Forest walks and Nordic seas shaped the Volvo EX60’s interior. Sara Erichsen Susnjar explains how the Scandinavian landscape informed its colors, materials, patterns, and lighting.</p>
-      </article>
-      <article class="post" id="slow-2125982445769986118">
-        <p class="who"><b>smitten kitchen</b> @smittenkitchen · Nov 26</p>
-<p>Classic, buttery, tender and stretchy Parker House rolls with a pretzel wash that makes them dark, shiny and unmistakably special on top. Trust me, the only thing better than making these for the big meal is having a guest who brings them still warm.</p>
-<figure class="pic"><img src="images/slow-2125982445769986118.jpg" alt="Photo from @smittenkitchen’s post" loading="lazy" width="960" height="639"><figcaption>Photo: @smittenkitchen</figcaption></figure>      </article>
-    </div>
+  <section class="sec" id="craft" aria-labelledby="craft-h">
+    <figure class="hero"><div class="frame"><img src="images/slow-2125269044400111837.jpg" alt="Photo from @smittenkitchen’s post" loading="lazy" width="960" height="640"><span class="shade"></span><div class="over"><span class="kick num" aria-hidden="true"></span><h2 class="sec-head" id="craft-h">Craft &amp; Work</h2></div></div><figcaption>Photo: @smittenkitchen</figcaption></figure>
+    <article class="post q-m" id="slow-2125269044400111837">
+      <header><p class="who"><b>smitten kitchen</b><span class="mute">@smittenkitchen · Nov 24</span></p></header>
+      <div class="ptext"><p>My favorite Thanksgiving sweet potatoes. When slow-roasted, sweet potatoes get sweeter, louder, and more nuanced than seems possible. The salty, lightly blackened skin provides a heavenly, crispy contrast; you&#39;ll never want them another way.</p></div>
+    </article>
+    <article class="post q-m" id="slow-2125665907913392399">
+      <header><p class="who"><b>Design Milk</b><span class="mute">@designmilk · Nov 25</span></p></header>
+      <div class="ptext"><p>Forest walks and Nordic seas shaped the Volvo EX60’s interior. Sara Erichsen Susnjar explains how the Scandinavian landscape informed its colors, materials, patterns, and lighting.</p></div>
+    </article>
+    <article class="post q-m" id="slow-2125982445769986118">
+      <header><p class="who"><b>smitten kitchen</b><span class="mute">@smittenkitchen · Nov 26</span></p></header>
+      <div class="ptext"><p>Classic, buttery, tender and stretchy Parker House rolls with a pretzel wash that makes them dark, shiny and unmistakably special on top. Trust me, the only thing better than making these for the big meal is having a guest who brings them still warm.</p></div>
+<figure class="pimg"><img src="images/slow-2125982445769986118.jpg" alt="Photo from @smittenkitchen’s post" loading="lazy" width="960" height="639"><figcaption>Photo: @smittenkitchen</figcaption></figure>    </article>
+    <nav class="sectionnav" aria-label="Section navigation"><a class="up" href="#contents">↑ Contents</a><a class="next" href="#humor"><span class="nl">Next</span> Something Light ↓</a></nav>
   </section>
-  <section class="sec" id="humor">
-    <h2 class="sec-head">Something Light</h2>
-    <div class="stream">
-      <article class="post" id="slow-2125703574868926676">
-        <p class="who"><b>The Babylon Bee</b> @TheBabylonBee · Nov 25</p>
-<p>The very first Thanksgiving took place with two unlikely friends, the Pilgrims and the Wampanoag. We still carry on the spirit of that first Thanksgiving with our traditional meals and gatherings.</p>
-      </article>
-      <article class="post" id="slow-2125731501765800110">
-        <p class="who"><b>Dad Jokes</b> @Dadsaysjokes · Nov 25</p>
-<p>Why is peter pan always flying?</p>
-<p>He neverlands.</p>
-<p>I like this joke because it never grows old.</p>
-      </article>
-      <article class="post" id="slow-2125968828823691271">
-        <p class="who"><b>The Babylon Bee</b> @TheBabylonBee · Nov 26</p>
-<p>Man Does His Part To Prepare For Thanksgiving By Not Going Into Kitchen So He Won&#39;t Be In The Way</p>
-      </article>
-    </div>
+  <section class="sec" id="humor" aria-labelledby="humor-h">
+    <h2 class="sec-head" id="humor-h">Something Light</h2>
+    <article class="post q-m" id="slow-2125703574868926676">
+      <header><p class="who"><b>The Babylon Bee</b><span class="mute">@TheBabylonBee · Nov 25</span></p></header>
+      <div class="ptext"><p>The very first Thanksgiving took place with two unlikely friends, the Pilgrims and the Wampanoag. We still carry on the spirit of that first Thanksgiving with our traditional meals and gatherings.</p></div>
+    </article>
+    <article class="post q-l" id="slow-2125731501765800110">
+      <header><p class="who"><b>Dad Jokes</b><span class="mute">@Dadsaysjokes · Nov 25</span></p></header>
+      <div class="ptext"><p>Why is peter pan always flying?</p><p>He neverlands.</p><p>I like this joke because it never grows old.</p></div>
+    </article>
+    <article class="post q-l" id="slow-2125968828823691271">
+      <header><p class="who"><b>The Babylon Bee</b><span class="mute">@TheBabylonBee · Nov 26</span></p></header>
+      <div class="ptext"><p>Man Does His Part To Prepare For Thanksgiving By Not Going Into Kitchen So He Won&#39;t Be In The Way</p></div>
+    </article>
+    <nav class="sectionnav" aria-label="Section navigation"><a class="up" href="#contents">↑ Contents</a><a class="next" href="#joke"><span class="nl">Next</span> One more thing ↓</a></nav>
   </section>
-  <footer class="end">
-    <span class="mark" aria-hidden="true">· · ·</span>
-    <div class="joke">
-      <p class="text">My best childhood memory was falling asleep on the couch and waking up in bed.
+  <section class="jokewrap" id="joke" aria-label="One more thing">
+    <span class="lbl">One more thing</span>
+    <div class="jokecard"><p class="text">My best childhood memory was falling asleep on the couch and waking up in bed.
 
 I miss teleporting. It never happens to me anymore.</p>
-      <p class="who">— Dad Jokes · on X, @Dadsaysjokes</p>
+      <p class="who">— Dad Jokes · on X, @Dadsaysjokes</p></div>
+  </section>
+  <footer class="end" id="end" aria-label="End of edition">
+    <div class="endcard">
+      <span class="check" aria-hidden="true"></span>
+      <p class="fin">That’s it for today.</p>
+      <p class="finnote">That’s all for today. Nothing else is waiting for you.</p>
+      <a class="totop" href="#top">↑ Back to the top</a>
     </div>
-    <p class="line">That’s all for today.</p>
-    <p class="note">Posts are from X, quoted in full as posted; Scripture is the King James Version. The closing joke is a real, credited line. Posts from Chris&#39;s X feed and curated accounts, Nov 13–27, 2026.</p>
-    <p class="note"><a href="../">Past editions</a> · <a href="field-notes-2026-11-27-digital.pdf" target="_blank" rel="noopener">Digital PDF</a></p>
+    <div class="afterword">
+      <p class="note">Posts are from X, quoted in full as posted; Scripture is the King James Version. The closing joke is a real, credited line. Posts from Chris&#39;s X feed and curated accounts, Nov 13–27, 2026.</p>
+      <p class="endlinks"><a href="field-notes-2026-11-27-digital.pdf" target="_blank" rel="noopener" download>Download PDF</a><span class="dot"> · </span><a href="field-notes-2026-11-27-print.pdf" target="_blank" rel="noopener">Print version</a><span class="dot"> · </span><a href="../">Past editions</a></p>
+    </div>
   </footer>
 </main>
-</body>
+<script src="../../assets/magazine.js"></script></body>
 </html>

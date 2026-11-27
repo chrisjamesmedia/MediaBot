@@ -1,0 +1,11 @@
+{#- Web-app bits for the magazine editions: "Add to Home Screen" opens the paper full-screen (manifest + iOS meta). The manifest lives at
+    site/<slug>/manifest.webmanifest (build.py writes it), start_url = that paper's latest edition. Needs: home, root, paper, icon_slug, private_copy. -#}
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="{{ paper.name }}">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#fbf7f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="{{ root }}assets/icons/{{ icon_slug }}-180.png">
+{% if not private_copy %}<link rel="manifest" href="{{ home or '../' }}manifest.webmanifest">
+{% endif %}

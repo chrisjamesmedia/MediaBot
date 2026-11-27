@@ -21,6 +21,21 @@
             </div>
           </td>
         </tr>
+{#- The lead of the email: one big button to the live, phone-first page (absolute URL from site.yaml web_base, so it only shows on the public build). -#}
+{% if base %}
+        <tr>
+          <td style="padding:22px 24px 10px;">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;">
+              <tr>
+                <td align="center" bgcolor="#1b1713" style="background:#1b1713;border-radius:999px;">
+                  <a href="{{ base }}{{ url_path }}" style="display:block;padding:18px 24px;font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:bold;line-height:1.2;color:#fbf7f0;text-decoration:none;border-radius:999px;">Read today’s edition &rarr;</a>
+                </td>
+              </tr>
+            </table>
+            <div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.5;color:#6b6558;text-align:center;padding-top:10px;">Opens the live page, made for your phone{% if paper.web.read_time %} · {{ read_min }} min read{% endif %}. The posts are below too.</div>
+          </td>
+        </tr>
+{% endif %}
 {% if sections | length > 1 %}
         <tr>
           <td style="padding:14px 24px 4px;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#6b6558;">

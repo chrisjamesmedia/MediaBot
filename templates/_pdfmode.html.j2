@@ -1,0 +1,17 @@
+{#- Digital PDF = the web edition itself, printed on phone-sized pages (build.py renders the web template with pdf_mode and prints it with Chrome).
+    So the PDF always matches the web design. No script runs: nothing is faded out, no app bar. Links to articles stay live. -#}
+<style>
+@page{size:420px 880px;margin:26px 0 30px;background:#fbf7f0}
+html{scroll-behavior:auto;background:#fbf7f0}
+body.pdfmode{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#fbf7f0}
+body.pdfmode .appbar,body.pdfmode .sectionnav,body.pdfmode .endlinks,body.pdfmode .totop,body.pdfmode .tune,body.pdfmode .ctl,body.pdfmode .seconds{display:none!important}
+body.pdfmode .story,body.pdfmode .post,body.pdfmode .pimg,body.pdfmode .passage,body.pdfmode .jokecard,body.pdfmode .hero,body.pdfmode .ever,body.pdfmode .sec-head,body.pdfmode .part-h{break-inside:avoid}
+body.pdfmode h2,body.pdfmode h3,body.pdfmode .part-h,body.pdfmode .sec-head{break-after:avoid}
+body.pdfmode .endcard{min-height:0;padding:80px 0 40px}
+body.pdfmode .afterword{margin-top:30px}
+</style>
+<style>
+body.pdfmode .post{padding-top:58px;break-inside:avoid}
+body.pdfmode .post::before{position:absolute;left:0;top:34px;height:auto;margin:0}
+body.pdfmode .post{break-inside:avoid-page}
+</style>
