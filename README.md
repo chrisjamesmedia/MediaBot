@@ -29,7 +29,7 @@ docs/edition-schema.md      the edition.json format
 docs/feedback.md            the feedback format and the sign-in plan
 tools/migrate_legacy.py     one-off: the old Oct 31 file into schema 1
 tools/x_feed.py             "Top of your feed": rank saved home-timeline pages by engagement into section feed
-tools/slow_signal.py        Field Notes: filter saved X pages (no AI, money, politics, ragebait) and pick 6-10 posts
+tools/slow_signal.py        Field Notes: filter curated X pulls (no AI, money, politics, ragebait) and pick 15-28 posts in named sections
 .github/ISSUE_TEMPLATE/     edition-request.md: the issue form behind "Tune tomorrow's paper"
 tools/screenshots.sh        headless screenshots of the local site
 tools/publish.sh            the daily publish: build, index, secret scan, commit, push

@@ -1,0 +1,78 @@
+{#- Field Notes email body: inline CSS, one column, max-width 600px. The daily email can use this as its
+    HTML body, with the print and digital PDFs still attached. No live X links. -#}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ paper.name }} · {{ date_long }}</title>
+</head>
+<body style="margin:0;padding:0;background:#f4ecdc;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f4ecdc;margin:0;padding:0;">
+  <tr>
+    <td align="center" style="padding:16px 8px 32px;">
+      <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="max-width:600px;width:100%;background:#f4ecdc;color:#1c1914;font-family:Georgia,'Times New Roman',Times,serif;">
+        <tr>
+          <td style="padding:20px 24px 16px;border-bottom:1px solid #c9c0ae;">
+            <div style="font-family:Georgia,serif;font-size:26px;font-weight:bold;line-height:1.2;color:#1c1914;letter-spacing:-0.01em;">{{ paper.name }}</div>
+            <div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.45;color:#6b6558;padding-top:8px;">
+              {{ date_long }}{% if paper.web.read_time %} · {{ read_min }} min read{% endif %}{% if weather.ok and weather.hi is defined %} · {{ weather.label }} {{ weather.hi }}° / {{ weather.lo }}°{% endif %}
+            </div>
+          </td>
+        </tr>
+{% if sections | length > 1 %}
+        <tr>
+          <td style="padding:14px 24px 4px;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#6b6558;">
+            {% for sec in sections %}{{ sec.title }}{% if not loop.last %} · {% endif %}{% endfor %}
+          </td>
+        </tr>
+{% endif %}
+{% for sec in sections %}
+        <tr>
+          <td style="padding:22px 24px 0;">
+            <div style="font-family:Georgia,serif;font-size:20px;font-weight:bold;line-height:1.25;color:#1c1914;padding-bottom:8px;border-bottom:1px solid #bdb5a4;">{{ sec.title }}</div>
+          </td>
+        </tr>
+{% for p in sec["items"] %}
+{% if p.type == "passage" %}
+        <tr>
+          <td style="padding:16px 24px 8px;border-bottom:1px solid #e4dccb;">
+            <div style="font-family:Georgia,serif;font-size:17px;font-style:italic;line-height:1.5;color:#1c1914;">{{ p.text }}</div>
+            <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#6b6558;padding-top:8px;"><strong style="color:#1c1914;">{{ p.work }}</strong> · {{ p.translation or "King James Version" }}</div>
+          </td>
+        </tr>
+{% else %}
+        <tr>
+          <td style="padding:16px 24px 14px;border-bottom:1px solid #e4dccb;">
+            <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.35;color:#6b6558;padding-bottom:8px;"><strong style="color:#1c1914;">{{ p.author }}</strong> @{{ p.handle }}{% if p.date_short %} · {{ p.date_short }}{% endif %}</div>
+            {% for para in p.text | paras %}<p style="margin:0 0 12px;font-family:Georgia,serif;font-size:16px;line-height:1.55;color:#1c1914;">{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+            {% endfor %}
+            {% if p.quoted %}<div style="margin:8px 0 0;padding:2px 0 2px 14px;border-left:2px solid #bdb5a4;">
+              <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#6b6558;padding-bottom:6px;"><strong style="color:#1c1914;">{{ p.quoted.author }}</strong> @{{ p.quoted.handle }}</div>
+              {% for para in p.quoted.text | paras %}<p style="margin:0 0 10px;font-family:Georgia,serif;font-size:15px;line-height:1.5;color:#3d3933;">{% for line in para %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+              {% endfor %}
+            </div>{% endif %}
+          </td>
+        </tr>
+{% endif %}
+{% endfor %}
+{% endfor %}
+        <tr>
+          <td style="padding:28px 24px 8px;text-align:center;border-top:1px solid #bdb5a4;">
+            <div style="letter-spacing:0.5em;color:#6b6558;font-size:13px;padding-bottom:10px;">· · ·</div>
+            {% if joke %}
+            <div style="padding:0 0 18px;">
+              <div style="font-family:Georgia,serif;font-size:17px;font-style:italic;line-height:1.5;color:#1c1914;">{{ joke.text }}</div>
+              <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#6b6558;padding-top:8px;">— {{ joke.author }}{% if joke.where %} · {{ joke.where }}{% endif %}</div>
+            </div>
+            {% endif %}
+            <div style="font-family:Georgia,serif;font-size:18px;font-style:italic;line-height:1.4;color:#1c1914;padding-bottom:12px;">{{ paper.web.end_line }}</div>
+            <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.5;color:#6b6558;">{{ paper.web.source_note }}{% if coverage %} {{ coverage }}{% endif %}</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

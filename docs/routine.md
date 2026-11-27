@@ -160,53 +160,80 @@ any item carrying quote-bank doc refs (source_doc_title / source_doc_id).
 
 ## Field Notes
 
-The daily routine builds both papers. Do Field Notes right after Signal Seeker's X pulls (it reuses the
-same saved pages) and before `tools/publish.sh`, so the one publish commit carries both.
+The daily routine builds both papers. Do Field Notes right after Signal Seeker's X pulls and before
+`tools/publish.sh`, so the one publish commit carries both. Field Notes opens with a filtered slice
+of Chris's own X (home timeline, his Lists, recent bookmarks and likes — all read-only via user-X),
+then the curated sections, and ends with one real credited joke.
 
 ```text
 Compile today's Field Notes (papers/field-notes/editions/<TODAY>/edition.json). It is a calm, X-only
-paper for Chris with NO AI and NO investing: about 6-10 posts, one per author, full text, ending with
-"That's all for today." Signal Seeker carries AI and markets; this paper must not. (Formerly Slow
-Signal; keep old /slow-signal/ edition URLs working as an archive.)
+paper for Chris with NO AI, NO investing (stocks, markets, crypto) and NO politics or war: about
+18-34 posts (900-2500 words, a 3-10 minute read). It opens with "From Your Feed", then named
+sections (Faith & Scripture with one verse of KJV Scripture, Nature & Science, Books & Ideas,
+People & Stories, Craft & Work, Something Light), every post in full, and ends with exactly one
+real credited joke, then "That's all for today." Tone: wholesome, grounded, contrarian-sensible,
+insightful; never cynical, never ragebait. Signal Seeker carries AI and markets; this paper must not.
 
-RULES: X is read-only: never post, like, follow, bookmark, reply or DM. Never invent facts, quotes or
-attributions; post text is quoted exactly (the build prints it as written, no summaries, no headlines).
-Nothing personal goes in the public build, and never say in the paper that a post came from his
-bookmarks or likes.
+RULES: X is read-only: never post, like, follow, bookmark, reply or DM. Never invent facts, quotes,
+authors, jokes or URLs; post text is quoted exactly. The closer joke must be real and credited
+(a named comedian with a source, or a verified real post), never AI-written; keep it clean,
+Christian-friendly, smart, dry, with a tech or dad-humor sensibility. Nothing personal goes in
+the public build, and never say a post came from his bookmarks or likes. Do not touch the
+quote-bank docs.
 
-1. PULL (read-only user-X tools; save every raw reply OUTSIDE the repo, e.g. /tmp/slow/):
-   a. Home timeline: reuse Signal Seeker's step 1b pages (/tmp/feed/p*.json), or pull them the same way.
-   b. Lists: the posts of his non-investing lists and "2026 GOATS" (get_lists_posts, max_results 100,
-      same post fields and expansions as 1b).
-   c. Bookmarks and likes (get_users_bookmarks / get_users_liked_posts, a page or two each): these are
-      EVERGREEN candidates and may be up to evergreen_age_days old.
-   Send post.fields created_at,public_metrics,author_id,lang,conversation_id,referenced_tweets,
-   note_tweet,in_reply_to_user_id and expansions author_id,referenced_tweets.id,
-   referenced_tweets.id.author_id with user.fields username,name,verified,public_metrics.
-2. DRY RUN: .venv/bin/python tools/slow_signal.py field-notes <TODAY> /tmp/feed/p*.json /tmp/slow/list*.json
+1. PULL (all read-only; save every raw reply OUTSIDE the repo, /tmp/feed/ and /tmp/slow/):
+   a. FEED FIRST (authenticated user-X, read-only): Chris's home timeline, his Lists, and recent
+      bookmarks and likes. Save home as /tmp/feed/p*.json, lists as /tmp/slow/list_*.json,
+      bookmarks and likes as /tmp/slow/bookmarks.json and likes.json. These feed the opening
+      section, "From Your Feed" — about 4-8 non-financial posts: no stocks, investing, markets
+      or crypto, and also no AI and no politics or war. Pull every List; the money/AI/politics
+      filters will drop the rest. Never label a post as coming from bookmarks or likes in the
+      public build; the section title is only "From Your Feed".
+   b. CURATED (public read-only "x" tools, search_posts_all): .venv/bin/python tools/fn_queries.py
+      prints the search queries built from papers/field-notes/sources/curated_accounts.json
+      (about 6 per section). Run each with start_time = TODAY minus 14 days, max_results 25
+      (the API's cap), -is:reply -is:retweet lang:en, post.fields created_at,public_metrics,
+      author_id,lang,referenced_tweets,note_post,in_reply_to_user_id, conversation_id and
+      expansions author_id,referenced_tweets.id,referenced_tweets.id.author_id (user.fields
+      username,name,verified,public_metrics). Save as /tmp/slow/curated_*.json.
+      Limits: 30 reads a minute, 1000 a day.
+2. DRY RUN: .venv/bin/python tools/slow_signal.py field-notes <TODAY> /tmp/feed/p*.json
+      /tmp/slow/list_*.json --curated /tmp/slow/curated_*.json
       --evergreen /tmp/slow/bookmarks.json,/tmp/slow/likes.json
-   It drops replies, the reader's own posts, posts already run in an earlier edition, hook accounts
-   (papers/field-notes/sources/hook_accounts.json: accounts that usually post AI or finance, plus anything
-   quoting them), the noise list, stale, non-English and short posts, and any post whose text (or quoted
-   text) hits the exclude words: ai, money, politics_war, ragebait (paper.yaml sources.x.slow.exclude;
-   "*" = prefix). It prints every cut reason with examples, the pick (topic + score), the next in line,
-   and kept posts that match no topic word.
-3. READ the pick and the next in line as an editor. Prefer posts with a lasting idea. Veto hype,
-   promos, culture-war, grief-bait or anything that pulls back into the feed with --skip <id,id>;
-   promote a better post with --pin <id,id>; file a no-topic post with --topic <id>=<section>.
-   Sections: ideas, science (health: metabolic, psychedelic), making, nature (incl. history), books
-   (incl. faith), lighter (humor). If a good post was cut by a word by mistake, --pin it.
-4. FULL TEXT: bookmark/like pages (and some quoted posts) can be cut at ~280 characters. Re-read the
-   picked ids with get_posts_by_ids (post.fields incl. note_tweet; the expansions above), save it
-   outside the repo, and pass that file LAST in --evergreen so its full text wins.
-5. WRITE: rerun with the same flags plus --write. Check the file: every post's text exactly as on X,
-   quoted posts inset with their real author, no URLs printed. Set "coverage" to one plain line (e.g.
-   "Nine posts, February-November 2026. Compiled Sunday, Nov. 1, ET.").
-6. BUILD: .venv/bin/python build.py field-notes <TODAY> --weather   (Boston high/low only; no news,
-   holdings, Passage, games or funnies). It writes site/field-notes/<TODAY>/, the PDFs and
-   site/field-notes/latest/. Read the output: print is two flowing columns on letter (no boxed cards),
-   about 2-4 pages (padded to even for duplex when even_pages is true).
-7. CHECK: no x.com links on the web posts:
+   It fills "From Your Feed" first from the home/list/bookmark/like pulls, then the curated
+   sections. It filters (hard words cut at once; soft words cut at two different hits; promos,
+   teasers, link captions, crude words, ads, noise accounts, hook accounts), scores per section,
+   applies author caps and section quotas, and fits the word budget. It prints every cut reason,
+   the pick by section (with word counts), the next in line, and a REFETCH line if curated posts
+   were cut at ~300 characters. The closer joke is chosen here: a fresh unused humor-account post
+   may win; otherwise a joke from papers/field-notes/jokes.json, rotated via jokes_seen.json
+   (oldest-seen first).
+3. READ every pick as an editor. --skip <id,id> anything political, crude, a promo or ad, a finance
+   brand, a cut-off post, a weak post, or a money-adjacent feed item; --pin <id,id> to promote
+   (use this to fill "From Your Feed" to at least 4 good posts); --topic <id>=<section> to refile.
+4. FULL TEXT: if a REFETCH line is printed, call get_posts_by_ids on those ids (note_post in
+   post.fields), save it, and pass that file LAST in --curated so the full text wins. Rerun the dry run.
+5. JOKE: confirm the closer is real, credited, and fits Chris (clean, Christian-friendly, smart,
+   dry; tech or dad humor). If the chosen joke is weak or off-tone, --skip its post id or bank id
+   and rerun. To add to the bank (when fewer than ~8 have not run): only from a page you fetched
+   (Wikiquote comedian page, or another page that has the exact line), text matches the source
+   exactly, author and source_url set; then run tools/jokes_check.py field-notes (it re-fetches
+   every source and fails a joke whose exact text is not on its page). Never from memory, never
+   "joke sites", never AI-written.
+6. WRITE: rerun with the same flags plus --write (this records the chosen Scripture passage in
+   papers/field-notes/scripture_seen.json, and a bank joke in papers/field-notes/jokes_seen.json;
+   COMMIT those files with the edition so passages and jokes rotate). Set "coverage" to one plain
+   line. Check the read time printed (target 3-10 minutes).
+7. BUILD: .venv/bin/python build.py field-notes <TODAY> --weather. Read the output: sections, word
+   count, read time, print pages (max_sheets in paper.yaml), digital PDF, and the email HTML.
+   The print PDF stays letter, two columns, for paper. The digital PDF is phone-sized (about 410pt
+   wide, one column, 16pt type) so it reads well as a chat or email attachment on a phone. The web
+   edition is mobile-first and should look right at 390px wide. The build also writes
+   site/field-notes/<TODAY>/field-notes-<TODAY>-email.html: a single-column, inline-CSS, max-width
+   600px body for the daily email. Use that file as the email's HTML body; still attach both PDFs.
+8. CHECK: no x.com links on the web posts or the email body:
       grep -rnoE 'href="[^"]*(x\.com|twitter\.com|t\.co)' site/field-notes/ || echo none
    then publish with Signal Seeker (tools/publish.sh signal-seeker <TODAY> --weather), which commits both.
+   In the delivery note, mention the read time, the sections (From Your Feed first), and the closer
+   joke with its credit. The email carries the HTML body plus the two PDFs.
 ```

@@ -1,6 +1,7 @@
 # Field Notes: a calm, X-only paper with no AI and no investing. Made with MediaBot.
 # Why it exists: Signal Seeker's AI and markets posts pulled Chris back into X ("a little free sample").
-# This paper is the opposite: a few lasting posts from his own X, printed in full, with no way back into the feed.
+# Field Notes opens with a filtered slice of his own feed (no AI, investing or politics), then curated
+# sections, and ends with one real credited joke. Posts are printed in full, with no way back into X.
 # Renamed from Slow Signal (2026-11-09). Old /slow-signal/ edition URLs stay as an archive.
 
 name: Field Notes
@@ -9,9 +10,10 @@ public: true
 reader: Chris James
 layout: slow                   # templates/slow.html.j2 + slow-print.html.j2: open editorial newsletter
 description: >-
-  A short, calm read of posts from Chris James's X that are not about AI or
-  investing: science, health, ideas, craft, nature, history, faith, books and
-  a little humor. Printed in full, a few a day, with a clear end.
+  A calm three-to-ten-minute read of lasting posts from X that are not about AI,
+  investing or politics: a slice of your own feed first, then Scripture and faith,
+  nature and science, books and ideas, people and stories, craft and work, and some
+  real humor, ending with one credited joke. Printed in full, with a clear end.
 
 masthead:
   style: slow                  # one quiet title line: name, date, weather high/low
@@ -24,10 +26,10 @@ masthead:
 
 print:
   size: medium
-  sizes:                       # letter, two flowing columns; 2–4 sides
-    small:  {target_sheets: [1, 1], max_sheets: 1}
-    medium: {target_sheets: [1, 2], max_sheets: 2}
-    large:  {target_sheets: [1, 2], max_sheets: 2}
+  sizes:                       # letter, two flowing columns; 2–4 sides (900-2,500 words)
+    small:  {target_sheets: [2, 3], max_sheets: 3}
+    medium: {target_sheets: [2, 3], max_sheets: 3}
+    large:  {target_sheets: [2, 3], max_sheets: 3}
   photos: false
   qr: false                    # nothing that leads back to a screen
   pt: 9.5                       # body type size (pt) for two-column letter pages
@@ -37,92 +39,124 @@ web:
   images: false
   x_links: false               # no live links to x.com on posts: handle and date are plain text
   end_line: "That’s all for today."
-  source_note: "All posts are from X, quoted in full as posted."
+  source_note: "Posts are from X, quoted in full as posted; Scripture is the King James Version. The closing joke is a real, credited line."
+  read_time: true              # "7 min read" in the masthead, counted from the words printed
   topic_labels: false          # section headers name the topic; no per-post tag
 
-# Sections are light topic groups, in reading order. Every item is an X post (tools/slow_signal.py writes them).
-# The build caps the whole paper at total_max posts.
-total_max: 10
+# Sections are named topic groups, in reading order. The first section is a filtered slice of the reader's own X
+# (home timeline, Lists, recent bookmarks and likes — never labeled as bookmarks or likes in the public paper).
+# Every other item is an X post from the curated roster, except one short passage of King James Scripture at the
+# top of Faith & Scripture (tools/fn_scripture.py) and one real credited joke at the end (tools/fn_jokes.py).
+# 3-10 minute read: total 900-2,500 words. The build caps the whole paper at total_max posts.
+total_max: 34
 sections:
-  - {id: ideas,   title: Ideas & Life,      enabled: true, weight: 6, max_items: 4}
-  - {id: science, title: Science & Health,  enabled: true, weight: 6, max_items: 4}
-  - {id: making,  title: Building & Making, enabled: true, weight: 5, max_items: 3}
-  - {id: nature,  title: Nature & History,  enabled: true, weight: 5, max_items: 3}
-  - {id: books,   title: Books & Faith,     enabled: true, weight: 5, max_items: 3}
-  - {id: lighter, title: Lighter,           enabled: true, weight: 4, max_items: 2}
+  - {id: feed,    title: From Your Feed,    enabled: true, weight: 8, min_items: 4, target_items: 6, max_items: 8}
+  - {id: faith,   title: Faith & Scripture, enabled: true, weight: 6, min_items: 2, max_items: 5}
+  - {id: science, title: Nature & Science,  enabled: true, weight: 6, min_items: 3, max_items: 6}
+  - {id: ideas,   title: Books & Ideas,     enabled: true, weight: 6, min_items: 3, max_items: 6}
+  - {id: people,  title: People & Stories,  enabled: true, weight: 5, min_items: 2, target_items: 4, max_items: 5}
+  - {id: craft,   title: Craft & Work,      enabled: true, weight: 5, min_items: 2, target_items: 3, max_items: 4}
+  - {id: humor,   title: Something Light,   enabled: true, weight: 4, min_items: 2, target_items: 3, max_items: 3}
+  # Legacy section ids, so earlier editions still rebuild. New editions never fill them.
+  - {id: making,  title: Building & Making, enabled: true, weight: 1, max_items: 3}
+  - {id: nature,  title: Nature & History,  enabled: true, weight: 1, max_items: 3}
+  - {id: books,   title: Books & Faith,     enabled: true, weight: 1, max_items: 3}
+  - {id: lighter, title: Lighter,           enabled: true, weight: 1, max_items: 2}
 
 sources:
   x:
     reader_handle: "@ChrisJamesUSA"     # the reader's own posts are never picked
-    # Read-only pulls, the same as Signal Seeker: home timeline (get_users_timeline), his Lists, bookmarks, likes.
-    # Saved raw OUTSIDE the repo; tools/slow_signal.py reads them.
+    # Read-only pulls (never post, like, follow, bookmark, reply or DM). Saved raw OUTSIDE the repo; tools/slow_signal.py reads them:
+    #   home timeline + Lists + bookmarks/likes → the opening "From Your Feed" section (AI, investing and politics cut;
+    #   never label a post as a bookmark or like in the public paper);
+    #   curated accounts (tools/fn_queries.py prints the search_posts_all queries) → the named topic sections that follow.
     slow:
-      count: 9                 # posts per edition (6–10); one per author
-      min_count: 6
-      max_age_days: 3          # posts older than this (vs the edition date) are not candidates…
-      evergreen_age_days: 400  # …except from bookmark/like dumps (pass with --evergreen), which may be older
-      min_chars: 100           # substantive posts (URLs/@mentions don't count)
+      count: 28                # target posts per edition (feed 4-8 plus curated)
+      min_count: 18
+      max_count: 34
+      words: {min: 900, target: 1800, max: 2500}   # a 3-10 minute read at ~230 wpm
+      max_per_author: 2        # one per author first; a second only if the paper is still short
+      max_age_days: 3          # home-timeline posts older than this (vs the edition date) are not candidates…
+      curated_age_days: 14     # …curated accounts post less often, so they get two weeks
+      evergreen_age_days: 400  # …except bookmark/like dumps (--evergreen), which may be older
+      min_chars: 100           # substantive posts (URLs/@mentions don't count); curated voices may be short and wise…
+      min_chars_voice: 55      # …(a Pico Iyer line, a one-line joke)
+      allow_phrases: ["library of congress", "congress of vienna", "continental congress"]
+      soft_hits: 2             # exclude.soft: this many different soft words cut a post
+      scripture: true          # one verified KJV passage at the top of Faith & Scripture (tools/fn_scripture.py)
       hook_accounts: sources/hook_accounts.json   # never printed: accounts that mostly post AI/markets/crypto/Tesla
-      # His own "worth reading" and science/health voices (Signal Seeker's x_accounts.json): ranked a little higher.
+      curated_accounts: sources/curated_accounts.json   # default section + voice/org for each curated account
+      # His own "worth reading" voices: ranked a little higher.
       prefer: ["@FU_joehudson", "@p_millerd", "@naval", "@paulg", "@davidsenra", "@david_perell", "@nopranablem",
                "@JK_Lundblad", "@simonsarris", "@GeorgiaEdeMD", "@mimikmorgan", "@Metabolic_Mind", "@StevePhillipsMD",
                "@Mad_In_America", "@MHTMakerspace", "@BenSchwartz_MD", "@raechellambert", "@paulsaladinomd", "@TheBabylonBee"]
       noise: ["@TheGNPE", "@TheValueist", "@PortPolitics1", "@PBDsPodcast", "@TickerDUBS", "@ndenverco",
-              "@newstart_2024", "@kator1313", "@LibertyCappy", "@cheruiyotkb", "@squawksquare"]
-      # Hard exclusions. Whole words (plural ok); a trailing * matches any ending. Checked against the post AND
-      # any post it quotes. Cashtags ($NBIS) are always cut. The worker still reads every pick (--skip).
+              "@newstart_2024", "@kator1313", "@LibertyCappy", "@cheruiyotkb", "@squawksquare", "@CSLewisDaily",
+              "@lonelyplanet", "@KyleReidhead", "@JohnCleese", "@VigilantFox", "@LPCapitalChi", "@X0TICxo"]
+      # HARD words: one whole-word hit cuts the post (checked against the post AND any post it quotes). Only words that
+      # are unambiguous. A trailing * matches any ending. Cashtags ($NBIS) are always cut.
       exclude:
         ai: [ai, a.i., agi, asi, llm*, gpt*, chatgpt, openai, anthropic, claude, gemini, grok, xai, copilot, deepmind,
              mistral, perplexity, midjourney, "artificial intelligence", "machine learning", "neural net*", "deep learning",
-             nvidia, gpu*, tpu*, compute, inference, datacenter*, "data center*", agent*, agentic, chatbot*, prompt*,
-             token*, "ai model*", "language model*", "frontier model*", "foundation model*", superintelligen*,
-             singularity, alignment, robot*, humanoid*, optimus, automat*, fsd, "self-driving", autonomous, robotaxi*,
-             cybercab, tesla, tsla, elon, musk, spacex, starship, starlink, neuralink, cybertruck, altman, karpathy,
-             zuckerberg, thiel, "meta ai", "vibe cod*", assistant*, bot, bots, nebius, micron,
-             sandisk, hynix, amazon, meta, google, microsoft, apple, "big tech", "fintwit", algo, algorithm*, coding, codex, software, saas, startup*, "y combinator", yc]
-        money: [invest*, stock*, "share price*", shareholder*, "market*", earnings, revenue*, valuation*, ipo, ipos,
-                nasdaq, "s&p", dow, spy, qqq, etf*, portfolio*, trading, trade, trader*, options, leaps, bullish, bearish,
-                "bull market", "bear market", rally, selloff, "sell-off", crash, ath, crypto*, bitcoin, btc, eth,
-                ethereum, solana, blockchain, nft*, defi, coinbase, memecoin*, fed, "interest rate*", "rate cut*",
-                inflation, recession, gdp, macro, yield*, bond*, treasur*, dividend*, "hedge fund*", vc, "venture capital",
-                capex, hyperscaler*, "wall street", wealth, wealthy, millionaire*, billionaire*, "net worth",
-                financ*, fund, funds, funding, "price target*", profit*, "compound interest", money, dollar*, "$",
-                economy, economic*, tariff*, debt, margin*, bubble, gfc, rich, richest, "get rich", "real estate", mortgage*, "401k", retire*]
-        politics_war: [trump*, biden, harris, vance, obama, democrat*, republican*, gop, maga, liberal*, conservative*,
-                       leftist*, left-wing, right-wing, woke, dei, election*, ballot*, voter*, vote, voting, midterm*,
-                       congress*, senate, senator*, governor*, mayor*, president*, "white house", administration,
-                       "supreme court", parliament, labour, tory, starmer, farage, migrant*, immigra*, deport*, border,
-                       ice, israel*, gaza, hamas, hezbollah, palestin*, ukrain*, russia*, putin, zelensk*, iran*, china,
-                       chinese, ccp, taiwan, war, wars, missile*, military, troops, nato, ceasefire, terror*, police,
-                       arrest*, protest*, riot*, crime, killed, murder*, shooting, stabbing, prison, epstein, "charlie kirk",
-                       socialis*, communis*, marxis*, fascis*, antifa, shutdown, government, politic*, partisan,
-                       globalis*, carney, rfk, maha, "legacy media", censor*, army, "october 7", antisemit*, snap, medicare, obamacare, visa, visas, "two-tier",
-                        trudeau, "eu", "european union", admission*, affirmative, "j6", judge*, pardon*,
-                       patriot*, leftis*, "the left", "the right", feminis*, "young men", "men vs", migrat*, refugee*, islam*, muslim*]
+             nvidia, gpu*, tpu*, datacenter*, "data center*", agentic, chatbot*, "ai model*", "language model*",
+             "frontier model*", "foundation model*", superintelligen*, singularity, robotaxi*, cybercab, tesla, tsla, elon, musk,
+             spacex, starship, starlink, neuralink, cybertruck, altman, karpathy, zuckerberg, thiel, "meta ai", "vibe cod*",
+             nebius, micron, sandisk, hynix, agent*, automat*, robot*, algorithm*, coding, software, compute, prompt*, "big tech", fintwit, saas, "y combinator", humanoid*, optimus, "self-driving", fsd]
+        money: [invest*, stock, stocks, "stock market", "share price*", shareholder*, earnings, revenue*, valuation*, ipo, ipos,
+                nasdaq, "s&p", etf*, portfolio*, trading, trader*, leaps, bullish, bearish, "bull market", "bear market",
+                selloff, "sell-off", crypto*, bitcoin, btc, ethereum, solana, blockchain, nft*, defi, coinbase, memecoin*,
+                "interest rate*", "rate cut*", inflation, recession, gdp, macro, hedge, "hedge fund*", "venture capital",
+                capex, hyperscaler*, "wall street", "net worth", "price target*", dividend*, "compound interest", tariff*,
+                "get rich", "real estate", mortgage*, "401k", millionaire*, billionaire*, "financial advisor*", semis, wfe, semiconductor*]
+        politics_war: [parliament*, westminster, "=trump", "=trump's", "=trump’s", donald, realdonaldtrump, biden, harris, vance, obama, pelosi, democrat*, republican*, gop, maga, leftist*, "left-wing", "right-wing",
+                       woke, election*, ballot*, voter*, midterm*, congress*, senate, senator*, "white house", "supreme court",
+                       starmer, farage, immigra*, deport*, gaza, hamas, hezbollah, palestin*, ukrain*, russia*,
+                       putin, zelensk*, iran*, ccp, taiwan, war, wars, missile*, military, troops, nato, ceasefire, terror*,
+                       riot*, epstein, "charlie kirk", socialis*, communis*, marxis*, fascis*, antifa, shutdown, partisan,
+                       carney, rfk, maha, "legacy media", "october 7", antisemit*, obamacare, trudeau, "european union",
+                       affirmative, "j6", reparation*, politic*, "covering politics", impeach*, liberals, conservatives, "pro-life", "pro-choice", abortion, islam*, muslim*]
+        # (allow_phrases below are removed from a post before these words are checked.)
+        # Crude or explicit language and sex talk: never printed, however good the author.
+        crude: [shit*, fuck*, bullshit, cunt*, asshole*, asswipe*, dick, dickhead*, cock*, prick*, wanker*, bitch*, bastard*, slut*, whore*,
+                douche*, porn*, nude, naked, "sex", sexy, sexual*, erotic*, incest, "virgin*", scrotum, penis, testicle*, urine, sodomy, bestiality, masturbat*, fellatio, orgasm*,
+                "onlyfans", rape*, molest*, pedophil*, "ass", damn, crap, piss*, nsfw]
         ragebait: [breaking, "just in", unhinged, insane, disgusting, destroyed, owned, ratio, cancel*, boycott,
                    outrage*, furious, slams, "you won't believe", "nobody is talking", "wake up", "🚨", giveaway*,
                    "use code", sponsored, "link in bio", "comment below", "drop your", "tag a friend", "save this",
-                   "bookmark this", "follow me", webinar, presale, airdrop, "sign up", "limited time", discount]
-      # Topic words sort survivors into the light topic groups (first match wins in this order). A post with no
-      # topic word is only printed if the worker files it with --topic <id>=<section> after reading it.
+                   "bookmark this", "follow me", presale, airdrop, "limited time", discount]
+        # SOFT words: fine alone ("judge", "border", "market", "trade", "token", "meta", "ice", "money", "work"), but two different
+        # ones together mean the post is drifting into politics, tech or finance, so it is cut. One is kept.
+        soft: [judge*, border, ice, eu, snap, visa, visas, dei, meta, bot, bots, token*, trade, fund, funds, funding, rich, richest,
+               wealth, wealthy, margin*, yield*, bond*, options, dow, fed, killed, murder*, shooting, stabbing, crime, police,
+               arrest*, prison, army, government, president*, mayor*, governor*, china, chinese, administration, "supreme",
+               refugee*, migrat*, migrant*, israel*, "the left", "the right", feminis*, "young men", patriot*, protest*, censor*, ballot*,
+               market, markets, money, dollar*, "$", economy, economic*, debt, bubble, profit*, financ*, retire*,
+               compute, inference, agent*, assistant*, automat*, algorithm*, algo, coding, software, startup*, yc, prompt*,
+               robot*, autonomous, alignment, amazon, apple, google, microsoft, "tech", vc, wfe, semi, semis, semiconductor*, "short", crash, rally, liberal*,
+               conservative*, democracy, governor, tax, taxes, court, vote, voting]
+      # Topic words. Each section scores a post by how many of its words appear; a curated account's default section adds 2.
+      # (humor is never guessed from words: it comes only from the humor accounts, or --topic.)
       topics:
-        science: [science, scientist*, study, studies, research*, researcher*, physics, biolog*, chemistry, brain*,
-                  neuro*, cell, cells, gene, genes, genetic*, dna, evolution*, metabolic, metabolism, keto*, insulin,
-                  glucose, psychedelic*, psilocybin, mdma, ketamine, lsd, ayahuasca, psychiatr*, "mental health",
-                  depression, anxiety, health, healthy, sleep, exercise, nutrition, diet, protein, fasting, longevity,
-                  disease*, cancer, doctor*, medicine, medical, patient*, trial, vaccine*, virus, microbiome, gut,
-                  space, nasa, telescope, galaxy, planet*, moon, mars, universe, cosmos, astronom*, math*, fossil*]
-        ideas: [life, meaning, wisdom, wise, philosoph*, truth, love, fear, happiness, happy, joy, grief, attention,
-                culture, idea*, think*, learn*, education, school*, teach*, kid, kids, child, children, parent*, family,
-                friend*, community, rest, habit*, purpose, freedom, curiosity, curious, honest*, feeling*, emotion*,
-                courage, kindness, patience, work, career, writing, write, writer*, essay*, art, artist*, music,
-                film, song*, beauty, beautiful, marriage, relationship*, conversation*, silence, solitude, walk*]
-        making: [build, building, built, craft*, maker*, making, handmade, woodwork*, carpent*, furniture, garden*,
-                 cook*, recipe*, bread, bake*, kitchen, design*, architect*, house, houses, home, tool, tools,
-                 engineer*, repair*, sewing, knit*, pottery, workshop, farm*, homestead*]
-        nature: [nature, natural, forest*, tree, trees, bird*, animal*, river*, ocean*, sea, mountain*, wildlife,
-                 season*, autumn, winter, spring, leaves, flower*, history, historic*, century, centuries, ancient,
-                 medieval, archaeolog*, museum*, cathedral*, ruins, roman, greek, empire, 18th, 19th, 1800s, 1900s]
-        books: [book*, read, reading, reader*, novel*, author*, poem*, poet*, poetry, library, libraries, god, faith,
-                pray*, church, scripture, bible, jesus, christ, christian*, spiritual*, soul, meditat*, prayer, gospel,
-                psalm*, saint*, monk*, zen, tao, stoic*]
+        faith: [god, jesus, christ, christian*, scripture*, bible, biblical, psalm*, prayer, pray*, gospel, grace, church,
+                faith, faithful, lord, holy, spirit, saint*, sermon, thanksgiving, gratitude, grateful, thankful, worship, kingdom,
+                cross, resurrection, mercy, sabbath, advent, theolog*, pastor*, disciple*, apostle*, proverbs, hymn*, monk*,
+                catholic, orthodox, gospel, covenant, redeem*, repent*, blessing, blessed, soul]
+        science: [science, scientist*, study, studies, research*, physics, biolog*, chemistry, brain*, neuro*, cell, cells, gene,
+                  genes, genetic*, dna, evolution*, metabolic, metabolism, insulin, glucose, psychiatr*, "mental health", depression,
+                  anxiety, health, healthy, sleep, exercise, nutrition, diet, protein, fasting, longevity, disease*, cancer, doctor*,
+                  medicine, medical, patient*, vaccine*, microbiome, gut, space, nasa, telescope, galaxy, planet*, moon, mars,
+                  universe, cosmos, astronom*, math*, fossil*, nature, natural, forest*, tree, trees, bird*, animal*, river*,
+                  ocean*, sea, mountain*, wildlife, season*, autumn, winter, leaves, flower*, species, climate, whale*, dog, dogs,
+                  eagle*, coffee, memory, eclipse, archaeolog*, ancient]
+        ideas: [book*, read, reading, reader*, novel*, author*, poem*, poet*, poetry, library, libraries, essay*, writing, write,
+                writer*, philosoph*, wisdom, wise, truth, meaning, purpose, attention, curiosity, curious, habit*, learn*, think*,
+                idea*, mind, quote, quotes, literature, classic*, stoic*, art, artist*, music, beauty, beautiful, solitude, silence,
+                question*, discipline, decision*, thought*, language, words, word, linguist*, professor, taboo]
+        people: [history, historic*, century, centuries, museum*, story, stories, family, families, friend*, community, neighbor*,
+                 grandfather*, grandmother*, grandparent*, mother, father, dad, mom, kids, children, child, marriage, veteran*,
+                 kindness, generosity, listen*, conversation*, memory, memories, holiday, holidays, thanksgiving, tradition*,
+                 travel, journey, city, village, home, hometown, culture, heritage, ancestor*, letters, diary, interview, humans]
+        craft: [build, building, built, craft*, maker*, making, handmade, woodwork*, carpent*, furniture, garden*, cook*, recipe*,
+                bread, bake*, baking, kitchen, design*, architect*, house, houses, tool, tools, engineer*, repair*, sewing, knit*,
+                pottery, workshop, farm*, homestead*, work, career, job, apprentice*, skill*, practice, renovation, interior*,
+                typeface, sink, wood, carving, mechanic*, maker, gift, oven, roast*, soup, pie, sweet, potatoes]

@@ -1,0 +1,161 @@
+{
+ "_about": "Curated, calm X accounts for Field Notes, by default section. 'voices' are people or ministries posting standalone thoughts; 'orgs' are institutions (ranked lower, they often post headline teasers). Read-only public reads: tools/fn_queries.py turns this into search queries. Nothing here is followed, liked or messaged. Handles that do not exist or post nothing are simply skipped.",
+ "faith": {
+  "voices": [
+   "JohnPiper",
+   "timkellernyc",
+   "desiringGod",
+   "Ligonier",
+   "BishopBarron",
+   "WordOnFire",
+   "YouVersion",
+   "BillyGraham",
+   "MaxLucado",
+   "chuckswindoll",
+   "BibleProject",
+   "AlisterBegg",
+   "kevindeyoung",
+   "RickWarren"
+  ],
+  "orgs": [
+   "TGC"
+  ]
+ },
+ "science": {
+  "voices": [
+   "foundmyfitness",
+   "PeterAttiaMD",
+   "ProfBrianCox",
+   "cornellbirds",
+   "AudubonSociety",
+   "JaneGoodallInst",
+   "MarkRober",
+   "neiltyson",
+   "kurzgesagt"
+  ],
+  "orgs": [
+   "ScienceNews",
+   "SmithsonianMag",
+   "NatGeo",
+   "NASAWebb",
+   "NASAHubble",
+   "BBCEarth",
+   "newscientist",
+   "IFLScience",
+   "esa",
+   "pbsnature"
+  ]
+ },
+ "ideas": {
+  "voices": [
+   "BrainPicker",
+   "paulg",
+   "PicoIyer",
+   "kevin2kelly",
+   "Austin_Kleon",
+   "shaneparrish",
+   "JamesClear",
+   "oliverburkeman",
+   "POETSorg",
+   "sapinker",
+   "adamgrant",
+   "naval",
+   "david_perell",
+   "RobertGreene",
+   "RyanHoliday",
+   "AnnieDuke",
+   "sivers"
+  ],
+  "orgs": [
+   "LitHub",
+   "TheParisReview",
+   "PenguinClassics",
+   "NewYorkReview"
+  ]
+ },
+ "people": {
+  "voices": [
+   "humansofny",
+   "johngreen",
+   "hankgreen",
+   "dog_rates",
+   "HistoryHit",
+   "TheMoth",
+   "ANNELAMOTT",
+   "Rainmaker1973",
+   "mikeroweworks",
+   "craigmod",
+   "KatecBowler",
+   "AnnVoskamp",
+   "calfussman",
+   "MatthewDicks",
+   "daveisay",
+   "bobgoff",
+   "carlsafina",
+   "JohnMuirLaws",
+   "HelenJMacdonald",
+   "PaulNicklen",
+   "KennKaufman",
+   "PeterWohlleben",
+   "NaturalNav",
+   "Nick_Offerman",
+   "KateDiCamillo",
+   "SteveBackshall",
+   "amortowles",
+   "RickSteves",
+   "susanorlean"
+  ],
+  "orgs": [
+   "StoryCorps",
+   "britishmuseum",
+   "metmuseum",
+   "BBCHistoryMag",
+   "librarycongress",
+   "nypl",
+   "nationaltrust",
+   "HistoricEngland",
+   "smithsonian",
+   "upworthy",
+   "GoodNewsMovement",
+   "AtlasObscura",
+   "NatGeoTravel"
+  ]
+ },
+ "craft": {
+  "voices": [
+   "simonsarris",
+   "MHTMakerspace",
+   "donttrythis",
+   "Wood_Whisperer",
+   "smittenkitchen",
+   "ottolenghi",
+   "vanessawestwood",
+   "ciaosamin"
+  ],
+  "orgs": [
+   "FineWoodworking",
+   "dezeen",
+   "core77",
+   "designmilk",
+   "ArchDaily",
+   "rhsgardening",
+   "thisoldhouse",
+   "LeeValleyTools",
+   "HODINKEE"
+  ]
+ },
+ "humor": {
+  "voices": [
+   "TheBabylonBee",
+   "Dadsaysjokes",
+   "JimGaffigan",
+   "mcsweeneys",
+   "tim_hawkins",
+   "Pogue",
+   "ConanOBrien",
+   "Brian_Regan",
+   "TomSegura"
+  ],
+  "orgs": []
+ }
+}
