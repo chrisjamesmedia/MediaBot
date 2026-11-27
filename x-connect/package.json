@@ -1,0 +1,7 @@
+{
+  "name": "mediabot-x-connect",
+  "private": true,
+  "type": "module",
+  "description": "Optional read-only 'Connect X' backend for MediaBot /start/. Not deployed by the repo; see docs/x-connect.md.",
+  "engines": { "node": ">=20" }
+}

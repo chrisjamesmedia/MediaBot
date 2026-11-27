@@ -22,7 +22,9 @@
 {% endif %}
 <link rel="stylesheet" href="{{ root }}assets/site.css">
 {% for c in extra_css or [] %}<link rel="stylesheet" href="{{ root }}assets/{{ c }}">
-{% endfor %}</head>
+{% endfor %}
+{% block head %}{% endblock %}
+</head>
 <body class="{{ body_class }}">
 {% block body %}{% endblock %}
 </body>

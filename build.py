@@ -9,6 +9,7 @@
     .venv/bin/python build.py --recipe recipes/x-substack-5.yaml 2026-11-01   # on-demand edition from a recipe
     .venv/bin/python build.py --editor                           # only rebuild the recipe editor (site/edit/)
     .venv/bin/python build.py --create                           # only rebuild Quick Create (site/create/)
+    .venv/bin/python build.py --start                            # only rebuild onboarding + profile (site/start/, site/profile/)
 
 Sections marked `private: true` in paper.yaml go only into site-private/ (gitignored, never published).
 
@@ -689,6 +690,23 @@ def build_create(site_cfg):
     print(f"create: site/create/index.html ({len(data['items'])} sample items)")
 
 
+def build_start(site_cfg):
+    """site/start/ (onboarding, four short steps) and site/profile/ (the same controls on one page, for edits).
+    Both read and write the reader's profile in their own browser (localStorage "mediabot.profile.v1",
+    docs/profile.md). Nothing personal is rendered into the HTML."""
+    xc = (site_cfg.get("x_connect") or "").strip().rstrip("/")
+    if xc and not xc.startswith("https://"):
+        xc = ""
+    base = public_base(site_cfg.get("web_base", ""))
+    for mode, path in (("start", "start"), ("edit", "profile")):
+        out = SITE / path
+        out.mkdir(parents=True, exist_ok=True)
+        (out / "index.html").write_text(env().get_template("start.html.j2").render(
+            site=site_cfg, base=base, root="../", url_path=f"/{path}/", mode=mode, x_connect=xc,
+            noindex=(mode == "edit")))
+    print("start: site/start/index.html, site/profile/index.html" + (f" (X connect: {xc})" if xc else " (X connect off)"))
+
+
 # ---------- rendering ----------
 def paras(s):
     """Post text -> paragraphs (split on blank lines), each a list of lines. Text is kept exactly; only whitespace splits."""
@@ -969,6 +987,7 @@ def build_indexes(site_cfg, private=False):
     (SITE / ".nojekyll").write_text("")
     build_editor(site_cfg)
     build_create(site_cfg)
+    build_start(site_cfg)
     print(f"indexes: site/index.html ({len(listed)} public paper(s))")
 
 
@@ -990,6 +1009,10 @@ def main(argv):
         build_editor(site_cfg); return
     if "--create" in flags:
         build_create(site_cfg); return
+    if "--start" in flags:
+        if (SITE / "assets").exists(): shutil.rmtree(SITE / "assets")
+        shutil.copytree(STATIC, SITE / "assets")
+        build_start(site_cfg); return
     if "--web-base" in argv:
         wb = argv[argv.index("--web-base") + 1]; args.remove(wb); site_cfg["web_base"] = wb
     if "--index" not in flags:

@@ -1,0 +1,111 @@
+{% extends "_base.html.j2" %}
+{% set edit = (mode == "edit") %}
+{% set title = ("Your profile" if edit else "Set up your paper") ~ " · " ~ site.name %}
+{% set description = "Tell MediaBot whose posts you want, which topics, and a little fun. Saved in your browser only." %}
+{% set body_class = "obpage" %}
+{% set csp = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://public.api.bsky.app; base-uri 'none'; form-action 'none'; object-src 'none'" %}
+{% block head %}<link rel="stylesheet" href="{{ root }}assets/start.css">
+{% endblock %}
+{% block body %}
+<header class="ob-top wrap narrow">
+  <a class="ob-home" href="../">&larr; MediaBot</a>
+  {% if not edit %}<span class="ob-count" id="ob-count" aria-live="polite">Step 1 of 4</span>{% else %}<a class="ob-home quiet" href="../create/">Make a paper</a>{% endif %}
+</header>
+<main class="wrap narrow ob" id="ob" data-mode="{{ mode }}" data-xconnect="{{ x_connect }}">
+  <h1 class="ob-title">{{ "Your profile" if edit else "Set up your paper" }}</h1>
+  <p class="ob-lede">People first, then topics, then a little fun. Everything stays in this browser.</p>
+  <div id="ob-banner" class="ob-banner" hidden></div>
+  {% if not edit %}<ol class="ob-dots" aria-hidden="true"><li></li><li></li><li></li><li></li></ol>{% endif %}
+
+  <section class="ob-step" data-step="1" aria-labelledby="h1x">
+    <h2 id="h1x"><span class="ob-n">1</span> Your X</h2>
+    <p class="ob-help">Your paper starts with people. Add your X handle so MediaBot knows whose feed it is.</p>
+    <label class="ob-field">Your X handle
+      <span class="ob-at"><span aria-hidden="true">@</span><input id="ob-xhandle" type="text" inputmode="text" maxlength="16" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="yourname"></span>
+    </label>
+    <p class="ob-err" id="ob-xerr" hidden>Use letters, numbers or _, 15 characters at most.</p>
+    <div class="ob-connect" id="ob-connect">
+      {% if x_connect %}
+      <a class="ob-btn primary wide" id="ob-xconnect" href="{{ x_connect }}/api/login">Connect X and bring in who I follow</a>
+      <p class="ob-help small">Read-only. MediaBot never posts, follows or likes for you, and it doesn't keep your X login.</p>
+      {% else %}
+      <p class="ob-note">Signing in with X isn't switched on yet. Your handle is all you need for now, and you can add people yourself next.</p>
+      {% endif %}
+      <p class="ob-ok" id="ob-xstatus" hidden></p>
+    </div>
+    <details class="ob-more" id="ob-bsky">
+      <summary>Also on Bluesky? (optional)</summary>
+      <label class="ob-field">Your Bluesky handle
+        <input id="ob-bhandle" type="text" maxlength="80" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="name.bsky.social">
+      </label>
+      <button type="button" class="ob-btn" id="ob-bimport">Bring in who I follow on Bluesky</button>
+      <p class="ob-help small" id="ob-bstatus" aria-live="polite">Free, no sign-in. Bluesky follow lists are public.</p>
+    </details>
+  </section>
+
+  <section class="ob-step" data-step="2" aria-labelledby="h2p">
+    <h2 id="h2p"><span class="ob-n">2</span> People</h2>
+    <p class="ob-help">Who do you want to hear from? Add an @handle or a name, then choose how much of them you want.</p>
+    <div class="ob-add">
+      <input id="ob-padd" type="text" maxlength="80" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="@handle or a name" aria-label="Add a person">
+      <button type="button" class="ob-btn" id="ob-paddbtn">Add</button>
+    </div>
+    <ul class="ob-rows" id="ob-people" aria-label="Your people"></ul>
+    <p class="ob-empty" id="ob-pempty">No one yet. Add writers, friends or creators you trust.</p>
+    <div class="ob-import" id="ob-pimport" hidden>
+      <h3 id="ob-pimport-h">From who you follow</h3>
+      <input id="ob-pfilter" type="search" maxlength="40" autocomplete="off" spellcheck="false" placeholder="Search who you follow" aria-label="Search who you follow">
+      <ul class="ob-picks" id="ob-picks"></ul>
+      <p class="ob-help small" id="ob-pickmore"></p>
+    </div>
+  </section>
+
+  <section class="ob-step" data-step="3" aria-labelledby="h3t">
+    <h2 id="h3t"><span class="ob-n">3</span> Topics</h2>
+    <p class="ob-help">Tap the topics you care about, or add your own. Then choose how much of each.</p>
+    <div class="ob-chips" id="ob-presets" role="group" aria-label="Topic ideas"></div>
+    <div class="ob-chips" id="ob-tsuggest" role="group" aria-label="Topics from your X" hidden></div>
+    <div class="ob-add">
+      <input id="ob-tadd" type="text" maxlength="40" autocomplete="off" placeholder="Add your own topic" aria-label="Add your own topic">
+      <button type="button" class="ob-btn" id="ob-taddbtn">Add</button>
+    </div>
+    <ul class="ob-rows" id="ob-topics" aria-label="Your topics"></ul>
+    <p class="ob-empty" id="ob-tempty">No topics yet. Tap a few above.</p>
+  </section>
+
+  <section class="ob-step" data-step="4" aria-labelledby="h4f">
+    <h2 id="h4f"><span class="ob-n">4</span> A little fun</h2>
+    <p class="ob-help">What should come at the end of your paper?</p>
+    <ul class="ob-fun" id="ob-fun"></ul>
+  </section>
+
+  {% if not edit %}
+  <section class="ob-step ob-done" data-step="5" aria-labelledby="h5d">
+    <h2 id="h5d">You're set</h2>
+    <p class="ob-help" id="ob-summary"></p>
+    <div class="ob-actions col">
+      <a class="ob-btn primary wide" href="../create/">Make a paper now</a>
+      <a class="ob-btn wide" href="../profile/">Change your profile</a>
+      <a class="ob-btn quiet wide" href="../">Back to MediaBot</a>
+    </div>
+  </section>
+  <nav class="ob-nav" id="ob-nav" aria-label="Steps">
+    <button type="button" class="ob-btn" id="ob-back">Back</button>
+    <button type="button" class="ob-btn primary" id="ob-next">Next</button>
+  </nav>
+  {% else %}
+  <div class="ob-savebar">
+    <button type="button" class="ob-btn primary" id="ob-save">Save</button>
+    <span class="ob-saved" id="ob-saved" aria-live="polite"></span>
+  </div>
+  <details class="ob-more danger">
+    <summary>Start over</summary>
+    <p class="ob-help small">Removes your profile and anything brought in from X or Bluesky from this browser.</p>
+    <button type="button" class="ob-btn" id="ob-forget">Forget my profile</button>
+  </details>
+  {% endif %}
+  <noscript><p class="ob-note">This page needs JavaScript to save your profile in this browser.</p></noscript>
+</main>
+<script src="../assets/profile.js"></script>
+<script src="../assets/start.js"></script>
+{% endblock %}
