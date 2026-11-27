@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your profile · MediaBot</title>
+<meta name="description" content="Tell MediaBot whose posts you want, which topics, and a little fun. Saved in your browser only.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://chrisjamesmedia.github.io/MediaBot/profile/">
+<meta property="og:url" content="https://chrisjamesmedia.github.io/MediaBot/profile/">
+<meta property="og:site_name" content="MediaBot">
+<meta property="og:title" content="Your profile · MediaBot">
+<meta property="og:description" content="Tell MediaBot whose posts you want, which topics, and a little fun. Saved in your browser only.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39;; script-src &#39;self&#39;; style-src &#39;self&#39;; img-src &#39;self&#39; data:; font-src &#39;self&#39;; connect-src &#39;self&#39; https://public.api.bsky.app; base-uri &#39;none&#39;; form-action &#39;none&#39;; object-src &#39;none&#39;">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/start.css">
+</head>
+<body class="obpage">
+<header class="ob-top wrap narrow">
+  <a class="ob-home" href="../">&larr; MediaBot</a>
+<a class="ob-home quiet" href="../create/">Make a paper</a></header>
+<main class="wrap narrow ob" id="ob" data-mode="edit" data-xconnect="">
+  <h1 class="ob-title">Your profile</h1>
+  <p class="ob-lede">People first, then topics, then a little fun. Everything stays in this browser.</p>
+  <div id="ob-banner" class="ob-banner" hidden></div>
+
+  <section class="ob-step" data-step="1" aria-labelledby="h1x">
+    <h2 id="h1x"><span class="ob-n">1</span> Your X</h2>
+    <p class="ob-help">Your paper starts with people. Add your X handle so MediaBot knows whose feed it is.</p>
+    <label class="ob-field">Your X handle
+      <span class="ob-at"><span aria-hidden="true">@</span><input id="ob-xhandle" type="text" inputmode="text" maxlength="16" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="yourname"></span>
+    </label>
+    <p class="ob-err" id="ob-xerr" hidden>Use letters, numbers or _, 15 characters at most.</p>
+    <div class="ob-connect" id="ob-connect">
+      <p class="ob-note">Signing in with X isn't switched on yet. Your handle is all you need for now, and you can add people yourself next.</p>
+      <p class="ob-ok" id="ob-xstatus" hidden></p>
+    </div>
+    <details class="ob-more" id="ob-bsky">
+      <summary>Also on Bluesky? (optional)</summary>
+      <label class="ob-field">Your Bluesky handle
+        <input id="ob-bhandle" type="text" maxlength="80" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="name.bsky.social">
+      </label>
+      <button type="button" class="ob-btn" id="ob-bimport">Bring in who I follow on Bluesky</button>
+      <p class="ob-help small" id="ob-bstatus" aria-live="polite">Free, no sign-in. Bluesky follow lists are public.</p>
+    </details>
+  </section>
+
+  <section class="ob-step" data-step="2" aria-labelledby="h2p">
+    <h2 id="h2p"><span class="ob-n">2</span> People</h2>
+    <p class="ob-help">Who do you want to hear from? Add an @handle or a name, then choose how much of them you want.</p>
+    <div class="ob-add">
+      <input id="ob-padd" type="text" maxlength="80" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="@handle or a name" aria-label="Add a person">
+      <button type="button" class="ob-btn" id="ob-paddbtn">Add</button>
+    </div>
+    <ul class="ob-rows" id="ob-people" aria-label="Your people"></ul>
+    <p class="ob-empty" id="ob-pempty">No one yet. Add writers, friends or creators you trust.</p>
+    <div class="ob-import" id="ob-pimport" hidden>
+      <h3 id="ob-pimport-h">From who you follow</h3>
+      <input id="ob-pfilter" type="search" maxlength="40" autocomplete="off" spellcheck="false" placeholder="Search who you follow" aria-label="Search who you follow">
+      <ul class="ob-picks" id="ob-picks"></ul>
+      <p class="ob-help small" id="ob-pickmore"></p>
+    </div>
+  </section>
+
+  <section class="ob-step" data-step="3" aria-labelledby="h3t">
+    <h2 id="h3t"><span class="ob-n">3</span> Topics</h2>
+    <p class="ob-help">Tap the topics you care about, or add your own. Then choose how much of each.</p>
+    <div class="ob-chips" id="ob-presets" role="group" aria-label="Topic ideas"></div>
+    <div class="ob-chips" id="ob-tsuggest" role="group" aria-label="Topics from your X" hidden></div>
+    <div class="ob-add">
+      <input id="ob-tadd" type="text" maxlength="40" autocomplete="off" placeholder="Add your own topic" aria-label="Add your own topic">
+      <button type="button" class="ob-btn" id="ob-taddbtn">Add</button>
+    </div>
+    <ul class="ob-rows" id="ob-topics" aria-label="Your topics"></ul>
+    <p class="ob-empty" id="ob-tempty">No topics yet. Tap a few above.</p>
+  </section>
+
+  <section class="ob-step" data-step="4" aria-labelledby="h4f">
+    <h2 id="h4f"><span class="ob-n">4</span> A little fun</h2>
+    <p class="ob-help">What should come at the end of your paper?</p>
+    <ul class="ob-fun" id="ob-fun"></ul>
+  </section>
+
+  <div class="ob-savebar">
+    <button type="button" class="ob-btn primary" id="ob-save">Save</button>
+    <span class="ob-saved" id="ob-saved" aria-live="polite"></span>
+  </div>
+  <details class="ob-more danger">
+    <summary>Start over</summary>
+    <p class="ob-help small">Removes your profile and anything brought in from X or Bluesky from this browser.</p>
+    <button type="button" class="ob-btn" id="ob-forget">Forget my profile</button>
+  </details>
+  <noscript><p class="ob-note">This page needs JavaScript to save your profile in this browser.</p></noscript>
+</main>
+<script src="../assets/profile.js"></script>
+<script src="../assets/start.js"></script>
+</body>
+</html>

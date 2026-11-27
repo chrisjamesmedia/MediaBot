@@ -6,7 +6,7 @@
 <main class="wrap narrow root">
   <h1 class="pagehead">Papers</h1>
   {% if papers %}<ul class="papers">{% for p in papers %}<li><a href="{{ p.paper.slug }}/">{{ p.paper.name }}</a></li>{% endfor %}</ul>{% endif %}
-  <p class="endlinks"><a href="create/">Quick Create</a> · <a href="edit/">Edit a recipe</a></p>
+  <p class="endlinks"><a href="start/">Set up your paper</a> · <a href="create/">Quick Create</a> · <a href="edit/">Edit a recipe</a></p>
   <p class="about">{{ site.about }}</p>
 </main>
 {% endblock %}

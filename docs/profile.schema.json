@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chrisjamesmedia.github.io/MediaBot/docs/profile.schema.json",
+  "title": "MediaBot reader profile v1 (localStorage \"mediabot.profile.v1\")",
+  "type": "object",
+  "required": ["version", "accounts", "people", "topics", "fun", "priority"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "const": 1 },
+    "updated": { "type": "string", "description": "ISO 8601 time of the last save (UTC, ends in Z). Empty before the first save." },
+    "onboarded": { "type": "boolean", "description": "True once the reader finished /start/ or pressed Save on /profile/." },
+    "accounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "handle": { "type": "string", "pattern": "^([A-Za-z0-9_]{1,15})?$", "description": "Without the @." },
+            "connected": { "type": "boolean", "description": "True only if the handle came back from the x-connect backend (real X sign-in)." },
+            "imported": { "type": "string", "description": "ISO time of the last X import, or empty." }
+          }
+        },
+        "bluesky": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": { "handle": { "type": "string", "description": "e.g. name.bsky.social, lowercase, no @." } }
+        }
+      }
+    },
+    "people": {
+      "type": "array", "maxItems": 300,
+      "description": "Newest first. People outrank topics: fill a paper from people first.",
+      "items": {
+        "type": "object",
+        "required": ["platform", "weight"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "maxLength": 80, "description": "Display or typed name. May be empty when a handle is set." },
+          "handle": { "type": "string", "description": "X handle (no @) or Bluesky handle. Empty for platform \"web\"." },
+          "platform": { "enum": ["x", "bluesky", "web"], "description": "\"web\" = a name with no handle: find them wherever they publish." },
+          "weight": { "enum": [1, 2, 3], "description": "1 = A little, 2 = Normal, 3 = A lot." },
+          "from": { "enum": ["you", "x", "bluesky"], "description": "Typed by the reader, or picked from an imported follow list." }
+        }
+      }
+    },
+    "topics": {
+      "type": "array", "maxItems": 60,
+      "items": {
+        "type": "object",
+        "required": ["label", "weight"],
+        "additionalProperties": false,
+        "properties": {
+          "label": { "type": "string", "maxLength": 40 },
+          "weight": { "enum": [1, 2, 3], "description": "1 = A little, 2 = Normal, 3 = A lot." },
+          "from": { "enum": ["you", "preset", "x"] }
+        }
+      }
+    },
+    "fun": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "The closing section. Only real, credited items; never AI-written jokes or poems.",
+      "properties": {
+        "jokes": { "type": "boolean" }, "memes": { "type": "boolean" }, "game": { "type": "boolean" },
+        "movie": { "type": "boolean" }, "poem": { "type": "boolean" }
+      }
+    },
+    "priority": { "const": ["people", "topics", "fun"], "description": "Section order for every paper made from this profile." }
+  }
+}
