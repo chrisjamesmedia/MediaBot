@@ -1,0 +1,9 @@
+# Optional Quick Create proxy. Not deployed by this repo.
+name = "mediabot-quick-create-proxy"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://chrisjamesmedia.github.io"
+# Set to "1" only if you also run `wrangler secret put XAI_API_KEY` and want the proxy to use its own key for the allowed origin.
+ALLOW_SERVER_KEY = "0"

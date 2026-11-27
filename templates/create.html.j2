@@ -1,0 +1,97 @@
+{% extends "_base.html.j2" %}
+{% set title = "Quick Create · " ~ site.name %}
+{% set description = "Make a finite paper in a minute: pick sections, set your tone and length, and read it with a clear end." %}
+{% set body_class = "createpage" %}
+{% set csp = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.x.ai https://*.workers.dev https://*.vercel.app; base-uri 'none'; form-action 'none'; object-src 'none'" %}
+{% block body %}
+<header class="mast wrap narrow">
+  <h1><a href="../">Quick Create</a></h1>
+  <div class="under solo"></div>
+</header>
+<main class="wrap narrow qc" id="qc">
+  <p class="qc-lede">Pick your sections, set a tone and a length, and get a finite paper with a hard end. Real, linked sources only.</p>
+
+  <section class="qc-block" aria-labelledby="h-name">
+    <h2 id="h-name">Paper</h2>
+    <label class="qc-field">Name <input id="qc-name" type="text" maxlength="60" autocomplete="off" placeholder="Morning Light"></label>
+  </section>
+
+  <section class="qc-block" aria-labelledby="h-secs">
+    <h2 id="h-secs">Sections</h2>
+    <p class="qc-help">Tick what you want, move with the arrows, and edit the topic under each one.</p>
+    <ol id="qc-secs" class="qc-secs"></ol>
+    <details class="qc-add">
+      <summary>Add your own section</summary>
+      <label class="qc-field">Section name <input id="qc-cname" type="text" maxlength="40" autocomplete="off" placeholder="Woodworking"></label>
+      <label class="qc-field">What should it cover? <textarea id="qc-cbrief" rows="3" maxlength="400" placeholder="Hand-tool joinery and small shop builds. Skip product ads."></textarea></label>
+      <button type="button" id="qc-cadd" class="qc-btn">Add section</button>
+    </details>
+  </section>
+
+  <section class="qc-block" aria-labelledby="h-pers">
+    <h2 id="h-pers">Make it yours</h2>
+    <label class="qc-field">Interests <textarea id="qc-interests" rows="2" maxlength="400" placeholder="Slow living, church history, woodworking, birds"></textarea></label>
+    <label class="qc-field">Favor these accounts or sources <input id="qc-favor" type="text" maxlength="300" autocomplete="off" spellcheck="false" placeholder="@paulg @naval nature.com"></label>
+    <label class="qc-field">Avoid these accounts or sources <input id="qc-avoid" type="text" maxlength="300" autocomplete="off" spellcheck="false" placeholder="@someaccount example.com"></label>
+    <fieldset class="qc-fs"><legend>Tone</legend><div id="qc-tone" class="qc-chips"></div></fieldset>
+    <fieldset class="qc-fs"><legend>Read length</legend>
+      <div class="qc-seg" role="radiogroup" aria-label="Read length" id="qc-min"></div>
+      <p class="qc-help" id="qc-cap" aria-live="polite"></p>
+    </fieldset>
+    <div class="qc-two">
+      <label class="qc-field">Freshness <select id="qc-fresh"><option value="3">Last 3 days</option><option value="7">Last week</option><option value="14">Last 2 weeks</option><option value="30">Last month</option></select></label>
+      <fieldset class="qc-fs qc-where"><legend>Look in</legend>
+        <label><input type="checkbox" id="qc-sx"> X posts</label>
+        <label><input type="checkbox" id="qc-sw"> The web</label>
+      </fieldset>
+    </div>
+    <label class="qc-check"><input type="checkbox" id="qc-only"> Use only the accounts I favored for X posts</label>
+    <label class="qc-check"><input type="checkbox" id="qc-links"> Show a source link on every item</label>
+  </section>
+
+  <section class="qc-block" aria-labelledby="h-go">
+    <h2 id="h-go">Generate</h2>
+    <div class="qc-actions">
+      <button type="button" id="qc-go" class="qc-btn primary">Generate edition</button>
+      <button type="button" id="qc-demo" class="qc-btn">Preview a sample</button>
+    </div>
+    <p class="qc-help" id="qc-mode"></p>
+    <details class="qc-key" id="qc-keybox">
+      <summary>Grok key and connection</summary>
+      <p class="qc-help">Your xAI API key stays in this browser (localStorage). It is sent only to api.x.ai, never saved to a file, a share link or an export. Each generation costs a little on your xAI account.</p>
+      <label class="qc-field">xAI API key <input id="qc-key" type="password" autocomplete="off" spellcheck="false" placeholder="xai-…"></label>
+      <div class="qc-actions">
+        <button type="button" id="qc-keysave" class="qc-btn">Save key</button>
+        <button type="button" id="qc-keyclear" class="qc-btn quiet">Forget key</button>
+      </div>
+      <label class="qc-field">Model <input id="qc-model" type="text" autocomplete="off" spellcheck="false"></label>
+      <label class="qc-field">Optional proxy URL <input id="qc-proxy" type="url" autocomplete="off" spellcheck="false" placeholder="Leave empty to call api.x.ai directly"></label>
+      <p class="qc-help">Only needed if your browser blocks calls to api.x.ai. See <code>proxy/README.md</code> in the repo.</p>
+    </details>
+  </section>
+
+  <section class="qc-block" aria-labelledby="h-save">
+    <h2 id="h-save">Save and share</h2>
+    <div class="qc-two">
+      <label class="qc-field">Saved papers <select id="qc-saved"></select></label>
+      <div class="qc-actions tight">
+        <button type="button" id="qc-save" class="qc-btn">Save</button>
+        <button type="button" id="qc-load" class="qc-btn">Load</button>
+        <button type="button" id="qc-del" class="qc-btn quiet">Delete</button>
+      </div>
+    </div>
+    <div class="qc-actions">
+      <button type="button" id="qc-json" class="qc-btn">Export JSON</button>
+      <button type="button" id="qc-import" class="qc-btn">Import JSON</button>
+      <button type="button" id="qc-yaml" class="qc-btn">Download paper.yaml</button>
+      <button type="button" id="qc-link" class="qc-btn">Copy share link</button>
+    </div>
+    <input type="file" id="qc-file" accept="application/json,.json" hidden>
+    <p class="qc-help" id="qc-status" role="status" aria-live="polite"></p>
+  </section>
+
+  <div id="qc-edition" class="qc-edition" tabindex="-1" aria-live="polite"></div>
+</main>
+<script id="qc-sample" type="application/json">{{ sample }}</script>
+<script src="{{ root }}assets/create.js"></script>
+{% endblock %}

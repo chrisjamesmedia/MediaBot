@@ -17,6 +17,9 @@
 <meta property="og:type" content="{{ og_type or 'website' }}">
 <meta name="twitter:card" content="{{ 'summary_large_image' if og_image else 'summary' }}">
 <meta name="color-scheme" content="light dark">
+{% if csp %}<meta http-equiv="Content-Security-Policy" content="{{ csp }}">
+<link rel="icon" href="data:,">
+{% endif %}
 <link rel="stylesheet" href="{{ root }}assets/site.css">
 </head>
 <body class="{{ body_class }}">
