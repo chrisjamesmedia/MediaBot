@@ -202,10 +202,12 @@ def assemble(paper, ed, size, private=False):
             items = [it for it in items if not (item_urls(it) & seen)]
             if before - len(items):
                 print(f"  {cfg['id']}: dropped {before - len(items)} of {before} links already in the paper")
-        if cfg.get("max_items") and len(items) > cfg["max_items"] and not cfg.get("require_source") \
+        if cfg.get("max_items") and not cfg.get("require_source") \
                 and not (cfg.get("dedupe") and paper.get("news")):
-            print(f"  {cfg['id']}: {len(items)} items, trimmed to max_items {cfg['max_items']}")
-            items = items[:cfg["max_items"]]
+            trimmed = cap_items(items, cfg["max_items"])
+            if trimmed != items:
+                print(f"  {cfg['id']}: {len(items)} items, trimmed to max_items {cfg['max_items']}")
+                items = trimmed
         for it in items:
             seen |= item_urls(it)
             if it.get("type", "story") in ("post", "evergreen") and it.get("date"):
@@ -261,6 +263,20 @@ def surviving_sections(slug, date):
         apply_selection(sections, paper)
         apply_evergreen(sections, paper, date, record=False)
     return sections
+
+
+
+def cap_items(items, cap):
+    """max_items counts posts only; a Scripture passage does not fill or get trimmed by the cap."""
+    if not cap:
+        return items
+    out, n = [], 0
+    for it in items:
+        if it.get("type") == "passage":
+            out.append(it)
+        elif n < cap:
+            out.append(it); n += 1
+    return out
 
 
 def apply_selection(sections, paper):
@@ -344,9 +360,11 @@ def apply_selection(sections, paper):
             sec["items"] = [i for i in sec["items"] if not (item_urls(i) & have)]
             if before - len(sec["items"]):
                 print(f"  {sec['id']}: dropped {before - len(sec['items'])} of {before} links already in the paper")
-            if c.get("max_items") and len(sec["items"]) > c["max_items"]:
-                print(f"  {sec['id']}: {len(sec['items'])} items, trimmed to max_items {c['max_items']}")
-                sec["items"] = sec["items"][:c["max_items"]]
+            if c.get("max_items"):
+                trimmed = cap_items(sec["items"], c["max_items"])
+                if trimmed != sec["items"]:
+                    print(f"  {sec['id']}: {len(sec['items'])} items, trimmed to max_items {c['max_items']}")
+                    sec["items"] = trimmed
     sections[:] = [s for s in sections if s["items"]]
     for c in cut: print("  cut:", c)
     return cut
@@ -603,6 +621,10 @@ def paras(s):
     return [[ln.strip() for ln in blk.split("\n")] for blk in re.split(r"\n\s*\n", (s or "").strip()) if blk.strip()]
 
 
+def count_words(s):
+    return len(re.findall(r"\b[\w'’-]+\b", s or ""))
+
+
 def env():
     e = Environment(loader=FileSystemLoader(TPL), autoescape=True, trim_blocks=True, lstrip_blocks=True)
     e.filters.update(by_source=by_source, balance=balance, initials=initials, host=short_host, plain=plain, excerpt=excerpt,
@@ -698,9 +720,13 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
     url_path = f"/{slug}/custom/{rc['slug']}/{date}/" if rc else f"/{slug}/{date}/"
     stem = f"{slug}-{rc['slug']}-{date}" if rc else f"{slug}-{date}"
     pdfs = {"print": f"{stem}-print.pdf", "digital": f"{stem}-digital.pdf"}
-    lead = sections[0]["items"][0]
+    lead = next((it for it in sections[0]["items"] if it.get("type") != "passage"), sections[0]["items"][0])   # a Scripture passage never leads
     lead_title = lead.get("headline") or lead.get("title") or (f"{lead['author']} on X" if lead.get("author") else "")
-    ctx = dict(paper=paper, site=site_cfg, private_copy=private, date=date, date_long=date_long, date_short=d.strftime("%b %-d, %Y"),
+    joke = ed.get("joke")
+    words = sum(count_words(it.get("text")) + count_words((it.get("quoted") or {}).get("text")) for s_ in sections for it in s_["items"])
+    if joke: words += count_words(joke.get("text"))
+    read_min = max(1, round(words / 230))        # Field Notes: "N min read" from the words actually printed
+    ctx = dict(words=words, read_min=read_min, joke=joke, paper=paper, site=site_cfg, private_copy=private, date=date, date_long=date_long, date_short=d.strftime("%b %-d, %Y"),
                note=rc["name"] if rc else ed.get("note", ""), coverage=ed.get("coverage", ""), weather=weather(paper, ed_dir, refresh_weather),
                base=base, url_path=url_path, pdfs=pdfs,
                answered=[] if rc else ed.get("requests") or [],
@@ -777,10 +803,17 @@ def build_edition(slug, date, refresh_weather=False, size=None, site_cfg=None, p
 
     # web edition
     (out / "index.html").write_text(E.get_template(web_tpl).render(ctx, sections=sections, root="../../../../" if rc else "../../", pages=pages))
+    if slow:
+        email_name = f"{stem}-email.html"
+        (out / email_name).write_text(E.get_template("slow-email.html.j2").render(ctx, sections=sections, pages=pages))
+        pdfs["email"] = email_name
+        print(f"  email: {(out / email_name).relative_to(ROOT)}  (inline-CSS body for the daily email; PDFs still attach)")
     meta = {"date": date, "date_long": date_long, "lead": lead_title, "pages": pages,
-            "pdfs": pdfs, "sections": [s["title"] for s in sections], "recipe": rc["name"] if rc else None, "built_at": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}
+            "pdfs": pdfs, "sections": [s["title"] for s in sections], "recipe": rc["name"] if rc else None,
+            "words": words, "read_min": read_min,
+            "built_at": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}
     (out / "edition.meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False))
-    print(f"  web: {(out / 'index.html').relative_to(ROOT)}  sections: {', '.join(meta['sections'])}")
+    print(f"  web: {(out / 'index.html').relative_to(ROOT)}  sections: {', '.join(meta['sections'])}  · {words} words ≈ {read_min} min read")
     if rc: print(f"  pdf: {(out / pdfs[first]).resolve()}")
     return meta
 
@@ -795,10 +828,18 @@ def write_latest(pdir, ed, base, slug):
     for kind in ("print", "digital"):
         f = src / ed["pdfs"][kind]
         if f.exists(): shutil.copy(f, d / f"{kind}.pdf")
+    email_name = (ed.get("pdfs") or {}).get("email")
+    if email_name:
+        email_src = src / email_name
+        if email_src.is_file():
+            shutil.copy(email_src, d / "email.html")
     info = {"format": "mediabot-latest/1", "paper": slug, "date": ed["date"], "date_long": ed["date_long"],
             "pages": ed.get("pages", {}), "built_at": ed.get("built_at"),
+            "words": ed.get("words"), "read_min": ed.get("read_min"),
             "edition": f"../{ed['date']}/", "print_pdf": "print.pdf", "digital_pdf": "digital.pdf",
             "edition_print_pdf": f"../{ed['date']}/{ed['pdfs']['print']}"}
+    if (d / "email.html").exists():
+        info["email"] = "email.html"
     if base:
         info["absolute"] = {"edition": f"{base}/{slug}/{ed['date']}/", "print_pdf": f"{base}/{slug}/latest/print.pdf",
                             "digital_pdf": f"{base}/{slug}/latest/digital.pdf"}

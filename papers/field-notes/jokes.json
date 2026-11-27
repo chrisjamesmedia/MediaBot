@@ -1,0 +1,96 @@
+{
+ "_note": "Verified, credited one-liners for the Field Notes closer. Every text is copied exactly from source_url, which was fetched and checked to contain it. Never add, reword or invent a joke; a fresh real post from the day's humor voices may win instead (tools/fn_jokes.py). Tone: clean, Christian-friendly, smart, dry, tech or dad humor.",
+ "jokes": [
+  {
+   "id": "wright-1",
+   "text": "I have a large seashell collection which I keep scattered on the beaches all over the world. Maybe you've seen it.",
+   "author": "Steven Wright",
+   "where": "I Have A Pony (1985)",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "wright-2",
+   "text": "When I first read the dictionary, I thought it was a long poem about everything.",
+   "author": "Steven Wright",
+   "where": "I Have A Pony (1985)",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "wright-3",
+   "text": "I went to a museum where they had all the heads and arms from the statues that are in all the other museums.",
+   "author": "Steven Wright",
+   "where": "Steven Wright Special (1985)",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "wright-4",
+   "text": "Everywhere is walking distance if you've got the time.",
+   "author": "Steven Wright",
+   "where": "Steven Wright Special (1985)",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "wright-5",
+   "text": "I bought some powdered water, but I don't know what to add.",
+   "author": "Steven Wright",
+   "where": "Steven Wright Special (1985)",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "wright-6",
+   "text": "A lot of people are afraid of heights; not me, I'm afraid of widths.",
+   "author": "Steven Wright",
+   "where": "Steven Wright Special (1985)",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "wright-8",
+   "text": "I bought a new camera. It's very advanced. You don't even need it.",
+   "author": "Steven Wright",
+   "where": "When the Leaves Blow Away (2006) / I Still Have a Pony (2007)",
+   "source_url": "https://en.wikiquote.org/wiki/Steven_Wright"
+  },
+  {
+   "id": "vine-1",
+   "text": "I've just been on a once-in-a-lifetime holiday. I'll tell you what, never again.",
+   "author": "Tim Vine",
+   "where": "Funniest Joke of the Fringe, 2010 winner",
+   "source_url": "https://en.wikipedia.org/wiki/Funniest_Joke_of_the_Fringe"
+  },
+  {
+   "id": "vine-3",
+   "text": "I've decided to sell my Hoover – well, it was just collecting dust.",
+   "author": "Tim Vine",
+   "where": "Funniest Joke of the Fringe, 2014 winner",
+   "source_url": "https://en.wikipedia.org/wiki/Funniest_Joke_of_the_Fringe"
+  },
+  {
+   "id": "twain-2",
+   "text": "Always do right. This will gratify some people, and astonish the rest.",
+   "author": "Mark Twain",
+   "where": "To the Young People's Society, Greenpoint Presbyterian Church, Brooklyn (16 February 1901)",
+   "source_url": "https://en.wikiquote.org/wiki/Mark_Twain"
+  },
+  {
+   "id": "handey-4",
+   "text": "IF YOU ever drop your keys into a river of molten lava, let 'em go, because man, they're gone.",
+   "author": "Jack Handey",
+   "where": "Deep Thoughts (1992)",
+   "source_url": "https://en.wikiquote.org/wiki/Jack_Handey"
+  },
+  {
+   "id": "rudner-1",
+   "text": "We did long for the pitter-patter of little feet, so we decided to buy a dog. Cheaper, and… get more feet.",
+   "author": "Rita Rudner",
+   "where": "Dr. Katz, Professional Therapist, “Real Estate” [2.02] (29 October 1995)",
+   "source_url": "https://en.wikiquote.org/wiki/Rita_Rudner"
+  },
+  {
+   "id": "hawkins-1",
+   "text": "The electric toothbrush—what, is brushing your teeth too strenuous an exercise?",
+   "author": "Tim Hawkins",
+   "where": "Full Range of Motion (2006)",
+   "source_url": "https://en.wikiquote.org/wiki/Tim_Hawkins"
+  }
+ ]
+}
