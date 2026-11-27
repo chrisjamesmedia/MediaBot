@@ -1,0 +1,1061 @@
+{
+ "schema": 1,
+ "paper": "signal-seeker",
+ "date": "2026-11-27",
+ "coverage": "Covering roughly Nov 26–27, 2026. Compiled the Friday after Thanksgiving, ET.",
+ "note": "US stock markets close early today, at 1 p.m. ET.",
+ "requests": [],
+ "sections": [
+  {
+   "id": "front",
+   "items": [
+    {
+     "type": "story",
+     "id": "suleyman-overbuild",
+     "headline": "Microsoft's AI chief: \"Things are just getting started\"",
+     "summary": "Mustafa Suleyman, CEO of Microsoft AI, pushed back on the people who keep predicting an overbuild in chips or no Jevons paradox: \"Things are just getting started.\" @aleabitoreddit's clip of the remark was the most-shared post on his investing lists overnight, and @ren_stocks quoted it to argue intelligence will be bigger than any other advance, and that straight-line financial models to 2028 will misprice it.",
+     "short": "Mustafa Suleyman says the AI chip build-out is just getting started.",
+     "sources": [
+      {
+       "name": "X @aleabitoreddit",
+       "url": "https://x.com/aleabitoreddit/status/2125976593076252865"
+      },
+      {
+       "name": "X @ren_stocks",
+       "url": "https://x.com/ren_stocks/status/2126140401861963824"
+      }
+     ],
+     "topic": [
+      "ai",
+      "tech"
+     ]
+    },
+    {
+     "type": "story",
+     "id": "huawei-hbm",
+     "headline": "Huawei's HBM work at ISSCC: a way around the EUV bottleneck?",
+     "summary": "@jukan05 read Huawei's high-bandwidth-memory papers at ISSCC as a workaround for China's lack of EUV tools: China is bypassing the JEDEC standard and going its own way, and if it works Huawei could get HBM4-class bandwidth per stack at HBM3-class pin speeds. Separately @zephyr_z9 argued HBM supply is the biggest constraint for Chinese AI players today but won't be by Q2 2027, as CXMT ramps dedicated capacity.",
+     "short": "Huawei may get HBM4-class bandwidth without EUV, per @jukan05.",
+     "sources": [
+      {
+       "name": "X @jukan05",
+       "url": "https://x.com/jukan05/status/2126160576342901213"
+      },
+      {
+       "name": "X @zephyr_z9",
+       "url": "https://x.com/zephyr_z9/status/2125999995501576465"
+      }
+     ],
+     "topic": [
+      "ai",
+      "tech"
+     ]
+    },
+    {
+     "type": "story",
+     "id": "mueller-spacex",
+     "headline": "SpaceX's first employee on finding where engines break",
+     "summary": "Tom Mueller, SpaceX employee #1, says Elon Musk reversed his approach to engineering: instead of never blowing up an engine, as at his previous company, the team was pushed to find where engines break and then push them harder. The clip, shared by @firesidealpha, answers a Joe Rogan remark about why SpaceX rockets are allowed to explode in testing.",
+     "short": "Tom Mueller: SpaceX tests engines until they break.",
+     "sources": [
+      {
+       "name": "X @firesidealpha",
+       "url": "https://x.com/firesidealpha/status/2126183140083568686"
+      }
+     ],
+     "topic": [
+      "space",
+      "tech"
+     ],
+     "image": {
+      "file": "images/mueller-spacex.jpg",
+      "credit": "Video still: @firesidealpha",
+      "alt": "Video still from @firesidealpha’s post",
+      "w": 960,
+      "h": 480,
+      "kind": "video",
+      "auto": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "feed",
+   "items": [
+    {
+     "type": "post",
+     "id": "feed-2126126210661158927",
+     "author": "Stephen Pimentel",
+     "handle": "StephenPiment",
+     "text": "If correct, OpenAI’s new tensor geometry results suggest that distance, Euclidean geometry and curvature constraints can emerge from algebraic information laws. This lends some mathematical support to the hypothesis that Hilbert space is ontologically prior to spacetime.\nhttps://t.co/LW0PgoyMGq",
+     "url": "https://x.com/StephenPiment/status/2126126210661158927",
+     "date": "2026-11-27T01:29:24Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2126136310092222968",
+     "author": "Eric Jorgenson 📚 ☀️",
+     "handle": "EricJorgenson",
+     "text": "To be tied for the newest book on this list with @morganhousel is pretty incredible. \n\nHope this book is still serving readers in 100 years! https://t.co/q0pklRT1pE",
+     "url": "https://x.com/EricJorgenson/status/2126136310092222968",
+     "date": "2026-11-27T02:09:32Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2125988702547480634",
+     "author": "sourcery",
+     "handle": "sourceryy",
+     "text": "Elad Gil (@eladgil) on the traits generational founders like Marc Andreessen (@pmarca), Sam Altman (@sama), Peter Thiel, & Patrick Collison (@patrickc) all have in common:\n\n“Why do certain people last across multiple cycles?”\n\n“Marc Andreessen did Netscape, that was an amazing company.. He was in beer commercials in the ’90s. He was that famous. And then that morphed into starting 1 of the most important VC firms in the world. He's had multiple eras of huge impact and success.” …",
+     "url": "https://x.com/sourceryy/status/2125988702547480634",
+     "date": "2026-11-26T16:23:00Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2125968268590796808",
+     "author": "Molly O’Shea",
+     "handle": "MollySOShea",
+     "text": "Elad Gil (@eladgil) says most AI companies should consider selling in the next 12-18 months:\n\n“How many internet companies from the ’90s can you think of that still exist? Maybe 2 dozen.”\n\n“Many of the ones that could have sold but didn’t went to zero.”\n\n“For most companies, there's a moment that maximizes their value of the outcome, and often it's a 12-18 month window where it's the most valuable that company will ever be in its lifetime. For many companies in AI, that’s probably right around now for the next 12-18 months.”",
+     "url": "https://x.com/MollySOShea/status/2125968268590796808",
+     "date": "2026-11-26T15:01:48Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2126097005277565278",
+     "author": "Malcolm Ocean 🏴‍☠️",
+     "handle": "Malcolm_Ocean",
+     "text": "Montessori has a great quote \"never try to help a child do something they believe they can do themselves\"\n\nCorollary: unless you *specifically don't want them to learn how to do it*",
+     "url": "https://x.com/Malcolm_Ocean/status/2126097005277565278",
+     "date": "2026-11-26T23:33:21Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2126096354107961796",
+     "author": "Rose Celine Investments 🌹",
+     "handle": "realroseceline",
+     "text": "I'm genuinely humbled, overwhelmed, and excited by the response to this book. Thank you to everyone who has purchased a copy so far.\n\nA book is different. My whole life I've sold things made by someone else, this is the first time I've built something from scratch that truly feels like my baby.\n\nCheck out the book and read 100+ free pages at:\n\nhttps://t.co/U0mmWx9pah\n\nHAPPY THANKSGIVING ALL! 🌹",
+     "url": "https://x.com/realroseceline/status/2126096354107961796",
+     "date": "2026-11-26T23:30:46Z",
+     "quoted": {
+      "author": "Rose Celine Investments 🌹",
+      "handle": "realroseceline",
+      "text": "Introducing My Book: The Wisdom of Investing🌹\n\n650 pages, 40 chapters, over 1,500+ original illustrations, a 6 pound, 9 × 12 inch hardcover wrapped in gold! …",
+      "url": "https://x.com/realroseceline/status/2125964915962003478"
+     }
+    },
+    {
+     "type": "post",
+     "id": "feed-2126087266863120688",
+     "author": "Jukan @ SEMICON JAPAN",
+     "handle": "jukan05",
+     "text": "Taiwan-based GUC, Tesla’s design partner for the AI5 chip, reportedly gave Google’s Axion and Microsoft’s in-house chips priority for TSMC’s limited 3nm (N3) capacity. As a result, the large-scale rollout of AI5 in Tesla vehicles has been pushed back to 2028.\n\nhttps://t.co/aR58zs0lIN",
+     "url": "https://x.com/jukan05/status/2126087266863120688",
+     "date": "2026-11-26T22:54:39Z"
+    },
+    {
+     "type": "post",
+     "id": "feed-2126189847912051096",
+     "author": "Nic Cruz Patane",
+     "handle": "niccruzpatane",
+     "text": "Elon Musk just put all other billionaires on notice by giving away his net worth every year to American kids.\n\nThe future generation of America will benefit from @SpaceX’s success, equating to potentially trillions of dollars as share prices rise to new heights. \n\nEvery year he will donate ~1% of his net worth, approximately 70M shares, directly to the next generation.\n\nPeople have no idea how important this this is. \n\nSpaceX isn’t just another company.",
+     "url": "https://x.com/niccruzpatane/status/2126189847912051096",
+     "date": "2026-11-27T05:42:17Z",
+     "image_url": "https://pbs.twimg.com/media/HYG-ZcwWsAA7c97.jpg",
+     "image_alt": "",
+     "image": {
+      "file": "images/feed-2126189847912051096.jpg",
+      "credit": "Photo: @niccruzpatane",
+      "alt": "Photo from @niccruzpatane’s post",
+      "w": 960,
+      "h": 591,
+      "kind": "photo",
+      "auto": true,
+      "print_file": "images/feed-2126189847912051096-print.jpg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "x",
+   "items": [
+    {
+     "type": "post",
+     "id": "x-2126077182501908803",
+     "author": "Simon Sarris",
+     "handle": "simonsarris",
+     "text": "Part of what makes this hard to convey and why I prefer writing to speaking, is that it's a medium distance thought. (Alexander conveys it beautifully here, because he is articulate and because he tells it not only as facts but in the format of a story). Most interviewers today don't have the patience to let the speaker continue beyond a short distance, so a comfortable story is out of the question.\n\nA host today could be patient, but the culture of impatience has lead to the speakers themselves no longer expecting that they will be able to convey anything at length, so even people who are well practiced at speaking mostly practice in the short distance.\n\nThis leads to hopeless \"wait wait let me finish\" puncturing a lot of stories and therefore moods, but also the rapid pace of people who are used to being interrupted so often, which is not nearly as pleasant.",
+     "url": "https://x.com/simonsarris/status/2126077182501908803",
+     "date": "2026-11-26T22:14:35Z"
+    }
+   ]
+  },
+  {
+   "id": "goats",
+   "items": [
+    {
+     "type": "post",
+     "id": "g-2125961876597252376",
+     "author": "Gavin Baker",
+     "handle": "GavinSBaker",
+     "text": "Super thoughtful essay on AI that begins and ends with Tocqueville after detours through Joel Mokyr and Iain Banks. https://t.co/AKnsNnpfvS",
+     "url": "https://x.com/GavinSBaker/status/2125961876597252376",
+     "date": "2026-11-26T14:36:24Z",
+     "quoted": {
+      "author": "Patrick Collison",
+      "handle": "patrickc",
+      "text": "Travel writing is in practice some of the best sociology since the naivete of the foreigner grants the permission to make sweeping generalizations and claims that might otherwise seem too poorly-justified to merit publication. “My people have poor manners” is a tough claim to credibly land (Who are you? Exactly which life experiences are you drawing on? And what is your agenda in pushing this line of argument?), whereas “on my travels in Scotland, I noticed that the people had poor manners” seems perfectly reasonable, and indeed thought-provoking. Random samples from a distribution help you understand the mean, and the aleatory nature of travel encounters lends credence to the whole assessment.\n\nAlexis de Tocqueville was just 25 when he traveled across the US and 29 when his observations were published. So, Democracy in America is a giant Substack from a young backpacker, written on his peregrinations as he consumed Montesquieu, Pascal, and Rousseau. He was clearly inspired by Montesquieu’s The Spirit of the Laws, which made the case that countries’ governance, and their laws, are necessarily functions of their cultures and manners.\n\nBuilding on this, Democracy in America is in many ways a “deep roots” work. Tocqueville is emphatic (at times comically so) that it is America's culture that explains its success, and that its culture in turn stems from the country’s initial conditions. “I think I can see the whole destiny of America contained in the first Puritan who landed on those shores.” He thinks it's important that New England was settled by “a greater mass of intelligence than is to be found in any European nation of our own time” who brought the “best elements of order and morality”. He points out that Mexico doesn’t work nearly as well, despite copying the American constitution and laws, and notes disapprovingly that Virginia was founded by gold-seeking people “without character” whose “turbulent spirit [...] endangered the infant colony.” At the end of Volume I, he concludes, practically table-thumping: “If in the course of this work I have not succeeded in making the reader feel the importance that I attribute to the practical experience of the Americans, to their habits, to their opinions, in a word, to their moeurs, in maintaining their laws, I have failed in the principal object that I proposed to myself in writing it.”\n\nWe could look at Democracy in America as an early work of development economics: he is attempting to systematically figure out why it is that America works. (And not just out of casual interest: he was a member of an aristocratic family that was entangled with recent French political upheaval.) By placing primacy on culture, Tocqueville’s explanation deviates from the institutional and structural explanations often favored by today’s economists. Daron Acemoglu, to choose one prominent present-day example, firmly rejects the “Culture Hypothesis” in Why Nations Fail. In explaining Virginia, he instead points to structural incentives. Poor Economics, from Esther Duflo and Abhijit Banerjee, contains a similar rejection of cultural explanations. Comparable examples from other leading economists abound. An aversion to cultural explanations is of course understandable for all sorts of reasons: cultures are opaque, protean, and resistant to quantitative characterization. Cultures are themselves shaped by other factors, such that it’s hard to attribute definitive causality, and it’s uncomfortable to adopt anything that feels like a normative orientation. Nonetheless, can we explain why New England differs from Mexico without starting with the inner disposition, habits, and worldviews of the people? Tocqueville thinks not.\n\nFor all culture’s importance, it would be wrong to suggest that Tocqueville believes that culture is the only factor that matters. He dwells extensively on how America’s institutions are important, and how the microstructure of town life shapes the country’s federal civics. It is also true that development economics has taken a more strongly cultural turn in recent times, most of all in Joel Mokyr’s 2025 Nobel Prize. Mokyr’s work feels downright Tocquevillian at times: contra the intimidatingly quantitative econometrics that dominates today, Mokyr engages in an extended and earnestly curious qualitative synthesis of relevant patterns (in his case, in service of trying to figure out why the Industrial Revolution started when it did). Like Tocqueville, he concludes that the best explanation places cultural changes above other factors.\n\nI’m very interested in whether LLMs will help us characterize culture in new and at least somewhat more objective ways. Can we ingest and process vast quantities of work that may not even have been OCR’d or translated until now? Can we map cultural corpora to vectors in some foundation model embedding space? Where large datasets and computational techniques enabled new ways to analyze many economic questions in recent decades, perhaps LLMs will enable newly objective light to be shone on hypothesized cultural explanations.\n\n–\n\nSpeaking of LLMs, Democracy in America is a book about a new kind of society, and a Frenchman trying to figure out what the future might hold. As we sit on the cusp of another upheaval, is there anything that reads with resonance today?\n\nPart of the declared promise of AI is that it might obviate our need to work. In slavery, Tocqueville observes a version of this phenomenon on his travels. He is struck by its barbarous cruelty (and his travel companion later published an anti-slavery novel), but also by its effects on the slaveowners themselves. He perceived that the practice rendered work dishonorable, and thus yielded idleness, ignorance, and pride. Slavery, he says, “enervates the powers of the mind, and benumbs the activity of man.” He observes the contrast between slavery-rejecting Ohio and slavery-embracing Kentucky. In Kentucky, “those who are active and enlightened either do nothing or pass over into the State of Ohio, where they may work without dishonor.” Ohio’s harvests are more abundant, homes are more elegant, and people seem to be “in enjoyment of that wealth and contentment which is the reward of labor.”\n\nPresented with an evil release from manual labor, the Kentuckians did not apply themselves to productive studies and great creations, and the South did not become a new Florence. There is an obvious question for us: how will AI change our relationship with work? Will it become dishonorable, and what will the reflexive effect on our society be if so? Should this change our view of utopian visions of “automated communism”?\n\nTocqueville also raises the issue of coexistence with more advanced neighbors. He noted that the arrival of the Europeans had been ruinous for the Indians (as he termed them). European technology – firearms, metallurgy, steam power – was a kind of superintelligence relative to their practices. The disruptions and destruction wrought by the settlers led to cultural problems (“their traditions obscured, and the chain of their recollections broken”), which in turn led to declines in both the physical and the moral conditions of the tribes. Tocqueville believed that the Indians faced a choice given that their old way of living was no longer viable: they could adopt European mores or suffer inevitable destruction. He predicted that they would reject cultural adaptation, and thus were “doomed to perish”. This is all to say that the arrival of the European settlers was in Tocqueville’s eyes injurious to the Indians not only because of the direct violence and displacement, but also because the contact was itself so disruptive to their societies that their cultures ceased to function. Some of this was later observed in Pacific island societies – even though there wasn’t the same degree of violent dispossession, the mere presence of Western contact was intrinsically destabilizing. In many visions of the future, superintelligent AIs are much more numerous than humans, with consequences that are hard to predict. In Tocqueville, there is a cautionary suggestion.\n\nGiven the new powers afforded by AI, there is a question of what we will choose to do with it – to the extent that we are in control, we will wield a vastly expanded authority. Americans faced some version of this question: in democracy, society was endowed with wholly new ways to express its collective will, with no ultimate superior power, for society was for the first time in charge of itself. Tocqueville repeatedly emphasizes how democracy thus increased the importance of religion as a regulator of hasty or unwise impulses. “Whilst the law permits the Americans to do what they please, religion prevents them from conceiving, and forbids them to commit, what is rash or unjust.” If we take seriously Tocqueville’s idea that religion was a critical complement in ensuring that people shaped societies in prudent ways, Democracy implicitly raises a question: which are the ideas, philosophies, religions, or doctrines that will help us wield AI well?\n\nPart of what’s interesting and memorable about the work is Tocqueville’s combination of curiosity, enthusiasm, and slight ambivalence about democracy itself. He grants that democracy is likely to be the future of governance, and he is admiring of what it has achieved in America, but he can’t avoid concerns about what it may augur (such as the unchecked and totalitarian impulses of the mob). At the end of Volume II, he describes his chief concern with democracy: that it may yield a new form of despotism that he struggles to define. He fears not tyrants, but, he says, “guardians”. He is worried about a world where:\n\n> Above this race of men stands an immense and tutelary power, which takes upon itself alone to secure their gratifications, and to watch over their fate. [...] It would be like the authority of a parent, if, like that authority, its object was to prepare men for manhood; but it seeks on the contrary to keep them in perpetual childhood: it is well content that the people should rejoice, provided they think of nothing but rejoicing. For their happiness such a government willingly labors, but it chooses to be the sole agent and the only arbiter of that happiness. [...] What remains, but to spare them all the care of thinking and all the trouble of living? Thus it every day renders the exercise of the free agency of man less useful and less frequent; it circumscribes the will within a narrower range, and gradually robs a man of all the uses of himself.\n\nThe Iain Banks Culture novels are often invoked by AI proponents. For Tocqueville, something strikingly like the world that they describe was his dystopian fear, for a world bereft of autonomy would be intrinsically degrading and humiliating for humanity:\n\n> The will of man is not shattered, but softened, bent, and guided: men are seldom forced by it to act, but they are constantly restrained from acting: such a power does not destroy, but it prevents existence; it does not tyrannize, but it compresses, enervates, extinguishes, and stupefies a people, till each nation is reduced to be nothing better than a flock of timid and industrious animals, of which the government is the shepherd.\n\nThe analogy to animals is noteworthy. In interviews, AI leaders occasionally analogize the future human state to that of pets. Banks himself noted that in the Culture novels, “[humans] have a status somewhere between passengers, pets and parasites.” In Richard Brautigan’s famous poem, All Watched Over by Machines of Loving Grace, he hopes that humans are “returned to our mammal brothers and sisters”.\n\nTocqueville at heart thought that agency and cultivation of people came above all else. He dreaded anesthetized placidity. In soft despotism, he feared that “ambition will lose its vigor and its greatness; that human passions will be appeased and lowered at the same time”. This vigor was for Tocqueville at the heart of what was admirable in America, whose bustle and intensity he repeatedly extols. American self-reliance and self-direction are paramount: “the citizen of the United States is taught from his earliest infancy to rely upon his own exertions in order to resist the evils and the difficulties of life.” For Tocqueville, any kind of servile and manicured comfort was not just undesirable, but a negation of the American promise.\n\nMany of the Elysian visions for AI hinge on AI resolving the messy coordination challenges that afflict humans. (Scott Alexander invokes this vision towards the end of Meditations on Moloch.) For Tocqueville, the arbitration of such differences was precisely the constructive activity that reaffirmed our agency. Townships, juries, associations, and their attendant squabbles are how culture is reinforced and how judgment is cultivated. When a town decides whether to fund a school, there are two outputs: a decision, and practice in governance itself. If AI could resolve such matters, we might get better outcomes, but will we get better people?",
+      "url": "https://x.com/patrickc/status/2125430547237216488"
+     }
+    },
+    {
+     "type": "post",
+     "id": "g-2126164719522426935",
+     "author": "Serenity",
+     "handle": "aleabitoreddit",
+     "text": "Allianz: \"The sell-off has so far looked more like an unwind of crowded positions than a fundamental break in the AI investment case.\"\n\nThree negative catalysts from: \n\n$NVDA CEO change, US congressional measures, and restrictions Nvidia chips access internationally, triggered a disproportionately large sell-off\n\n- Retail-popular stocks were hit hardest because the sell-off was primarily an unwinding of crowded positions \n\n(this could possibly explain $NBIS, $SIVE, $ASTS, $IREN, $HOOD and other retail favorite price action recently). \n\n- Hedge funds: Crowded positions also experienced greater selling pressure.\n\n- Credit markets: US high-yield bonds lost less than 1% during the week, suggesting relatively contained credit stress.\n\n\"Legitimate concerns [monetization concerns, politics, growth peak (not earnings)], but overdone risks valuation: AI trade is cheap again. \n\nThe next test will be whether the weakness spreads to credit, capital spending and the broader economy.\"\n\n\"Our working view is therefore that this is mainly a positioning unwind.\"\n\nI can personally find negative signals across Asian Neoclouds and individual suppliers and extrapolate those broadly to the entire AI trade.\n\nBut I share the perspective of many industry executives that underlying fundamental demand from compute to networking remains insatiable.\n\nGiven the equity valuation reset, directionally bullish entering 2027",
+     "url": "https://x.com/aleabitoreddit/status/2126164719522426935",
+     "date": "2026-11-27T04:02:26Z",
+     "image": {
+      "file": "images/g-2126164719522426935.jpg",
+      "credit": "Photo: @aleabitoreddit",
+      "alt": "Photo from @aleabitoreddit’s post (first of 3)",
+      "w": 960,
+      "h": 653,
+      "kind": "photo",
+      "auto": true,
+      "print_file": "images/g-2126164719522426935-print.jpg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "investments",
+   "items": [
+    {
+     "type": "post",
+     "id": "i-2126189347481538755",
+     "author": "Serenity",
+     "handle": "aleabitoreddit",
+     "text": "Industry channel check with Yuanjie Semiconductor: \n\n- The company is currently not supplying Eoptolink because its own CW laser capacity is insufficient to meet its demand. (positive for merchant laser players)\n\n- On $AXTI and InP substrates: \"Indium phosphide substrate prices did not increase in Q3 2026 but increased by several percentage points in Q4.\"\n\nTheir primary suppliers include Tongmei (AXT subsidary), Xiandao and Yunnan Germanium.\n\n\"Based on capacity estimates, approximately 80% of Sumitomo's production capacity has already been locked up by InnoLight.\"\n\nPrices are expected to remain largely unchanged through March 2027, although the situation in April 2027 remains uncertain.\n\n(mildly negative for memory-like 80%+ gross margins, but can't complain about 60%+).\n\n-  (on 300mW-400mW lasers) \"These products will primarily be supplied to $NVDA for use as external laser sources in its NPO architecture.\" \n\nThe company says it will be a core NPO supplier because $LITE is facing capacity constraints and shifting toward CPO products. \n\nAlso bullish signal regarding market capture for other merchant laser players. \n\n- The average delivery lead time for MOCVD equipment remains stable at approximately 12 months. ($AIXA and related unchanged). \n\n- CW laser products were 80% of the company's total revenue: (60% 70mW, 33–34% 100mW, rest misc). \n\n- \"At present, DSP supply shortages have not been incorporated as a core variable in detailed calculations.\"\n\n$AAOI is not alone here\n\n- 1.6T optical transceivers will not adopt a configuration using 4 70mW lasers.\n\nUnder the current technical architecture, two 100mW lasers are sufficient to meet requirements.",
+     "url": "https://x.com/aleabitoreddit/status/2126189347481538755",
+     "date": "2026-11-27T05:40:17Z",
+     "group": "Optics & lasers",
+     "image": {
+      "file": "images/i-2126189347481538755.jpg",
+      "credit": "Photo: @aleabitoreddit",
+      "alt": "Photo from @aleabitoreddit’s post",
+      "w": 960,
+      "h": 525,
+      "kind": "photo",
+      "auto": true
+     }
+    },
+    {
+     "type": "post",
+     "id": "i-2126028998799147482",
+     "author": "Fireside Alpha",
+     "handle": "firesidealpha",
+     "text": "Tony Xu reveals DoorDash's AI spend has plateaued as frontier models got more efficient and it fine-tuned open-weight models, after going up 20x this year\n\n\"Our spend this year went up 20x, and then it kind of plateaued a bit as I think a few things have happened.\"\n\n\"I think the frontier models have made their products more efficient. There's been the use and incorporation of open source, open weight models, in which we fine-tuned and trained ourselves.\"\n\n\"That combination has put us in a spot where it's going really, really well. We're always at DoorDash trying to find the greatest intelligence per token or per dollar spent. And so as long as that equation works out, we will continue to invest.\"",
+     "url": "https://x.com/firesidealpha/status/2126028998799147482",
+     "date": "2026-11-26T19:03:07Z",
+     "group": "AI spend"
+    },
+    {
+     "type": "post",
+     "id": "i-2126236834057334988",
+     "author": "Babyfolio",
+     "handle": "babyfolio",
+     "text": "AI stocks have been crushed, and people are talking like the entire AI trade is going to zero.\n\nThere are real customers paying for AI, real revenue coming in, and highly profitable cloud businesses behind this buildout.\n\nThe hyperscalers see actual usage, signed contracts and customer demand firsthand. With that visibility, they're still choosing to invest hundreds of billions in more infrastructure and compute.\n\nThey have a much clearer view of their own customer demand than you, me or the hedge funds. What makes people so confident they understand that demand better than the companies actually serving these customers?",
+     "url": "https://x.com/babyfolio/status/2126236834057334988",
+     "date": "2026-11-27T08:48:59Z",
+     "group": "AI spend"
+    }
+   ]
+  },
+  {
+   "id": "holdings",
+   "items": [
+    {
+     "type": "story",
+     "id": "hold-nbis-spot",
+     "ticker": "NBIS",
+     "headline": "Nebius plans to keep half its capacity for short-term and spot contracts",
+     "summary": "Per @danielisdizzy, Nebius's chief business officer Roman Chernin said the company aims to make at least 50% of the capacity it builds available for short-term contracts or spot pricing, chasing the kind of compute economics SpaceX has described. @ren_stocks separately argued Nebius is now an AI cloud rather than a neocloud, citing Token Factory's growth after 17x contract growth in Q3.",
+     "sources": [
+      {
+       "name": "X @danielisdizzy",
+       "url": "https://x.com/danielisdizzy/status/2126060009981104584"
+      },
+      {
+       "name": "X @ren_stocks",
+       "url": "https://x.com/ren_stocks/status/2125993618640908511"
+      }
+     ],
+     "topic": [
+      "investing"
+     ],
+     "image": {
+      "file": "images/hold-nbis-spot.jpg",
+      "credit": "Photo: @danielisdizzy",
+      "alt": "Photo from @danielisdizzy’s post",
+      "w": 960,
+      "h": 480,
+      "kind": "photo",
+      "auto": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "tech",
+   "items": [
+    {
+     "type": "post",
+     "id": "t-2126265784045584442",
+     "author": "Unitree",
+     "handle": "UnitreeRobotics",
+     "text": "Unitree Embodied Avatar V3.0 Guardian🥳\nMaximum synchronization rate 99.8%, minimum end-to-end latency 80 ms.\nIn addition to fully autonomous mode, real-time full-body teleoperation of robots has always been a major area of global interest. It enables complex remote operations, data collection, and other tasks. Please use this function safely and in a friendly manner.",
+     "url": "https://x.com/UnitreeRobotics/status/2126265784045584442",
+     "date": "2026-11-27T10:44:01Z"
+    },
+    {
+     "type": "post",
+     "id": "t-2126154696947871760",
+     "author": "Kimi.ai",
+     "handle": "Kimi_Moonshot",
+     "text": "Starting today, we're offering free Kimi API credits to support scientific research worldwide.\n\nSelected teams will receive free Kimi API credits, access to our latest models, and opportunities for long-term collaboration.  \n\nThe program builds on our commitment to open-weight models by making frontier AI more accessible to researchers.  \n\nAI has the potential to change what can be studied, who can study it, and at what scale, making it possible to pursue a wider range of scientific questions with limited resources.  \n\nBoth theoretical and experimental research in fundamental science and engineering are welcome. We hope to help researchers take on more challenging and original questions, including those that have historically received less attention or funding.  \n\nApply by Dec 8 for the first round: https://t.co/UiiMgvHiUl",
+     "url": "https://x.com/Kimi_Moonshot/status/2126154696947871760",
+     "date": "2026-11-27T03:22:36Z",
+     "image": {
+      "file": "images/t-2126154696947871760.jpg",
+      "credit": "Photo: @Kimi_Moonshot",
+      "alt": "Photo from @Kimi_Moonshot’s post",
+      "w": 960,
+      "h": 540,
+      "kind": "photo",
+      "auto": true
+     }
+    },
+    {
+     "type": "post",
+     "id": "t-2125986576153100671",
+     "author": "Ali Ghodsi",
+     "handle": "alighodsi",
+     "text": "Since the below aged well :-), I'd be shocked if large quantum computers break all Internet cryptography before current normal computers do. Basically, we'll get an algorithm on a standard computer that breaks all security before we have quantum computer (e.g. thousands of logical qubits).\n\nhttps://t.co/qT3uhI51xs",
+     "url": "https://x.com/alighodsi/status/2125986576153100671",
+     "date": "2026-11-26T16:14:33Z",
+     "quoted": {
+      "author": "Ali Ghodsi",
+      "handle": "alighodsi",
+      "text": "Why doesn't someone put together two LLMs in an generative adversarial setting and have them challenge each other to prove all open math conjectures out there?",
+      "url": "https://x.com/alighodsi/status/1647663006787211264"
+     }
+    }
+   ]
+  },
+  {
+   "id": "evergreen",
+   "items": [
+    {
+     "type": "evergreen",
+     "id": "ev-tocqueville-ai",
+     "kind": "Post",
+     "title": "An essay on AI that begins and ends with Tocqueville",
+     "author": "Gavin Baker",
+     "handle": "GavinSBaker",
+     "date": "2026-11-26",
+     "url": "https://x.com/GavinSBaker/status/2125961876597252376",
+     "summary": "Gavin Baker recommends a long essay on AI that opens and closes with Alexis de Tocqueville, with detours through the economic historian Joel Mokyr and the novelist Iain Banks. The quoted post frames travel writing as some of the best sociology, since a foreigner's naivete gives permission to notice. A weekend read rather than a market take."
+    }
+   ]
+  },
+  {
+   "id": "passage",
+   "items": [
+    {
+     "type": "passage",
+     "id": "5bf-pirsig-truth",
+     "text": "The truth knocks on the door and you say, ‘Go away, I’m looking for the truth,’ and so it goes away. Puzzling.",
+     "author": "Robert M. Pirsig",
+     "kind": "quote",
+     "work": "Featured in Tim Ferriss’s 5-Bullet Friday (“30 Quotes I’m Pondering and Revisiting”)",
+     "source_url": "https://tim.blog/2022/02/21/tim-ferriss-favorite-quotes/",
+     "sources": [
+      {
+       "name": "tim.blog",
+       "url": "https://tim.blog/2022/02/21/tim-ferriss-favorite-quotes/"
+      }
+     ],
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "games",
+   "items": [
+    {
+     "type": "mathq",
+     "id": "mathq-2026-11-27",
+     "title": "Mental Math",
+     "problems": [
+      {
+       "q": "29 × 6",
+       "a": "174",
+       "how": "29 × 6 = 20 × 6 + 9 × 6 = 174"
+      },
+      {
+       "q": "65% of 620",
+       "a": "403",
+       "how": "10% is 62, so 65% = 6 × 62 + half of 62 = 403"
+      },
+      {
+       "q": "Fermi: you read 200 words a minute for 30 minutes a day. How many days for a 60,000-word book?",
+       "a": "10 days",
+       "how": "200 × 30 = 6,000 words a day; 60,000 ÷ 6,000 = 10.0, so 10 days"
+      }
+     ]
+    },
+    {
+     "type": "wason",
+     "id": "wason-2026-11-27",
+     "title": "Four Cards",
+     "rule": "If a person is drinking beer, they must be over 21.",
+     "cards": [
+      "Drinking soda",
+      "Age 17",
+      "Drinking beer",
+      "Age 25"
+     ],
+     "answer": "Drinking beer and Age 17",
+     "explanation": "Drinking beer could hide something that breaks the rule; Age 17 breaks it if the other side turns out to be Drinking beer. Age 25 can't break it (the rule never says only those cards have it), and Drinking soda isn't covered by the rule at all. Most people pick the card that matches the rule's second half instead of the one that could falsify it. Most people get this version right and the letters-and-numbers version wrong, though the logic is identical."
+    },
+    {
+     "type": "crossword",
+     "id": "crossword-2026-11-27",
+     "title": "Mini Crossword",
+     "size": 5,
+     "cells": [
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 1
+       },
+       {
+        "n": 2
+       },
+       {
+        "n": 3
+       },
+       {
+        "b": true
+       }
+      ],
+      [
+       {
+        "n": 4
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": 5
+       }
+      ],
+      [
+       {
+        "n": 6
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "n": 7
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       }
+      ],
+      [
+       {
+        "b": true
+       },
+       {
+        "n": 8
+       },
+       {
+        "n": null
+       },
+       {
+        "n": null
+       },
+       {
+        "b": true
+       }
+      ]
+     ],
+     "clues": {
+      "across": [
+       {
+        "n": 1,
+        "clue": "A partially opened flower",
+        "len": 3,
+        "answer": "BUD"
+       },
+       {
+        "n": 4,
+        "clue": "Joyful religious song celebrating the birth of Christ",
+        "len": 5,
+        "answer": "CAROL"
+       },
+       {
+        "n": 6,
+        "clue": "A message that departs from the main subject",
+        "len": 5,
+        "answer": "ASIDE"
+       },
+       {
+        "n": 7,
+        "clue": "Any act of immoderate indulgence",
+        "len": 5,
+        "answer": "BINGE"
+       },
+       {
+        "n": 8,
+        "clue": "The seat within a bishop's diocese where his cathedral is located",
+        "len": 3,
+        "answer": "SEE"
+       }
+      ],
+      "down": [
+       {
+        "n": 1,
+        "clue": "A relation that provides the foundation for something",
+        "len": 5,
+        "answer": "BASIS"
+       },
+       {
+        "n": 2,
+        "clue": "Liquid excretory product",
+        "len": 5,
+        "answer": "URINE"
+       },
+       {
+        "n": 3,
+        "clue": "An elaborate or deceitful scheme contrived to deceive or evade",
+        "len": 5,
+        "answer": "DODGE"
+       },
+       {
+        "n": 4,
+        "clue": "Ride in a taxicab",
+        "len": 3,
+        "answer": "CAB"
+       },
+       {
+        "n": 5,
+        "clue": "The side of something that is sheltered from the wind",
+        "len": 3,
+        "answer": "LEE"
+       }
+      ]
+     },
+     "solution": [
+      "#BUD#",
+      "CAROL",
+      "ASIDE",
+      "BINGE",
+      "#SEE#"
+     ]
+    },
+    {
+     "type": "riddle",
+     "id": "riddle-2026-11-27",
+     "title": "Riddle",
+     "q": "What walks on four legs in the morning, two at noon and three in the evening?",
+     "a": "A person: crawling as a baby, walking, then with a cane. (The riddle of the Sphinx.)"
+    }
+   ]
+  }
+ ],
+ "funny_candidates": [
+  {
+   "type": "post",
+   "id": "funny-2126112037625594182",
+   "author": "David Senra",
+   "handle": "davidsenra",
+   "text": "He also loves proving people wrong: https://t.co/GkxGgXVB9H https://t.co/uFf3fd66OL",
+   "url": "https://x.com/davidsenra/status/2126112037625594182",
+   "date": "2026-11-27T00:33:05Z",
+   "quoted": {
+    "author": "David Senra",
+    "handle": "davidsenra",
+    "text": "“I hate big, fat, stupid things, and I don't want to be a big, fat, stupid company.”\n\nThere’s a certain personality type that can’t survive in a slow-moving, bureaucratic company. \n\n@PeterRahal is that type. He said this through gritted teeth: …",
+    "url": "https://x.com/davidsenra/status/2126033943698780183"
+   },
+   "image_url": "https://pbs.twimg.com/media/HYF3oQ1WYAAO4sC.jpg",
+   "image_alt": "",
+   "score": 8.57
+  },
+  {
+   "type": "post",
+   "id": "funny-2126144521855770878",
+   "author": "Ren",
+   "handle": "ren_stocks",
+   "text": "Wait this actually happened, all of it just not in that order. https://t.co/ZlfD2NmwDs",
+   "url": "https://x.com/ren_stocks/status/2126144521855770878",
+   "date": "2026-11-27T02:42:10Z",
+   "score": 7.04
+  },
+  {
+   "type": "post",
+   "id": "funny-2126158445590229145",
+   "author": "Yun-Ta Tsai",
+   "handle": "yunta_tsai",
+   "text": "Oncoming car with high beams, dark road, and downed trees: FSD handles it all. https://t.co/pS4JU9mJnh",
+   "url": "https://x.com/yunta_tsai/status/2126158445590229145",
+   "date": "2026-11-27T03:37:30Z",
+   "score": 6.03
+  },
+  {
+   "type": "post",
+   "id": "funny-2126118620065681693",
+   "author": "Bill Ackman",
+   "handle": "BillAckman",
+   "text": "A great ad for @Ford. It makes you want them to win for all of us. Cool car. https://t.co/TNyYdj7Tus",
+   "url": "https://x.com/BillAckman/status/2126118620065681693",
+   "date": "2026-11-27T00:59:15Z",
+   "score": 5.7
+  },
+  {
+   "type": "post",
+   "id": "funny-2126175747278536725",
+   "author": "@ratlimit",
+   "handle": "ratlimit",
+   "text": "I hate when women refer to their “partner”. Like why do you need everyone to know you’re straight?",
+   "url": "https://x.com/ratlimit/status/2126175747278536725",
+   "date": "2026-11-27T04:46:15Z",
+   "score": 5.25
+  },
+  {
+   "type": "post",
+   "id": "funny-2126162768613015840",
+   "author": "SemiAnalysis",
+   "handle": "SemiAnalysis_",
+   "text": "SILICON SUPPLY: 8AM EST/ 5AM PST https://t.co/w7kHw9MZsk",
+   "url": "https://x.com/SemiAnalysis_/status/2126162768613015840",
+   "date": "2026-11-27T03:54:40Z",
+   "score": 5.1
+  },
+  {
+   "type": "post",
+   "id": "funny-2126134039476347259",
+   "author": "Austen Allred",
+   "handle": "Austen",
+   "text": "Daughter is now big enough to share clothes with my wife and I’m not sure how I feel about that",
+   "url": "https://x.com/Austen/status/2126134039476347259",
+   "date": "2026-11-27T02:00:31Z",
+   "score": 5.07
+  },
+  {
+   "type": "post",
+   "id": "funny-2126159638366490836",
+   "author": "Nic Cruz Patane",
+   "handle": "niccruzpatane",
+   "text": "Cybertruck will go down as one of the greats. \nIt’s so far ahead of its time, other companies couldn’t even come close. https://t.co/cMJTmJWA8K https://t.co/tf8y3j6Dw4",
+   "url": "https://x.com/niccruzpatane/status/2126159638366490836",
+   "date": "2026-11-27T03:42:14Z",
+   "image_url": "https://pbs.twimg.com/media/HYGi6vdXQAAGJbv.jpg",
+   "image_alt": "",
+   "score": 5.05
+  },
+  {
+   "type": "post",
+   "id": "funny-2126274285538832812",
+   "author": "The Kobeissi Letter",
+   "handle": "KobeissiLetter",
+   "text": "BREAKING: Gold rises over +4% and silver surges +10% as dip buyers continue to rotate into precious metals. https://t.co/Hxvvm7MvRu",
+   "url": "https://x.com/KobeissiLetter/status/2126274285538832812",
+   "date": "2026-11-27T11:17:48Z",
+   "image_url": "https://pbs.twimg.com/media/HYILMcMW0AAgXmS.jpg",
+   "image_alt": "",
+   "score": 4.63
+  },
+  {
+   "type": "post",
+   "id": "funny-2126152468312838418",
+   "author": "Grant Slatton",
+   "handle": "GrantSlatton",
+   "text": "Would switch to a Cloudflare email in a heartbeat\n\nPlease @eastdakota my family is dying https://t.co/5n9Ih7vbBG",
+   "url": "https://x.com/GrantSlatton/status/2126152468312838418",
+   "date": "2026-11-27T03:13:45Z",
+   "score": 4.36
+  },
+  {
+   "type": "post",
+   "id": "funny-2126209395617071243",
+   "author": "Paul Millerd",
+   "handle": "p_millerd",
+   "text": "From what I can tell pangram does get it wrong but mostly labeling my ai content 100% human written https://t.co/SDlYxpEg8n",
+   "url": "https://x.com/p_millerd/status/2126209395617071243",
+   "date": "2026-11-27T06:59:57Z",
+   "score": 4.34
+  },
+  {
+   "type": "post",
+   "id": "funny-2126170961363747127",
+   "author": "Nate Endicott",
+   "handle": "EndicottInvests",
+   "text": "3 games \n\n3 last second scores to win \n\nWhat a day for football!",
+   "url": "https://x.com/EndicottInvests/status/2126170961363747127",
+   "date": "2026-11-27T04:27:14Z",
+   "score": 4.12
+  },
+  {
+   "type": "post",
+   "id": "funny-2126264771330916447",
+   "author": "As Found",
+   "handle": "AsFoundX",
+   "text": "Elon Musk on why he wants more people to have kids:\n\n\"Having a child is an act of optimism about the future.\"\n\n\"I believe that the future will be better than the past.\" https://t.co/IlJYFixqMH",
+   "url": "https://x.com/AsFoundX/status/2126264771330916447",
+   "date": "2026-11-27T10:40:00Z",
+   "score": 3.27
+  },
+  {
+   "type": "post",
+   "id": "funny-2126078722663194996",
+   "author": "Libertarian Party of Colorado",
+   "handle": "LPCO",
+   "text": "To you and your family, Happy Thanksgiving from the LPCO.🦃",
+   "url": "https://x.com/LPCO/status/2126078722663194996",
+   "date": "2026-11-26T22:20:42Z",
+   "score": 3.15
+  },
+  {
+   "type": "post",
+   "id": "funny-2126118856473341987",
+   "author": "BTC Sessions 😎",
+   "handle": "BTCsessions",
+   "text": "See everyone at @Next_Gen_Market tomorrow in Calgary! https://t.co/2nfkBydcOY",
+   "url": "https://x.com/BTCsessions/status/2126118856473341987",
+   "date": "2026-11-27T01:00:11Z",
+   "score": 2.57
+  },
+  {
+   "type": "post",
+   "id": "funny-2126147167240990919",
+   "author": "Stephen Pimentel",
+   "handle": "StephenPiment",
+   "text": "“Everything is about to change. In just one month. Or one year. Just like I said last Thanksgiving.” https://t.co/8HWcJXkHj4",
+   "url": "https://x.com/StephenPiment/status/2126147167240990919",
+   "date": "2026-11-27T02:52:41Z",
+   "image_url": "https://pbs.twimg.com/media/HYE1HYFXsAAo8XN.jpg",
+   "image_alt": "",
+   "score": 2.51
+  },
+  {
+   "type": "post",
+   "id": "funny-2126288091639939546",
+   "author": "Beanie",
+   "handle": "beaniemaxi",
+   "text": "It's pretty obvious that with everyone leaving OpenSea the past few months and the lack of updates and support for the platform that it's on its last legs. It will be shut down soon and there will never be a token drop. You'll probably be mad at alot of people just like Abstract.",
+   "url": "https://x.com/beaniemaxi/status/2126288091639939546",
+   "date": "2026-11-27T12:12:40Z",
+   "score": 2.3
+  },
+  {
+   "type": "post",
+   "id": "funny-2126181993272463717",
+   "author": "minagelina 🌳🪓",
+   "handle": "minagelina1",
+   "text": "@BenZeisloft @SBC_abolish @EPNC25 please come out and speak loudly about this.  I have now come across many people who essentially are saying mom should lose her life in a tubal ectopic pregnancy.  They have said this is the risk she takes when getting pregnant.\n\nThis is NOT equal weights and measures for the mom.  This is sinful.  Please address this loud and clear",
+   "url": "https://x.com/minagelina1/status/2126181993272463717",
+   "date": "2026-11-27T05:11:04Z",
+   "image_url": "https://pbs.twimg.com/media/HYG3CPPW0AA2VBD.jpg",
+   "image_alt": "",
+   "score": 2.24
+  },
+  {
+   "type": "post",
+   "id": "funny-2126194303102058729",
+   "author": "Seattle.HODL",
+   "handle": "AnimalGlasswrks",
+   "text": "Got a son on the way. Hosted my first Thanksgiving with my wife tonight. Had 7 people over. Nailed the turkey and the gravy. Feels good man.",
+   "url": "https://x.com/AnimalGlasswrks/status/2126194303102058729",
+   "date": "2026-11-27T05:59:59Z",
+   "score": 2.24
+  },
+  {
+   "type": "post",
+   "id": "funny-2126224258062033103",
+   "author": "Wes Myers (itl)",
+   "handle": "realwesmyers",
+   "text": "None of these videos has ever made me so much as crack a smile. I hate to be a wet blanket but I don't get it. Oh the guys from the original video are actually other guys. Cool. https://t.co/NT88p8ZJPb",
+   "url": "https://x.com/realwesmyers/status/2126224258062033103",
+   "date": "2026-11-27T07:59:01Z",
+   "score": 2.19
+  },
+  {
+   "type": "post",
+   "id": "funny-2126125554864980222",
+   "author": "LP Capital Chi",
+   "handle": "LPCapitalChi",
+   "text": "You’re down a score in the 4th quarter with one drive left to win\n\nName another QB you want on your team to lead the drive other than Caleb Williams https://t.co/x3VCeR1eZD",
+   "url": "https://x.com/LPCapitalChi/status/2126125554864980222",
+   "date": "2026-11-27T01:26:48Z",
+   "score": 2.19
+  },
+  {
+   "type": "post",
+   "id": "funny-2126117077736169769",
+   "author": "ӾØ🖤",
+   "handle": "X0TICxo",
+   "text": "GTA took over my life now none of you hoes matter anymore 💀",
+   "url": "https://x.com/X0TICxo/status/2126117077736169769",
+   "date": "2026-11-27T00:53:07Z",
+   "score": 1.95
+  },
+  {
+   "type": "post",
+   "id": "funny-2126098797151273236",
+   "author": "The Doctor’s Lounge Podcast",
+   "handle": "DRsLoungePod",
+   "text": "Dr. Brian Day has operated on judges who ruled against private care—and federal prisoners can use his clinic—while ordinary BC residents can't.\n\nFull episode with @DrBrianDay, @anish_koka and @DrDiGiorgio: https://t.co/qE9pTmdgDW https://t.co/zERWzfZGgv",
+   "url": "https://x.com/DRsLoungePod/status/2126098797151273236",
+   "date": "2026-11-26T23:40:28Z",
+   "score": 1.78
+  },
+  {
+   "type": "post",
+   "id": "funny-2126102032855797965",
+   "author": "Malcolm Ocean 🏴‍☠️",
+   "handle": "Malcolm_Ocean",
+   "text": "really dumb place for the flood warning https://t.co/snCHzDuW12",
+   "url": "https://x.com/Malcolm_Ocean/status/2126102032855797965",
+   "date": "2026-11-26T23:53:20Z",
+   "image_url": "https://pbs.twimg.com/media/HYFugeUagAAhaOM.jpg",
+   "image_alt": "",
+   "score": 1.68
+  },
+  {
+   "type": "post",
+   "id": "funny-2126129240261148702",
+   "author": "Cb Cooper 🇺🇸",
+   "handle": "cb_cooper",
+   "text": "Happy Thanksgiving ! https://t.co/nQBPZsRv2a",
+   "url": "https://x.com/cb_cooper/status/2126129240261148702",
+   "date": "2026-11-27T01:41:27Z",
+   "score": 1.61
+  },
+  {
+   "type": "post",
+   "id": "funny-2126130078929031445",
+   "author": "ValueAnalyst",
+   "handle": "ValueAnalyst1",
+   "text": "Which one would you ride? https://t.co/jU0OPrtJwb",
+   "url": "https://x.com/ValueAnalyst1/status/2126130078929031445",
+   "date": "2026-11-27T01:44:47Z",
+   "image_url": "https://pbs.twimg.com/media/HYGICYmWcAAV9ib.jpg",
+   "image_alt": "",
+   "score": 1.32
+  },
+  {
+   "type": "post",
+   "id": "funny-2126157785759101325",
+   "author": "John Asghar",
+   "handle": "JahangirAsgha10",
+   "text": "And that’s a good thing…\nDespite what the trolls tell you https://t.co/JYx8Dmufbw",
+   "url": "https://x.com/JahangirAsgha10/status/2126157785759101325",
+   "date": "2026-11-27T03:34:52Z",
+   "score": 1.09
+  },
+  {
+   "type": "post",
+   "id": "funny-2126113719369568731",
+   "author": "Johnson (Taiwan)",
+   "handle": "justavagrant_",
+   "text": "Women: your partner has a Time Machine. He can communicate with past/present/alternate versions of himself. They want to coordinate a time/place to all show up and gangbang you\n\nAre you down",
+   "url": "https://x.com/justavagrant_/status/2126113719369568731",
+   "date": "2026-11-27T00:39:46Z",
+   "score": 0.91
+  },
+  {
+   "type": "post",
+   "id": "funny-2126267143901847985",
+   "author": "Jovian Gautama 劉恆原",
+   "handle": "jovvvian",
+   "text": "freezing cold right now in Newcastle and the Uber is playing Temperature by Sean Paul very clutch",
+   "url": "https://x.com/jovvvian/status/2126267143901847985",
+   "date": "2026-11-27T10:49:25Z",
+   "score": 0.0
+  },
+  {
+   "type": "post",
+   "id": "funny-2126191687794127189",
+   "author": "Replies A Day Later",
+   "handle": "RyanSSmith27437",
+   "text": "To people who own black skined hairless guinepigs or gerbils. Please make movies about them stalking goats. They look like the dreaded chupacabra.",
+   "url": "https://x.com/RyanSSmith27437/status/2126191687794127189",
+   "date": "2026-11-27T05:49:35Z",
+   "score": 0.0
+  },
+  {
+   "type": "post",
+   "id": "funny-2126128233351356800",
+   "author": "Lenny Drybeard",
+   "handle": "LennyDrybeard",
+   "text": "GP, GP, GP-YOU  🤣\nThis might be the best slop core I've heard.  Music is better than most others.\nGP, GP, GP-ME https://t.co/8pO7Dl8EkR",
+   "url": "https://x.com/LennyDrybeard/status/2126128233351356800",
+   "date": "2026-11-27T01:37:27Z",
+   "score": 0.0
+  },
+  {
+   "type": "post",
+   "id": "funny-2126120511650345222",
+   "author": "Wilbur",
+   "handle": "iluvpandas6969",
+   "text": "No. Just disappear for the night. Go to your girlfriends. Not only not gay but far more effective https://t.co/3nbMd3QlSN",
+   "url": "https://x.com/iluvpandas6969/status/2126120511650345222",
+   "date": "2026-11-27T01:06:46Z",
+   "score": 0.0
+  },
+  {
+   "type": "post",
+   "id": "funny-2126102904025264343",
+   "author": "Gassers Ghost ™",
+   "handle": "3BluesFan",
+   "text": "Why Giant River Otters Are the Most Unhinged Predators on Earth https://t.co/AjPcQuUNGI",
+   "url": "https://x.com/3BluesFan/status/2126102904025264343",
+   "date": "2026-11-26T23:56:48Z",
+   "score": 0.0
+  },
+  {
+   "type": "post",
+   "id": "funny-2126080355186982954",
+   "author": "who owns the context",
+   "handle": "classical_logic",
+   "text": "She should have died hereafter;\nThere would have been a time for such a word. —\nTo-morrow, and to-morrow, and to-morrow,\nCreeps in this petty pace from day to day.",
+   "url": "https://x.com/classical_logic/status/2126080355186982954",
+   "date": "2026-11-26T22:27:11Z",
+   "score": 0.0
+  }
+ ],
+ "seconds": {
+  "items": [
+   {
+    "type": "post",
+    "id": "more-2126163976719335570",
+    "author": "James Cat",
+    "handle": "TSLAFanMtl",
+    "text": "Amazon Leo is Starlink's only real competitive threat. But here too, they need to rely on 3rd party companies to get the sats into orbit...none of which offer reuseability, outside of SpaceX...so launch costs are much higher. Starship will compound this SPCX advantage significantly. \n\nAmazon isn't exactly short for cash, however, so they may not care to make much money on these sats for awhile as they try and grow their constellation. \n\nSpaceX wins in cost to orbit, and in speed to orbit, which will both accelerate meaningfully with Starship launch frequency increasing.",
+    "url": "https://x.com/TSLAFanMtl/status/2126163976719335570",
+    "date": "2026-11-27T03:59:28Z"
+   },
+   {
+    "type": "post",
+    "id": "more-2126086064679047463",
+    "author": "The Kobeissi Letter",
+    "handle": "KobeissiLetter",
+    "text": "BREAKING: The Nasdaq 100 has recorded an average intraday range of 3.8% over the last 5 trading sessions, its highest 5-day volatility since April 2025.\n\nThis is also its 2nd-highest reading since the 2022 bear market, when it peaked at 4.0%.\n\nOn Wednesday alone, this figure rose to 4.2%, while on last Friday it surged to 5.7%, its widest single-session intraday trading range since April 9th, 2025.\n\nBy comparison, during the 2020 pandemic and the 2008 Financial Crisis, the Nasdaq 100 saw 5-day average intraday ranges as much as 7.7% and 8.9%, respectively. …",
+    "url": "https://x.com/KobeissiLetter/status/2126086064679047463",
+    "date": "2026-11-26T22:49:53Z",
+    "image_url": "https://pbs.twimg.com/media/HYDdiWMWsAA_ZKL.jpg",
+    "image_alt": ""
+   },
+   {
+    "type": "post",
+    "id": "more-2126151591820771508",
+    "author": "Fireside Alpha",
+    "handle": "firesidealpha",
+    "text": "Texas DMV: Tesla registered 285 more Cybercabs in a single hour today, its biggest batch yet! $TSLA \n\nRobotaxi fleet: 1,841 (1,107 Cybercab + 734 Model Y), up 761 since Oct 27. Waymo: 1,409, up 202 over the same period https://t.co/0mRJOa8JQB",
+    "url": "https://x.com/firesidealpha/status/2126151591820771508",
+    "date": "2026-11-27T03:10:16Z",
+    "image_url": "https://pbs.twimg.com/media/HYGZ7YTaQAE63Bw.png",
+    "image_alt": ""
+   },
+   {
+    "type": "post",
+    "id": "more-2126157033473024443",
+    "author": "Irrational Analysis",
+    "handle": "insane_analyst",
+    "text": "@alienamericano @iamjas1994 Yea i made a mistake in long only with sandisk. Lost around 40K.\n\nHowever made around 60K so far shorting sandisk in trading acc lmao",
+    "url": "https://x.com/insane_analyst/status/2126157033473024443",
+    "date": "2026-11-27T03:31:53Z"
+   },
+   {
+    "type": "post",
+    "id": "more-2126104003796779389",
+    "author": "Beanie",
+    "handle": "beaniemaxi",
+    "text": "And this is precisely why I post these things. It has been a while since I've had a take be so disputed by people so sure that I'm wrong. That's when I know that I'm on to something. Time to leverage long the housing market. And I don't mean buying like $OPEN or anything like it. https://t.co/Su6goLmJpf",
+    "url": "https://x.com/beaniemaxi/status/2126104003796779389",
+    "date": "2026-11-27T00:01:10Z",
+    "quoted": {
+     "author": "Beanie",
+     "handle": "beaniemaxi",
+     "text": "The next big move up will be housing. Nobody expects it. Been left for dead. Just like SaaS was a year ago. Like gold was a couple years ago. Mortgage activity at peak despair. But rates already creeping down. Prices are adjusting. Supply crunch to coincide witha new demand wave.",
+     "url": "https://x.com/beaniemaxi/status/2125687902239641811"
+    }
+   },
+   {
+    "type": "post",
+    "id": "more-2126144535679950926",
+    "author": "John Asghar",
+    "handle": "JahangirAsgha10",
+    "text": "Here’s the funniest part about the physician compensation debate: reducing US physician compensation to comparable international income percentiles would barely move the needle on overall healthcare spending.\n\nConsider the years of training, deferred earnings, student debt, professional liability, enormous responsibility, and an average workweek of nearly 58 hours.\n\nNo physician in the US should apologize for what they earn.\n\nSource: Buehler et al. International Comparison of Physician Incomes. NBER Working Paper No. 34956, March 2026.\n\nhttps://t.co/WEUSR8txdZ",
+    "url": "https://x.com/JahangirAsgha10/status/2126144535679950926",
+    "date": "2026-11-27T02:42:13Z",
+    "image_url": "https://pbs.twimg.com/media/HYGVL_rWcAAfCKw.jpg",
+    "image_alt": ""
+   },
+   {
+    "type": "post",
+    "id": "more-2126248168300204054",
+    "author": "Milk Road AI",
+    "handle": "MilkRoadAI",
+    "text": "The AI shortage is now spreading all the way down to the silicon wafer.\n\nAccording to Taiwanese media, Formosa Sumco says both its 8 inch and 12 inch wafer lines are FULLY loaded. Demand for 8 inch wafers is so strong that it has started a quota system for customers.\n\nThe 8 inch demand is coming from power management chips for AI servers. On the 12 inch side, it's foundry and memory customers, especially HBM.\n\nThe company is now negotiating price increases and expects average selling prices to rise noticeably in 2027. …",
+    "url": "https://x.com/MilkRoadAI/status/2126248168300204054",
+    "date": "2026-11-27T09:34:01Z",
+    "image_url": "https://pbs.twimg.com/media/HYHzcPaaMAAmRmV.jpg",
+    "image_alt": "Silicon wafers on display"
+   },
+   {
+    "type": "post",
+    "id": "more-2126100444649046168",
+    "author": "Social Capital",
+    "handle": "socialcapital",
+    "text": "Anthropic has some of the best talent retention of any frontier lab.\n\nEngineers were ~8x more likely to leave OpenAI for Anthropic than vice versa, and ~11x more likely to leave DeepMind.\n\nSignalFire, the venture firm that tracked those moves, attributes this to mission, safety culture and researcher autonomy rather than pay.\n\nThat got put to the test last summer, when Meta reportedly started making $100M+ offers to pull researchers out of the labs. …",
+    "url": "https://x.com/socialcapital/status/2126100444649046168",
+    "date": "2026-11-26T23:47:01Z",
+    "image_url": "https://pbs.twimg.com/media/HYFtFiiaYAAq4qY.png",
+    "image_alt": ""
+   }
+  ]
+ }
+}

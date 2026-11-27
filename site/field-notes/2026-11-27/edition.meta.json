@@ -1,0 +1,27 @@
+{
+ "date": "2026-11-27",
+ "date_long": "Friday, November 27, 2026",
+ "lead": "Simon Sarris on X",
+ "pages": {
+  "print": 4,
+  "digital": 15
+ },
+ "pdfs": {
+  "print": "field-notes-2026-11-27-print.pdf",
+  "digital": "field-notes-2026-11-27-digital.pdf",
+  "email": "field-notes-2026-11-27-email.html"
+ },
+ "sections": [
+  "From Your Feed",
+  "Faith & Scripture",
+  "Nature & Science",
+  "Books & Ideas",
+  "People & Stories",
+  "Craft & Work",
+  "Something Light"
+ ],
+ "recipe": null,
+ "words": 1295,
+ "read_min": 6,
+ "built_at": "2026-11-27T07:21:17-05:00"
+}
