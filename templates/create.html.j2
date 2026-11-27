@@ -1,43 +1,86 @@
 {% extends "_base.html.j2" %}
 {% set title = "Quick Create · " ~ site.name %}
-{% set description = "Make a finite paper in a minute: pick sections, set your tone and length, and read it with a clear end." %}
+{% set description = "Follow a few people, pick topics and a length, and get a finite paper with a clear end. Grok searches X and the web live." %}
 {% set body_class = "createpage" %}
 {% set csp = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.x.ai https://*.workers.dev https://*.vercel.app; base-uri 'none'; form-action 'none'; object-src 'none'" %}
 {% block body %}
 <header class="mast wrap narrow">
-  <h1><a href="../">Quick Create</a></h1>
+  <a class="qc-home" href="../">← MediaBot</a>
+  <h1>Quick Create</h1>
   <div class="under solo"></div>
 </header>
 <main class="wrap narrow qc" id="qc">
-  <p class="qc-lede">Pick your sections, set a tone and a length, and get a finite paper with a hard end. Real, linked sources only.</p>
-
-  <section class="qc-block" aria-labelledby="h-name">
-    <h2 id="h-name">Paper</h2>
-    <label class="qc-field">Name <input id="qc-name" type="text" maxlength="60" autocomplete="off" placeholder="Morning Light"></label>
+  <section class="qc-people" aria-labelledby="h-people">
+    <h2 id="h-people">People you follow</h2>
+    <p class="qc-help">Add @handles or names. Their posts come first in your paper.</p>
+    <div id="qc-plist" class="qc-secchips" role="list"></div>
+    <div class="qc-padd">
+      <label class="vh" for="qc-pinput">Add a person</label>
+      <input id="qc-pinput" type="text" maxlength="40" autocomplete="off" spellcheck="false" placeholder="@naval or Pico Iyer">
+      <button type="button" id="qc-padd" class="qc-btn">Add</button>
+    </div>
   </section>
 
-  <section class="qc-block" aria-labelledby="h-secs">
-    <h2 id="h-secs">Sections</h2>
-    <p class="qc-help">Tick what you want, move with the arrows, and edit the topic under each one.</p>
-    <ol id="qc-secs" class="qc-secs"></ol>
-    <details class="qc-add">
-      <summary>Add your own section</summary>
-      <label class="qc-field">Section name <input id="qc-cname" type="text" maxlength="40" autocomplete="off" placeholder="Woodworking"></label>
-      <label class="qc-field">What should it cover? <textarea id="qc-cbrief" rows="3" maxlength="400" placeholder="Hand-tool joinery and small shop builds. Skip product ads."></textarea></label>
-      <button type="button" id="qc-cadd" class="qc-btn">Add section</button>
-    </details>
+  <section class="qc-topics" aria-labelledby="h-topics">
+    <h2 id="h-topics">Topics</h2>
+    <label class="qc-topic" for="qc-topic">What do you want to read about?
+      <textarea id="qc-topic" rows="2" maxlength="400" autocomplete="off" placeholder="Church history, birds, a quiet workshop — or leave this blank and pick topics below."></textarea>
+    </label>
+    <div id="qc-chips" class="qc-secchips" role="group" aria-label="Topics"></div>
   </section>
 
-  <section class="qc-block" aria-labelledby="h-pers">
-    <h2 id="h-pers">Make it yours</h2>
-    <label class="qc-field">Interests <textarea id="qc-interests" rows="2" maxlength="400" placeholder="Slow living, church history, woodworking, birds"></textarea></label>
-    <label class="qc-field">Favor these accounts or sources <input id="qc-favor" type="text" maxlength="300" autocomplete="off" spellcheck="false" placeholder="@paulg @naval nature.com"></label>
-    <label class="qc-field">Avoid these accounts or sources <input id="qc-avoid" type="text" maxlength="300" autocomplete="off" spellcheck="false" placeholder="@someaccount example.com"></label>
-    <fieldset class="qc-fs"><legend>Tone</legend><div id="qc-tone" class="qc-chips"></div></fieldset>
-    <fieldset class="qc-fs"><legend>Read length</legend>
-      <div class="qc-seg" role="radiogroup" aria-label="Read length" id="qc-min"></div>
-      <p class="qc-help" id="qc-cap" aria-live="polite"></p>
+  <section class="qc-fun" aria-labelledby="h-fun">
+    <h2 id="h-fun">Fun</h2>
+    <div id="qc-funchips" class="qc-secchips" role="group" aria-label="Fun"></div>
+  </section>
+
+  <fieldset class="qc-fs qc-len">
+    <legend>How long?</legend>
+    <div class="qc-seg" role="radiogroup" aria-label="How long?" id="qc-min"></div>
+  </fieldset>
+
+  <section class="qc-deliver" aria-labelledby="h-deliver">
+    <h2 id="h-deliver">Delivery</h2>
+    <fieldset class="qc-fs">
+      <legend>How</legend>
+      <div class="qc-seg" id="qc-dhow" role="radiogroup" aria-label="How the paper is delivered"></div>
     </fieldset>
+    <fieldset class="qc-fs">
+      <legend>When</legend>
+      <div class="qc-seg" id="qc-dwhen" role="radiogroup" aria-label="When the paper arrives"></div>
+      <div class="qc-dwhen-extra" id="qc-dwhen-extra" hidden>
+        <label class="qc-field" id="qc-dday-wrap" hidden>On <select id="qc-dday"></select></label>
+        <label class="qc-field">At <input id="qc-dtime" type="time" value="07:15"> <span class="qc-tz">Eastern time</span></label>
+      </div>
+    </fieldset>
+    <div id="qc-dcontact" hidden>
+      <label class="qc-field" id="qc-demail-wrap">Email <input id="qc-demail" type="email" autocomplete="email" maxlength="120" placeholder="you@example.com"></label>
+      <label class="qc-field" id="qc-dphone-wrap">Phone <input id="qc-dphone" type="tel" autocomplete="tel" maxlength="24" placeholder="Your number"></label>
+    </div>
+    <p class="qc-help" id="qc-dnote" hidden>Scheduled email/text delivery is coming soon. For now we save your choice.</p>
+  </section>
+
+  <button type="button" id="qc-go" class="qc-btn primary qc-make">Make my paper</button>
+  <p class="qc-source-note">Grok searches X and the web live. Only posts with a real source link are kept.</p>
+
+  <div id="qc-keyprompt" class="qc-keyprompt" hidden>
+    <p>Paste your xAI API key to make a real edition. It stays on this phone.</p>
+    <label class="vh" for="qc-key">xAI API key</label>
+    <input id="qc-key" type="password" autocomplete="off" spellcheck="false" placeholder="xai-…">
+    <div class="qc-actions">
+      <button type="button" id="qc-keygo" class="qc-btn primary">Make my paper</button>
+      <button type="button" id="qc-demo" class="qc-btn">Just show me a sample</button>
+    </div>
+  </div>
+
+  <p class="qc-help" id="qc-status" role="status" aria-live="polite"></p>
+
+  <details class="qc-moreopts" id="qc-more">
+    <summary>More options</summary>
+    <label class="qc-field">Paper name <input id="qc-name" type="text" maxlength="60" autocomplete="off" placeholder="Your paper"></label>
+    <label class="qc-field">Also favor these sources <input id="qc-favor" type="text" maxlength="300" autocomplete="off" spellcheck="false" placeholder="nature.com"></label>
+    <label class="qc-field">Avoid these accounts or sources <input id="qc-avoid" type="text" maxlength="300" autocomplete="off" spellcheck="false" placeholder="@someaccount"></label>
+    <fieldset class="qc-fs"><legend>Tone</legend><div id="qc-tone" class="qc-chips"></div></fieldset>
     <div class="qc-two">
       <label class="qc-field">Freshness <select id="qc-fresh"><option value="3">Last 3 days</option><option value="7">Last week</option><option value="14">Last 2 weeks</option><option value="30">Last month</option></select></label>
       <fieldset class="qc-fs qc-where"><legend>Look in</legend>
@@ -45,33 +88,14 @@
         <label><input type="checkbox" id="qc-sw"> The web</label>
       </fieldset>
     </div>
-    <label class="qc-check"><input type="checkbox" id="qc-only"> Use only the accounts I favored for X posts</label>
+    <label class="qc-check"><input type="checkbox" id="qc-only"> Use only the people I follow for X posts in Topics</label>
     <label class="qc-check"><input type="checkbox" id="qc-links"> Show a source link on every item</label>
-  </section>
-
-  <section class="qc-block" aria-labelledby="h-go">
-    <h2 id="h-go">Generate</h2>
+    <label class="qc-field">Model <input id="qc-model" type="text" autocomplete="off" spellcheck="false"></label>
+    <label class="qc-field">Optional proxy URL <input id="qc-proxy" type="url" autocomplete="off" spellcheck="false" placeholder="Leave empty to call api.x.ai directly"></label>
     <div class="qc-actions">
-      <button type="button" id="qc-go" class="qc-btn primary">Generate edition</button>
-      <button type="button" id="qc-demo" class="qc-btn">Preview a sample</button>
+      <button type="button" id="qc-conn" class="qc-btn">Save connection</button>
+      <button type="button" id="qc-keyclear" class="qc-btn quiet">Forget key</button>
     </div>
-    <p class="qc-help" id="qc-mode"></p>
-    <details class="qc-key" id="qc-keybox">
-      <summary>Grok key and connection</summary>
-      <p class="qc-help">Your xAI API key stays in this browser (localStorage). It is sent only to api.x.ai, never saved to a file, a share link or an export. Each generation costs a little on your xAI account.</p>
-      <label class="qc-field">xAI API key <input id="qc-key" type="password" autocomplete="off" spellcheck="false" placeholder="xai-…"></label>
-      <div class="qc-actions">
-        <button type="button" id="qc-keysave" class="qc-btn">Save key</button>
-        <button type="button" id="qc-keyclear" class="qc-btn quiet">Forget key</button>
-      </div>
-      <label class="qc-field">Model <input id="qc-model" type="text" autocomplete="off" spellcheck="false"></label>
-      <label class="qc-field">Optional proxy URL <input id="qc-proxy" type="url" autocomplete="off" spellcheck="false" placeholder="Leave empty to call api.x.ai directly"></label>
-      <p class="qc-help">Only needed if your browser blocks calls to api.x.ai. See <code>proxy/README.md</code> in the repo.</p>
-    </details>
-  </section>
-
-  <section class="qc-block" aria-labelledby="h-save">
-    <h2 id="h-save">Save and share</h2>
     <div class="qc-two">
       <label class="qc-field">Saved papers <select id="qc-saved"></select></label>
       <div class="qc-actions tight">
@@ -87,8 +111,7 @@
       <button type="button" id="qc-link" class="qc-btn">Copy share link</button>
     </div>
     <input type="file" id="qc-file" accept="application/json,.json" hidden>
-    <p class="qc-help" id="qc-status" role="status" aria-live="polite"></p>
-  </section>
+  </details>
 
   <div id="qc-edition" class="qc-edition" tabindex="-1" aria-live="polite"></div>
 </main>
