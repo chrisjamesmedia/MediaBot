@@ -8,6 +8,7 @@
     .venv/bin/python build.py signal-seeker 2026-10-31 --public-only  # skip the local private copy
     .venv/bin/python build.py --recipe recipes/x-substack-5.yaml 2026-11-01   # on-demand edition from a recipe
     .venv/bin/python build.py --editor                           # only rebuild the recipe editor (site/edit/)
+    .venv/bin/python build.py --create                           # only rebuild Quick Create (site/create/)
 
 Sections marked `private: true` in paper.yaml go only into site-private/ (gitignored, never published).
 
@@ -615,6 +616,71 @@ def build_editor(site_cfg):
     print(f"editor: site/edit/index.html ({len(presets)} presets)")
 
 
+# Quick Create sample: demo mode (no API key) shows real items from the newest published editions, labeled as a sample.
+# Pipeline section id -> Quick Create preset id. Only content already on the public site is used (no private sections).
+QC_MAP = {"fn": {"faith": "faith", "science": "science", "nature": "science", "ideas": "ideas", "books": "ideas",
+                 "people": "people", "craft": "craft", "making": "craft", "humor": "humor", "lighter": "humor"},
+          "ss": {"x": "x", "tech": "tech", "investments": "business", "goats": "business", "passage": "quote"}}
+
+
+def _qc_items(path, kind, per_section=6):
+    ed = json.loads(Path(path).read_text())
+    out = []
+    for sec in ed.get("sections", []):
+        pid = QC_MAP[kind].get(sec.get("id"))
+        if not pid:
+            continue
+        for it in sec.get("items", []):
+            if it.get("type") == "passage":
+                url = it.get("source_url") or ""
+                item = {"kind": "passage", "text": it.get("text", ""), "author": it.get("author", ""),
+                        "outlet": it.get("work", ""), "url": url, "date": ""}
+            elif it.get("type") == "post" and it.get("url") and it.get("text"):
+                item = {"kind": "joke" if pid == "humor" else "post", "text": it["text"], "author": it.get("author", ""),
+                        "handle": it.get("handle", ""), "url": it["url"], "date": (it.get("date") or "")[:10]}
+            else:
+                continue
+            if item["url"].startswith("https://"):
+                out.append({"sec": pid, **item})
+    return out
+
+
+def qc_sample():
+    """The newest Field Notes edition with a full set of items (else the committed v2 preview) plus Signal Seeker's
+    tech/business/X/passage items, as one flat list keyed by preset id."""
+    fn = sorted((PAPERS / "field-notes" / "editions").glob("*/edition.json"), reverse=True)
+    pre = ROOT / "docs" / "field-notes-v2-preview" / "edition-2026-11-26.json"
+    cands = [(p.parent.name, p) for p in fn] + ([(pre.stem.split("-", 1)[1], pre)] if pre.exists() else [])
+    chosen = None
+    for name, p in sorted(cands, reverse=True):
+        if len(_qc_items(p, "fn")) >= 12:
+            chosen = (name, p); break
+    items, labels = [], []
+    if chosen:
+        items += _qc_items(chosen[1], "fn"); labels.append(f"Field Notes, {chosen[0]}")
+    ss = sorted((PAPERS / "signal-seeker" / "editions").glob("*/edition.json"), reverse=True)
+    if ss:
+        items += _qc_items(ss[0], "ss"); labels.append(f"Signal Seeker, {ss[0].parent.name}")
+    seen, uniq = set(), []
+    for it in items:
+        if it["url"] not in seen:
+            seen.add(it["url"]); uniq.append(it)
+    return {"label": " and ".join(labels), "items": uniq}
+
+
+def build_create(site_cfg):
+    """site/create/: Quick Create, a static page that builds a finite paper in the browser (Grok API with the
+    reader's own key, or a labeled sample). Nothing private goes in; the sample comes from public editions."""
+    data = qc_sample()
+    sample = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    out = SITE / "create"
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "index.html").write_text(env().get_template("create.html.j2").render(
+        site=site_cfg, base=public_base(site_cfg.get("web_base", "")), root="../", url_path="/create/", sample=Markup(sample),
+        noindex=False))
+    print(f"create: site/create/index.html ({len(data['items'])} sample items)")
+
+
 # ---------- rendering ----------
 def paras(s):
     """Post text -> paragraphs (split on blank lines), each a list of lines. Text is kept exactly; only whitespace splits."""
@@ -890,6 +956,7 @@ def build_indexes(site_cfg, private=False):
     (SITE / "robots.txt").write_text(robots)
     (SITE / ".nojekyll").write_text("")
     build_editor(site_cfg)
+    build_create(site_cfg)
     print(f"indexes: site/index.html ({len(listed)} public paper(s))")
 
 
@@ -909,6 +976,8 @@ def main(argv):
             args.insert(0, recipe.get("paper") or "signal-seeker")
     if "--editor" in flags:
         build_editor(site_cfg); return
+    if "--create" in flags:
+        build_create(site_cfg); return
     if "--web-base" in argv:
         wb = argv[argv.index("--web-base") + 1]; args.remove(wb); site_cfg["web_base"] = wb
     if "--index" not in flags:
