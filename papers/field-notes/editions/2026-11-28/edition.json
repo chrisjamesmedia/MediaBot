@@ -1,0 +1,381 @@
+{
+ "schema": 1,
+ "paper": "field-notes",
+ "date": "2026-11-28",
+ "sections": [
+  {
+   "id": "feed",
+   "items": [
+    {
+     "type": "post",
+     "id": "slow-2125961544949231722",
+     "author": "David Senra",
+     "handle": "davidsenra",
+     "text": "Alexandr Wang on one of the most important ideas he learned from Jeff Bezos:\n\n\"Customers are always beautifully, wonderfully dissatisfied, even when they report being happy and business is great. . . People have a voracious appetite for a better way, and yesterday's 'wow' quickly becomes today's 'ordinary.”",
+     "url": "https://x.com/davidsenra/status/2125961544949231722",
+     "date": "2026-11-26T14:35:05Z",
+     "group": "feed",
+     "image": {
+      "file": "images/slow-2125961544949231722.jpg",
+      "credit": "Video still: @davidsenra",
+      "alt": "Video still from @davidsenra’s post",
+      "w": 1200,
+      "h": 675,
+      "kind": "video",
+      "auto": true,
+      "print_file": "images/slow-2125961544949231722-print.jpg",
+      "lead": true
+     }
+    },
+    {
+     "type": "post",
+     "id": "slow-2126342987403669806",
+     "author": "Dr. Rhonda Patrick",
+     "handle": "foundmyfitness",
+     "text": "When I think about eating for brain health, I have two goals: supporting how my brain functions today and preserving that function as I get older. For me, that starts with consistently giving it the nutrients it needs.\n\nLeafy greens bring a lot to the table. Magnesium is required for energy production and normal nerve signaling. Folate supports DNA synthesis and methylation, processes that help our cells function and regulate gene activity.\n\nIn one study, higher dietary magnesium intake was associated with larger gray matter and hippocampal volumes. Comparing intakes of about 550 mg with 350 mg per day, the researchers estimated a brain-volume difference equivalent to roughly one year of typical aging.\n\nThen there are compounds like lutein in kale, beta-carotene in carrots, and anthocyanins in blueberries. Each plant contributes something different, which is why I care about variety.\n\nThe avocado has a job here, too. Along with making the smoothie creamy, its fat helps us absorb carotenoids from the vegetables. In a small study, adding avocado to a salad increased lutein absorption about fivefold.\n\nThere’s also so much about the chemistry of whole foods that we’re still discovering, including how their compounds interact with each other and with our gut microbes.\n\nThat’s part of why whole foods remain the foundation of my approach.",
+     "url": "https://x.com/foundmyfitness/status/2126342987403669806",
+     "date": "2026-11-27T15:50:48Z",
+     "group": "feed"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126462588766527593",
+     "author": "Paul Graham",
+     "handle": "paulg",
+     "text": "Partnerships are usually a waste of time for startups. Usually the only kinds you want are the two degenerate cases: where you buy someone's product, or they buy yours. Notice these are never called \"partnerships.\" When you need that weird, special name, it's a bad sign.",
+     "url": "https://x.com/paulg/status/2126462588766527593",
+     "date": "2026-11-27T23:46:03Z",
+     "group": "feed"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126617107026559156",
+     "author": "Massimo",
+     "handle": "Rainmaker1973",
+     "text": "Elderly men exercising in Chinese parks might just be true Kung Fu masters.",
+     "url": "https://x.com/Rainmaker1973/status/2126617107026559156",
+     "date": "2026-11-28T10:00:03Z",
+     "group": "feed"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126639744457289850",
+     "author": "Massimo",
+     "handle": "Rainmaker1973",
+     "text": "The consistency paradox or grandfather paradox occurs when the past is changed in any way, thus creating a contradiction.\n\nThe paradox suggests that a cause is eliminated by its own effect, thus preventing its own cause and essentially becoming reverse causation.\n\nThe grandfather paradox has been a trope of science fiction, appearing in Ray Bradbury's short story A Sound of Thunder, the classic movie Back to the Future and many other works. But the grandfather paradox isn't limited to the realm of fiction.\n\nPhilosophers and physicists began seriously thinking about the grandfather paradox when Albert Einstein's theories of special and general relativity suggested that time travel may be a theoretical possibility.",
+     "url": "https://x.com/Rainmaker1973/status/2126639744457289850",
+     "date": "2026-11-28T11:30:00Z",
+     "group": "feed"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126474419820470299",
+     "author": "Steven Pinker",
+     "handle": "sapinker",
+     "text": "When did talking about a forbidden word become as bad as using it?  Steven Pinker and John McWhorter explore how our taboos shifted from blasphemy to obscenity to slurs — and why that matters for free speech.  Discussion from FIRE’s 2026 Soapbox conference in this Holiday edition of the Weekend Free Speech Update....",
+     "url": "https://x.com/sapinker/status/2126474419820470299",
+     "date": "2026-11-28T00:33:04Z",
+     "group": "feed"
+    }
+   ]
+  },
+  {
+   "id": "faith",
+   "items": [
+    {
+     "type": "passage",
+     "id": "fn-bible-lam-3-22",
+     "text": "It is of the LORD's mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
+     "author": "The Bible",
+     "work": "Lamentations 3:22–23",
+     "translation": "KJV",
+     "kind": "scripture",
+     "group": "faith"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126360471334801758",
+     "author": "Desiring God",
+     "handle": "desiringGod",
+     "text": "“He said to me, ‘My grace is sufficient for you, for my power is made perfect in weakness.’ Therefore I will boast all the more gladly of my weaknesses, so that the power of Christ may rest upon me.” —2 Corinthians 12:9",
+     "url": "https://x.com/desiringGod/status/2126360471334801758",
+     "date": "2026-11-27T17:00:16Z",
+     "group": "faith"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126398909899509760",
+     "author": "Timothy Keller (1950-2023)",
+     "handle": "timkellernyc",
+     "text": "Jesus is the true and better Adam who passed the test in the garden. Jesus is also the true and better Abraham who answered the call of God to leave all the comfortable and familiar and go out into the void to create a new people of God.",
+     "url": "https://x.com/timkellernyc/status/2126398909899509760",
+     "date": "2026-11-27T19:33:01Z",
+     "group": "faith"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126300266597101613",
+     "author": "Ligonier Ministries",
+     "handle": "Ligonier",
+     "text": "“God typically works through means, and He normally provides through the means of our labor.” —@RCSproul\n\nFrom ‘The Prayer of the Lord’",
+     "url": "https://x.com/Ligonier/status/2126300266597101613",
+     "date": "2026-11-27T13:01:02Z",
+     "group": "faith",
+     "image": {
+      "file": "images/slow-2126300266597101613.jpg",
+      "credit": "Photo: @Ligonier",
+      "alt": "Photo from @Ligonier’s post",
+      "w": 960,
+      "h": 1280,
+      "kind": "photo",
+      "auto": true,
+      "print_file": "images/slow-2126300266597101613-print.jpg"
+     }
+    },
+    {
+     "type": "post",
+     "id": "slow-2126300081657725091",
+     "author": "Chuck Swindoll",
+     "handle": "chuckswindoll",
+     "text": "Thanksgiving has a way of quieting us. Somewhere in the middle of the noise and the food, we remember that none of this was earned.\n\nThe meal, the faces, the roof overhead: each is a gift from a God of mercy, abundance, and protection. And gratitude to Him leaves us humble rather than proud, because it reminds us who the Giver is.\n\n\"Enter his gates with thanksgiving, and his courts with praise!\" (Psalm 100:4)",
+     "url": "https://x.com/chuckswindoll/status/2126300081657725091",
+     "date": "2026-11-27T13:00:18Z",
+     "group": "faith"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126317497716531710",
+     "author": "Billy Graham",
+     "handle": "BillyGraham",
+     "text": "\"The dream world Satan promotes always ends with disillusionment. Thousands of people live in an unreal dream world, while shirking their responsibilities toward their families and toward God.\" —Billy Graham",
+     "url": "https://x.com/BillyGraham/status/2126317497716531710",
+     "date": "2026-11-27T14:09:31Z",
+     "group": "faith"
+    }
+   ]
+  },
+  {
+   "id": "science",
+   "items": [
+    {
+     "type": "post",
+     "id": "slow-2126564249937875355",
+     "author": "Smithsonian Magazine",
+     "handle": "SmithsonianMag",
+     "text": "\"The Book of Miracles,\" a 16th-century manuscript likely created in Augsburg, is heading to auction. It features 167 paintings of extreme weather events and strange celestial phenomena.",
+     "url": "https://x.com/SmithsonianMag/status/2126564249937875355",
+     "date": "2026-11-28T06:30:01Z",
+     "group": "science"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126512462878978121",
+     "author": "New Scientist",
+     "handle": "newscientist",
+     "text": "In the year 2096, we can talk to sperm whales, we have mostly eradicated Alzheimer's and the synths are developing a base on Mars. But will the non-human people ever forgive us for the damage we have inflicted on our home planet?",
+     "url": "https://x.com/newscientist/status/2126512462878978121",
+     "date": "2026-11-28T03:04:14Z",
+     "group": "science"
+    },
+    {
+     "type": "post",
+     "id": "slow-2123467645764964664",
+     "author": "Dr. Rhonda Patrick",
+     "handle": "foundmyfitness",
+     "text": "My thoughts on stevia, monk fruit, and allulose. These are three sugar alternatives I get asked about a lot.\n\nStevia - Some human research suggests modest benefits for blood glucose regulation and possibly blood pressure, although findings are mixed.\n\nMonk fruit - One of my preferred alternatives to sugar. It has little effect on blood glucose, but long-term human safety data are limited. One caution: Many monk fruit products contain mostly erythritol, which I personally try to avoid because of emerging research on platelet activation.\n\nAllulose - Small human studies suggest it may actually reduce post-meal glucose and insulin spikes. Promising, but we need more long-term research.\n\nNone of these were included in the recent study linking sugar substitutes to cognitive decline.\n\nMy personal approach? I generally favor stevia or pure monk fruit when I need a little sweetness, and I'm cautiously optimistic about allulose. But I try to minimize added sweeteners overall.",
+     "url": "https://x.com/foundmyfitness/status/2123467645764964664",
+     "date": "2026-11-19T17:25:13Z",
+     "group": "science",
+     "quoted": {
+      "author": "Dr. Rhonda Patrick",
+      "handle": "foundmyfitness",
+      "text": "People consuming the most artificial sweeteners showed 63% faster cognitive decline than those consuming the least, roughly equivalent to 1.6 additional years of cognitive aging.\n\nThe middle-intake group also showed a 36% faster decline, equivalent to about 1.3 additional years of cognitive aging.\n\nThat’s from a Neurology study following 12,772 adults for about eight years. And when researchers looked separately by age, the association showed up in people under 60, but not those 60 and older.\n\nPersonally, I stay away from aspartame and sucralose, partly because of concerns about their potential effects on the gut microbiome. The platelet research has also made me more cautious about erythritol and xylitol. I do use stevia and monk fruit, but I look for versions without erythritol.\n\nOne practical detail that’s easy to miss - “monk fruit” on the front of a package doesn’t tell you everything inside. Check the ingredient list, because erythritol can be part of the blend.",
+      "url": "https://x.com/foundmyfitness/status/2122802056834482366"
+     }
+    },
+    {
+     "type": "post",
+     "id": "slow-2126606021883805901",
+     "author": "Smithsonian Magazine",
+     "handle": "SmithsonianMag",
+     "text": "The working cats are fixtures of daily life at corner stores across the five boroughs. Now, a new book is documenting their stories.",
+     "url": "https://x.com/SmithsonianMag/status/2126606021883805901",
+     "date": "2026-11-28T09:16:00Z",
+     "group": "science"
+    }
+   ]
+  },
+  {
+   "id": "ideas",
+   "items": [
+    {
+     "type": "post",
+     "id": "slow-2126029719594274909",
+     "author": "James Clear",
+     "handle": "JamesClear",
+     "text": "The balance of life:\n\nThinking only of today degrades the experience of tomorrow. Delay gratification.\n\nThinking only of tomorrow degrades the experience of today. Don’t wait to begin living.\n\nWhich one do you need to emphasize right now?",
+     "url": "https://x.com/JamesClear/status/2126029719594274909",
+     "date": "2026-11-26T19:05:59Z",
+     "group": "ideas"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126314099290370090",
+     "author": "Ryan Holiday",
+     "handle": "RyanHoliday",
+     "text": "People who had \"range\" or were multi-hyphenate:\n- Seneca\n- Ben Franklin\n- Aristotle\n- Bruce Dickinson\n- Thomas Jefferson\n- Marie Curie\n- Miyamoto Musashi\n- Maya Angelou",
+     "url": "https://x.com/RyanHoliday/status/2126314099290370090",
+     "date": "2026-11-27T13:56:00Z",
+     "group": "ideas"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126458042464325790",
+     "author": "Pico Iyer",
+     "handle": "PicoIyer",
+     "text": "“Where the philosopher guesses and argues,” writes Evelyn Underhill, “the mystic lives and looks.” Trust this learned scholar to put an essential truth in one simple sentence.",
+     "url": "https://x.com/PicoIyer/status/2126458042464325790",
+     "date": "2026-11-27T23:27:59Z",
+     "group": "ideas"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126288088431300613",
+     "author": "David Senra",
+     "handle": "davidsenra",
+     "text": "Doug Leone on being introverted:\n\n“I do not like meeting new people. Every time I have to meet somebody new the thought that goes through my mind is \"sh*t another a*hole I got to meet.”",
+     "url": "https://x.com/davidsenra/status/2126288088431300613",
+     "date": "2026-11-27T12:12:39Z",
+     "group": "ideas"
+    }
+   ]
+  },
+  {
+   "id": "people",
+   "items": [
+    {
+     "type": "post",
+     "id": "slow-2126615582787428352",
+     "author": "Massimo",
+     "handle": "Rainmaker1973",
+     "text": "Amon Designer is known for his incredible hand control while he draws.\n\n[📹 designed .by.amon]",
+     "url": "https://x.com/Rainmaker1973/status/2126615582787428352",
+     "date": "2026-11-28T09:54:00Z",
+     "group": "people"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126623132739899562",
+     "author": "Massimo",
+     "handle": "Rainmaker1973",
+     "text": "his is 'Monuments', an art installation in Charlotte, North Carolina.\n\nArtist Craig Walsh put a face in the trees to honor the souls of all the enslaved people buried in cemeteries with no name.",
+     "url": "https://x.com/Rainmaker1973/status/2126623132739899562",
+     "date": "2026-11-28T10:24:00Z",
+     "group": "people"
+    }
+   ]
+  },
+  {
+   "id": "craft",
+   "items": [
+    {
+     "type": "post",
+     "id": "slow-2126647228362051730",
+     "author": "Brigham Buhler",
+     "handle": "ferrisbuhler81",
+     "text": "INTERESTING STUFF Being cold makes your joints stiff primarily because low temperatures alter the physical properties of the synovial fluid that lubricates and cushions the joints. Synovial fluid acts much like motor oil; when the ambient temperature drops, this fluid becomes thicker and more viscous, creating increased internal resistance that makes moving the joint feel sluggish and rigid.\nCold weather also triggers a natural physiological defense mechanism designed to preserve core body temperature. Blood vessels in the extremities constrict to redirect warm blood toward vital internal organs, which reduces overall blood flow and warmth to the muscles and connective tissues surrounding the joints, leaving them less pliable and more tense.\nFurthermore, dropping barometric pressure-which frequently accompanies cold weather fronts-causes the tissues around the joints to expand slightly. This subtle expansion places extra mechanical stress on the joint capsule and nerve endings, amplifying discomfort and making any existing stiffness or inflammation much more noticeable.",
+     "url": "https://x.com/ferrisbuhler81/status/2126647228362051730",
+     "date": "2026-11-28T11:59:45Z",
+     "group": "craft"
+    },
+    {
+     "type": "post",
+     "id": "slow-2125639340277862683",
+     "author": "smitten kitchen",
+     "handle": "smittenkitchen",
+     "text": "A bright, crunchy, pomegranate-studded salad with a sweet-tart lemon dressing with a little chile heat is a beloved fall staple, and is always welcome on a Thanksgiving table decked out with rich foods.",
+     "url": "https://x.com/smittenkitchen/status/2125639340277862683",
+     "date": "2026-11-25T17:14:45Z",
+     "group": "craft",
+     "image": {
+      "file": "images/slow-2125639340277862683.jpg",
+      "credit": "Photo: @smittenkitchen",
+      "alt": "Photo from @smittenkitchen’s post",
+      "w": 960,
+      "h": 639,
+      "kind": "photo",
+      "auto": true,
+      "print_file": "images/slow-2125639340277862683-print.jpg"
+     }
+    },
+    {
+     "type": "post",
+     "id": "slow-2125768806433722568",
+     "author": "Simon Sarris",
+     "handle": "simonsarris",
+     "text": "Some people do not seem to have the burden of remembering any train of thought",
+     "url": "https://x.com/simonsarris/status/2125768806433722568",
+     "date": "2026-11-26T01:49:12Z",
+     "group": "craft"
+    },
+    {
+     "type": "post",
+     "id": "slow-2125998542904824290",
+     "author": "Design Milk",
+     "handle": "designmilk",
+     "text": "Burlwood is back, but not in a throwback way. Four interior designers share why it still works, what they pair it with, and how they use it in contemporary spaces.",
+     "url": "https://x.com/designmilk/status/2125998542904824290",
+     "date": "2026-11-26T17:02:06Z",
+     "group": "craft"
+    }
+   ]
+  },
+  {
+   "id": "humor",
+   "items": [
+    {
+     "type": "post",
+     "id": "slow-2126451084491133185",
+     "author": "The Babylon Bee",
+     "handle": "TheBabylonBee",
+     "text": "Reminder: If You Leave Your Kids Home Alone This Holiday Season, Make Sure They Have Plenty Of Paint Cans, Blowtorches, And A Cutout Of Michael Jordan",
+     "url": "https://x.com/TheBabylonBee/status/2126451084491133185",
+     "date": "2026-11-27T23:00:20Z",
+     "group": "humor"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126325023355056583",
+     "author": "Dad Jokes",
+     "handle": "Dadsaysjokes",
+     "text": "Today I learned if you try to sing along with a toddler when you have not been invited to do so, it is a sign of great disrespect in their culture.",
+     "url": "https://x.com/Dadsaysjokes/status/2126325023355056583",
+     "date": "2026-11-27T14:39:25Z",
+     "group": "humor"
+    },
+    {
+     "type": "post",
+     "id": "slow-2126436364841267473",
+     "author": "Dad Jokes",
+     "handle": "Dadsaysjokes",
+     "text": "My wife asked me to get \"the thing\" from \"the place\".\n\nI came back with the wrong thing from the wrong place. Apparently that's my fault.",
+     "url": "https://x.com/Dadsaysjokes/status/2126436364841267473",
+     "date": "2026-11-27T22:01:51Z",
+     "group": "humor"
+    }
+   ]
+  }
+ ],
+ "joke": {
+  "type": "joke",
+  "id": "joke-vine-1",
+  "text": "I've just been on a once-in-a-lifetime holiday. I'll tell you what, never again.",
+  "author": "Tim Vine",
+  "where": "Funniest Joke of the Fringe, 2010 winner",
+  "source_url": "https://en.wikipedia.org/wiki/Funniest_Joke_of_the_Fringe",
+  "source": "Funniest Joke of the Fringe, 2010 winner, Tim Vine"
+ },
+ "coverage": "28 posts from 21 voices and one passage of Scripture and one credited joke, November 19 to November 28, 2026. About 7 minutes.",
+ "words": 1625,
+ "description": "A calm 7-minute read: From Your Feed, Faith & Scripture, Nature & Science, Books & Ideas, People & Stories, Craft & Work, Something Light. Ends with a real, credited joke."
+}
