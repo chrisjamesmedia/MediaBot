@@ -1,0 +1,27 @@
+{
+ "date": "2026-11-28",
+ "date_long": "Saturday, November 28, 2026",
+ "lead": "David Senra on X",
+ "pages": {
+  "print": 4,
+  "digital": 29
+ },
+ "pdfs": {
+  "print": "field-notes-2026-11-28-print.pdf",
+  "digital": "field-notes-2026-11-28-digital.pdf",
+  "email": "field-notes-2026-11-28-email.html"
+ },
+ "sections": [
+  "From Your Feed",
+  "Faith & Scripture",
+  "Nature & Science",
+  "Books & Ideas",
+  "People & Stories",
+  "Craft & Work",
+  "Something Light"
+ ],
+ "recipe": null,
+ "words": 1625,
+ "read_min": 7,
+ "built_at": "2026-11-28T07:24:00-05:00"
+}

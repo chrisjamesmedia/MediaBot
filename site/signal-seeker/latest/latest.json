@@ -1,21 +1,21 @@
 {
  "format": "mediabot-latest/1",
  "paper": "signal-seeker",
- "date": "2026-11-27",
- "date_long": "Friday, November 27, 2026",
+ "date": "2026-11-28",
+ "date_long": "Saturday, November 28, 2026",
  "pages": {
   "print": 8,
-  "digital": 34
+  "digital": 39
  },
- "built_at": "2026-11-27T12:54:31-05:00",
- "words": 3701,
- "read_min": 16,
- "edition": "../2026-11-27/",
+ "built_at": "2026-11-28T07:25:15-05:00",
+ "words": 1936,
+ "read_min": 8,
+ "edition": "../2026-11-28/",
  "print_pdf": "print.pdf",
  "digital_pdf": "digital.pdf",
- "edition_print_pdf": "../2026-11-27/signal-seeker-2026-11-27-print.pdf",
+ "edition_print_pdf": "../2026-11-28/signal-seeker-2026-11-28-print.pdf",
  "absolute": {
-  "edition": "https://chrisjamesmedia.github.io/MediaBot/signal-seeker/2026-11-27/",
+  "edition": "https://chrisjamesmedia.github.io/MediaBot/signal-seeker/2026-11-28/",
   "print_pdf": "https://chrisjamesmedia.github.io/MediaBot/signal-seeker/latest/print.pdf",
   "digital_pdf": "https://chrisjamesmedia.github.io/MediaBot/signal-seeker/latest/digital.pdf"
  }
